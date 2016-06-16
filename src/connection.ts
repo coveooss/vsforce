@@ -11,7 +11,7 @@ export class Connection {
 
   constructor() {
     this.config = vscode.workspace.getConfiguration('vsforce.organisation');
-    this.outputConsole = vscode.window.createOutputChannel("Salesforce");
+    this.outputConsole = vscode.window.createOutputChannel('Salesforce');
     this.jsforceConn = new jsforce.Connection({
       loginUrl: this.config.get<string>('loginUrl')
     });
@@ -30,7 +30,7 @@ export class Connection {
     });
   }
 
-  // Execute APEX code  
+  // Execute APEX code
   public executeCode(code: string) {
     var _this = this;
 
@@ -39,9 +39,9 @@ export class Connection {
         _this.outputConsole.show();
         if (err) { return _this.outputConsole.appendLine(err); }
         if (res.success) {
-          _this.outputConsole.appendLine("You're a rockstar !");
+          _this.outputConsole.appendLine('You\'re a rockstar !');
         } else {
-          _this.outputConsole.appendLine("Line: " + res.line);
+          _this.outputConsole.appendLine('Line: ' + res.line);
           _this.outputConsole.appendLine(res.compileProblem);
         }
       });
@@ -65,10 +65,11 @@ export class Connection {
   public retrive() {
     var _this = this;
 
-    fs.readFile(vscode.workspace.rootPath + "\\apex\\code\\package.xml", (err: NodeJS.ErrnoException, data: Buffer) => {
+    fs.readFile(vscode.workspace.rootPath + '\\apex\\code\\package.xml', (err: NodeJS.ErrnoException, data: Buffer) => {
       xml2js.parseString(data.toString(), (err: any, results: any) => {
         _this.execute((jsforce: any) => {
-          console.log(jsforce.metadata.retrieve({ unpackaged: JSON.stringify(results.Package) }).stream().pipe()); //.pipe(fs.createWriteStream("MyPackage.zip"))
+          console.log(jsforce.metadata.retrieve({ unpackaged: JSON.stringify(results.Package) }).stream().pipe());
+          // .pipe(fs.createWriteStream('MyPackage.zip'))
         });
       })
     });
