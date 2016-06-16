@@ -1,0 +1,122 @@
+{
+  "name": "vsforce",
+  "displayName": "vsforce",
+  "description": "Salesforce APEX support for VScode ",
+  "version": "0.0.1",
+  "publisher": "Coveo",
+  "engines": {
+    "vscode": "^1.0.0"
+  },
+  "categories": [
+    "Other",
+    "Languages"
+  ],
+  "activationEvents": [
+    "onLanguage:apex",
+    "onLanguage:visualforce"
+  ],
+  "main": "./out/src/extension",
+  "contributes": {
+    "commands": [
+      {
+        "command": "extension.executeQuery",
+        "title": "Execute SOQL"
+      },
+      {
+        "command": "extension.contextualQuery",
+        "title": "Contextual Query"
+      },
+      {
+        "command": "extension.executeCode",
+        "title": "Execute APEX code"
+      },
+      {
+        "command": "extension.sfdeploy",
+        "title": "Deploy Workspace"
+      }
+    ],
+    "keybindings": [
+      {
+        "command": "extension.executeQuery",
+        "key": "ctrl+f5",
+        "mac": "cmd+f5",
+        "when": "editorTextFocus"
+      }
+    ],
+    "languages": [
+      {
+        "id": "apex",
+        "aliases": [
+          "Apex",
+          "apex"
+        ],
+        "extensions": [
+          ".cls",
+          ".trigger"
+        ],
+        "configuration": "./apex.configuration.json"
+      },
+      {
+        "id": "visualforce",
+        "aliases": [
+          "Visualforce",
+          "visualforce"
+        ],
+        "extensions": [
+          ".page",
+          ".component"
+        ],
+        "configuration": "./visualforce.configuration.json"
+      }
+    ],
+    "grammars": [
+      {
+        "language": "apex",
+        "scopeName": "source.apex",
+        "path": "./syntaxes/apex.tmLanguage"
+      },
+      {
+        "language": "visualforce",
+        "scopeName": "text.html.basic",
+        "path": "./syntaxes/visualforce.tmLanguage"
+      }
+    ],
+    "configuration": {
+      "title": "Salesforce vsforce Settings",
+      "properties": {
+        "vsforce.organisation.username": {
+          "type": "string",
+          "default": null,
+          "description": "Your Salesforce organisation username"
+        },
+        "vsforce.organisation.password": {
+          "type": "string",
+          "default": null,
+          "description": "Your Salesforce organisation password"
+        },
+        "vsforce.organisation.securityToken": {
+          "type": "string",
+          "default": null,
+          "description": "Your Salesforce organisation user security token"
+        },
+        "vsforce.organisation.loginURL": {
+          "type": "string",
+          "default": "login.salesforce.com",
+          "description": "Your Salesforce organisation loginURL"
+        }
+      }
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "node ./node_modules/vscode/bin/compile",
+    "compile": "node ./node_modules/vscode/bin/compile -watch -p ./",
+    "postinstall": "node ./node_modules/vscode/bin/install"
+  },
+  "devDependencies": {
+    "jsforce": "^1.6.1",
+    "typescript": "^1.8.5",
+    "vscode": "^0.11.0",
+    "xml2js": "^0.4.16",
+    "zip-folder": "^1.0.0"
+  }
+}
