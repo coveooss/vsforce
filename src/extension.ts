@@ -22,7 +22,7 @@ export function activate(context: vscode.ExtensionContext) {
     }
     var query = editor.document.getText(editor.selection);
     conn.executeQuery(query);
-  })
+  });
 
   let executeCode = vscode.commands.registerCommand('extension.executeCode', () => {
     var editor = vscode.window.activeTextEditor;
@@ -37,7 +37,7 @@ export function activate(context: vscode.ExtensionContext) {
   let sfdeploy = vscode.commands.registerCommand('extension.sfdeploy', () => {
     vscode.workspace.findFiles('package.xml', '').then((value: vscode.Uri[]) => {
       zipFolder(vscode.workspace.rootPath, '/toDeploy.zip', (err: any) => {
-        if (err) { return console.error(err) }
+        if (err) { return console.error(err); }
         var zipStream = fs.createReadStream('toDeploy.zip');
         conn.execute((conn: any) => {
           conn.metadata.deploy(zipStream, { 'allowMissingFiles': true, 'autoUpdatePackage': true, 'singlePackage': true })
@@ -46,9 +46,9 @@ export function activate(context: vscode.ExtensionContext) {
               console.log('done ? :' + result.done);
               console.log('success ? : ' + result.true);
               console.log(result);
-            })
-        })
-      })
+            });
+        });
+      });
     },
       (reason: any) => {
         console.error(reason);

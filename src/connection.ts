@@ -26,7 +26,7 @@ export class Connection {
         if (err) { return _this.outputConsole.appendLine(err); }
         _this.outputConsole.appendLine(JSON.stringify(res, null, 2));
         callback(res);
-      })
+      });
     });
   }
 
@@ -58,7 +58,8 @@ export class Connection {
         this.config.get<string>('password') + this.config.get<string>('securityToken'),
         function (err, res) {
           callback(_this.jsforceConn);
-        });
+        }
+      );
     }
   }
 
@@ -71,7 +72,7 @@ export class Connection {
           console.log(jsforce.metadata.retrieve({ unpackaged: JSON.stringify(results.Package) }).stream().pipe());
           // .pipe(fs.createWriteStream('MyPackage.zip'))
         });
-      })
+      });
     });
   }
 }
