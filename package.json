@@ -116,7 +116,7 @@
     "gulp": "^3.9.1",
     "jsforce": "^1.6.1",
     "pretty-typescript": "^1.11.0",
-    "typescript": "^1.8.5",
+    "typescript": "^1.8.10",
     "vscode": "^0.11.0",
     "xml2js": "^0.4.16",
     "zip-folder": "^1.0.0"
