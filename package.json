@@ -11,6 +11,7 @@
     "Other",
     "Languages"
   ],
+  "test": "node ./node_modules/vscode/bin/test",
   "activationEvents": [
     "onLanguage:apex",
     "onLanguage:visualforce"
