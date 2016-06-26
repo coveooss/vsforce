@@ -17,6 +17,20 @@ export class VisualforceCompletionItemProvider implements vscode.CompletionItemP
   public provideCompletionItems(document: vscode.TextDocument, position: vscode.Position, token: vscode.CancellationToken): Thenable<vscode.CompletionItem[]> {
     var _this = this;
 
+    var line = document.lineAt(position.line);
+    var symbolMatches = /<(\w+:\w+).*>/.exec(line.text);
+
+    if (symbolMatches && symbolMatches.length == 2) {
+      var attribsCompletionItems: vscode.CompletionItem[] = []
+      for (var attr in visualforce[symbolMatches[1]].attribs) {
+        attribsCompletionItems.push(new vscode.CompletionItem(attr));
+      }
+
+      return new Promise<vscode.CompletionItem[]>((resolve, reject) => {
+        resolve(attribsCompletionItems);
+      });
+    }
+
     return new Promise<vscode.CompletionItem[]>((resolve, reject) => {
       resolve(_this.autoCompletionItems);
     });
