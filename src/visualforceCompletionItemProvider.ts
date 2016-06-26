@@ -4,10 +4,14 @@ import {visualforce} from './refs/visualforce'
 export class VisualforceCompletionItemProvider implements vscode.CompletionItemProvider {
   private autoCompletionItems: vscode.CompletionItem[] = [];
 
-  public constructor () {
+  public constructor() {
     for (var tag in visualforce) {
       this.autoCompletionItems.push(new vscode.CompletionItem(tag));
     }
+
+    vscode.languages.setLanguageConfiguration("visualforce", {
+      wordPattern: /(-?\d*\.\d\w*)|([^\`\~\!\@\#\%\^\&\*\(\)\-\=\+\[\{\]\}\\\|\;\'\"\,\.\<\>\/\?\s]+)/g
+    });
   }
 
   public provideCompletionItems(document: vscode.TextDocument, position: vscode.Position, token: vscode.CancellationToken): Thenable<vscode.CompletionItem[]> {
