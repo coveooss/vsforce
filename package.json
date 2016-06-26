@@ -16,7 +16,7 @@
     "onLanguage:apex",
     "onLanguage:visualforce"
   ],
-  "main": "./out/src/extension",
+  "main": "./out/src/vsforce",
   "contributes": {
     "commands": [
       {
