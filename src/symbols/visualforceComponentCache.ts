@@ -1,9 +1,10 @@
+import vscode = require('vscode');
 import {VisualforceComponentFetcher} from './visualforceComponentFetcher'
 import {VisualforceComponentFetcherBase} from './visualforceComponentFetcherBase'
 import {VisualforceComponentFetcherFile} from './visualforceComponentFetcherFile'
 import {VisualforceComponentFetcherSalesforce} from './visualforceComponentFetcherSalesforce'
 
-export class VisualforceComponentCache {
+export class VisualforceComponentCache implements vscode.Disposable {
   private cache: { [name: string]: VisualforceComponent } = {};
   private fetchers: VisualforceComponentFetcher[] = [];
 
@@ -42,6 +43,10 @@ export class VisualforceComponentCache {
 
   public removeComponent(name: string) {
     this.cache[name] = null;
+  }
+
+  public dispose() {
+    this.fetchers.forEach(d => d.dispose());
   }
 }
 

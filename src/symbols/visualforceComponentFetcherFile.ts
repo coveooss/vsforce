@@ -4,14 +4,16 @@ import {VisualforceComponentCache} from './visualforceComponentCache'
 import {VisualforceComponentFetcher} from './visualforceComponentFetcher'
 import {VisualforceComponentCacheInstance} from './visualforceComponentCache'
 
-export class VisualforceComponentFetcherFile implements VisualforceComponentFetcher {
+export class VisualforceComponentFetcherFile implements VisualforceComponentFetcher, vscode.Disposable {
   public canOverwrite: boolean = true;
+  private disposable: vscode.Disposable[] = [];
 
   constructor(private cache: VisualforceComponentCache) {
     var fileWatcher = vscode.workspace.createFileSystemWatcher("**/*.component");
-    fileWatcher.onDidChange((uri: vscode.Uri) => this.handleFileChange(uri));
-    fileWatcher.onDidCreate((uri: vscode.Uri) => this.handleFileChange(uri));
-    fileWatcher.onDidDelete((uri: vscode.Uri) => this.handleFileDelete(uri));
+    this.disposable.push(fileWatcher.onDidChange((uri: vscode.Uri) => this.handleFileChange(uri)));
+    this.disposable.push(fileWatcher.onDidCreate((uri: vscode.Uri) => this.handleFileChange(uri)));
+    this.disposable.push(fileWatcher.onDidDelete((uri: vscode.Uri) => this.handleFileDelete(uri)));
+    this.disposable.push(fileWatcher);
   }
 
   private handleFileChange(uri: vscode.Uri) {
@@ -32,6 +34,10 @@ export class VisualforceComponentFetcherFile implements VisualforceComponentFetc
 
   private getComponentNameByUri(uri: vscode.Uri) {
     return "c:" + utils.getFileNameFromUri(uri).split('.')[0];
+  }
+
+  public dispose() {
+    this.disposable.forEach(d => d.dispose());
   }
 
   public fetchAll(): Thenable<VisualforceComponent[]> {

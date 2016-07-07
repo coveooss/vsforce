@@ -2,7 +2,7 @@ import {VisualforceComponentFetcher} from './visualforceComponentFetcher'
 import {VisualforceBaseComponent} from './visualforceBaseComponents'
 
 export class VisualforceComponentFetcherBase implements VisualforceComponentFetcher {
-  public canOverwrite:boolean = true;
+  public canOverwrite: boolean = true;
 
   public fetchAll(): Thenable<VisualforceComponent[]> {
     return new Promise<VisualforceComponent[]>((resolve, reject) => {
@@ -28,4 +28,6 @@ export class VisualforceComponentFetcherBase implements VisualforceComponentFetc
       resolve(componentList);
     });
   }
+
+  public dispose() { }
 }
