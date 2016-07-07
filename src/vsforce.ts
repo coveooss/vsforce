@@ -1,10 +1,10 @@
 import vscode = require('vscode');
-import {VisualforceCompletionItemProvider} from './visualforceCompletionItemProvider'
+import {VisualforceCompletionItemProvider} from './providers/visualforceComponentCIP'
 
 const apexDocumentFilter: vscode.DocumentFilter = { language: 'visualforce' };
 
 export function activate(context: vscode.ExtensionContext) {
 
-  // Activate Visualforce CompletionItemProvider
-  vscode.languages.registerCompletionItemProvider(apexDocumentFilter, new VisualforceCompletionItemProvider(), "<", " ");
+  // Activate Visualforce Component CompletionItemProvider
+  vscode.languages.registerCompletionItemProvider(apexDocumentFilter, new VisualforceCompletionItemProvider(), "<");
 }

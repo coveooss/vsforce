@@ -1,4 +1,4 @@
-export var visualforce = {
+export var VisualforceBaseComponent = {
   "analytics:reportChart": {
     "simple": false,
     "attribs": {
