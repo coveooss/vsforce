@@ -4,6 +4,11 @@ import * as vscode from 'vscode';
 import * as xml2js from 'xml2js';
 import * as fs from 'fs';
 
+export interface QueryResult {
+  totalSize: number,
+  records: any[]
+}
+
 export class Connection {
   private jsforceConn: any;
   private outputConsole: vscode.OutputChannel;
