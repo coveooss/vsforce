@@ -23,4 +23,6 @@ export class VisualforceComponentFetcherSalesforce implements VisualforceCompone
       });
     });
   }
+
+  public dispose() { }
 }
