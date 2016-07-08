@@ -12,6 +12,11 @@
     "Languages"
   ],
   "test": "node ./node_modules/vscode/bin/test",
+  "license": "Apache 2.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/coveo/vsforce"
+  },
   "activationEvents": [
     "onLanguage:apex",
     "onLanguage:visualforce"
@@ -111,9 +116,11 @@
   "scripts": {
     "vscode:prepublish": "node ./node_modules/vscode/bin/compile",
     "compile": "node ./node_modules/vscode/bin/compile -watch -p ./",
-    "postinstall": "node ./node_modules/vscode/bin/install"
+    "postinstall": "node ./node_modules/vscode/bin/install",
+    "commit": "git add .; git cz"
   },
   "devDependencies": {
+    "cz-conventional-changelog": "^1.1.6",
     "gulp": "^3.9.1",
     "jsforce": "^1.7.0",
     "pretty-typescript": "^1.11.0",
@@ -121,5 +128,10 @@
     "vscode": "^0.11.0",
     "xml2js": "^0.4.17",
     "zip-folder": "^1.0.0"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
   }
 }
