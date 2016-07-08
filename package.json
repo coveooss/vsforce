@@ -118,7 +118,7 @@
     "jsforce": "^1.6.1",
     "pretty-typescript": "^1.11.0",
     "typescript": "^1.8.10",
-    "vscode": "^0.11.0",
+    "vscode": "^0.11.14",
     "xml2js": "^0.4.16",
     "zip-folder": "^1.0.0"
   }
