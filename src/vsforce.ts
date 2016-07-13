@@ -1,14 +1,19 @@
 import vscode = require('vscode');
 import {VisualforceComponentCacheInstance} from './symbols/visualforceComponentCache'
-import {VisualforceCompletionItemProvider} from './providers/visualforceComponentCIP'
+import {VisualforceCompletionItemProvider} from './providers/visualforceCompletionItemProvider'
+import {SalesforceContentProvider} from './providers/salesforceContentProvider'
+import {VisualforceDefinitionProvider} from './providers/visualforceDefinitionProvider'
+import {VisualforceWorkspaceSymbolProvider} from './providers/visualforceWorkspaceSymbolProvider'
 
-const apexDocumentFilter: vscode.DocumentFilter = { language: 'visualforce' };
+const visualforceDocumentFilter: vscode.DocumentFilter = { language: 'visualforce' };
 
 export function activate(context: vscode.ExtensionContext) {
 
   context.subscriptions.concat([
-    // Activate Visualforce Component CompletionItemProvider
-    vscode.languages.registerCompletionItemProvider(apexDocumentFilter, new VisualforceCompletionItemProvider(), "<"),
+    vscode.languages.registerCompletionItemProvider(visualforceDocumentFilter, new VisualforceCompletionItemProvider(), "<"),
+    vscode.languages.registerDefinitionProvider(visualforceDocumentFilter, new VisualforceDefinitionProvider()),
+    vscode.workspace.registerTextDocumentContentProvider("sf", new SalesforceContentProvider()),
+    vscode.languages.registerWorkspaceSymbolProvider(new VisualforceWorkspaceSymbolProvider()),
     VisualforceComponentCacheInstance
   ]);
 }

@@ -11,7 +11,7 @@ export class VisualforceCompletionItemProvider implements vscode.CompletionItemP
   public provideCompletionItems(document: vscode.TextDocument, position: vscode.Position, token: vscode.CancellationToken): Thenable<vscode.CompletionItem[]> {
     return new Promise<vscode.CompletionItem[]>((resolve, reject) => {
       var completionItems: vscode.CompletionItem[] = [];
-
+      console.log(document.getText(document.getWordRangeAtPosition(position)));
       VisualforceComponentCacheInstance.getComponentNames().forEach(cmp => {
         var completionItem = new vscode.CompletionItem(cmp);
         completionItem.kind = vscode.CompletionItemKind.Class;

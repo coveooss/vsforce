@@ -121,6 +121,7 @@
   },
   "devDependencies": {
     "cz-conventional-changelog": "^1.1.6",
+    "htmlparser2": "3.9.x",
     "gulp": "^3.9.1",
     "jsforce": "^1.7.0",
     "pretty-typescript": "^1.11.0",
