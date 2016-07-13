@@ -1,6 +1,12 @@
 import {VisualforceComponentFetcher} from './visualforceComponentFetcher'
 import {Connection, QueryResult} from './../connection'
 
+interface ApexComponentQueryResult {
+  Description: string;
+  Name: string;
+  NamespacePrefix?: string;
+}
+
 export class VisualforceComponentFetcherSalesforce implements VisualforceComponentFetcher {
   private conn: Connection = new Connection();
 
@@ -13,7 +19,8 @@ export class VisualforceComponentFetcherSalesforce implements VisualforceCompone
         if (results && results.totalSize != 0) {
           for (var record in results.records) {
             componentList.push({
-              name: results.records[record].NamespacePrefix ? results.records[record].NamespacePrefix : "c:" + results.records[record].Name,
+              name: this.buildFullNameFromResult(results.records[record]),
+              uri: this.buildUriFromResult(results.records[record]),
               attributes: []
             })
           }
@@ -22,6 +29,20 @@ export class VisualforceComponentFetcherSalesforce implements VisualforceCompone
         }
       });
     });
+  }
+
+  private buildUriFromResult(result: ApexComponentQueryResult): string {
+    return "sf://salesforce.com/apexcomponent/" +
+      this.buildNamespaceFromResult(result) + "/" +
+      result.Name + ".component";
+  }
+
+  private buildFullNameFromResult(result: ApexComponentQueryResult): string {
+    return this.buildNamespaceFromResult(result) + ":" + result.Name;
+  }
+
+  private buildNamespaceFromResult(result: ApexComponentQueryResult): string {
+    return result.NamespacePrefix ? result.NamespacePrefix : "c";
   }
 
   public dispose() { }
