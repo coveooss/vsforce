@@ -14,6 +14,9 @@ export class Connection {
   private config: vscode.WorkspaceConfiguration;
   private jsforceConn: any;
 
+  private userId: string;
+  private orgId: string;
+
   constructor() { }
 
   public getLogBody(id: string): Thenable<string> {
@@ -31,6 +34,74 @@ export class Connection {
           })
       })
     })
+  }
+
+  public createUserTraceFlag() {
+    this.createUpdateDebugLevel().then((debugLevelId: string) => {
+      Connection.getConn().then((conn: Connection) => {
+        conn.jsforceConn.tooling.sobject('TraceFlag').find({
+          TracedEntityId: conn.userId
+        }).execute((err, records) => {
+          return records;
+        }).then((records: any) => {
+          if (records.length == 0) {
+            conn.jsforceConn.tooling.sobject('TraceFlag').create({
+              ApexCode: 'DEBUG',
+              ApexProfiling: 'DEBUG',
+              Callout: 'DEBUG',
+              Database: 'DEBUG',
+              DebugLevelId: debugLevelId,
+              ExpirationDate: new Date().setHours(new Date().getHours() + 6),
+              LogType: 'DEVELOPER_LOG',
+              System: 'DEBUG',
+              TracedEntityId: conn.userId,
+              Validation: 'DEBUG',
+              Visualforce: 'DEBUG',
+              Workflow: 'DEBUG'
+            }, function (err, res) {
+              if (err) {
+                vscode.window.showErrorMessage("An error occured while adding the User Trace Flag.");
+              }
+            });
+          }
+        });
+      });
+    });
+  }
+
+  private createUpdateDebugLevel(): Thenable<string> {
+    return new Promise<string>((resolve, reject) => {
+      Connection.getConn().then((conn: Connection) => {
+        conn.jsforceConn.tooling.sobject('DebugLevel').find({
+          DeveloperName: 'vsforce_LogDebug'
+        }).execute((err, records) => {
+          return records;
+        }).then((records: any) => {
+          if (records.length == 1) {
+            resolve(records[0].Id);
+          } else {
+            conn.jsforceConn.tooling.sobject('DebugLevel').create({
+              ApexCode: 'DEBUG',
+              ApexProfiling: 'DEBUG',
+              Callout: 'DEBUG',
+              Database: 'DEBUG',
+              DeveloperName: 'vsforce_LogDebug',
+              MasterLabel: '[vsforce] Log Debug Level',
+              System: 'DEBUG',
+              Validation: 'DEBUG',
+              Visualforce: 'DEBUG',
+              Workflow: 'DEBUG'
+            }, function (err, res) {
+              if (err) {
+                reject(err.message);
+              } else {
+                resolve(res.id);
+              }
+            });
+          }
+        });
+      })
+    });
   }
 
   // Execute a SOQL query and return the results to a callback function if no error.
@@ -103,6 +174,9 @@ export class Connection {
             if (err) {
               reject(err.message);
             } else {
+              conn.orgId = res.organizationId;
+              conn.userId = res.id;
+
               resolve(conn);
             }
           }
