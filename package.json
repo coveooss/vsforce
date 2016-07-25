@@ -29,6 +29,10 @@
         "title": "Execute SOQL"
       },
       {
+        "command": "extension.showLogs",
+        "title": "Show logs"
+      },
+      {
         "command": "extension.contextualQuery",
         "title": "Contextual Query"
       },
