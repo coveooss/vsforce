@@ -6,6 +6,10 @@ import {Command} from './command'
 export class ShowLogsCommand implements Command {
   private conn: Connection = new Connection();
 
+  constructor() {
+    this.conn.createUserTraceFlag();
+  }
+
   public Command() {
     vscode.window.showQuickPick(new Promise<vscode.QuickPickItem[]>((resolve, reject) => {
       this.conn.executeQuery("SELECT ID, Operation, Status FROM Apexlog").then((results) => {
