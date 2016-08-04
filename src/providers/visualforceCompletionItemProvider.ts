@@ -23,5 +23,3 @@ export class VisualforceCompletionItemProvider implements vscode.CompletionItemP
     });
   }
 }
-
-

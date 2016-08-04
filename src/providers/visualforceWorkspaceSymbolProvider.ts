@@ -24,5 +24,3 @@ export class VisualforceWorkspaceSymbolProvider implements vscode.WorkspaceSymbo
     });
   }
 }
-
-

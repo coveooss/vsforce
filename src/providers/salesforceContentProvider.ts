@@ -47,5 +47,3 @@ export class SalesforceContentProvider implements vscode.TextDocumentContentProv
       " and Name='" + name.split('.')[0] + "'";
   }
 }
-
-

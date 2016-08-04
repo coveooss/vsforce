@@ -14,5 +14,3 @@ export class VisualforceDefinitionProvider implements vscode.DefinitionProvider 
     });
   }
 }
-
-
