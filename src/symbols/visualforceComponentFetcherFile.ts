@@ -2,16 +2,15 @@ import vscode = require('vscode');
 import * as utils from '../utils';
 import fs = require('fs');
 import html = require('htmlparser2');
-import {VisualforceComponentCache} from './visualforceComponentCache'
-import {VisualforceComponentFetcher} from './visualforceComponentFetcher'
-import {VisualforceComponentCacheInstance} from './visualforceComponentCache'
+import {VisualforceComponentCache} from './visualforceComponentCache';
+import {IVisualforceComponentFetcher} from './visualforceComponentFetcher';
 
-export class VisualforceComponentFetcherFile implements VisualforceComponentFetcher, vscode.Disposable {
+export class VisualforceComponentFetcherFile implements IVisualforceComponentFetcher, vscode.Disposable {
   public canOverwrite: boolean = true;
   private disposable: vscode.Disposable[] = [];
 
   constructor(private cache: VisualforceComponentCache) {
-    var fileWatcher = vscode.workspace.createFileSystemWatcher("**/*.component");
+    var fileWatcher = vscode.workspace.createFileSystemWatcher('**/*.component');
     this.disposable.push(fileWatcher.onDidChange((uri: vscode.Uri) => this.handleFileChange(uri)));
     this.disposable.push(fileWatcher.onDidCreate((uri: vscode.Uri) => this.handleFileChange(uri)));
 
@@ -27,17 +26,17 @@ export class VisualforceComponentFetcherFile implements VisualforceComponentFetc
     this.cache.removeComponent(this.getComponentNameByUri(uri));
   }
 
-  private createComponentFromUri(uri: vscode.Uri): Thenable<VisualforceComponent> {
-    return new Promise<VisualforceComponent>((resolve, reject) => {
+  private createComponentFromUri(uri: vscode.Uri): Thenable<IVisualforceComponent> {
+    return new Promise<IVisualforceComponent>((resolve, reject) => {
 
-      var attributes: VisualforceComponentAttribute[] = [];
+      var attributes: IVisualforceComponentAttribute[] = [];
       var parser: html.Parser = new html.Parser({
         onopentag: (name, attribs) => {
-          if (name == "apex:attribute") {
+          if (name == 'apex:attribute') {
             attributes.push({
-              name: attribs["name"],
-              type: attribs["type"],
-              description: attribs["description"]
+              name: attribs['name'],
+              type: attribs['type'],
+              description: attribs['description']
             })
           }
         },
@@ -50,7 +49,7 @@ export class VisualforceComponentFetcherFile implements VisualforceComponentFetc
         }
       });
 
-      var file = fs.readFile(uri.fsPath, 'utf8', (err, data) => {
+      fs.readFile(uri.fsPath, 'utf8', (err, data) => {
         parser.write(data);
         parser.end();
       });
@@ -59,22 +58,22 @@ export class VisualforceComponentFetcherFile implements VisualforceComponentFetc
   }
 
   private getComponentNameByUri(uri: vscode.Uri) {
-    return "c:" + utils.getFileNameFromUri(uri).split('.')[0];
+    return `c:${utils.getFileNameFromUri(uri).split('.')[0]}`;
   }
 
   public dispose() {
     this.disposable.forEach(d => d.dispose());
   }
 
-  public fetchAll(): Thenable<VisualforceComponent[]> {
-    return new Promise<VisualforceComponent[]>((resolve, reject) => {
-      vscode.workspace.findFiles("**/*.component", "").then(uris => {
-        var components: Thenable<VisualforceComponent>[] = [];
+  public fetchAll(): Thenable<IVisualforceComponent[]> {
+    return new Promise<IVisualforceComponent[]>((resolve, reject) => {
+      vscode.workspace.findFiles('**/*.component', '').then(uris => {
+        var components: Thenable<IVisualforceComponent>[] = [];
         uris.forEach(uri => {
           components.push(this.createComponentFromUri(uri));
         });
 
-        Promise.all<VisualforceComponent>(components).then((components) => {
+        Promise.all<IVisualforceComponent>(components).then((components) => {
           resolve(components);
         });
       });

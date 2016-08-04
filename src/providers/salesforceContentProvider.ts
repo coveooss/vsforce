@@ -1,23 +1,23 @@
-import vscode = require('vscode')
-import {Connection, QueryResult} from './../connection'
+import vscode = require('vscode');
+import {Connection, IQueryResult} from './../connection';
 
 
 export class SalesforceContentProvider implements vscode.TextDocumentContentProvider {
   private conn: Connection = new Connection();
 
   provideTextDocumentContent(uri: vscode.Uri, token: vscode.CancellationToken): Thenable<string> {
-    var uriParts = uri.path.split("/");
+    var uriParts = uri.path.split('/');
 
     if (uriParts.length >= 1) {
       var objectType = uriParts[1];
 
-      if (objectType == "apexcomponent") {
+      if (objectType == 'apexcomponent') {
         if (uriParts.length == 4) {
           return this.resolveApexComponent(uriParts[2], uriParts[3]);
         }
       }
 
-      if (objectType == "apexlogs") {
+      if (objectType == 'apexlogs') {
         if (uriParts.length == 3) {
           return this.resolveApexLog(uriParts[2].split('.')[0]);
         }
@@ -29,7 +29,7 @@ export class SalesforceContentProvider implements vscode.TextDocumentContentProv
 
   private resolveApexComponent(namespace: string, name: string): Thenable<string> {
     return new Promise<string>((resolve, reject) => {
-      this.conn.executeQuery(this.buildApexComponentQuery(namespace, name)).then((results: QueryResult) => {
+      this.conn.executeQuery(this.buildApexComponentQuery(namespace, name)).then((results: IQueryResult) => {
         if (results && results.totalSize == 1) {
           resolve(results.records[0].Markup);
         }
@@ -42,8 +42,6 @@ export class SalesforceContentProvider implements vscode.TextDocumentContentProv
   }
 
   private buildApexComponentQuery(namespace: string, name: string) {
-    return "SELECT Markup FROM ApexComponent WHERE " +
-      "NamespacePrefix=" + (namespace == "c" ? "null" : "'" + namespace + "'") +
-      " and Name='" + name.split('.')[0] + "'";
+    return `SELECT Markup FROM ApexComponent WHERE NamespacePrefix='${namespace == 'c' ? null : namespace}' and Name='${name.split('.')[0]}'`;
   }
 }

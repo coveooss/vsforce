@@ -1,12 +1,12 @@
 import vscode = require('vscode');
-import {VisualforceComponentFetcher} from './visualforceComponentFetcher'
-import {VisualforceComponentFetcherBase} from './visualforceComponentFetcherBase'
-import {VisualforceComponentFetcherFile} from './visualforceComponentFetcherFile'
-import {VisualforceComponentFetcherSalesforce} from './visualforceComponentFetcherSalesforce'
+import {IVisualforceComponentFetcher} from './visualforceComponentFetcher';
+import {VisualforceComponentFetcherBase} from './visualforceComponentFetcherBase';
+import {VisualforceComponentFetcherFile} from './visualforceComponentFetcherFile';
+import {VisualforceComponentFetcherSalesforce} from './visualforceComponentFetcherSalesforce';
 
 export class VisualforceComponentCache implements vscode.Disposable {
-  private cache: { [name: string]: VisualforceComponent } = {};
-  private fetchers: VisualforceComponentFetcher[] = [];
+  private cache: { [name: string]: IVisualforceComponent } = {};
+  private fetchers: IVisualforceComponentFetcher[] = [];
 
   constructor() {
     this.fetchers.push(new VisualforceComponentFetcherBase());
@@ -25,11 +25,11 @@ export class VisualforceComponentCache implements vscode.Disposable {
     })
   }
 
-  public getComponent(name: string): VisualforceComponent {
+  public getComponent(name: string): IVisualforceComponent {
     return this.cache[name];
   }
 
-  public getComponents(): VisualforceComponent[] {
+  public getComponents(): IVisualforceComponent[] {
     return Object.keys(this.cache).map(name => this.cache[name]);
   }
 
@@ -37,7 +37,7 @@ export class VisualforceComponentCache implements vscode.Disposable {
     return Object.keys(this.cache);
   }
 
-  public updateComponent(component: VisualforceComponent) {
+  public updateComponent(component: IVisualforceComponent) {
     this.cache[component.name] = component;
   }
 

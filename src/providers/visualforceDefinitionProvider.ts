@@ -1,5 +1,5 @@
-import vscode = require('vscode')
-import {VisualforceComponentCacheInstance} from '../symbols/visualforceComponentCache'
+import vscode = require('vscode');
+import {VisualforceComponentCacheInstance} from '../symbols/visualforceComponentCache';
 
 export class VisualforceDefinitionProvider implements vscode.DefinitionProvider {
   public provideDefinition(document: vscode.TextDocument, position: vscode.Position, token: vscode.CancellationToken): Thenable<vscode.Definition> {
