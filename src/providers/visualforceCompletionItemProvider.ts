@@ -1,9 +1,9 @@
-import vscode = require('vscode')
-import {VisualforceComponentCacheInstance} from '../symbols/visualforceComponentCache'
+import vscode = require('vscode');
+import {VisualforceComponentCacheInstance} from '../symbols/visualforceComponentCache';
 
 export class VisualforceCompletionItemProvider implements vscode.CompletionItemProvider {
   public constructor() {
-    vscode.languages.setLanguageConfiguration("visualforce", {
+    vscode.languages.setLanguageConfiguration('visualforce', {
       wordPattern: /(-?\d*\.\d\w*)|([^\`\~\!\@\#\%\^\&\*\(\)\-\=\+\[\{\]\}\\\|\;\'\"\,\.\<\>\/\?\s]+)/g
     });
   }
@@ -15,8 +15,7 @@ export class VisualforceCompletionItemProvider implements vscode.CompletionItemP
       VisualforceComponentCacheInstance.getComponentNames().forEach(cmp => {
         var completionItem = new vscode.CompletionItem(cmp);
         completionItem.kind = vscode.CompletionItemKind.Class;
-        completionItem.insertText = completionItem.label + "></" + completionItem.label + ">";
-
+        completionItem.insertText = `${completionItem.label}></${completionItem.label}>`;
         completionItems.push(completionItem);
       });
       resolve(completionItems);

@@ -1,6070 +1,6070 @@
 export var VisualforceBaseComponent = {
-  "analytics:reportChart": {
-    "simple": false,
-    "attribs": {
-      "body": {
-        "type": "Component[]"
+  'analytics:reportChart': {
+    'simple': false,
+    'attribs': {
+      'body': {
+        'type': 'Component[]'
       },
-      "cacheAge": {
-        "type": "Long"
+      'cacheAge': {
+        'type': 'Long'
       },
-      "cacheResults": {
-        "type": "Boolean",
-        "values": [
-          "true",
-          "false"
+      'cacheResults': {
+        'type': 'Boolean',
+        'values': [
+          'true',
+          'false'
         ]
       },
-      "developerName": {
-        "type": "String"
+      'developerName': {
+        'type': 'String'
       },
-      "error": {
-        "type": "String"
+      'error': {
+        'type': 'String'
       },
-      "filter": {
-        "type": "String"
+      'filter': {
+        'type': 'String'
       },
-      "hideOnError": {
-        "type": "Boolean",
-        "values": [
-          "true",
-          "false"
+      'hideOnError': {
+        'type': 'Boolean',
+        'values': [
+          'true',
+          'false'
         ]
       },
-      "rendered": {
-        "type": "Boolean",
-        "values": [
-          "true",
-          "false"
+      'rendered': {
+        'type': 'Boolean',
+        'values': [
+          'true',
+          'false'
         ]
       },
-      "reportId": {
-        "type": "String"
+      'reportId': {
+        'type': 'String'
       },
-      "showRefreshButton": {
-        "type": "Boolean",
-        "values": [
-          "true",
-          "false"
+      'showRefreshButton': {
+        'type': 'Boolean',
+        'values': [
+          'true',
+          'false'
         ]
       },
-      "size": {
-        "type": "String"
+      'size': {
+        'type': 'String'
       }
     }
   },
-  "apex:actionFunction": {
-    "simple": true,
-    "attribs": {
-      "action": {
-        "type": "ApexPages.Action"
+  'apex:actionFunction': {
+    'simple': true,
+    'attribs': {
+      'action': {
+        'type': 'ApexPages.Action'
       },
-      "focus": {
-        "type": "String"
+      'focus': {
+        'type': 'String'
       },
-      "id": {
-        "type": "String"
+      'id': {
+        'type': 'String'
       },
-      "immediate": {
-        "type": "Boolean",
-        "values": [
-          "true",
-          "false"
+      'immediate': {
+        'type': 'Boolean',
+        'values': [
+          'true',
+          'false'
         ]
       },
-      "name": {
-        "type": "String"
+      'name': {
+        'type': 'String'
       },
-      "namespace": {
-        "type": "String"
+      'namespace': {
+        'type': 'String'
       },
-      "onbeforedomupdate": {
-        "type": "String"
+      'onbeforedomupdate': {
+        'type': 'String'
       },
-      "oncomplete": {
-        "type": "String"
+      'oncomplete': {
+        'type': 'String'
       },
-      "rendered": {
-        "type": "Boolean",
-        "values": [
-          "true",
-          "false"
+      'rendered': {
+        'type': 'Boolean',
+        'values': [
+          'true',
+          'false'
         ]
       },
-      "reRender": {
-        "type": "Object"
+      'reRender': {
+        'type': 'Object'
       },
-      "status": {
-        "type": "String"
+      'status': {
+        'type': 'String'
       },
-      "timeout": {
-        "type": "Integer"
+      'timeout': {
+        'type': 'Integer'
       }
     }
   },
-  "apex:actionPoller": {
-    "simple": true,
-    "attribs": {
-      "action": {
-        "type": "ApexPages.Action"
+  'apex:actionPoller': {
+    'simple': true,
+    'attribs': {
+      'action': {
+        'type': 'ApexPages.Action'
       },
-      "enabled": {
-        "type": "Boolean",
-        "values": [
-          "true",
-          "false"
+      'enabled': {
+        'type': 'Boolean',
+        'values': [
+          'true',
+          'false'
         ]
       },
-      "id": {
-        "type": "String"
+      'id': {
+        'type': 'String'
       },
-      "interval": {
-        "type": "Integer"
+      'interval': {
+        'type': 'Integer'
       },
-      "oncomplete": {
-        "type": "String"
+      'oncomplete': {
+        'type': 'String'
       },
-      "onsubmit": {
-        "type": "String"
+      'onsubmit': {
+        'type': 'String'
       },
-      "rendered": {
-        "type": "Boolean",
-        "values": [
-          "true",
-          "false"
+      'rendered': {
+        'type': 'Boolean',
+        'values': [
+          'true',
+          'false'
         ]
       },
-      "reRender": {
-        "type": "Object"
+      'reRender': {
+        'type': 'Object'
       },
-      "status": {
-        "type": "String"
+      'status': {
+        'type': 'String'
       },
-      "timeout": {
-        "type": "Integer"
+      'timeout': {
+        'type': 'Integer'
       }
     }
   },
-  "apex:actionRegion": {
-    "simple": false,
-    "attribs": {
-      "id": {
-        "type": "String"
+  'apex:actionRegion': {
+    'simple': false,
+    'attribs': {
+      'id': {
+        'type': 'String'
       },
-      "immediate": {
-        "type": "Boolean",
-        "values": [
-          "true",
-          "false"
+      'immediate': {
+        'type': 'Boolean',
+        'values': [
+          'true',
+          'false'
         ]
       },
-      "rendered": {
-        "type": "Boolean",
-        "values": [
-          "true",
-          "false"
+      'rendered': {
+        'type': 'Boolean',
+        'values': [
+          'true',
+          'false'
         ]
       },
-      "renderRegionOnly": {
-        "type": "Boolean",
-        "values": [
-          "true",
-          "false"
+      'renderRegionOnly': {
+        'type': 'Boolean',
+        'values': [
+          'true',
+          'false'
         ]
       }
     }
   },
-  "apex:actionStatus": {
-    "simple": false,
-    "attribs": {
-      "dir": {
-        "type": "String"
+  'apex:actionStatus': {
+    'simple': false,
+    'attribs': {
+      'dir': {
+        'type': 'String'
       },
-      "for": {
-        "type": "String"
+      'for': {
+        'type': 'String'
       },
-      "id": {
-        "type": "String"
+      'id': {
+        'type': 'String'
       },
-      "lang": {
-        "type": "String"
+      'lang': {
+        'type': 'String'
       },
-      "layout": {
-        "type": "String"
+      'layout': {
+        'type': 'String'
       },
-      "onclick": {
-        "type": "String"
+      'onclick': {
+        'type': 'String'
       },
-      "ondblclick": {
-        "type": "String"
+      'ondblclick': {
+        'type': 'String'
       },
-      "onkeydown": {
-        "type": "String"
+      'onkeydown': {
+        'type': 'String'
       },
-      "onkeypress": {
-        "type": "String"
+      'onkeypress': {
+        'type': 'String'
       },
-      "onkeyup": {
-        "type": "String"
+      'onkeyup': {
+        'type': 'String'
       },
-      "onmousedown": {
-        "type": "String"
+      'onmousedown': {
+        'type': 'String'
       },
-      "onmousemove": {
-        "type": "String"
+      'onmousemove': {
+        'type': 'String'
       },
-      "onmouseout": {
-        "type": "String"
+      'onmouseout': {
+        'type': 'String'
       },
-      "onmouseover": {
-        "type": "String"
+      'onmouseover': {
+        'type': 'String'
       },
-      "onmouseup": {
-        "type": "String"
+      'onmouseup': {
+        'type': 'String'
       },
-      "onstart": {
-        "type": "String"
+      'onstart': {
+        'type': 'String'
       },
-      "onstop": {
-        "type": "String"
+      'onstop': {
+        'type': 'String'
       },
-      "rendered": {
-        "type": "Boolean",
-        "values": [
-          "true",
-          "false"
+      'rendered': {
+        'type': 'Boolean',
+        'values': [
+          'true',
+          'false'
         ]
       },
-      "startStyle": {
-        "type": "String"
+      'startStyle': {
+        'type': 'String'
       },
-      "startStyleClass": {
-        "type": "String"
+      'startStyleClass': {
+        'type': 'String'
       },
-      "startText": {
-        "type": "String"
+      'startText': {
+        'type': 'String'
       },
-      "stopStyle": {
-        "type": "String"
+      'stopStyle': {
+        'type': 'String'
       },
-      "stopStyleClass": {
-        "type": "String"
+      'stopStyleClass': {
+        'type': 'String'
       },
-      "stopText": {
-        "type": "String"
+      'stopText': {
+        'type': 'String'
       },
-      "style": {
-        "type": "String"
+      'style': {
+        'type': 'String'
       },
-      "styleClass": {
-        "type": "String"
+      'styleClass': {
+        'type': 'String'
       },
-      "title": {
-        "type": "String"
+      'title': {
+        'type': 'String'
       }
     }
   },
-  "apex:actionSupport": {
-    "simple": true,
-    "attribs": {
-      "action": {
-        "type": "ApexPages.Action"
+  'apex:actionSupport': {
+    'simple': true,
+    'attribs': {
+      'action': {
+        'type': 'ApexPages.Action'
       },
-      "disabled": {
-        "type": "Boolean",
-        "values": [
-          "true",
-          "false"
+      'disabled': {
+        'type': 'Boolean',
+        'values': [
+          'true',
+          'false'
         ]
       },
-      "disableDefault": {
-        "type": "Boolean",
-        "values": [
-          "true",
-          "false"
+      'disableDefault': {
+        'type': 'Boolean',
+        'values': [
+          'true',
+          'false'
         ]
       },
-      "event": {
-        "type": "String"
+      'event': {
+        'type': 'String'
       },
-      "focus": {
-        "type": "String"
+      'focus': {
+        'type': 'String'
       },
-      "id": {
-        "type": "String"
+      'id': {
+        'type': 'String'
       },
-      "immediate": {
-        "type": "Boolean",
-        "values": [
-          "true",
-          "false"
+      'immediate': {
+        'type': 'Boolean',
+        'values': [
+          'true',
+          'false'
         ]
       },
-      "onbeforedomupdate": {
-        "type": "String"
+      'onbeforedomupdate': {
+        'type': 'String'
       },
-      "oncomplete": {
-        "type": "String"
+      'oncomplete': {
+        'type': 'String'
       },
-      "onsubmit": {
-        "type": "String"
+      'onsubmit': {
+        'type': 'String'
       },
-      "rendered": {
-        "type": "Boolean",
-        "values": [
-          "true",
-          "false"
+      'rendered': {
+        'type': 'Boolean',
+        'values': [
+          'true',
+          'false'
         ]
       },
-      "reRender": {
-        "type": "Object"
+      'reRender': {
+        'type': 'Object'
       },
-      "status": {
-        "type": "String"
+      'status': {
+        'type': 'String'
       },
-      "timeout": {
-        "type": "Integer"
+      'timeout': {
+        'type': 'Integer'
       }
     }
   },
-  "apex:areaSeries": {
-    "simple": false,
-    "attribs": {
-      "axis": {
-        "type": "String"
+  'apex:areaSeries': {
+    'simple': false,
+    'attribs': {
+      'axis': {
+        'type': 'String'
       },
-      "colorSet": {
-        "type": "String"
+      'colorSet': {
+        'type': 'String'
       },
-      "highlight": {
-        "type": "Boolean",
-        "values": [
-          "true",
-          "false"
+      'highlight': {
+        'type': 'Boolean',
+        'values': [
+          'true',
+          'false'
         ]
       },
-      "highlightLineWidth": {
-        "type": "Integer"
+      'highlightLineWidth': {
+        'type': 'Integer'
       },
-      "highlightOpacity": {
-        "type": "String"
+      'highlightOpacity': {
+        'type': 'String'
       },
-      "highlightStrokeColor": {
-        "type": "String"
+      'highlightStrokeColor': {
+        'type': 'String'
       },
-      "id": {
-        "type": "String"
+      'id': {
+        'type': 'String'
       },
-      "opacity": {
-        "type": "String"
+      'opacity': {
+        'type': 'String'
       },
-      "rendered": {
-        "type": "Boolean",
-        "values": [
-          "true",
-          "false"
+      'rendered': {
+        'type': 'Boolean',
+        'values': [
+          'true',
+          'false'
         ]
       },
-      "rendererFn": {
-        "type": "String"
+      'rendererFn': {
+        'type': 'String'
       },
-      "showInLegend": {
-        "type": "Boolean",
-        "values": [
-          "true",
-          "false"
+      'showInLegend': {
+        'type': 'Boolean',
+        'values': [
+          'true',
+          'false'
         ]
       },
-      "tips": {
-        "type": "Boolean",
-        "values": [
-          "true",
-          "false"
+      'tips': {
+        'type': 'Boolean',
+        'values': [
+          'true',
+          'false'
         ]
       },
-      "title": {
-        "type": "String"
+      'title': {
+        'type': 'String'
       },
-      "xField": {
-        "type": "String"
+      'xField': {
+        'type': 'String'
       },
-      "yField": {
-        "type": "String"
+      'yField': {
+        'type': 'String'
       }
     }
   },
-  "apex:axis": {
-    "simple": false,
-    "attribs": {
-      "dashSize": {
-        "type": "Integer"
+  'apex:axis': {
+    'simple': false,
+    'attribs': {
+      'dashSize': {
+        'type': 'Integer'
       },
-      "fields": {
-        "type": "String"
+      'fields': {
+        'type': 'String'
       },
-      "grid": {
-        "type": "Boolean",
-        "values": [
-          "true",
-          "false"
+      'grid': {
+        'type': 'Boolean',
+        'values': [
+          'true',
+          'false'
         ]
       },
-      "gridFill": {
-        "type": "Boolean",
-        "values": [
-          "true",
-          "false"
+      'gridFill': {
+        'type': 'Boolean',
+        'values': [
+          'true',
+          'false'
         ]
       },
-      "id": {
-        "type": "String"
+      'id': {
+        'type': 'String'
       },
-      "margin": {
-        "type": "Integer"
+      'margin': {
+        'type': 'Integer'
       },
-      "maximum": {
-        "type": "Integer"
+      'maximum': {
+        'type': 'Integer'
       },
-      "minimum": {
-        "type": "Integer"
+      'minimum': {
+        'type': 'Integer'
       },
-      "position": {
-        "type": "String",
-        "values": [
-          "bottom",
-          "gauge",
-          "left",
-          "radial",
-          "right",
-          "top"
+      'position': {
+        'type': 'String',
+        'values': [
+          'bottom',
+          'gauge',
+          'left',
+          'radial',
+          'right',
+          'top'
         ]
       },
-      "rendered": {
-        "type": "Boolean",
-        "values": [
-          "true",
-          "false"
+      'rendered': {
+        'type': 'Boolean',
+        'values': [
+          'true',
+          'false'
         ]
       },
-      "steps": {
-        "type": "Integer"
+      'steps': {
+        'type': 'Integer'
       },
-      "title": {
-        "type": "String"
+      'title': {
+        'type': 'String'
       },
-      "type": {
-        "type": "String",
-        "values": [
-          "Category",
-          "Gauge",
-          "Numeric",
-          "Radial"
+      'type': {
+        'type': 'String',
+        'values': [
+          'Category',
+          'Gauge',
+          'Numeric',
+          'Radial'
         ]
       }
     }
   },
-  "apex:barSeries": {
-    "simple": false,
-    "attribs": {
-      "axis": {
-        "type": "String"
+  'apex:barSeries': {
+    'simple': false,
+    'attribs': {
+      'axis': {
+        'type': 'String'
       },
-      "colorSet": {
-        "type": "String"
+      'colorSet': {
+        'type': 'String'
       },
-      "colorsProgressWithinSeries": {
-        "type": "Boolean",
-        "values": [
-          "true",
-          "false"
+      'colorsProgressWithinSeries': {
+        'type': 'Boolean',
+        'values': [
+          'true',
+          'false'
         ]
       },
-      "groupGutter": {
-        "type": "Integer"
+      'groupGutter': {
+        'type': 'Integer'
       },
-      "gutter": {
-        "type": "Integer"
+      'gutter': {
+        'type': 'Integer'
       },
-      "highlight": {
-        "type": "Boolean",
-        "values": [
-          "true",
-          "false"
+      'highlight': {
+        'type': 'Boolean',
+        'values': [
+          'true',
+          'false'
         ]
       },
-      "highlightColor": {
-        "type": "String"
+      'highlightColor': {
+        'type': 'String'
       },
-      "highlightLineWidth": {
-        "type": "Integer"
+      'highlightLineWidth': {
+        'type': 'Integer'
       },
-      "highlightOpacity": {
-        "type": "String"
+      'highlightOpacity': {
+        'type': 'String'
       },
-      "highlightStroke": {
-        "type": "String"
+      'highlightStroke': {
+        'type': 'String'
       },
-      "id": {
-        "type": "String"
+      'id': {
+        'type': 'String'
       },
-      "orientation": {
-        "type": "String",
-        "values": [
-          "horizontal",
-          "vertical"
+      'orientation': {
+        'type': 'String',
+        'values': [
+          'horizontal',
+          'vertical'
         ]
       },
-      "rendered": {
-        "type": "Boolean",
-        "values": [
-          "true",
-          "false"
+      'rendered': {
+        'type': 'Boolean',
+        'values': [
+          'true',
+          'false'
         ]
       },
-      "rendererFn": {
-        "type": "String"
+      'rendererFn': {
+        'type': 'String'
       },
-      "showInLegend": {
-        "type": "Boolean",
-        "values": [
-          "true",
-          "false"
+      'showInLegend': {
+        'type': 'Boolean',
+        'values': [
+          'true',
+          'false'
         ]
       },
-      "stacked": {
-        "type": "Boolean",
-        "values": [
-          "true",
-          "false"
+      'stacked': {
+        'type': 'Boolean',
+        'values': [
+          'true',
+          'false'
         ]
       },
-      "tips": {
-        "type": "Boolean",
-        "values": [
-          "true",
-          "false"
+      'tips': {
+        'type': 'Boolean',
+        'values': [
+          'true',
+          'false'
         ]
       },
-      "title": {
-        "type": "String"
+      'title': {
+        'type': 'String'
       },
-      "xField": {
-        "type": "String"
+      'xField': {
+        'type': 'String'
       },
-      "xPadding": {
-        "type": "Integer"
+      'xPadding': {
+        'type': 'Integer'
       },
-      "yField": {
-        "type": "String"
+      'yField': {
+        'type': 'String'
       },
-      "yPadding": {
-        "type": "Integer"
+      'yPadding': {
+        'type': 'Integer'
       }
     }
   },
-  "apex:canvasApp": {
-    "simple": true,
-    "attribs": {
-      "applicationName": {
-        "type": "String"
+  'apex:canvasApp': {
+    'simple': true,
+    'attribs': {
+      'applicationName': {
+        'type': 'String'
       },
-      "border": {
-        "type": "String"
+      'border': {
+        'type': 'String'
       },
-      "canvasId": {
-        "type": "String"
+      'canvasId': {
+        'type': 'String'
       },
-      "containerId": {
-        "type": "String"
+      'containerId': {
+        'type': 'String'
       },
-      "developerName": {
-        "type": "String"
+      'developerName': {
+        'type': 'String'
       },
-      "entityFields": {
-        "type": "String"
+      'entityFields': {
+        'type': 'String'
       },
-      "height": {
-        "type": "String"
+      'height': {
+        'type': 'String'
       },
-      "id": {
-        "type": "String"
+      'id': {
+        'type': 'String'
       },
-      "maxHeight": {
-        "type": "String"
+      'maxHeight': {
+        'type': 'String'
       },
-      "maxWidth": {
-        "type": "String"
+      'maxWidth': {
+        'type': 'String'
       },
-      "namespacePrefix": {
-        "type": "String"
+      'namespacePrefix': {
+        'type': 'String'
       },
-      "onCanvasAppError": {
-        "type": "String"
+      'onCanvasAppError': {
+        'type': 'String'
       },
-      "onCanvasAppLoad": {
-        "type": "String"
+      'onCanvasAppLoad': {
+        'type': 'String'
       },
-      "parameters": {
-        "type": "String"
+      'parameters': {
+        'type': 'String'
       },
-      "rendered": {
-        "type": "Boolean",
-        "values": [
-          "true",
-          "false"
+      'rendered': {
+        'type': 'Boolean',
+        'values': [
+          'true',
+          'false'
         ]
       },
-      "scrolling": {
-        "type": "String"
+      'scrolling': {
+        'type': 'String'
       },
-      "width": {
-        "type": "String"
+      'width': {
+        'type': 'String'
       }
     }
   },
-  "apex:chart": {
-    "simple": false,
-    "attribs": {
-      "animate": {
-        "type": "Boolean",
-        "values": [
-          "true",
-          "false"
+  'apex:chart': {
+    'simple': false,
+    'attribs': {
+      'animate': {
+        'type': 'Boolean',
+        'values': [
+          'true',
+          'false'
         ]
       },
-      "background": {
-        "type": "String"
+      'background': {
+        'type': 'String'
       },
-      "colorSet": {
-        "type": "String"
+      'colorSet': {
+        'type': 'String'
       },
-      "data": {
-        "type": "Object"
+      'data': {
+        'type': 'Object'
       },
-      "floating": {
-        "type": "Boolean",
-        "values": [
-          "true",
-          "false"
+      'floating': {
+        'type': 'Boolean',
+        'values': [
+          'true',
+          'false'
         ]
       },
-      "height": {
-        "type": "String"
+      'height': {
+        'type': 'String'
       },
-      "hidden": {
-        "type": "Boolean",
-        "values": [
-          "true",
-          "false"
+      'hidden': {
+        'type': 'Boolean',
+        'values': [
+          'true',
+          'false'
         ]
       },
-      "id": {
-        "type": "String"
+      'id': {
+        'type': 'String'
       },
-      "legend": {
-        "type": "Boolean",
-        "values": [
-          "true",
-          "false"
+      'legend': {
+        'type': 'Boolean',
+        'values': [
+          'true',
+          'false'
         ]
       },
-      "name": {
-        "type": "String"
+      'name': {
+        'type': 'String'
       },
-      "rendered": {
-        "type": "Boolean",
-        "values": [
-          "true",
-          "false"
+      'rendered': {
+        'type': 'Boolean',
+        'values': [
+          'true',
+          'false'
         ]
       },
-      "renderTo": {
-        "type": "String"
+      'renderTo': {
+        'type': 'String'
       },
-      "resizable": {
-        "type": "Boolean",
-        "values": [
-          "true",
-          "false"
+      'resizable': {
+        'type': 'Boolean',
+        'values': [
+          'true',
+          'false'
         ]
       },
-      "theme": {
-        "type": "String"
+      'theme': {
+        'type': 'String'
       },
-      "width": {
-        "type": "String"
+      'width': {
+        'type': 'String'
       }
     }
   },
-  "apex:chartLabel": {
-    "simple": true,
-    "attribs": {
-      "color": {
-        "type": "String"
+  'apex:chartLabel': {
+    'simple': true,
+    'attribs': {
+      'color': {
+        'type': 'String'
       },
-      "display": {
-        "type": "String",
-        "values": [
-          "insideEnd",
-          "insideStart",
-          "middle",
-          "none",
-          "outside",
-          "over",
-          "rotate",
-          "under"
+      'display': {
+        'type': 'String',
+        'values': [
+          'insideEnd',
+          'insideStart',
+          'middle',
+          'none',
+          'outside',
+          'over',
+          'rotate',
+          'under'
         ]
       },
-      "field": {
-        "type": "String"
+      'field': {
+        'type': 'String'
       },
-      "font": {
-        "type": "String"
+      'font': {
+        'type': 'String'
       },
-      "id": {
-        "type": "String"
+      'id': {
+        'type': 'String'
       },
-      "minMargin": {
-        "type": "Integer"
+      'minMargin': {
+        'type': 'Integer'
       },
-      "orientation": {
-        "type": "String",
-        "values": [
-          "horizontal",
-          "vertical"
+      'orientation': {
+        'type': 'String',
+        'values': [
+          'horizontal',
+          'vertical'
         ]
       },
-      "rendered": {
-        "type": "Boolean",
-        "values": [
-          "true",
-          "false"
+      'rendered': {
+        'type': 'Boolean',
+        'values': [
+          'true',
+          'false'
         ]
       },
-      "rendererFn": {
-        "type": "String"
+      'rendererFn': {
+        'type': 'String'
       },
-      "rotate": {
-        "type": "Integer"
+      'rotate': {
+        'type': 'Integer'
       }
     }
   },
-  "apex:chartTips": {
-    "simple": true,
-    "attribs": {
-      "height": {
-        "type": "Integer"
+  'apex:chartTips': {
+    'simple': true,
+    'attribs': {
+      'height': {
+        'type': 'Integer'
       },
-      "id": {
-        "type": "String"
+      'id': {
+        'type': 'String'
       },
-      "labelField": {
-        "type": "String"
+      'labelField': {
+        'type': 'String'
       },
-      "rendered": {
-        "type": "Boolean",
-        "values": [
-          "true",
-          "false"
+      'rendered': {
+        'type': 'Boolean',
+        'values': [
+          'true',
+          'false'
         ]
       },
-      "rendererFn": {
-        "type": "String"
+      'rendererFn': {
+        'type': 'String'
       },
-      "trackMouse": {
-        "type": "Boolean",
-        "values": [
-          "true",
-          "false"
+      'trackMouse': {
+        'type': 'Boolean',
+        'values': [
+          'true',
+          'false'
         ]
       },
-      "valueField": {
-        "type": "String"
+      'valueField': {
+        'type': 'String'
       },
-      "width": {
-        "type": "Integer"
+      'width': {
+        'type': 'Integer'
       }
     }
   },
-  "apex:column": {
-    "simple": true,
-    "attribs": {
-      "breakBefore": {
-        "type": "Boolean",
-        "values": [
-          "true",
-          "false"
+  'apex:column': {
+    'simple': true,
+    'attribs': {
+      'breakBefore': {
+        'type': 'Boolean',
+        'values': [
+          'true',
+          'false'
         ]
       },
-      "colspan": {
-        "type": "Integer"
+      'colspan': {
+        'type': 'Integer'
       },
-      "dir": {
-        "type": "String"
+      'dir': {
+        'type': 'String'
       },
-      "footerClass": {
-        "type": "String"
+      'footerClass': {
+        'type': 'String'
       },
-      "footerValue": {
-        "type": "String"
+      'footerValue': {
+        'type': 'String'
       },
-      "headerClass": {
-        "type": "String"
+      'headerClass': {
+        'type': 'String'
       },
-      "headerValue": {
-        "type": "String"
+      'headerValue': {
+        'type': 'String'
       },
-      "id": {
-        "type": "String"
+      'id': {
+        'type': 'String'
       },
-      "lang": {
-        "type": "String"
+      'lang': {
+        'type': 'String'
       },
-      "onclick": {
-        "type": "String"
+      'onclick': {
+        'type': 'String'
       },
-      "ondblclick": {
-        "type": "String"
+      'ondblclick': {
+        'type': 'String'
       },
-      "onkeydown": {
-        "type": "String"
+      'onkeydown': {
+        'type': 'String'
       },
-      "onkeypress": {
-        "type": "String"
+      'onkeypress': {
+        'type': 'String'
       },
-      "onkeyup": {
-        "type": "String"
+      'onkeyup': {
+        'type': 'String'
       },
-      "onmousedown": {
-        "type": "String"
+      'onmousedown': {
+        'type': 'String'
       },
-      "onmousemove": {
-        "type": "String"
+      'onmousemove': {
+        'type': 'String'
       },
-      "onmouseout": {
-        "type": "String"
+      'onmouseout': {
+        'type': 'String'
       },
-      "onmouseover": {
-        "type": "String"
+      'onmouseover': {
+        'type': 'String'
       },
-      "onmouseup": {
-        "type": "String"
+      'onmouseup': {
+        'type': 'String'
       },
-      "rendered": {
-        "type": "Boolean",
-        "values": [
-          "true",
-          "false"
+      'rendered': {
+        'type': 'Boolean',
+        'values': [
+          'true',
+          'false'
         ]
       },
-      "rowspan": {
-        "type": "Integer"
+      'rowspan': {
+        'type': 'Integer'
       },
-      "style": {
-        "type": "String"
+      'style': {
+        'type': 'String'
       },
-      "styleClass": {
-        "type": "String"
+      'styleClass': {
+        'type': 'String'
       },
-      "title": {
-        "type": "String"
+      'title': {
+        'type': 'String'
       },
-      "value": {
-        "type": "String"
+      'value': {
+        'type': 'String'
       },
-      "width": {
-        "type": "String"
+      'width': {
+        'type': 'String'
       }
     }
   },
-  "apex:commandButton": {
-    "simple": true,
-    "attribs": {
-      "accesskey": {
-        "type": "String"
+  'apex:commandButton': {
+    'simple': true,
+    'attribs': {
+      'accesskey': {
+        'type': 'String'
       },
-      "action": {
-        "type": "ApexPages.Action"
+      'action': {
+        'type': 'ApexPages.Action'
       },
-      "alt": {
-        "type": "String"
+      'alt': {
+        'type': 'String'
       },
-      "dir": {
-        "type": "String"
+      'dir': {
+        'type': 'String'
       },
-      "disabled": {
-        "type": "Boolean",
-        "values": [
-          "true",
-          "false"
+      'disabled': {
+        'type': 'Boolean',
+        'values': [
+          'true',
+          'false'
         ]
       },
-      "id": {
-        "type": "String"
+      'id': {
+        'type': 'String'
       },
-      "image": {
-        "type": "String"
+      'image': {
+        'type': 'String'
       },
-      "immediate": {
-        "type": "Boolean",
-        "values": [
-          "true",
-          "false"
+      'immediate': {
+        'type': 'Boolean',
+        'values': [
+          'true',
+          'false'
         ]
       },
-      "lang": {
-        "type": "String"
+      'lang': {
+        'type': 'String'
       },
-      "onblur": {
-        "type": "String"
+      'onblur': {
+        'type': 'String'
       },
-      "onclick": {
-        "type": "String"
+      'onclick': {
+        'type': 'String'
       },
-      "oncomplete": {
-        "type": "String"
+      'oncomplete': {
+        'type': 'String'
       },
-      "ondblclick": {
-        "type": "String"
+      'ondblclick': {
+        'type': 'String'
       },
-      "onfocus": {
-        "type": "String"
+      'onfocus': {
+        'type': 'String'
       },
-      "onkeydown": {
-        "type": "String"
+      'onkeydown': {
+        'type': 'String'
       },
-      "onkeypress": {
-        "type": "String"
+      'onkeypress': {
+        'type': 'String'
       },
-      "onkeyup": {
-        "type": "String"
+      'onkeyup': {
+        'type': 'String'
       },
-      "onmousedown": {
-        "type": "String"
+      'onmousedown': {
+        'type': 'String'
       },
-      "onmousemove": {
-        "type": "String"
+      'onmousemove': {
+        'type': 'String'
       },
-      "onmouseout": {
-        "type": "String"
+      'onmouseout': {
+        'type': 'String'
       },
-      "onmouseover": {
-        "type": "String"
+      'onmouseover': {
+        'type': 'String'
       },
-      "onmouseup": {
-        "type": "String"
+      'onmouseup': {
+        'type': 'String'
       },
-      "rendered": {
-        "type": "Boolean",
-        "values": [
-          "true",
-          "false"
+      'rendered': {
+        'type': 'Boolean',
+        'values': [
+          'true',
+          'false'
         ]
       },
-      "reRender": {
-        "type": "Object"
+      'reRender': {
+        'type': 'Object'
       },
-      "status": {
-        "type": "String"
+      'status': {
+        'type': 'String'
       },
-      "style": {
-        "type": "String"
+      'style': {
+        'type': 'String'
       },
-      "styleClass": {
-        "type": "String"
+      'styleClass': {
+        'type': 'String'
       },
-      "tabindex": {
-        "type": "String"
+      'tabindex': {
+        'type': 'String'
       },
-      "timeout": {
-        "type": "Integer"
+      'timeout': {
+        'type': 'Integer'
       },
-      "title": {
-        "type": "String"
+      'title': {
+        'type': 'String'
       },
-      "value": {
-        "type": "Object"
+      'value': {
+        'type': 'Object'
       }
     }
   },
-  "apex:commandLink": {
-    "simple": true,
-    "attribs": {
-      "accesskey": {
-        "type": "String"
+  'apex:commandLink': {
+    'simple': true,
+    'attribs': {
+      'accesskey': {
+        'type': 'String'
       },
-      "action": {
-        "type": "ApexPages.Action"
+      'action': {
+        'type': 'ApexPages.Action'
       },
-      "charset": {
-        "type": "String"
+      'charset': {
+        'type': 'String'
       },
-      "coords": {
-        "type": "String"
+      'coords': {
+        'type': 'String'
       },
-      "dir": {
-        "type": "String"
+      'dir': {
+        'type': 'String'
       },
-      "hreflang": {
-        "type": "String"
+      'hreflang': {
+        'type': 'String'
       },
-      "id": {
-        "type": "String"
+      'id': {
+        'type': 'String'
       },
-      "immediate": {
-        "type": "Boolean",
-        "values": [
-          "true",
-          "false"
+      'immediate': {
+        'type': 'Boolean',
+        'values': [
+          'true',
+          'false'
         ]
       },
-      "lang": {
-        "type": "String"
+      'lang': {
+        'type': 'String'
       },
-      "onblur": {
-        "type": "String"
+      'onblur': {
+        'type': 'String'
       },
-      "onclick": {
-        "type": "String"
+      'onclick': {
+        'type': 'String'
       },
-      "oncomplete": {
-        "type": "String"
+      'oncomplete': {
+        'type': 'String'
       },
-      "ondblclick": {
-        "type": "String"
+      'ondblclick': {
+        'type': 'String'
       },
-      "onfocus": {
-        "type": "String"
+      'onfocus': {
+        'type': 'String'
       },
-      "onkeydown": {
-        "type": "String"
+      'onkeydown': {
+        'type': 'String'
       },
-      "onkeypress": {
-        "type": "String"
+      'onkeypress': {
+        'type': 'String'
       },
-      "onkeyup": {
-        "type": "String"
+      'onkeyup': {
+        'type': 'String'
       },
-      "onmousedown": {
-        "type": "String"
+      'onmousedown': {
+        'type': 'String'
       },
-      "onmousemove": {
-        "type": "String"
+      'onmousemove': {
+        'type': 'String'
       },
-      "onmouseout": {
-        "type": "String"
+      'onmouseout': {
+        'type': 'String'
       },
-      "onmouseover": {
-        "type": "String"
+      'onmouseover': {
+        'type': 'String'
       },
-      "onmouseup": {
-        "type": "String"
+      'onmouseup': {
+        'type': 'String'
       },
-      "rel": {
-        "type": "String"
+      'rel': {
+        'type': 'String'
       },
-      "rendered": {
-        "type": "Boolean",
-        "values": [
-          "true",
-          "false"
+      'rendered': {
+        'type': 'Boolean',
+        'values': [
+          'true',
+          'false'
         ]
       },
-      "reRender": {
-        "type": "Object"
+      'reRender': {
+        'type': 'Object'
       },
-      "rev": {
-        "type": "String"
+      'rev': {
+        'type': 'String'
       },
-      "shape": {
-        "type": "String"
+      'shape': {
+        'type': 'String'
       },
-      "status": {
-        "type": "String"
+      'status': {
+        'type': 'String'
       },
-      "style": {
-        "type": "String"
+      'style': {
+        'type': 'String'
       },
-      "styleClass": {
-        "type": "String"
+      'styleClass': {
+        'type': 'String'
       },
-      "tabindex": {
-        "type": "String"
+      'tabindex': {
+        'type': 'String'
       },
-      "target": {
-        "type": "String"
+      'target': {
+        'type': 'String'
       },
-      "timeout": {
-        "type": "Integer"
+      'timeout': {
+        'type': 'Integer'
       },
-      "title": {
-        "type": "String"
+      'title': {
+        'type': 'String'
       },
-      "type": {
-        "type": "String"
+      'type': {
+        'type': 'String'
       },
-      "value": {
-        "type": "Object"
+      'value': {
+        'type': 'Object'
       }
     }
   },
-  "apex:componentExample": {
-    "simple": true,
-    "attribs": {
-      "demoPage": {
-        "type": "ApexPages.PageReference"
+  'apex:componentExample': {
+    'simple': true,
+    'attribs': {
+      'demoPage': {
+        'type': 'ApexPages.PageReference'
       },
-      "description": {
-        "type": "String"
+      'description': {
+        'type': 'String'
       },
-      "examplePage": {
-        "type": "ApexPages.PageReference"
+      'examplePage': {
+        'type': 'ApexPages.PageReference'
       },
-      "id": {
-        "type": "String"
+      'id': {
+        'type': 'String'
       },
-      "imageURL": {
-        "type": "String"
+      'imageURL': {
+        'type': 'String'
       },
-      "name": {
-        "type": "String"
+      'name': {
+        'type': 'String'
       },
-      "rendered": {
-        "type": "Boolean",
-        "values": [
-          "true",
-          "false"
+      'rendered': {
+        'type': 'Boolean',
+        'values': [
+          'true',
+          'false'
         ]
       }
     }
   },
-  "apex:composition": {
-    "simple": false,
-    "attribs": {
-      "rendered": {
-        "type": "String"
+  'apex:composition': {
+    'simple': false,
+    'attribs': {
+      'rendered': {
+        'type': 'String'
       },
-      "template": {
-        "type": "ApexPages.PageReference"
+      'template': {
+        'type': 'ApexPages.PageReference'
       }
     }
   },
-  "apex:dataList": {
-    "simple": false,
-    "attribs": {
-      "dir": {
-        "type": "String"
+  'apex:dataList': {
+    'simple': false,
+    'attribs': {
+      'dir': {
+        'type': 'String'
       },
-      "first": {
-        "type": "Integer"
+      'first': {
+        'type': 'Integer'
       },
-      "id": {
-        "type": "String"
+      'id': {
+        'type': 'String'
       },
-      "lang": {
-        "type": "String"
+      'lang': {
+        'type': 'String'
       },
-      "onclick": {
-        "type": "String"
+      'onclick': {
+        'type': 'String'
       },
-      "ondblclick": {
-        "type": "String"
+      'ondblclick': {
+        'type': 'String'
       },
-      "onkeydown": {
-        "type": "String"
+      'onkeydown': {
+        'type': 'String'
       },
-      "onkeypress": {
-        "type": "String"
+      'onkeypress': {
+        'type': 'String'
       },
-      "onkeyup": {
-        "type": "String"
+      'onkeyup': {
+        'type': 'String'
       },
-      "onmousedown": {
-        "type": "String"
+      'onmousedown': {
+        'type': 'String'
       },
-      "onmousemove": {
-        "type": "String"
+      'onmousemove': {
+        'type': 'String'
       },
-      "onmouseout": {
-        "type": "String"
+      'onmouseout': {
+        'type': 'String'
       },
-      "onmouseover": {
-        "type": "String"
+      'onmouseover': {
+        'type': 'String'
       },
-      "onmouseup": {
-        "type": "String"
+      'onmouseup': {
+        'type': 'String'
       },
-      "rendered": {
-        "type": "Boolean",
-        "values": [
-          "true",
-          "false"
+      'rendered': {
+        'type': 'Boolean',
+        'values': [
+          'true',
+          'false'
         ]
       },
-      "rows": {
-        "type": "Integer"
+      'rows': {
+        'type': 'Integer'
       },
-      "style": {
-        "type": "String"
+      'style': {
+        'type': 'String'
       },
-      "styleClass": {
-        "type": "String"
+      'styleClass': {
+        'type': 'String'
       },
-      "title": {
-        "type": "String"
+      'title': {
+        'type': 'String'
       },
-      "type": {
-        "type": "String"
+      'type': {
+        'type': 'String'
       },
-      "value": {
-        "type": "Object"
+      'value': {
+        'type': 'Object'
       },
-      "var": {
-        "type": "String"
+      'var': {
+        'type': 'String'
       }
     }
   },
-  "apex:dataTable": {
-    "simple": false,
-    "attribs": {
-      "align": {
-        "type": "String"
+  'apex:dataTable': {
+    'simple': false,
+    'attribs': {
+      'align': {
+        'type': 'String'
       },
-      "bgcolor": {
-        "type": "String"
+      'bgcolor': {
+        'type': 'String'
       },
-      "border": {
-        "type": "String"
+      'border': {
+        'type': 'String'
       },
-      "captionClass": {
-        "type": "String"
+      'captionClass': {
+        'type': 'String'
       },
-      "captionStyle": {
-        "type": "String"
+      'captionStyle': {
+        'type': 'String'
       },
-      "cellpadding": {
-        "type": "String"
+      'cellpadding': {
+        'type': 'String'
       },
-      "cellspacing": {
-        "type": "String"
+      'cellspacing': {
+        'type': 'String'
       },
-      "columnClasses": {
-        "type": "String"
+      'columnClasses': {
+        'type': 'String'
       },
-      "columns": {
-        "type": "Integer"
+      'columns': {
+        'type': 'Integer'
       },
-      "columnsWidth": {
-        "type": "String"
+      'columnsWidth': {
+        'type': 'String'
       },
-      "dir": {
-        "type": "String"
+      'dir': {
+        'type': 'String'
       },
-      "first": {
-        "type": "Integer"
+      'first': {
+        'type': 'Integer'
       },
-      "footerClass": {
-        "type": "String"
+      'footerClass': {
+        'type': 'String'
       },
-      "frame": {
-        "type": "String"
+      'frame': {
+        'type': 'String'
       },
-      "headerClass": {
-        "type": "String"
+      'headerClass': {
+        'type': 'String'
       },
-      "id": {
-        "type": "String"
+      'id': {
+        'type': 'String'
       },
-      "lang": {
-        "type": "String"
+      'lang': {
+        'type': 'String'
       },
-      "onclick": {
-        "type": "String"
+      'onclick': {
+        'type': 'String'
       },
-      "ondblclick": {
-        "type": "String"
+      'ondblclick': {
+        'type': 'String'
       },
-      "onkeydown": {
-        "type": "String"
+      'onkeydown': {
+        'type': 'String'
       },
-      "onkeypress": {
-        "type": "String"
+      'onkeypress': {
+        'type': 'String'
       },
-      "onkeyup": {
-        "type": "String"
+      'onkeyup': {
+        'type': 'String'
       },
-      "onmousedown": {
-        "type": "String"
+      'onmousedown': {
+        'type': 'String'
       },
-      "onmousemove": {
-        "type": "String"
+      'onmousemove': {
+        'type': 'String'
       },
-      "onmouseout": {
-        "type": "String"
+      'onmouseout': {
+        'type': 'String'
       },
-      "onmouseover": {
-        "type": "String"
+      'onmouseover': {
+        'type': 'String'
       },
-      "onmouseup": {
-        "type": "String"
+      'onmouseup': {
+        'type': 'String'
       },
-      "onRowClick": {
-        "type": "String"
+      'onRowClick': {
+        'type': 'String'
       },
-      "onRowDblClick": {
-        "type": "String"
+      'onRowDblClick': {
+        'type': 'String'
       },
-      "onRowMouseDown": {
-        "type": "String"
+      'onRowMouseDown': {
+        'type': 'String'
       },
-      "onRowMouseMove": {
-        "type": "String"
+      'onRowMouseMove': {
+        'type': 'String'
       },
-      "onRowMouseOut": {
-        "type": "String"
+      'onRowMouseOut': {
+        'type': 'String'
       },
-      "onRowMouseOver": {
-        "type": "String"
+      'onRowMouseOver': {
+        'type': 'String'
       },
-      "onRowMouseUp": {
-        "type": "String"
+      'onRowMouseUp': {
+        'type': 'String'
       },
-      "rendered": {
-        "type": "Boolean",
-        "values": [
-          "true",
-          "false"
+      'rendered': {
+        'type': 'Boolean',
+        'values': [
+          'true',
+          'false'
         ]
       },
-      "rowClasses": {
-        "type": "String"
+      'rowClasses': {
+        'type': 'String'
       },
-      "rows": {
-        "type": "Integer"
+      'rows': {
+        'type': 'Integer'
       },
-      "rules": {
-        "type": "String"
+      'rules': {
+        'type': 'String'
       },
-      "style": {
-        "type": "String"
+      'style': {
+        'type': 'String'
       },
-      "styleClass": {
-        "type": "String"
+      'styleClass': {
+        'type': 'String'
       },
-      "summary": {
-        "type": "String"
+      'summary': {
+        'type': 'String'
       },
-      "title": {
-        "type": "String"
+      'title': {
+        'type': 'String'
       },
-      "value": {
-        "type": "Object"
+      'value': {
+        'type': 'Object'
       },
-      "var": {
-        "type": "String"
+      'var': {
+        'type': 'String'
       },
-      "width": {
-        "type": "String"
+      'width': {
+        'type': 'String'
       }
     }
   },
-  "apex:define": {
-    "simple": false,
-    "attribs": {
-      "name": {
-        "type": "String"
+  'apex:define': {
+    'simple': false,
+    'attribs': {
+      'name': {
+        'type': 'String'
       }
     }
   },
-  "apex:description": {
-    "simple": false,
-    "attribs": {}
+  'apex:description': {
+    'simple': false,
+    'attribs': {}
   },
-  "apex:detail": {
-    "simple": true,
-    "attribs": {
-      "id": {
-        "type": "String"
+  'apex:detail': {
+    'simple': true,
+    'attribs': {
+      'id': {
+        'type': 'String'
       },
-      "inlineEdit": {
-        "type": "Boolean",
-        "values": [
-          "true",
-          "false"
+      'inlineEdit': {
+        'type': 'Boolean',
+        'values': [
+          'true',
+          'false'
         ]
       },
-      "oncomplete": {
-        "type": "String"
+      'oncomplete': {
+        'type': 'String'
       },
-      "relatedList": {
-        "type": "Boolean",
-        "values": [
-          "true",
-          "false"
+      'relatedList': {
+        'type': 'Boolean',
+        'values': [
+          'true',
+          'false'
         ]
       },
-      "relatedListHover": {
-        "type": "Boolean",
-        "values": [
-          "true",
-          "false"
+      'relatedListHover': {
+        'type': 'Boolean',
+        'values': [
+          'true',
+          'false'
         ]
       },
-      "rendered": {
-        "type": "Boolean",
-        "values": [
-          "true",
-          "false"
+      'rendered': {
+        'type': 'Boolean',
+        'values': [
+          'true',
+          'false'
         ]
       },
-      "rerender": {
-        "type": "Object"
+      'rerender': {
+        'type': 'Object'
       },
-      "showChatter": {
-        "type": "Boolean",
-        "values": [
-          "true",
-          "false"
+      'showChatter': {
+        'type': 'Boolean',
+        'values': [
+          'true',
+          'false'
         ]
       },
-      "subject": {
-        "type": "String"
+      'subject': {
+        'type': 'String'
       },
-      "title": {
-        "type": "Boolean",
-        "values": [
-          "true",
-          "false"
+      'title': {
+        'type': 'Boolean',
+        'values': [
+          'true',
+          'false'
         ]
       }
     }
   },
-  "apex:dynamicComponent": {
-    "simple": true,
-    "attribs": {
-      "componentValue": {
-        "type": "UIComponent"
+  'apex:dynamicComponent': {
+    'simple': true,
+    'attribs': {
+      'componentValue': {
+        'type': 'UIComponent'
       },
-      "id": {
-        "type": "String"
+      'id': {
+        'type': 'String'
       },
-      "invokeAfterAction": {
-        "type": "Boolean",
-        "values": [
-          "true",
-          "false"
+      'invokeAfterAction': {
+        'type': 'Boolean',
+        'values': [
+          'true',
+          'false'
         ]
       },
-      "rendered": {
-        "type": "Boolean",
-        "values": [
-          "true",
-          "false"
+      'rendered': {
+        'type': 'Boolean',
+        'values': [
+          'true',
+          'false'
         ]
       }
     }
   },
-  "apex:enhancedList": {
-    "simple": true,
-    "attribs": {
-      "customizable": {
-        "type": "Boolean",
-        "values": [
-          "true",
-          "false"
+  'apex:enhancedList': {
+    'simple': true,
+    'attribs': {
+      'customizable': {
+        'type': 'Boolean',
+        'values': [
+          'true',
+          'false'
         ]
       },
-      "height": {
-        "type": "Integer"
+      'height': {
+        'type': 'Integer'
       },
-      "id": {
-        "type": "String"
+      'id': {
+        'type': 'String'
       },
-      "listId": {
-        "type": "String"
+      'listId': {
+        'type': 'String'
       },
-      "oncomplete": {
-        "type": "String"
+      'oncomplete': {
+        'type': 'String'
       },
-      "rendered": {
-        "type": "Boolean",
-        "values": [
-          "true",
-          "false"
+      'rendered': {
+        'type': 'Boolean',
+        'values': [
+          'true',
+          'false'
         ]
       },
-      "reRender": {
-        "type": "Object"
+      'reRender': {
+        'type': 'Object'
       },
-      "rowsPerPage": {
-        "type": "Integer"
+      'rowsPerPage': {
+        'type': 'Integer'
       },
-      "type": {
-        "type": "String"
+      'type': {
+        'type': 'String'
       },
-      "width": {
-        "type": "Integer"
+      'width': {
+        'type': 'Integer'
       }
     }
   },
-  "apex:facet": {
-    "simple": false,
-    "attribs": {
-      "name": {
-        "type": "String"
+  'apex:facet': {
+    'simple': false,
+    'attribs': {
+      'name': {
+        'type': 'String'
       }
     }
   },
-  "apex:flash": {
-    "simple": false,
-    "attribs": {
-      "flashvars": {
-        "type": "String"
+  'apex:flash': {
+    'simple': false,
+    'attribs': {
+      'flashvars': {
+        'type': 'String'
       },
-      "height": {
-        "type": "String"
+      'height': {
+        'type': 'String'
       },
-      "id": {
-        "type": "String"
+      'id': {
+        'type': 'String'
       },
-      "loop": {
-        "type": "Boolean",
-        "values": [
-          "true",
-          "false"
+      'loop': {
+        'type': 'Boolean',
+        'values': [
+          'true',
+          'false'
         ]
       },
-      "play": {
-        "type": "Boolean",
-        "values": [
-          "true",
-          "false"
+      'play': {
+        'type': 'Boolean',
+        'values': [
+          'true',
+          'false'
         ]
       },
-      "rendered": {
-        "type": "Boolean",
-        "values": [
-          "true",
-          "false"
+      'rendered': {
+        'type': 'Boolean',
+        'values': [
+          'true',
+          'false'
         ]
       },
-      "src": {
-        "type": "String"
+      'src': {
+        'type': 'String'
       },
-      "width": {
-        "type": "String"
+      'width': {
+        'type': 'String'
       }
     }
   },
-  "apex:form": {
-    "simple": false,
-    "attribs": {
-      "accept": {
-        "type": "String"
+  'apex:form': {
+    'simple': false,
+    'attribs': {
+      'accept': {
+        'type': 'String'
       },
-      "acceptcharset": {
-        "type": "String"
+      'acceptcharset': {
+        'type': 'String'
       },
-      "dir": {
-        "type": "String"
+      'dir': {
+        'type': 'String'
       },
-      "enctype": {
-        "type": "String"
+      'enctype': {
+        'type': 'String'
       },
-      "forceSSL": {
-        "type": "Boolean",
-        "values": [
-          "true",
-          "false"
+      'forceSSL': {
+        'type': 'Boolean',
+        'values': [
+          'true',
+          'false'
         ]
       },
-      "id": {
-        "type": "String"
+      'id': {
+        'type': 'String'
       },
-      "lang": {
-        "type": "String"
+      'lang': {
+        'type': 'String'
       },
-      "onclick": {
-        "type": "String"
+      'onclick': {
+        'type': 'String'
       },
-      "ondblclick": {
-        "type": "String"
+      'ondblclick': {
+        'type': 'String'
       },
-      "onkeydown": {
-        "type": "String"
+      'onkeydown': {
+        'type': 'String'
       },
-      "onkeypress": {
-        "type": "String"
+      'onkeypress': {
+        'type': 'String'
       },
-      "onkeyup": {
-        "type": "String"
+      'onkeyup': {
+        'type': 'String'
       },
-      "onmousedown": {
-        "type": "String"
+      'onmousedown': {
+        'type': 'String'
       },
-      "onmousemove": {
-        "type": "String"
+      'onmousemove': {
+        'type': 'String'
       },
-      "onmouseout": {
-        "type": "String"
+      'onmouseout': {
+        'type': 'String'
       },
-      "onmouseover": {
-        "type": "String"
+      'onmouseover': {
+        'type': 'String'
       },
-      "onmouseup": {
-        "type": "String"
+      'onmouseup': {
+        'type': 'String'
       },
-      "onreset": {
-        "type": "String"
+      'onreset': {
+        'type': 'String'
       },
-      "onsubmit": {
-        "type": "String"
+      'onsubmit': {
+        'type': 'String'
       },
-      "prependId": {
-        "type": "Boolean",
-        "values": [
-          "true",
-          "false"
+      'prependId': {
+        'type': 'Boolean',
+        'values': [
+          'true',
+          'false'
         ]
       },
-      "rendered": {
-        "type": "Boolean",
-        "values": [
-          "true",
-          "false"
+      'rendered': {
+        'type': 'Boolean',
+        'values': [
+          'true',
+          'false'
         ]
       },
-      "style": {
-        "type": "String"
+      'style': {
+        'type': 'String'
       },
-      "styleClass": {
-        "type": "String"
+      'styleClass': {
+        'type': 'String'
       },
-      "target": {
-        "type": "String"
+      'target': {
+        'type': 'String'
       },
-      "title": {
-        "type": "String"
+      'title': {
+        'type': 'String'
       }
     }
   },
-  "apex:gaugeSeries": {
-    "simple": false,
-    "attribs": {
-      "colorSet": {
-        "type": "String"
+  'apex:gaugeSeries': {
+    'simple': false,
+    'attribs': {
+      'colorSet': {
+        'type': 'String'
       },
-      "dataField": {
-        "type": "String"
+      'dataField': {
+        'type': 'String'
       },
-      "donut": {
-        "type": "Integer"
+      'donut': {
+        'type': 'Integer'
       },
-      "highlight": {
-        "type": "Boolean",
-        "values": [
-          "true",
-          "false"
+      'highlight': {
+        'type': 'Boolean',
+        'values': [
+          'true',
+          'false'
         ]
       },
-      "id": {
-        "type": "String"
+      'id': {
+        'type': 'String'
       },
-      "labelField": {
-        "type": "String"
+      'labelField': {
+        'type': 'String'
       },
-      "needle": {
-        "type": "Boolean",
-        "values": [
-          "true",
-          "false"
+      'needle': {
+        'type': 'Boolean',
+        'values': [
+          'true',
+          'false'
         ]
       },
-      "rendered": {
-        "type": "Boolean",
-        "values": [
-          "true",
-          "false"
+      'rendered': {
+        'type': 'Boolean',
+        'values': [
+          'true',
+          'false'
         ]
       },
-      "rendererFn": {
-        "type": "String"
+      'rendererFn': {
+        'type': 'String'
       },
-      "tips": {
-        "type": "Boolean",
-        "values": [
-          "true",
-          "false"
+      'tips': {
+        'type': 'Boolean',
+        'values': [
+          'true',
+          'false'
         ]
       }
     }
   },
-  "apex:iframe": {
-    "simple": true,
-    "attribs": {
-      "frameborder": {
-        "type": "Boolean",
-        "values": [
-          "true",
-          "false"
+  'apex:iframe': {
+    'simple': true,
+    'attribs': {
+      'frameborder': {
+        'type': 'Boolean',
+        'values': [
+          'true',
+          'false'
         ]
       },
-      "height": {
-        "type": "String"
+      'height': {
+        'type': 'String'
       },
-      "id": {
-        "type": "String"
+      'id': {
+        'type': 'String'
       },
-      "rendered": {
-        "type": "Boolean",
-        "values": [
-          "true",
-          "false"
+      'rendered': {
+        'type': 'Boolean',
+        'values': [
+          'true',
+          'false'
         ]
       },
-      "scrolling": {
-        "type": "Boolean",
-        "values": [
-          "true",
-          "false"
+      'scrolling': {
+        'type': 'Boolean',
+        'values': [
+          'true',
+          'false'
         ]
       },
-      "src": {
-        "type": "String"
+      'src': {
+        'type': 'String'
       },
-      "title": {
-        "type": "String"
+      'title': {
+        'type': 'String'
       },
-      "width": {
-        "type": "String"
+      'width': {
+        'type': 'String'
       }
     }
   },
-  "apex:image": {
-    "simple": true,
-    "attribs": {
-      "alt": {
-        "type": "String"
+  'apex:image': {
+    'simple': true,
+    'attribs': {
+      'alt': {
+        'type': 'String'
       },
-      "dir": {
-        "type": "String"
+      'dir': {
+        'type': 'String'
       },
-      "height": {
-        "type": "String"
+      'height': {
+        'type': 'String'
       },
-      "id": {
-        "type": "String"
+      'id': {
+        'type': 'String'
       },
-      "ismap": {
-        "type": "Boolean",
-        "values": [
-          "true",
-          "false"
+      'ismap': {
+        'type': 'Boolean',
+        'values': [
+          'true',
+          'false'
         ]
       },
-      "lang": {
-        "type": "String"
+      'lang': {
+        'type': 'String'
       },
-      "longdesc": {
-        "type": "String"
+      'longdesc': {
+        'type': 'String'
       },
-      "onclick": {
-        "type": "String"
+      'onclick': {
+        'type': 'String'
       },
-      "ondblclick": {
-        "type": "String"
+      'ondblclick': {
+        'type': 'String'
       },
-      "onkeydown": {
-        "type": "String"
+      'onkeydown': {
+        'type': 'String'
       },
-      "onkeypress": {
-        "type": "String"
+      'onkeypress': {
+        'type': 'String'
       },
-      "onkeyup": {
-        "type": "String"
+      'onkeyup': {
+        'type': 'String'
       },
-      "onmousedown": {
-        "type": "String"
+      'onmousedown': {
+        'type': 'String'
       },
-      "onmousemove": {
-        "type": "String"
+      'onmousemove': {
+        'type': 'String'
       },
-      "onmouseout": {
-        "type": "String"
+      'onmouseout': {
+        'type': 'String'
       },
-      "onmouseover": {
-        "type": "String"
+      'onmouseover': {
+        'type': 'String'
       },
-      "onmouseup": {
-        "type": "String"
+      'onmouseup': {
+        'type': 'String'
       },
-      "rendered": {
-        "type": "Boolean",
-        "values": [
-          "true",
-          "false"
+      'rendered': {
+        'type': 'Boolean',
+        'values': [
+          'true',
+          'false'
         ]
       },
-      "style": {
-        "type": "String"
+      'style': {
+        'type': 'String'
       },
-      "styleClass": {
-        "type": "String"
+      'styleClass': {
+        'type': 'String'
       },
-      "title": {
-        "type": "String"
+      'title': {
+        'type': 'String'
       },
-      "url": {
-        "type": "String"
+      'url': {
+        'type': 'String'
       },
-      "usemap": {
-        "type": "String"
+      'usemap': {
+        'type': 'String'
       },
-      "value": {
-        "type": "Object"
+      'value': {
+        'type': 'Object'
       },
-      "width": {
-        "type": "String"
+      'width': {
+        'type': 'String'
       }
     }
   },
-  "apex:include": {
-    "simple": true,
-    "attribs": {
-      "id": {
-        "type": "String"
+  'apex:include': {
+    'simple': true,
+    'attribs': {
+      'id': {
+        'type': 'String'
       },
-      "pageName": {
-        "type": "ApexPages.PageReference"
+      'pageName': {
+        'type': 'ApexPages.PageReference'
       },
-      "rendered": {
-        "type": "Boolean",
-        "values": [
-          "true",
-          "false"
+      'rendered': {
+        'type': 'Boolean',
+        'values': [
+          'true',
+          'false'
         ]
       }
     }
   },
-  "apex:includeLightning": {
-    "simple": true,
-    "attribs": {
-      "id": {
-        "type": "String"
+  'apex:includeLightning': {
+    'simple': true,
+    'attribs': {
+      'id': {
+        'type': 'String'
       },
-      "rendered": {
-        "type": "Boolean",
-        "values": [
-          "true",
-          "false"
+      'rendered': {
+        'type': 'Boolean',
+        'values': [
+          'true',
+          'false'
         ]
       }
     }
   },
-  "apex:includeScript": {
-    "simple": true,
-    "attribs": {
-      "id": {
-        "type": "String"
+  'apex:includeScript': {
+    'simple': true,
+    'attribs': {
+      'id': {
+        'type': 'String'
       },
-      "loadOnReady": {
-        "type": "Boolean",
-        "values": [
-          "true",
-          "false"
+      'loadOnReady': {
+        'type': 'Boolean',
+        'values': [
+          'true',
+          'false'
         ]
       },
-      "value": {
-        "type": "Object"
+      'value': {
+        'type': 'Object'
       }
     }
   },
-  "apex:inlineEditSupport": {
-    "simple": true,
-    "attribs": {
-      "changedStyleClass": {
-        "type": "String"
+  'apex:inlineEditSupport': {
+    'simple': true,
+    'attribs': {
+      'changedStyleClass': {
+        'type': 'String'
       },
-      "disabled": {
-        "type": "Boolean",
-        "values": [
-          "true",
-          "false"
+      'disabled': {
+        'type': 'Boolean',
+        'values': [
+          'true',
+          'false'
         ]
       },
-      "event": {
-        "type": "String"
+      'event': {
+        'type': 'String'
       },
-      "hideOnEdit": {
-        "type": "Object"
+      'hideOnEdit': {
+        'type': 'Object'
       },
-      "id": {
-        "type": "String"
+      'id': {
+        'type': 'String'
       },
-      "rendered": {
-        "type": "Boolean",
-        "values": [
-          "true",
-          "false"
+      'rendered': {
+        'type': 'Boolean',
+        'values': [
+          'true',
+          'false'
         ]
       },
-      "resetFunction": {
-        "type": "String"
+      'resetFunction': {
+        'type': 'String'
       },
-      "showOnEdit": {
-        "type": "Object"
+      'showOnEdit': {
+        'type': 'Object'
       }
     }
   },
-  "apex:input": {
-    "simple": true,
-    "attribs": {
-      "accesskey": {
-        "type": "String"
+  'apex:input': {
+    'simple': true,
+    'attribs': {
+      'accesskey': {
+        'type': 'String'
       },
-      "alt": {
-        "type": "String"
+      'alt': {
+        'type': 'String'
       },
-      "dir": {
-        "type": "String"
+      'dir': {
+        'type': 'String'
       },
-      "disabled": {
-        "type": "Boolean",
-        "values": [
-          "true",
-          "false"
+      'disabled': {
+        'type': 'Boolean',
+        'values': [
+          'true',
+          'false'
         ]
       },
-      "id": {
-        "type": "String"
+      'id': {
+        'type': 'String'
       },
-      "label": {
-        "type": "String"
+      'label': {
+        'type': 'String'
       },
-      "lang": {
-        "type": "String"
+      'lang': {
+        'type': 'String'
       },
-      "list": {
-        "type": "Object"
+      'list': {
+        'type': 'Object'
       },
-      "onblur": {
-        "type": "String"
+      'onblur': {
+        'type': 'String'
       },
-      "onchange": {
-        "type": "String"
+      'onchange': {
+        'type': 'String'
       },
-      "onclick": {
-        "type": "String"
+      'onclick': {
+        'type': 'String'
       },
-      "ondblclick": {
-        "type": "String"
+      'ondblclick': {
+        'type': 'String'
       },
-      "onfocus": {
-        "type": "String"
+      'onfocus': {
+        'type': 'String'
       },
-      "onkeydown": {
-        "type": "String"
+      'onkeydown': {
+        'type': 'String'
       },
-      "onkeypress": {
-        "type": "String"
+      'onkeypress': {
+        'type': 'String'
       },
-      "onkeyup": {
-        "type": "String"
+      'onkeyup': {
+        'type': 'String'
       },
-      "onmousedown": {
-        "type": "String"
+      'onmousedown': {
+        'type': 'String'
       },
-      "onmousemove": {
-        "type": "String"
+      'onmousemove': {
+        'type': 'String'
       },
-      "onmouseout": {
-        "type": "String"
+      'onmouseout': {
+        'type': 'String'
       },
-      "onmouseover": {
-        "type": "String"
+      'onmouseover': {
+        'type': 'String'
       },
-      "onmouseup": {
-        "type": "String"
+      'onmouseup': {
+        'type': 'String'
       },
-      "rendered": {
-        "type": "Boolean",
-        "values": [
-          "true",
-          "false"
+      'rendered': {
+        'type': 'Boolean',
+        'values': [
+          'true',
+          'false'
         ]
       },
-      "required": {
-        "type": "Boolean",
-        "values": [
-          "true",
-          "false"
+      'required': {
+        'type': 'Boolean',
+        'values': [
+          'true',
+          'false'
         ]
       },
-      "size": {
-        "type": "Integer"
+      'size': {
+        'type': 'Integer'
       },
-      "style": {
-        "type": "String"
+      'style': {
+        'type': 'String'
       },
-      "styleClass": {
-        "type": "String"
+      'styleClass': {
+        'type': 'String'
       },
-      "tabindex": {
-        "type": "String"
+      'tabindex': {
+        'type': 'String'
       },
-      "title": {
-        "type": "String"
+      'title': {
+        'type': 'String'
       },
-      "type": {
-        "type": "String",
-        "values": [
-          "auto",
-          "date",
-          "datetime",
-          "datetime-local",
-          "email",
-          "month",
-          "number",
-          "range",
-          "search",
-          "tel",
-          "text",
-          "time",
-          "url",
-          "week"
+      'type': {
+        'type': 'String',
+        'values': [
+          'auto',
+          'date',
+          'datetime',
+          'datetime-local',
+          'email',
+          'month',
+          'number',
+          'range',
+          'search',
+          'tel',
+          'text',
+          'time',
+          'url',
+          'week'
         ]
       },
-      "value": {
-        "type": "Object"
+      'value': {
+        'type': 'Object'
       }
     }
   },
-  "apex:inputCheckbox": {
-    "simple": true,
-    "attribs": {
-      "accesskey": {
-        "type": "String"
+  'apex:inputCheckbox': {
+    'simple': true,
+    'attribs': {
+      'accesskey': {
+        'type': 'String'
       },
-      "dir": {
-        "type": "String"
+      'dir': {
+        'type': 'String'
       },
-      "disabled": {
-        "type": "Boolean",
-        "values": [
-          "true",
-          "false"
+      'disabled': {
+        'type': 'Boolean',
+        'values': [
+          'true',
+          'false'
         ]
       },
-      "id": {
-        "type": "String"
+      'id': {
+        'type': 'String'
       },
-      "immediate": {
-        "type": "Boolean",
-        "values": [
-          "true",
-          "false"
+      'immediate': {
+        'type': 'Boolean',
+        'values': [
+          'true',
+          'false'
         ]
       },
-      "label": {
-        "type": "String"
+      'label': {
+        'type': 'String'
       },
-      "lang": {
-        "type": "String"
+      'lang': {
+        'type': 'String'
       },
-      "onblur": {
-        "type": "String"
+      'onblur': {
+        'type': 'String'
       },
-      "onchange": {
-        "type": "String"
+      'onchange': {
+        'type': 'String'
       },
-      "onclick": {
-        "type": "String"
+      'onclick': {
+        'type': 'String'
       },
-      "ondblclick": {
-        "type": "String"
+      'ondblclick': {
+        'type': 'String'
       },
-      "onfocus": {
-        "type": "String"
+      'onfocus': {
+        'type': 'String'
       },
-      "onkeydown": {
-        "type": "String"
+      'onkeydown': {
+        'type': 'String'
       },
-      "onkeypress": {
-        "type": "String"
+      'onkeypress': {
+        'type': 'String'
       },
-      "onkeyup": {
-        "type": "String"
+      'onkeyup': {
+        'type': 'String'
       },
-      "onmousedown": {
-        "type": "String"
+      'onmousedown': {
+        'type': 'String'
       },
-      "onmousemove": {
-        "type": "String"
+      'onmousemove': {
+        'type': 'String'
       },
-      "onmouseout": {
-        "type": "String"
+      'onmouseout': {
+        'type': 'String'
       },
-      "onmouseover": {
-        "type": "String"
+      'onmouseover': {
+        'type': 'String'
       },
-      "onmouseup": {
-        "type": "String"
+      'onmouseup': {
+        'type': 'String'
       },
-      "onselect": {
-        "type": "String"
+      'onselect': {
+        'type': 'String'
       },
-      "rendered": {
-        "type": "Boolean",
-        "values": [
-          "true",
-          "false"
+      'rendered': {
+        'type': 'Boolean',
+        'values': [
+          'true',
+          'false'
         ]
       },
-      "required": {
-        "type": "Boolean",
-        "values": [
-          "true",
-          "false"
+      'required': {
+        'type': 'Boolean',
+        'values': [
+          'true',
+          'false'
         ]
       },
-      "selected": {
-        "type": "Boolean",
-        "values": [
-          "true",
-          "false"
+      'selected': {
+        'type': 'Boolean',
+        'values': [
+          'true',
+          'false'
         ]
       },
-      "style": {
-        "type": "String"
+      'style': {
+        'type': 'String'
       },
-      "styleClass": {
-        "type": "String"
+      'styleClass': {
+        'type': 'String'
       },
-      "tabindex": {
-        "type": "String"
+      'tabindex': {
+        'type': 'String'
       },
-      "title": {
-        "type": "String"
+      'title': {
+        'type': 'String'
       },
-      "value": {
-        "type": "Object"
+      'value': {
+        'type': 'Object'
       }
     }
   },
-  "apex:inputField": {
-    "simple": true,
-    "attribs": {
-      "id": {
-        "type": "String"
+  'apex:inputField': {
+    'simple': true,
+    'attribs': {
+      'id': {
+        'type': 'String'
       },
-      "label": {
-        "type": "String"
+      'label': {
+        'type': 'String'
       },
-      "list": {
-        "type": "Object"
+      'list': {
+        'type': 'Object'
       },
-      "onblur": {
-        "type": "String"
+      'onblur': {
+        'type': 'String'
       },
-      "onchange": {
-        "type": "String"
+      'onchange': {
+        'type': 'String'
       },
-      "onclick": {
-        "type": "String"
+      'onclick': {
+        'type': 'String'
       },
-      "ondblclick": {
-        "type": "String"
+      'ondblclick': {
+        'type': 'String'
       },
-      "onfocus": {
-        "type": "String"
+      'onfocus': {
+        'type': 'String'
       },
-      "onkeydown": {
-        "type": "String"
+      'onkeydown': {
+        'type': 'String'
       },
-      "onkeypress": {
-        "type": "String"
+      'onkeypress': {
+        'type': 'String'
       },
-      "onkeyup": {
-        "type": "String"
+      'onkeyup': {
+        'type': 'String'
       },
-      "onmousedown": {
-        "type": "String"
+      'onmousedown': {
+        'type': 'String'
       },
-      "onmousemove": {
-        "type": "String"
+      'onmousemove': {
+        'type': 'String'
       },
-      "onmouseout": {
-        "type": "String"
+      'onmouseout': {
+        'type': 'String'
       },
-      "onmouseover": {
-        "type": "String"
+      'onmouseover': {
+        'type': 'String'
       },
-      "onmouseup": {
-        "type": "String"
+      'onmouseup': {
+        'type': 'String'
       },
-      "onselect": {
-        "type": "String"
+      'onselect': {
+        'type': 'String'
       },
-      "rendered": {
-        "type": "Boolean",
-        "values": [
-          "true",
-          "false"
+      'rendered': {
+        'type': 'Boolean',
+        'values': [
+          'true',
+          'false'
         ]
       },
-      "required": {
-        "type": "Boolean",
-        "values": [
-          "true",
-          "false"
+      'required': {
+        'type': 'Boolean',
+        'values': [
+          'true',
+          'false'
         ]
       },
-      "showDatePicker": {
-        "type": "Boolean",
-        "values": [
-          "true",
-          "false"
+      'showDatePicker': {
+        'type': 'Boolean',
+        'values': [
+          'true',
+          'false'
         ]
       },
-      "style": {
-        "type": "String"
+      'style': {
+        'type': 'String'
       },
-      "styleClass": {
-        "type": "String"
+      'styleClass': {
+        'type': 'String'
       },
-      "taborderhint": {
-        "type": "Integer"
+      'taborderhint': {
+        'type': 'Integer'
       },
-      "type": {
-        "type": "String",
-        "values": [
-          "auto",
-          "date",
-          "datetime",
-          "datetime-local",
-          "email",
-          "month",
-          "number",
-          "range",
-          "search",
-          "tel",
-          "text",
-          "time",
-          "url",
-          "week"
+      'type': {
+        'type': 'String',
+        'values': [
+          'auto',
+          'date',
+          'datetime',
+          'datetime-local',
+          'email',
+          'month',
+          'number',
+          'range',
+          'search',
+          'tel',
+          'text',
+          'time',
+          'url',
+          'week'
         ]
       },
-      "value": {
-        "type": "Object"
+      'value': {
+        'type': 'Object'
       }
     }
   },
-  "apex:inputFile": {
-    "simple": false,
-    "attribs": {
-      "accept": {
-        "type": "String"
+  'apex:inputFile': {
+    'simple': false,
+    'attribs': {
+      'accept': {
+        'type': 'String'
       },
-      "accessKey": {
-        "type": "String"
+      'accessKey': {
+        'type': 'String'
       },
-      "alt": {
-        "type": "String"
+      'alt': {
+        'type': 'String'
       },
-      "contentType": {
-        "type": "String"
+      'contentType': {
+        'type': 'String'
       },
-      "dir": {
-        "type": "String"
+      'dir': {
+        'type': 'String'
       },
-      "disabled": {
-        "type": "Boolean",
-        "values": [
-          "true",
-          "false"
+      'disabled': {
+        'type': 'Boolean',
+        'values': [
+          'true',
+          'false'
         ]
       },
-      "fileName": {
-        "type": "String"
+      'fileName': {
+        'type': 'String'
       },
-      "fileSize": {
-        "type": "Integer"
+      'fileSize': {
+        'type': 'Integer'
       },
-      "id": {
-        "type": "String"
+      'id': {
+        'type': 'String'
       },
-      "lang": {
-        "type": "String"
+      'lang': {
+        'type': 'String'
       },
-      "onblur": {
-        "type": "String"
+      'onblur': {
+        'type': 'String'
       },
-      "onchange": {
-        "type": "String"
+      'onchange': {
+        'type': 'String'
       },
-      "onclick": {
-        "type": "String"
+      'onclick': {
+        'type': 'String'
       },
-      "ondblclick": {
-        "type": "String"
+      'ondblclick': {
+        'type': 'String'
       },
-      "onfocus": {
-        "type": "String"
+      'onfocus': {
+        'type': 'String'
       },
-      "onkeydown": {
-        "type": "String"
+      'onkeydown': {
+        'type': 'String'
       },
-      "onkeypress": {
-        "type": "String"
+      'onkeypress': {
+        'type': 'String'
       },
-      "onkeyup": {
-        "type": "String"
+      'onkeyup': {
+        'type': 'String'
       },
-      "onmousedown": {
-        "type": "String"
+      'onmousedown': {
+        'type': 'String'
       },
-      "onmousemove": {
-        "type": "String"
+      'onmousemove': {
+        'type': 'String'
       },
-      "onmouseout": {
-        "type": "String"
+      'onmouseout': {
+        'type': 'String'
       },
-      "onmouseover": {
-        "type": "String"
+      'onmouseover': {
+        'type': 'String'
       },
-      "rendered": {
-        "type": "Boolean",
-        "values": [
-          "true",
-          "false"
+      'rendered': {
+        'type': 'Boolean',
+        'values': [
+          'true',
+          'false'
         ]
       },
-      "required": {
-        "type": "java://java.lang.Boolean"
+      'required': {
+        'type': 'java://java.lang.Boolean'
       },
-      "size": {
-        "type": "Integer"
+      'size': {
+        'type': 'Integer'
       },
-      "style": {
-        "type": "String"
+      'style': {
+        'type': 'String'
       },
-      "styleclass": {
-        "type": "String"
+      'styleclass': {
+        'type': 'String'
       },
-      "tabindex": {
-        "type": "Integer"
+      'tabindex': {
+        'type': 'Integer'
       },
-      "title": {
-        "type": "String"
+      'title': {
+        'type': 'String'
       },
-      "value": {
-        "type": "Blob"
+      'value': {
+        'type': 'Blob'
       }
     }
   },
-  "apex:inputHidden": {
-    "simple": true,
-    "attribs": {
-      "id": {
-        "type": "String"
+  'apex:inputHidden': {
+    'simple': true,
+    'attribs': {
+      'id': {
+        'type': 'String'
       },
-      "immediate": {
-        "type": "Boolean",
-        "values": [
-          "true",
-          "false"
+      'immediate': {
+        'type': 'Boolean',
+        'values': [
+          'true',
+          'false'
         ]
       },
-      "rendered": {
-        "type": "Boolean",
-        "values": [
-          "true",
-          "false"
+      'rendered': {
+        'type': 'Boolean',
+        'values': [
+          'true',
+          'false'
         ]
       },
-      "required": {
-        "type": "Boolean",
-        "values": [
-          "true",
-          "false"
+      'required': {
+        'type': 'Boolean',
+        'values': [
+          'true',
+          'false'
         ]
       },
-      "value": {
-        "type": "Object"
+      'value': {
+        'type': 'Object'
       }
     }
   },
-  "apex:inputSecret": {
-    "simple": true,
-    "attribs": {
-      "accesskey": {
-        "type": "String"
+  'apex:inputSecret': {
+    'simple': true,
+    'attribs': {
+      'accesskey': {
+        'type': 'String'
       },
-      "alt": {
-        "type": "String"
+      'alt': {
+        'type': 'String'
       },
-      "dir": {
-        "type": "String"
+      'dir': {
+        'type': 'String'
       },
-      "disabled": {
-        "type": "Boolean",
-        "values": [
-          "true",
-          "false"
+      'disabled': {
+        'type': 'Boolean',
+        'values': [
+          'true',
+          'false'
         ]
       },
-      "id": {
-        "type": "String"
+      'id': {
+        'type': 'String'
       },
-      "immediate": {
-        "type": "Boolean",
-        "values": [
-          "true",
-          "false"
+      'immediate': {
+        'type': 'Boolean',
+        'values': [
+          'true',
+          'false'
         ]
       },
-      "label": {
-        "type": "String"
+      'label': {
+        'type': 'String'
       },
-      "lang": {
-        "type": "String"
+      'lang': {
+        'type': 'String'
       },
-      "maxlength": {
-        "type": "Integer"
+      'maxlength': {
+        'type': 'Integer'
       },
-      "onblur": {
-        "type": "String"
+      'onblur': {
+        'type': 'String'
       },
-      "onchange": {
-        "type": "String"
+      'onchange': {
+        'type': 'String'
       },
-      "onclick": {
-        "type": "String"
+      'onclick': {
+        'type': 'String'
       },
-      "ondblclick": {
-        "type": "String"
+      'ondblclick': {
+        'type': 'String'
       },
-      "onfocus": {
-        "type": "String"
+      'onfocus': {
+        'type': 'String'
       },
-      "onkeydown": {
-        "type": "String"
+      'onkeydown': {
+        'type': 'String'
       },
-      "onkeypress": {
-        "type": "String"
+      'onkeypress': {
+        'type': 'String'
       },
-      "onkeyup": {
-        "type": "String"
+      'onkeyup': {
+        'type': 'String'
       },
-      "onmousedown": {
-        "type": "String"
+      'onmousedown': {
+        'type': 'String'
       },
-      "onmousemove": {
-        "type": "String"
+      'onmousemove': {
+        'type': 'String'
       },
-      "onmouseout": {
-        "type": "String"
+      'onmouseout': {
+        'type': 'String'
       },
-      "onmouseover": {
-        "type": "String"
+      'onmouseover': {
+        'type': 'String'
       },
-      "onmouseup": {
-        "type": "String"
+      'onmouseup': {
+        'type': 'String'
       },
-      "onselect": {
-        "type": "String"
+      'onselect': {
+        'type': 'String'
       },
-      "readonly": {
-        "type": "Boolean",
-        "values": [
-          "true",
-          "false"
+      'readonly': {
+        'type': 'Boolean',
+        'values': [
+          'true',
+          'false'
         ]
       },
-      "redisplay": {
-        "type": "Boolean",
-        "values": [
-          "true",
-          "false"
+      'redisplay': {
+        'type': 'Boolean',
+        'values': [
+          'true',
+          'false'
         ]
       },
-      "rendered": {
-        "type": "Boolean",
-        "values": [
-          "true",
-          "false"
+      'rendered': {
+        'type': 'Boolean',
+        'values': [
+          'true',
+          'false'
         ]
       },
-      "required": {
-        "type": "Boolean",
-        "values": [
-          "true",
-          "false"
+      'required': {
+        'type': 'Boolean',
+        'values': [
+          'true',
+          'false'
         ]
       },
-      "size": {
-        "type": "Integer"
+      'size': {
+        'type': 'Integer'
       },
-      "style": {
-        "type": "String"
+      'style': {
+        'type': 'String'
       },
-      "styleClass": {
-        "type": "String"
+      'styleClass': {
+        'type': 'String'
       },
-      "tabindex": {
-        "type": "String"
+      'tabindex': {
+        'type': 'String'
       },
-      "title": {
-        "type": "String"
+      'title': {
+        'type': 'String'
       },
-      "value": {
-        "type": "Object"
+      'value': {
+        'type': 'Object'
       }
     }
   },
-  "apex:inputText": {
-    "simple": true,
-    "attribs": {
-      "accesskey": {
-        "type": "String"
+  'apex:inputText': {
+    'simple': true,
+    'attribs': {
+      'accesskey': {
+        'type': 'String'
       },
-      "alt": {
-        "type": "String"
+      'alt': {
+        'type': 'String'
       },
-      "dir": {
-        "type": "String"
+      'dir': {
+        'type': 'String'
       },
-      "disabled": {
-        "type": "Boolean",
-        "values": [
-          "true",
-          "false"
+      'disabled': {
+        'type': 'Boolean',
+        'values': [
+          'true',
+          'false'
         ]
       },
-      "id": {
-        "type": "String"
+      'id': {
+        'type': 'String'
       },
-      "label": {
-        "type": "String"
+      'label': {
+        'type': 'String'
       },
-      "lang": {
-        "type": "String"
+      'lang': {
+        'type': 'String'
       },
-      "list": {
-        "type": "Object"
+      'list': {
+        'type': 'Object'
       },
-      "maxlength": {
-        "type": "Integer"
+      'maxlength': {
+        'type': 'Integer'
       },
-      "onblur": {
-        "type": "String"
+      'onblur': {
+        'type': 'String'
       },
-      "onchange": {
-        "type": "String"
+      'onchange': {
+        'type': 'String'
       },
-      "onclick": {
-        "type": "String"
+      'onclick': {
+        'type': 'String'
       },
-      "ondblclick": {
-        "type": "String"
+      'ondblclick': {
+        'type': 'String'
       },
-      "onfocus": {
-        "type": "String"
+      'onfocus': {
+        'type': 'String'
       },
-      "onkeydown": {
-        "type": "String"
+      'onkeydown': {
+        'type': 'String'
       },
-      "onkeypress": {
-        "type": "String"
+      'onkeypress': {
+        'type': 'String'
       },
-      "onkeyup": {
-        "type": "String"
+      'onkeyup': {
+        'type': 'String'
       },
-      "onmousedown": {
-        "type": "String"
+      'onmousedown': {
+        'type': 'String'
       },
-      "onmousemove": {
-        "type": "String"
+      'onmousemove': {
+        'type': 'String'
       },
-      "onmouseout": {
-        "type": "String"
+      'onmouseout': {
+        'type': 'String'
       },
-      "onmouseover": {
-        "type": "String"
+      'onmouseover': {
+        'type': 'String'
       },
-      "onmouseup": {
-        "type": "String"
+      'onmouseup': {
+        'type': 'String'
       },
-      "rendered": {
-        "type": "Boolean",
-        "values": [
-          "true",
-          "false"
+      'rendered': {
+        'type': 'Boolean',
+        'values': [
+          'true',
+          'false'
         ]
       },
-      "required": {
-        "type": "Boolean",
-        "values": [
-          "true",
-          "false"
+      'required': {
+        'type': 'Boolean',
+        'values': [
+          'true',
+          'false'
         ]
       },
-      "size": {
-        "type": "Integer"
+      'size': {
+        'type': 'Integer'
       },
-      "style": {
-        "type": "String"
+      'style': {
+        'type': 'String'
       },
-      "styleClass": {
-        "type": "String"
+      'styleClass': {
+        'type': 'String'
       },
-      "tabindex": {
-        "type": "String"
+      'tabindex': {
+        'type': 'String'
       },
-      "title": {
-        "type": "String"
+      'title': {
+        'type': 'String'
       },
-      "value": {
-        "type": "Object"
+      'value': {
+        'type': 'Object'
       }
     }
   },
-  "apex:inputTextarea": {
-    "simple": true,
-    "attribs": {
-      "accesskey": {
-        "type": "String"
+  'apex:inputTextarea': {
+    'simple': true,
+    'attribs': {
+      'accesskey': {
+        'type': 'String'
       },
-      "cols": {
-        "type": "Integer"
+      'cols': {
+        'type': 'Integer'
       },
-      "dir": {
-        "type": "String"
+      'dir': {
+        'type': 'String'
       },
-      "disabled": {
-        "type": "Boolean",
-        "values": [
-          "true",
-          "false"
+      'disabled': {
+        'type': 'Boolean',
+        'values': [
+          'true',
+          'false'
         ]
       },
-      "id": {
-        "type": "String"
+      'id': {
+        'type': 'String'
       },
-      "label": {
-        "type": "String"
+      'label': {
+        'type': 'String'
       },
-      "lang": {
-        "type": "String"
+      'lang': {
+        'type': 'String'
       },
-      "onblur": {
-        "type": "String"
+      'onblur': {
+        'type': 'String'
       },
-      "onchange": {
-        "type": "String"
+      'onchange': {
+        'type': 'String'
       },
-      "onclick": {
-        "type": "String"
+      'onclick': {
+        'type': 'String'
       },
-      "ondblclick": {
-        "type": "String"
+      'ondblclick': {
+        'type': 'String'
       },
-      "onfocus": {
-        "type": "String"
+      'onfocus': {
+        'type': 'String'
       },
-      "onkeydown": {
-        "type": "String"
+      'onkeydown': {
+        'type': 'String'
       },
-      "onkeypress": {
-        "type": "String"
+      'onkeypress': {
+        'type': 'String'
       },
-      "onkeyup": {
-        "type": "String"
+      'onkeyup': {
+        'type': 'String'
       },
-      "onmousedown": {
-        "type": "String"
+      'onmousedown': {
+        'type': 'String'
       },
-      "onmousemove": {
-        "type": "String"
+      'onmousemove': {
+        'type': 'String'
       },
-      "onmouseout": {
-        "type": "String"
+      'onmouseout': {
+        'type': 'String'
       },
-      "onmouseover": {
-        "type": "String"
+      'onmouseover': {
+        'type': 'String'
       },
-      "onmouseup": {
-        "type": "String"
+      'onmouseup': {
+        'type': 'String'
       },
-      "onselect": {
-        "type": "String"
+      'onselect': {
+        'type': 'String'
       },
-      "readonly": {
-        "type": "Boolean",
-        "values": [
-          "true",
-          "false"
+      'readonly': {
+        'type': 'Boolean',
+        'values': [
+          'true',
+          'false'
         ]
       },
-      "rendered": {
-        "type": "Boolean",
-        "values": [
-          "true",
-          "false"
+      'rendered': {
+        'type': 'Boolean',
+        'values': [
+          'true',
+          'false'
         ]
       },
-      "required": {
-        "type": "Boolean",
-        "values": [
-          "true",
-          "false"
+      'required': {
+        'type': 'Boolean',
+        'values': [
+          'true',
+          'false'
         ]
       },
-      "richText": {
-        "type": "Boolean",
-        "values": [
-          "true",
-          "false"
+      'richText': {
+        'type': 'Boolean',
+        'values': [
+          'true',
+          'false'
         ]
       },
-      "rows": {
-        "type": "Integer"
+      'rows': {
+        'type': 'Integer'
       },
-      "style": {
-        "type": "String"
+      'style': {
+        'type': 'String'
       },
-      "styleClass": {
-        "type": "String"
+      'styleClass': {
+        'type': 'String'
       },
-      "tabindex": {
-        "type": "String"
+      'tabindex': {
+        'type': 'String'
       },
-      "title": {
-        "type": "String"
+      'title': {
+        'type': 'String'
       },
-      "value": {
-        "type": "Object"
+      'value': {
+        'type': 'Object'
       }
     }
   },
-  "apex:insert": {
-    "simple": false,
-    "attribs": {
-      "name": {
-        "type": "String"
+  'apex:insert': {
+    'simple': false,
+    'attribs': {
+      'name': {
+        'type': 'String'
       }
     }
   },
-  "apex:legend": {
-    "simple": false,
-    "attribs": {
-      "font": {
-        "type": "String"
+  'apex:legend': {
+    'simple': false,
+    'attribs': {
+      'font': {
+        'type': 'String'
       },
-      "id": {
-        "type": "String"
+      'id': {
+        'type': 'String'
       },
-      "padding": {
-        "type": "Integer"
+      'padding': {
+        'type': 'Integer'
       },
-      "position": {
-        "type": "String",
-        "values": [
-          "bottom",
-          "left",
-          "right",
-          "top"
+      'position': {
+        'type': 'String',
+        'values': [
+          'bottom',
+          'left',
+          'right',
+          'top'
         ]
       },
-      "rendered": {
-        "type": "Boolean",
-        "values": [
-          "true",
-          "false"
+      'rendered': {
+        'type': 'Boolean',
+        'values': [
+          'true',
+          'false'
         ]
       },
-      "spacing": {
-        "type": "Integer"
+      'spacing': {
+        'type': 'Integer'
       }
     }
   },
-  "apex:lineSeries": {
-    "simple": false,
-    "attribs": {
-      "axis": {
-        "type": "String"
+  'apex:lineSeries': {
+    'simple': false,
+    'attribs': {
+      'axis': {
+        'type': 'String'
       },
-      "fill": {
-        "type": "Boolean",
-        "values": [
-          "true",
-          "false"
+      'fill': {
+        'type': 'Boolean',
+        'values': [
+          'true',
+          'false'
         ]
       },
-      "fillColor": {
-        "type": "String"
+      'fillColor': {
+        'type': 'String'
       },
-      "highlight": {
-        "type": "Boolean",
-        "values": [
-          "true",
-          "false"
+      'highlight': {
+        'type': 'Boolean',
+        'values': [
+          'true',
+          'false'
         ]
       },
-      "highlightStrokeWidth": {
-        "type": "String"
+      'highlightStrokeWidth': {
+        'type': 'String'
       },
-      "id": {
-        "type": "String"
+      'id': {
+        'type': 'String'
       },
-      "markerFill": {
-        "type": "String"
+      'markerFill': {
+        'type': 'String'
       },
-      "markerSize": {
-        "type": "Integer"
+      'markerSize': {
+        'type': 'Integer'
       },
-      "markerType": {
-        "type": "String",
-        "values": [
-          "circle",
-          "cross"
+      'markerType': {
+        'type': 'String',
+        'values': [
+          'circle',
+          'cross'
         ]
       },
-      "opacity": {
-        "type": "String"
+      'opacity': {
+        'type': 'String'
       },
-      "rendered": {
-        "type": "Boolean",
-        "values": [
-          "true",
-          "false"
+      'rendered': {
+        'type': 'Boolean',
+        'values': [
+          'true',
+          'false'
         ]
       },
-      "rendererFn": {
-        "type": "String"
+      'rendererFn': {
+        'type': 'String'
       },
-      "showInLegend": {
-        "type": "Boolean",
-        "values": [
-          "true",
-          "false"
+      'showInLegend': {
+        'type': 'Boolean',
+        'values': [
+          'true',
+          'false'
         ]
       },
-      "smooth": {
-        "type": "Integer"
+      'smooth': {
+        'type': 'Integer'
       },
-      "strokeColor": {
-        "type": "String"
+      'strokeColor': {
+        'type': 'String'
       },
-      "strokeWidth": {
-        "type": "String"
+      'strokeWidth': {
+        'type': 'String'
       },
-      "tips": {
-        "type": "Boolean",
-        "values": [
-          "true",
-          "false"
+      'tips': {
+        'type': 'Boolean',
+        'values': [
+          'true',
+          'false'
         ]
       },
-      "title": {
-        "type": "String"
+      'title': {
+        'type': 'String'
       },
-      "xField": {
-        "type": "String"
+      'xField': {
+        'type': 'String'
       },
-      "yField": {
-        "type": "String"
+      'yField': {
+        'type': 'String'
       }
     }
   },
-  "apex:listViews": {
-    "simple": true,
-    "attribs": {
-      "id": {
-        "type": "String"
+  'apex:listViews': {
+    'simple': true,
+    'attribs': {
+      'id': {
+        'type': 'String'
       },
-      "rendered": {
-        "type": "Boolean",
-        "values": [
-          "true",
-          "false"
+      'rendered': {
+        'type': 'Boolean',
+        'values': [
+          'true',
+          'false'
         ]
       },
-      "type": {
-        "type": "String"
+      'type': {
+        'type': 'String'
       }
     }
   },
-  "apex:logCallPublisher": {
-    "simple": false,
-    "attribs": {
-      "autoCollapseBody": {
-        "type": "Boolean",
-        "values": [
-          "true",
-          "false"
+  'apex:logCallPublisher': {
+    'simple': false,
+    'attribs': {
+      'autoCollapseBody': {
+        'type': 'Boolean',
+        'values': [
+          'true',
+          'false'
         ]
       },
-      "entityId": {
-        "type": "id"
+      'entityId': {
+        'type': 'id'
       },
-      "id": {
-        "type": "String"
+      'id': {
+        'type': 'String'
       },
-      "logCallBody": {
-        "type": "String"
+      'logCallBody': {
+        'type': 'String'
       },
-      "logCallBodyHeight": {
-        "type": "String"
+      'logCallBodyHeight': {
+        'type': 'String'
       },
-      "onSubmitFailure": {
-        "type": "String"
+      'onSubmitFailure': {
+        'type': 'String'
       },
-      "onSubmitSuccess": {
-        "type": "String"
+      'onSubmitSuccess': {
+        'type': 'String'
       },
-      "rendered": {
-        "type": "Boolean",
-        "values": [
-          "true",
-          "false"
+      'rendered': {
+        'type': 'Boolean',
+        'values': [
+          'true',
+          'false'
         ]
       },
-      "reRender": {
-        "type": "Object"
+      'reRender': {
+        'type': 'Object'
       },
-      "showAdditionalFields": {
-        "type": "Boolean",
-        "values": [
-          "true",
-          "false"
+      'showAdditionalFields': {
+        'type': 'Boolean',
+        'values': [
+          'true',
+          'false'
         ]
       },
-      "showSubmitButton": {
-        "type": "Boolean",
-        "values": [
-          "true",
-          "false"
+      'showSubmitButton': {
+        'type': 'Boolean',
+        'values': [
+          'true',
+          'false'
         ]
       },
-      "submitButtonName": {
-        "type": "String"
+      'submitButtonName': {
+        'type': 'String'
       },
-      "submitFunctionName": {
-        "type": "String"
+      'submitFunctionName': {
+        'type': 'String'
       },
-      "title": {
-        "type": "String"
+      'title': {
+        'type': 'String'
       },
-      "width": {
-        "type": "String"
+      'width': {
+        'type': 'String'
       }
     }
   },
-  "apex:message": {
-    "simple": true,
-    "attribs": {
-      "dir": {
-        "type": "String"
+  'apex:message': {
+    'simple': true,
+    'attribs': {
+      'dir': {
+        'type': 'String'
       },
-      "for": {
-        "type": "String"
+      'for': {
+        'type': 'String'
       },
-      "id": {
-        "type": "String"
+      'id': {
+        'type': 'String'
       },
-      "lang": {
-        "type": "String"
+      'lang': {
+        'type': 'String'
       },
-      "rendered": {
-        "type": "Boolean",
-        "values": [
-          "true",
-          "false"
+      'rendered': {
+        'type': 'Boolean',
+        'values': [
+          'true',
+          'false'
         ]
       },
-      "style": {
-        "type": "String"
+      'style': {
+        'type': 'String'
       },
-      "styleClass": {
-        "type": "String"
+      'styleClass': {
+        'type': 'String'
       },
-      "title": {
-        "type": "String"
+      'title': {
+        'type': 'String'
       }
     }
   },
-  "apex:messages": {
-    "simple": true,
-    "attribs": {
-      "dir": {
-        "type": "String"
+  'apex:messages': {
+    'simple': true,
+    'attribs': {
+      'dir': {
+        'type': 'String'
       },
-      "globalOnly": {
-        "type": "Boolean",
-        "values": [
-          "true",
-          "false"
+      'globalOnly': {
+        'type': 'Boolean',
+        'values': [
+          'true',
+          'false'
         ]
       },
-      "id": {
-        "type": "String"
+      'id': {
+        'type': 'String'
       },
-      "lang": {
-        "type": "String"
+      'lang': {
+        'type': 'String'
       },
-      "layout": {
-        "type": "String"
+      'layout': {
+        'type': 'String'
       },
-      "rendered": {
-        "type": "Boolean",
-        "values": [
-          "true",
-          "false"
+      'rendered': {
+        'type': 'Boolean',
+        'values': [
+          'true',
+          'false'
         ]
       },
-      "style": {
-        "type": "String"
+      'style': {
+        'type': 'String'
       },
-      "styleClass": {
-        "type": "String"
+      'styleClass': {
+        'type': 'String'
       },
-      "title": {
-        "type": "String"
+      'title': {
+        'type': 'String'
       }
     }
   },
-  "apex:outputField": {
-    "simple": true,
-    "attribs": {
-      "dir": {
-        "type": "String"
+  'apex:outputField': {
+    'simple': true,
+    'attribs': {
+      'dir': {
+        'type': 'String'
       },
-      "id": {
-        "type": "String"
+      'id': {
+        'type': 'String'
       },
-      "label": {
-        "type": "String"
+      'label': {
+        'type': 'String'
       },
-      "lang": {
-        "type": "String"
+      'lang': {
+        'type': 'String'
       },
-      "rendered": {
-        "type": "Boolean",
-        "values": [
-          "true",
-          "false"
+      'rendered': {
+        'type': 'Boolean',
+        'values': [
+          'true',
+          'false'
         ]
       },
-      "style": {
-        "type": "String"
+      'style': {
+        'type': 'String'
       },
-      "styleClass": {
-        "type": "String"
+      'styleClass': {
+        'type': 'String'
       },
-      "title": {
-        "type": "String"
+      'title': {
+        'type': 'String'
       },
-      "value": {
-        "type": "Object"
+      'value': {
+        'type': 'Object'
       }
     }
   },
-  "apex:outputLabel": {
-    "simple": false,
-    "attribs": {
-      "accesskey": {
-        "type": "String"
+  'apex:outputLabel': {
+    'simple': false,
+    'attribs': {
+      'accesskey': {
+        'type': 'String'
       },
-      "dir": {
-        "type": "String"
+      'dir': {
+        'type': 'String'
       },
-      "escape": {
-        "type": "Boolean",
-        "values": [
-          "true",
-          "false"
+      'escape': {
+        'type': 'Boolean',
+        'values': [
+          'true',
+          'false'
         ]
       },
-      "for": {
-        "type": "String"
+      'for': {
+        'type': 'String'
       },
-      "id": {
-        "type": "String"
+      'id': {
+        'type': 'String'
       },
-      "lang": {
-        "type": "String"
+      'lang': {
+        'type': 'String'
       },
-      "onblur": {
-        "type": "String"
+      'onblur': {
+        'type': 'String'
       },
-      "onclick": {
-        "type": "String"
+      'onclick': {
+        'type': 'String'
       },
-      "ondblclick": {
-        "type": "String"
+      'ondblclick': {
+        'type': 'String'
       },
-      "onfocus": {
-        "type": "String"
+      'onfocus': {
+        'type': 'String'
       },
-      "onkeydown": {
-        "type": "String"
+      'onkeydown': {
+        'type': 'String'
       },
-      "onkeypress": {
-        "type": "String"
+      'onkeypress': {
+        'type': 'String'
       },
-      "onkeyup": {
-        "type": "String"
+      'onkeyup': {
+        'type': 'String'
       },
-      "onmousedown": {
-        "type": "String"
+      'onmousedown': {
+        'type': 'String'
       },
-      "onmousemove": {
-        "type": "String"
+      'onmousemove': {
+        'type': 'String'
       },
-      "onmouseout": {
-        "type": "String"
+      'onmouseout': {
+        'type': 'String'
       },
-      "onmouseover": {
-        "type": "String"
+      'onmouseover': {
+        'type': 'String'
       },
-      "onmouseup": {
-        "type": "String"
+      'onmouseup': {
+        'type': 'String'
       },
-      "rendered": {
-        "type": "Boolean",
-        "values": [
-          "true",
-          "false"
+      'rendered': {
+        'type': 'Boolean',
+        'values': [
+          'true',
+          'false'
         ]
       },
-      "style": {
-        "type": "String"
+      'style': {
+        'type': 'String'
       },
-      "styleClass": {
-        "type": "String"
+      'styleClass': {
+        'type': 'String'
       },
-      "tabindex": {
-        "type": "String"
+      'tabindex': {
+        'type': 'String'
       },
-      "title": {
-        "type": "String"
+      'title': {
+        'type': 'String'
       },
-      "value": {
-        "type": "Object"
+      'value': {
+        'type': 'Object'
       }
     }
   },
-  "apex:outputLink": {
-    "simple": false,
-    "attribs": {
-      "accesskey": {
-        "type": "String"
+  'apex:outputLink': {
+    'simple': false,
+    'attribs': {
+      'accesskey': {
+        'type': 'String'
       },
-      "charset": {
-        "type": "String"
+      'charset': {
+        'type': 'String'
       },
-      "coords": {
-        "type": "String"
+      'coords': {
+        'type': 'String'
       },
-      "dir": {
-        "type": "String"
+      'dir': {
+        'type': 'String'
       },
-      "disabled": {
-        "type": "Boolean",
-        "values": [
-          "true",
-          "false"
+      'disabled': {
+        'type': 'Boolean',
+        'values': [
+          'true',
+          'false'
         ]
       },
-      "hreflang": {
-        "type": "String"
+      'hreflang': {
+        'type': 'String'
       },
-      "id": {
-        "type": "String"
+      'id': {
+        'type': 'String'
       },
-      "lang": {
-        "type": "String"
+      'lang': {
+        'type': 'String'
       },
-      "onblur": {
-        "type": "String"
+      'onblur': {
+        'type': 'String'
       },
-      "onclick": {
-        "type": "String"
+      'onclick': {
+        'type': 'String'
       },
-      "ondblclick": {
-        "type": "String"
+      'ondblclick': {
+        'type': 'String'
       },
-      "onfocus": {
-        "type": "String"
+      'onfocus': {
+        'type': 'String'
       },
-      "onkeydown": {
-        "type": "String"
+      'onkeydown': {
+        'type': 'String'
       },
-      "onkeypress": {
-        "type": "String"
+      'onkeypress': {
+        'type': 'String'
       },
-      "onkeyup": {
-        "type": "String"
+      'onkeyup': {
+        'type': 'String'
       },
-      "onmousedown": {
-        "type": "String"
+      'onmousedown': {
+        'type': 'String'
       },
-      "onmousemove": {
-        "type": "String"
+      'onmousemove': {
+        'type': 'String'
       },
-      "onmouseout": {
-        "type": "String"
+      'onmouseout': {
+        'type': 'String'
       },
-      "onmouseover": {
-        "type": "String"
+      'onmouseover': {
+        'type': 'String'
       },
-      "onmouseup": {
-        "type": "String"
+      'onmouseup': {
+        'type': 'String'
       },
-      "rel": {
-        "type": "String"
+      'rel': {
+        'type': 'String'
       },
-      "rendered": {
-        "type": "Boolean",
-        "values": [
-          "true",
-          "false"
+      'rendered': {
+        'type': 'Boolean',
+        'values': [
+          'true',
+          'false'
         ]
       },
-      "rev": {
-        "type": "String"
+      'rev': {
+        'type': 'String'
       },
-      "shape": {
-        "type": "String"
+      'shape': {
+        'type': 'String'
       },
-      "style": {
-        "type": "String"
+      'style': {
+        'type': 'String'
       },
-      "styleClass": {
-        "type": "String"
+      'styleClass': {
+        'type': 'String'
       },
-      "tabindex": {
-        "type": "String"
+      'tabindex': {
+        'type': 'String'
       },
-      "target": {
-        "type": "String"
+      'target': {
+        'type': 'String'
       },
-      "title": {
-        "type": "String"
+      'title': {
+        'type': 'String'
       },
-      "type": {
-        "type": "String"
+      'type': {
+        'type': 'String'
       },
-      "value": {
-        "type": "Object"
+      'value': {
+        'type': 'Object'
       }
     }
   },
-  "apex:outputPanel": {
-    "simple": false,
-    "attribs": {
-      "dir": {
-        "type": "String"
+  'apex:outputPanel': {
+    'simple': false,
+    'attribs': {
+      'dir': {
+        'type': 'String'
       },
-      "id": {
-        "type": "String"
+      'id': {
+        'type': 'String'
       },
-      "lang": {
-        "type": "String"
+      'lang': {
+        'type': 'String'
       },
-      "layout": {
-        "type": "String"
+      'layout': {
+        'type': 'String'
       },
-      "onclick": {
-        "type": "String"
+      'onclick': {
+        'type': 'String'
       },
-      "ondblclick": {
-        "type": "String"
+      'ondblclick': {
+        'type': 'String'
       },
-      "onkeydown": {
-        "type": "String"
+      'onkeydown': {
+        'type': 'String'
       },
-      "onkeypress": {
-        "type": "String"
+      'onkeypress': {
+        'type': 'String'
       },
-      "onkeyup": {
-        "type": "String"
+      'onkeyup': {
+        'type': 'String'
       },
-      "onmousedown": {
-        "type": "String"
+      'onmousedown': {
+        'type': 'String'
       },
-      "onmousemove": {
-        "type": "String"
+      'onmousemove': {
+        'type': 'String'
       },
-      "onmouseout": {
-        "type": "String"
+      'onmouseout': {
+        'type': 'String'
       },
-      "onmouseover": {
-        "type": "String"
+      'onmouseover': {
+        'type': 'String'
       },
-      "onmouseup": {
-        "type": "String"
+      'onmouseup': {
+        'type': 'String'
       },
-      "rendered": {
-        "type": "Boolean",
-        "values": [
-          "true",
-          "false"
+      'rendered': {
+        'type': 'Boolean',
+        'values': [
+          'true',
+          'false'
         ]
       },
-      "style": {
-        "type": "String"
+      'style': {
+        'type': 'String'
       },
-      "styleClass": {
-        "type": "String"
+      'styleClass': {
+        'type': 'String'
       },
-      "title": {
-        "type": "String"
+      'title': {
+        'type': 'String'
       }
     }
   },
-  "apex:outputText": {
-    "simple": false,
-    "attribs": {
-      "dir": {
-        "type": "String"
+  'apex:outputText': {
+    'simple': false,
+    'attribs': {
+      'dir': {
+        'type': 'String'
       },
-      "escape": {
-        "type": "Boolean",
-        "values": [
-          "true",
-          "false"
+      'escape': {
+        'type': 'Boolean',
+        'values': [
+          'true',
+          'false'
         ]
       },
-      "id": {
-        "type": "String"
+      'id': {
+        'type': 'String'
       },
-      "label": {
-        "type": "String"
+      'label': {
+        'type': 'String'
       },
-      "lang": {
-        "type": "String"
+      'lang': {
+        'type': 'String'
       },
-      "rendered": {
-        "type": "Boolean",
-        "values": [
-          "true",
-          "false"
+      'rendered': {
+        'type': 'Boolean',
+        'values': [
+          'true',
+          'false'
         ]
       },
-      "style": {
-        "type": "String"
+      'style': {
+        'type': 'String'
       },
-      "styleClass": {
-        "type": "String"
+      'styleClass': {
+        'type': 'String'
       },
-      "title": {
-        "type": "String"
+      'title': {
+        'type': 'String'
       },
-      "value": {
-        "type": "Object"
+      'value': {
+        'type': 'Object'
       }
     }
   },
-  "apex:page": {
-    "simple": false,
-    "attribs": {
-      "action": {
-        "type": "ApexPages.Action"
+  'apex:page': {
+    'simple': false,
+    'attribs': {
+      'action': {
+        'type': 'ApexPages.Action'
       },
-      "apiVersion": {
-        "type": "double"
+      'apiVersion': {
+        'type': 'double'
       },
-      "applyBodyTag": {
-        "type": "Boolean",
-        "values": [
-          "true",
-          "false"
+      'applyBodyTag': {
+        'type': 'Boolean',
+        'values': [
+          'true',
+          'false'
         ]
       },
-      "applyHtmlTag": {
-        "type": "Boolean",
-        "values": [
-          "true",
-          "false"
+      'applyHtmlTag': {
+        'type': 'Boolean',
+        'values': [
+          'true',
+          'false'
         ]
       },
-      "cache": {
-        "type": "Boolean",
-        "values": [
-          "true",
-          "false"
+      'cache': {
+        'type': 'Boolean',
+        'values': [
+          'true',
+          'false'
         ]
       },
-      "contentType": {
-        "type": "String"
+      'contentType': {
+        'type': 'String'
       },
-      "controller": {
-        "type": "String"
+      'controller': {
+        'type': 'String'
       },
-      "deferLastCommandUntilReady": {
-        "type": "Boolean",
-        "values": [
-          "true",
-          "false"
+      'deferLastCommandUntilReady': {
+        'type': 'Boolean',
+        'values': [
+          'true',
+          'false'
         ]
       },
-      "docType": {
-        "type": "String"
+      'docType': {
+        'type': 'String'
       },
-      "expires": {
-        "type": "Integer"
+      'expires': {
+        'type': 'Integer'
       },
-      "extensions": {
-        "type": "String"
+      'extensions': {
+        'type': 'String'
       },
-      "id": {
-        "type": "String"
+      'id': {
+        'type': 'String'
       },
-      "label": {
-        "type": "String"
+      'label': {
+        'type': 'String'
       },
-      "language": {
-        "type": "String"
+      'language': {
+        'type': 'String'
       },
-      "manifest": {
-        "type": "String"
+      'manifest': {
+        'type': 'String'
       },
-      "name": {
-        "type": "String"
+      'name': {
+        'type': 'String'
       },
-      "pageStyle": {
-        "type": "String"
+      'pageStyle': {
+        'type': 'String'
       },
-      "readOnly": {
-        "type": "Boolean",
-        "values": [
-          "true",
-          "false"
+      'readOnly': {
+        'type': 'Boolean',
+        'values': [
+          'true',
+          'false'
         ]
       },
-      "recordSetVar": {
-        "type": "String"
+      'recordSetVar': {
+        'type': 'String'
       },
-      "renderAs": {
-        "type": "String"
+      'renderAs': {
+        'type': 'String'
       },
-      "rendered": {
-        "type": "Boolean",
-        "values": [
-          "true",
-          "false"
+      'rendered': {
+        'type': 'Boolean',
+        'values': [
+          'true',
+          'false'
         ]
       },
-      "setup": {
-        "type": "Boolean",
-        "values": [
-          "true",
-          "false"
+      'setup': {
+        'type': 'Boolean',
+        'values': [
+          'true',
+          'false'
         ]
       },
-      "showChat": {
-        "type": "Boolean",
-        "values": [
-          "true",
-          "false"
+      'showChat': {
+        'type': 'Boolean',
+        'values': [
+          'true',
+          'false'
         ]
       },
-      "showHeader": {
-        "type": "Boolean",
-        "values": [
-          "true",
-          "false"
+      'showHeader': {
+        'type': 'Boolean',
+        'values': [
+          'true',
+          'false'
         ]
       },
-      "showQuickActionVfHeader": {
-        "type": "Boolean",
-        "values": [
-          "true",
-          "false"
+      'showQuickActionVfHeader': {
+        'type': 'Boolean',
+        'values': [
+          'true',
+          'false'
         ]
       },
-      "sidebar": {
-        "type": "Boolean",
-        "values": [
-          "true",
-          "false"
+      'sidebar': {
+        'type': 'Boolean',
+        'values': [
+          'true',
+          'false'
         ]
       },
-      "standardController": {
-        "type": "String"
+      'standardController': {
+        'type': 'String'
       },
-      "standardStylesheets": {
-        "type": "Boolean",
-        "values": [
-          "true",
-          "false"
+      'standardStylesheets': {
+        'type': 'Boolean',
+        'values': [
+          'true',
+          'false'
         ]
       },
-      "tabStyle": {
-        "type": "String"
+      'tabStyle': {
+        'type': 'String'
       },
-      "title": {
-        "type": "String"
+      'title': {
+        'type': 'String'
       },
-      "wizard": {
-        "type": "Boolean",
-        "values": [
-          "true",
-          "false"
+      'wizard': {
+        'type': 'Boolean',
+        'values': [
+          'true',
+          'false'
         ]
       }
     }
   },
-  "apex:pageBlock": {
-    "simple": false,
-    "attribs": {
-      "dir": {
-        "type": "String"
+  'apex:pageBlock': {
+    'simple': false,
+    'attribs': {
+      'dir': {
+        'type': 'String'
       },
-      "helpTitle": {
-        "type": "String"
+      'helpTitle': {
+        'type': 'String'
       },
-      "helpUrl": {
-        "type": "String"
+      'helpUrl': {
+        'type': 'String'
       },
-      "id": {
-        "type": "String"
+      'id': {
+        'type': 'String'
       },
-      "lang": {
-        "type": "String"
+      'lang': {
+        'type': 'String'
       },
-      "mode": {
-        "type": "String"
+      'mode': {
+        'type': 'String'
       },
-      "onclick": {
-        "type": "String"
+      'onclick': {
+        'type': 'String'
       },
-      "ondblclick": {
-        "type": "String"
+      'ondblclick': {
+        'type': 'String'
       },
-      "onkeydown": {
-        "type": "String"
+      'onkeydown': {
+        'type': 'String'
       },
-      "onkeypress": {
-        "type": "String"
+      'onkeypress': {
+        'type': 'String'
       },
-      "onkeyup": {
-        "type": "String"
+      'onkeyup': {
+        'type': 'String'
       },
-      "onmousedown": {
-        "type": "String"
+      'onmousedown': {
+        'type': 'String'
       },
-      "onmousemove": {
-        "type": "String"
+      'onmousemove': {
+        'type': 'String'
       },
-      "onmouseout": {
-        "type": "String"
+      'onmouseout': {
+        'type': 'String'
       },
-      "onmouseover": {
-        "type": "String"
+      'onmouseover': {
+        'type': 'String'
       },
-      "onmouseup": {
-        "type": "String"
+      'onmouseup': {
+        'type': 'String'
       },
-      "rendered": {
-        "type": "Boolean",
-        "values": [
-          "true",
-          "false"
+      'rendered': {
+        'type': 'Boolean',
+        'values': [
+          'true',
+          'false'
         ]
       },
-      "tabStyle": {
-        "type": "String"
+      'tabStyle': {
+        'type': 'String'
       },
-      "title": {
-        "type": "String"
+      'title': {
+        'type': 'String'
       }
     }
   },
-  "apex:pageBlockButtons": {
-    "simple": false,
-    "attribs": {
-      "dir": {
-        "type": "String"
+  'apex:pageBlockButtons': {
+    'simple': false,
+    'attribs': {
+      'dir': {
+        'type': 'String'
       },
-      "id": {
-        "type": "String"
+      'id': {
+        'type': 'String'
       },
-      "lang": {
-        "type": "String"
+      'lang': {
+        'type': 'String'
       },
-      "location": {
-        "type": "String"
+      'location': {
+        'type': 'String'
       },
-      "onclick": {
-        "type": "String"
+      'onclick': {
+        'type': 'String'
       },
-      "ondblclick": {
-        "type": "String"
+      'ondblclick': {
+        'type': 'String'
       },
-      "onkeydown": {
-        "type": "String"
+      'onkeydown': {
+        'type': 'String'
       },
-      "onkeypress": {
-        "type": "String"
+      'onkeypress': {
+        'type': 'String'
       },
-      "onkeyup": {
-        "type": "String"
+      'onkeyup': {
+        'type': 'String'
       },
-      "onmousedown": {
-        "type": "String"
+      'onmousedown': {
+        'type': 'String'
       },
-      "onmousemove": {
-        "type": "String"
+      'onmousemove': {
+        'type': 'String'
       },
-      "onmouseout": {
-        "type": "String"
+      'onmouseout': {
+        'type': 'String'
       },
-      "onmouseover": {
-        "type": "String"
+      'onmouseover': {
+        'type': 'String'
       },
-      "onmouseup": {
-        "type": "String"
+      'onmouseup': {
+        'type': 'String'
       },
-      "rendered": {
-        "type": "Boolean",
-        "values": [
-          "true",
-          "false"
+      'rendered': {
+        'type': 'Boolean',
+        'values': [
+          'true',
+          'false'
         ]
       },
-      "style": {
-        "type": "String"
+      'style': {
+        'type': 'String'
       },
-      "styleClass": {
-        "type": "String"
+      'styleClass': {
+        'type': 'String'
       },
-      "title": {
-        "type": "String"
+      'title': {
+        'type': 'String'
       }
     }
   },
-  "apex:pageBlockSection": {
-    "simple": false,
-    "attribs": {
-      "collapsible": {
-        "type": "Boolean",
-        "values": [
-          "true",
-          "false"
+  'apex:pageBlockSection': {
+    'simple': false,
+    'attribs': {
+      'collapsible': {
+        'type': 'Boolean',
+        'values': [
+          'true',
+          'false'
         ]
       },
-      "columns": {
-        "type": "Integer"
+      'columns': {
+        'type': 'Integer'
       },
-      "dir": {
-        "type": "String"
+      'dir': {
+        'type': 'String'
       },
-      "id": {
-        "type": "String"
+      'id': {
+        'type': 'String'
       },
-      "lang": {
-        "type": "String"
+      'lang': {
+        'type': 'String'
       },
-      "onclick": {
-        "type": "String"
+      'onclick': {
+        'type': 'String'
       },
-      "ondblclick": {
-        "type": "String"
+      'ondblclick': {
+        'type': 'String'
       },
-      "onkeydown": {
-        "type": "String"
+      'onkeydown': {
+        'type': 'String'
       },
-      "onkeypress": {
-        "type": "String"
+      'onkeypress': {
+        'type': 'String'
       },
-      "onkeyup": {
-        "type": "String"
+      'onkeyup': {
+        'type': 'String'
       },
-      "onmousedown": {
-        "type": "String"
+      'onmousedown': {
+        'type': 'String'
       },
-      "onmousemove": {
-        "type": "String"
+      'onmousemove': {
+        'type': 'String'
       },
-      "onmouseout": {
-        "type": "String"
+      'onmouseout': {
+        'type': 'String'
       },
-      "onmouseover": {
-        "type": "String"
+      'onmouseover': {
+        'type': 'String'
       },
-      "onmouseup": {
-        "type": "String"
+      'onmouseup': {
+        'type': 'String'
       },
-      "rendered": {
-        "type": "Boolean",
-        "values": [
-          "true",
-          "false"
+      'rendered': {
+        'type': 'Boolean',
+        'values': [
+          'true',
+          'false'
         ]
       },
-      "showHeader": {
-        "type": "Boolean",
-        "values": [
-          "true",
-          "false"
+      'showHeader': {
+        'type': 'Boolean',
+        'values': [
+          'true',
+          'false'
         ]
       },
-      "title": {
-        "type": "String"
+      'title': {
+        'type': 'String'
       }
     }
   },
-  "apex:pageBlockSectionItem": {
-    "simple": false,
-    "attribs": {
-      "dataStyle": {
-        "type": "String"
+  'apex:pageBlockSectionItem': {
+    'simple': false,
+    'attribs': {
+      'dataStyle': {
+        'type': 'String'
       },
-      "dataStyleClass": {
-        "type": "String"
+      'dataStyleClass': {
+        'type': 'String'
       },
-      "dataTitle": {
-        "type": "String"
+      'dataTitle': {
+        'type': 'String'
       },
-      "dir": {
-        "type": "String"
+      'dir': {
+        'type': 'String'
       },
-      "helpText": {
-        "type": "String"
+      'helpText': {
+        'type': 'String'
       },
-      "id": {
-        "type": "String"
+      'id': {
+        'type': 'String'
       },
-      "labelStyle": {
-        "type": "String"
+      'labelStyle': {
+        'type': 'String'
       },
-      "labelStyleClass": {
-        "type": "String"
+      'labelStyleClass': {
+        'type': 'String'
       },
-      "labelTitle": {
-        "type": "String"
+      'labelTitle': {
+        'type': 'String'
       },
-      "lang": {
-        "type": "String"
+      'lang': {
+        'type': 'String'
       },
-      "onDataclick": {
-        "type": "String"
+      'onDataclick': {
+        'type': 'String'
       },
-      "onDatadblclick": {
-        "type": "String"
+      'onDatadblclick': {
+        'type': 'String'
       },
-      "onDatakeydown": {
-        "type": "String"
+      'onDatakeydown': {
+        'type': 'String'
       },
-      "onDatakeypress": {
-        "type": "String"
+      'onDatakeypress': {
+        'type': 'String'
       },
-      "onDatakeyup": {
-        "type": "String"
+      'onDatakeyup': {
+        'type': 'String'
       },
-      "onDatamousedown": {
-        "type": "String"
+      'onDatamousedown': {
+        'type': 'String'
       },
-      "onDatamousemove": {
-        "type": "String"
+      'onDatamousemove': {
+        'type': 'String'
       },
-      "onDatamouseout": {
-        "type": "String"
+      'onDatamouseout': {
+        'type': 'String'
       },
-      "onDatamouseover": {
-        "type": "String"
+      'onDatamouseover': {
+        'type': 'String'
       },
-      "onDatamouseup": {
-        "type": "String"
+      'onDatamouseup': {
+        'type': 'String'
       },
-      "onLabelclick": {
-        "type": "String"
+      'onLabelclick': {
+        'type': 'String'
       },
-      "onLabeldblclick": {
-        "type": "String"
+      'onLabeldblclick': {
+        'type': 'String'
       },
-      "onLabelkeydown": {
-        "type": "String"
+      'onLabelkeydown': {
+        'type': 'String'
       },
-      "onLabelkeypress": {
-        "type": "String"
+      'onLabelkeypress': {
+        'type': 'String'
       },
-      "onLabelkeyup": {
-        "type": "String"
+      'onLabelkeyup': {
+        'type': 'String'
       },
-      "onLabelmousedown": {
-        "type": "String"
+      'onLabelmousedown': {
+        'type': 'String'
       },
-      "onLabelmousemove": {
-        "type": "String"
+      'onLabelmousemove': {
+        'type': 'String'
       },
-      "onLabelmouseout": {
-        "type": "String"
+      'onLabelmouseout': {
+        'type': 'String'
       },
-      "onLabelmouseover": {
-        "type": "String"
+      'onLabelmouseover': {
+        'type': 'String'
       },
-      "onLabelmouseup": {
-        "type": "String"
+      'onLabelmouseup': {
+        'type': 'String'
       },
-      "rendered": {
-        "type": "Boolean",
-        "values": [
-          "true",
-          "false"
+      'rendered': {
+        'type': 'Boolean',
+        'values': [
+          'true',
+          'false'
         ]
       }
     }
   },
-  "apex:pageBlockTable": {
-    "simple": false,
-    "attribs": {
-      "align": {
-        "type": "String"
+  'apex:pageBlockTable': {
+    'simple': false,
+    'attribs': {
+      'align': {
+        'type': 'String'
       },
-      "border": {
-        "type": "String"
+      'border': {
+        'type': 'String'
       },
-      "captionClass": {
-        "type": "String"
+      'captionClass': {
+        'type': 'String'
       },
-      "captionStyle": {
-        "type": "String"
+      'captionStyle': {
+        'type': 'String'
       },
-      "cellpadding": {
-        "type": "String"
+      'cellpadding': {
+        'type': 'String'
       },
-      "cellspacing": {
-        "type": "String"
+      'cellspacing': {
+        'type': 'String'
       },
-      "columnClasses": {
-        "type": "String"
+      'columnClasses': {
+        'type': 'String'
       },
-      "columns": {
-        "type": "Integer"
+      'columns': {
+        'type': 'Integer'
       },
-      "columnsWidth": {
-        "type": "String"
+      'columnsWidth': {
+        'type': 'String'
       },
-      "dir": {
-        "type": "String"
+      'dir': {
+        'type': 'String'
       },
-      "first": {
-        "type": "Integer"
+      'first': {
+        'type': 'Integer'
       },
-      "footerClass": {
-        "type": "String"
+      'footerClass': {
+        'type': 'String'
       },
-      "frame": {
-        "type": "String"
+      'frame': {
+        'type': 'String'
       },
-      "headerClass": {
-        "type": "String"
+      'headerClass': {
+        'type': 'String'
       },
-      "id": {
-        "type": "String"
+      'id': {
+        'type': 'String'
       },
-      "lang": {
-        "type": "String"
+      'lang': {
+        'type': 'String'
       },
-      "onclick": {
-        "type": "String"
+      'onclick': {
+        'type': 'String'
       },
-      "ondblclick": {
-        "type": "String"
+      'ondblclick': {
+        'type': 'String'
       },
-      "onkeydown": {
-        "type": "String"
+      'onkeydown': {
+        'type': 'String'
       },
-      "onkeypress": {
-        "type": "String"
+      'onkeypress': {
+        'type': 'String'
       },
-      "onkeyup": {
-        "type": "String"
+      'onkeyup': {
+        'type': 'String'
       },
-      "onmousedown": {
-        "type": "String"
+      'onmousedown': {
+        'type': 'String'
       },
-      "onmousemove": {
-        "type": "String"
+      'onmousemove': {
+        'type': 'String'
       },
-      "onmouseout": {
-        "type": "String"
+      'onmouseout': {
+        'type': 'String'
       },
-      "onmouseover": {
-        "type": "String"
+      'onmouseover': {
+        'type': 'String'
       },
-      "onmouseup": {
-        "type": "String"
+      'onmouseup': {
+        'type': 'String'
       },
-      "onRowClick": {
-        "type": "String"
+      'onRowClick': {
+        'type': 'String'
       },
-      "onRowDblClick": {
-        "type": "String"
+      'onRowDblClick': {
+        'type': 'String'
       },
-      "onRowMouseDown": {
-        "type": "String"
+      'onRowMouseDown': {
+        'type': 'String'
       },
-      "onRowMouseMove": {
-        "type": "String"
+      'onRowMouseMove': {
+        'type': 'String'
       },
-      "onRowMouseOut": {
-        "type": "String"
+      'onRowMouseOut': {
+        'type': 'String'
       },
-      "onRowMouseOver": {
-        "type": "String"
+      'onRowMouseOver': {
+        'type': 'String'
       },
-      "onRowMouseUp": {
-        "type": "String"
+      'onRowMouseUp': {
+        'type': 'String'
       },
-      "rendered": {
-        "type": "Boolean",
-        "values": [
-          "true",
-          "false"
+      'rendered': {
+        'type': 'Boolean',
+        'values': [
+          'true',
+          'false'
         ]
       },
-      "rowClasses": {
-        "type": "String"
+      'rowClasses': {
+        'type': 'String'
       },
-      "rows": {
-        "type": "Integer"
+      'rows': {
+        'type': 'Integer'
       },
-      "rules": {
-        "type": "String"
+      'rules': {
+        'type': 'String'
       },
-      "style": {
-        "type": "String"
+      'style': {
+        'type': 'String'
       },
-      "styleClass": {
-        "type": "String"
+      'styleClass': {
+        'type': 'String'
       },
-      "summary": {
-        "type": "String"
+      'summary': {
+        'type': 'String'
       },
-      "title": {
-        "type": "String"
+      'title': {
+        'type': 'String'
       },
-      "value": {
-        "type": "Object"
+      'value': {
+        'type': 'Object'
       },
-      "var": {
-        "type": "String"
+      'var': {
+        'type': 'String'
       },
-      "width": {
-        "type": "String"
+      'width': {
+        'type': 'String'
       }
     }
   },
-  "apex:pageMessage": {
-    "simple": false,
-    "attribs": {
-      "detail": {
-        "type": "String"
+  'apex:pageMessage': {
+    'simple': false,
+    'attribs': {
+      'detail': {
+        'type': 'String'
       },
-      "escape": {
-        "type": "Boolean",
-        "values": [
-          "true",
-          "false"
+      'escape': {
+        'type': 'Boolean',
+        'values': [
+          'true',
+          'false'
         ]
       },
-      "id": {
-        "type": "String"
+      'id': {
+        'type': 'String'
       },
-      "rendered": {
-        "type": "Boolean",
-        "values": [
-          "true",
-          "false"
+      'rendered': {
+        'type': 'Boolean',
+        'values': [
+          'true',
+          'false'
         ]
       },
-      "severity": {
-        "type": "String"
+      'severity': {
+        'type': 'String'
       },
-      "strength": {
-        "type": "Integer"
+      'strength': {
+        'type': 'Integer'
       },
-      "summary": {
-        "type": "String"
+      'summary': {
+        'type': 'String'
       },
-      "title": {
-        "type": "String"
+      'title': {
+        'type': 'String'
       }
     }
   },
-  "apex:pageMessages": {
-    "simple": false,
-    "attribs": {
-      "escape": {
-        "type": "Boolean",
-        "values": [
-          "true",
-          "false"
+  'apex:pageMessages': {
+    'simple': false,
+    'attribs': {
+      'escape': {
+        'type': 'Boolean',
+        'values': [
+          'true',
+          'false'
         ]
       },
-      "id": {
-        "type": "String"
+      'id': {
+        'type': 'String'
       },
-      "rendered": {
-        "type": "Boolean",
-        "values": [
-          "true",
-          "false"
+      'rendered': {
+        'type': 'Boolean',
+        'values': [
+          'true',
+          'false'
         ]
       },
-      "showDetail": {
-        "type": "Boolean",
-        "values": [
-          "true",
-          "false"
+      'showDetail': {
+        'type': 'Boolean',
+        'values': [
+          'true',
+          'false'
         ]
       }
     }
   },
-  "apex:panelBar": {
-    "simple": false,
-    "attribs": {
-      "contentClass": {
-        "type": "String"
+  'apex:panelBar': {
+    'simple': false,
+    'attribs': {
+      'contentClass': {
+        'type': 'String'
       },
-      "contentStyle": {
-        "type": "String"
+      'contentStyle': {
+        'type': 'String'
       },
-      "headerClass": {
-        "type": "String"
+      'headerClass': {
+        'type': 'String'
       },
-      "headerClassActive": {
-        "type": "String"
+      'headerClassActive': {
+        'type': 'String'
       },
-      "headerStyle": {
-        "type": "String"
+      'headerStyle': {
+        'type': 'String'
       },
-      "headerStyleActive": {
-        "type": "String"
+      'headerStyleActive': {
+        'type': 'String'
       },
-      "height": {
-        "type": "String"
+      'height': {
+        'type': 'String'
       },
-      "id": {
-        "type": "String"
+      'id': {
+        'type': 'String'
       },
-      "items": {
-        "type": "Object"
+      'items': {
+        'type': 'Object'
       },
-      "rendered": {
-        "type": "Boolean",
-        "values": [
-          "true",
-          "false"
+      'rendered': {
+        'type': 'Boolean',
+        'values': [
+          'true',
+          'false'
         ]
       },
-      "style": {
-        "type": "String"
+      'style': {
+        'type': 'String'
       },
-      "styleClass": {
-        "type": "String"
+      'styleClass': {
+        'type': 'String'
       },
-      "switchType": {
-        "type": "String"
+      'switchType': {
+        'type': 'String'
       },
-      "value": {
-        "type": "Object"
+      'value': {
+        'type': 'Object'
       },
-      "var": {
-        "type": "String"
+      'var': {
+        'type': 'String'
       },
-      "width": {
-        "type": "String"
+      'width': {
+        'type': 'String'
       }
     }
   },
-  "apex:panelBarItem": {
-    "simple": false,
-    "attribs": {
-      "contentClass": {
-        "type": "String"
+  'apex:panelBarItem': {
+    'simple': false,
+    'attribs': {
+      'contentClass': {
+        'type': 'String'
       },
-      "contentStyle": {
-        "type": "String"
+      'contentStyle': {
+        'type': 'String'
       },
-      "expanded": {
-        "type": "String"
+      'expanded': {
+        'type': 'String'
       },
-      "headerClass": {
-        "type": "String"
+      'headerClass': {
+        'type': 'String'
       },
-      "headerClassActive": {
-        "type": "String"
+      'headerClassActive': {
+        'type': 'String'
       },
-      "headerStyle": {
-        "type": "String"
+      'headerStyle': {
+        'type': 'String'
       },
-      "headerStyleActive": {
-        "type": "String"
+      'headerStyleActive': {
+        'type': 'String'
       },
-      "id": {
-        "type": "String"
+      'id': {
+        'type': 'String'
       },
-      "label": {
-        "type": "String"
+      'label': {
+        'type': 'String'
       },
-      "name": {
-        "type": "Object"
+      'name': {
+        'type': 'Object'
       },
-      "onenter": {
-        "type": "String"
+      'onenter': {
+        'type': 'String'
       },
-      "onleave": {
-        "type": "String"
+      'onleave': {
+        'type': 'String'
       },
-      "rendered": {
-        "type": "Boolean",
-        "values": [
-          "true",
-          "false"
+      'rendered': {
+        'type': 'Boolean',
+        'values': [
+          'true',
+          'false'
         ]
       }
     }
   },
-  "apex:panelGrid": {
-    "simple": false,
-    "attribs": {
-      "bgcolor": {
-        "type": "String"
+  'apex:panelGrid': {
+    'simple': false,
+    'attribs': {
+      'bgcolor': {
+        'type': 'String'
       },
-      "border": {
-        "type": "Integer"
+      'border': {
+        'type': 'Integer'
       },
-      "captionClass": {
-        "type": "String"
+      'captionClass': {
+        'type': 'String'
       },
-      "captionStyle": {
-        "type": "String"
+      'captionStyle': {
+        'type': 'String'
       },
-      "cellpadding": {
-        "type": "String"
+      'cellpadding': {
+        'type': 'String'
       },
-      "cellspacing": {
-        "type": "String"
+      'cellspacing': {
+        'type': 'String'
       },
-      "columnClasses": {
-        "type": "String"
+      'columnClasses': {
+        'type': 'String'
       },
-      "columns": {
-        "type": "Integer"
+      'columns': {
+        'type': 'Integer'
       },
-      "dir": {
-        "type": "String"
+      'dir': {
+        'type': 'String'
       },
-      "footerClass": {
-        "type": "String"
+      'footerClass': {
+        'type': 'String'
       },
-      "frame": {
-        "type": "String"
+      'frame': {
+        'type': 'String'
       },
-      "headerClass": {
-        "type": "String"
+      'headerClass': {
+        'type': 'String'
       },
-      "id": {
-        "type": "String"
+      'id': {
+        'type': 'String'
       },
-      "lang": {
-        "type": "String"
+      'lang': {
+        'type': 'String'
       },
-      "onclick": {
-        "type": "String"
+      'onclick': {
+        'type': 'String'
       },
-      "ondblclick": {
-        "type": "String"
+      'ondblclick': {
+        'type': 'String'
       },
-      "onkeydown": {
-        "type": "String"
+      'onkeydown': {
+        'type': 'String'
       },
-      "onkeypress": {
-        "type": "String"
+      'onkeypress': {
+        'type': 'String'
       },
-      "onkeyup": {
-        "type": "String"
+      'onkeyup': {
+        'type': 'String'
       },
-      "onmousedown": {
-        "type": "String"
+      'onmousedown': {
+        'type': 'String'
       },
-      "onmousemove": {
-        "type": "String"
+      'onmousemove': {
+        'type': 'String'
       },
-      "onmouseout": {
-        "type": "String"
+      'onmouseout': {
+        'type': 'String'
       },
-      "onmouseover": {
-        "type": "String"
+      'onmouseover': {
+        'type': 'String'
       },
-      "onmouseup": {
-        "type": "String"
+      'onmouseup': {
+        'type': 'String'
       },
-      "rendered": {
-        "type": "Boolean",
-        "values": [
-          "true",
-          "false"
+      'rendered': {
+        'type': 'Boolean',
+        'values': [
+          'true',
+          'false'
         ]
       },
-      "rowClasses": {
-        "type": "String"
+      'rowClasses': {
+        'type': 'String'
       },
-      "rules": {
-        "type": "String"
+      'rules': {
+        'type': 'String'
       },
-      "style": {
-        "type": "String"
+      'style': {
+        'type': 'String'
       },
-      "styleClass": {
-        "type": "String"
+      'styleClass': {
+        'type': 'String'
       },
-      "summary": {
-        "type": "String"
+      'summary': {
+        'type': 'String'
       },
-      "title": {
-        "type": "String"
+      'title': {
+        'type': 'String'
       },
-      "width": {
-        "type": "String"
+      'width': {
+        'type': 'String'
       }
     }
   },
-  "apex:panelGroup": {
-    "simple": false,
-    "attribs": {
-      "id": {
-        "type": "String"
+  'apex:panelGroup': {
+    'simple': false,
+    'attribs': {
+      'id': {
+        'type': 'String'
       },
-      "layout": {
-        "type": "String"
+      'layout': {
+        'type': 'String'
       },
-      "rendered": {
-        "type": "Boolean",
-        "values": [
-          "true",
-          "false"
+      'rendered': {
+        'type': 'Boolean',
+        'values': [
+          'true',
+          'false'
         ]
       },
-      "style": {
-        "type": "String"
+      'style': {
+        'type': 'String'
       },
-      "styleClass": {
-        "type": "String"
+      'styleClass': {
+        'type': 'String'
       }
     }
   },
-  "apex:param": {
-    "simple": true,
-    "attribs": {
-      "assignTo": {
-        "type": "Object"
+  'apex:param': {
+    'simple': true,
+    'attribs': {
+      'assignTo': {
+        'type': 'Object'
       },
-      "id": {
-        "type": "String"
+      'id': {
+        'type': 'String'
       },
-      "name": {
-        "type": "String"
+      'name': {
+        'type': 'String'
       },
-      "value": {
-        "type": "Object"
+      'value': {
+        'type': 'Object'
       }
     }
   },
-  "apex:pieSeries": {
-    "simple": false,
-    "attribs": {
-      "colorSet": {
-        "type": "String"
+  'apex:pieSeries': {
+    'simple': false,
+    'attribs': {
+      'colorSet': {
+        'type': 'String'
       },
-      "dataField": {
-        "type": "String"
+      'dataField': {
+        'type': 'String'
       },
-      "donut": {
-        "type": "Integer"
+      'donut': {
+        'type': 'Integer'
       },
-      "highlight": {
-        "type": "Boolean",
-        "values": [
-          "true",
-          "false"
+      'highlight': {
+        'type': 'Boolean',
+        'values': [
+          'true',
+          'false'
         ]
       },
-      "id": {
-        "type": "String"
+      'id': {
+        'type': 'String'
       },
-      "labelField": {
-        "type": "String"
+      'labelField': {
+        'type': 'String'
       },
-      "rendered": {
-        "type": "Boolean",
-        "values": [
-          "true",
-          "false"
+      'rendered': {
+        'type': 'Boolean',
+        'values': [
+          'true',
+          'false'
         ]
       },
-      "rendererFn": {
-        "type": "String"
+      'rendererFn': {
+        'type': 'String'
       },
-      "showInLegend": {
-        "type": "Boolean",
-        "values": [
-          "true",
-          "false"
+      'showInLegend': {
+        'type': 'Boolean',
+        'values': [
+          'true',
+          'false'
         ]
       },
-      "tips": {
-        "type": "Boolean",
-        "values": [
-          "true",
-          "false"
+      'tips': {
+        'type': 'Boolean',
+        'values': [
+          'true',
+          'false'
         ]
       }
     }
   },
-  "apex:radarSeries": {
-    "simple": false,
-    "attribs": {
-      "fill": {
-        "type": "String"
+  'apex:radarSeries': {
+    'simple': false,
+    'attribs': {
+      'fill': {
+        'type': 'String'
       },
-      "highlight": {
-        "type": "Boolean",
-        "values": [
-          "true",
-          "false"
+      'highlight': {
+        'type': 'Boolean',
+        'values': [
+          'true',
+          'false'
         ]
       },
-      "id": {
-        "type": "String"
+      'id': {
+        'type': 'String'
       },
-      "markerFill": {
-        "type": "String"
+      'markerFill': {
+        'type': 'String'
       },
-      "markerSize": {
-        "type": "Integer"
+      'markerSize': {
+        'type': 'Integer'
       },
-      "markerType": {
-        "type": "String",
-        "values": [
-          "circle",
-          "cross"
+      'markerType': {
+        'type': 'String',
+        'values': [
+          'circle',
+          'cross'
         ]
       },
-      "opacity": {
-        "type": "Integer"
+      'opacity': {
+        'type': 'Integer'
       },
-      "rendered": {
-        "type": "Boolean",
-        "values": [
-          "true",
-          "false"
+      'rendered': {
+        'type': 'Boolean',
+        'values': [
+          'true',
+          'false'
         ]
       },
-      "showInLegend": {
-        "type": "Boolean",
-        "values": [
-          "true",
-          "false"
+      'showInLegend': {
+        'type': 'Boolean',
+        'values': [
+          'true',
+          'false'
         ]
       },
-      "strokeColor": {
-        "type": "String"
+      'strokeColor': {
+        'type': 'String'
       },
-      "strokeWidth": {
-        "type": "Integer"
+      'strokeWidth': {
+        'type': 'Integer'
       },
-      "tips": {
-        "type": "Boolean",
-        "values": [
-          "true",
-          "false"
+      'tips': {
+        'type': 'Boolean',
+        'values': [
+          'true',
+          'false'
         ]
       },
-      "title": {
-        "type": "String"
+      'title': {
+        'type': 'String'
       },
-      "xField": {
-        "type": "String"
+      'xField': {
+        'type': 'String'
       },
-      "yField": {
-        "type": "String"
+      'yField': {
+        'type': 'String'
       }
     }
   },
-  "apex:relatedList": {
-    "simple": true,
-    "attribs": {
-      "id": {
-        "type": "String"
+  'apex:relatedList': {
+    'simple': true,
+    'attribs': {
+      'id': {
+        'type': 'String'
       },
-      "list": {
-        "type": "String"
+      'list': {
+        'type': 'String'
       },
-      "pageSize": {
-        "type": "Integer"
+      'pageSize': {
+        'type': 'Integer'
       },
-      "rendered": {
-        "type": "Boolean",
-        "values": [
-          "true",
-          "false"
+      'rendered': {
+        'type': 'Boolean',
+        'values': [
+          'true',
+          'false'
         ]
       },
-      "subject": {
-        "type": "String"
+      'subject': {
+        'type': 'String'
       },
-      "title": {
-        "type": "String"
+      'title': {
+        'type': 'String'
       }
     }
   },
-  "apex:remoteObjectField": {
-    "simple": false,
-    "attribs": {
-      "id": {
-        "type": "String"
+  'apex:remoteObjectField': {
+    'simple': false,
+    'attribs': {
+      'id': {
+        'type': 'String'
       },
-      "jsShorthand": {
-        "type": "String"
+      'jsShorthand': {
+        'type': 'String'
       },
-      "name": {
-        "type": "String"
+      'name': {
+        'type': 'String'
       },
-      "rendered": {
-        "type": "Boolean",
-        "values": [
-          "true",
-          "false"
+      'rendered': {
+        'type': 'Boolean',
+        'values': [
+          'true',
+          'false'
         ]
       }
     }
   },
-  "apex:remoteObjectModel": {
-    "simple": false,
-    "attribs": {
-      "create": {
-        "type": "String"
+  'apex:remoteObjectModel': {
+    'simple': false,
+    'attribs': {
+      'create': {
+        'type': 'String'
       },
-      "delete": {
-        "type": "String"
+      'delete': {
+        'type': 'String'
       },
-      "fields": {
-        "type": "String"
+      'fields': {
+        'type': 'String'
       },
-      "id": {
-        "type": "String"
+      'id': {
+        'type': 'String'
       },
-      "jsShorthand": {
-        "type": "String"
+      'jsShorthand': {
+        'type': 'String'
       },
-      "name": {
-        "type": "String"
+      'name': {
+        'type': 'String'
       },
-      "rendered": {
-        "type": "Boolean",
-        "values": [
-          "true",
-          "false"
+      'rendered': {
+        'type': 'Boolean',
+        'values': [
+          'true',
+          'false'
         ]
       },
-      "retrieve": {
-        "type": "String"
+      'retrieve': {
+        'type': 'String'
       },
-      "update": {
-        "type": "String"
+      'update': {
+        'type': 'String'
       }
     }
   },
-  "apex:remoteObjects": {
-    "simple": false,
-    "attribs": {
-      "create": {
-        "type": "String"
+  'apex:remoteObjects': {
+    'simple': false,
+    'attribs': {
+      'create': {
+        'type': 'String'
       },
-      "delete": {
-        "type": "String"
+      'delete': {
+        'type': 'String'
       },
-      "id": {
-        "type": "String"
+      'id': {
+        'type': 'String'
       },
-      "jsNamespace": {
-        "type": "String"
+      'jsNamespace': {
+        'type': 'String'
       },
-      "rendered": {
-        "type": "Boolean",
-        "values": [
-          "true",
-          "false"
+      'rendered': {
+        'type': 'Boolean',
+        'values': [
+          'true',
+          'false'
         ]
       },
-      "retrieve": {
-        "type": "String"
+      'retrieve': {
+        'type': 'String'
       },
-      "update": {
-        "type": "String"
+      'update': {
+        'type': 'String'
       }
     }
   },
-  "apex:repeat": {
-    "simple": false,
-    "attribs": {
-      "first": {
-        "type": "Integer"
+  'apex:repeat': {
+    'simple': false,
+    'attribs': {
+      'first': {
+        'type': 'Integer'
       },
-      "id": {
-        "type": "String"
+      'id': {
+        'type': 'String'
       },
-      "rendered": {
-        "type": "Boolean",
-        "values": [
-          "true",
-          "false"
+      'rendered': {
+        'type': 'Boolean',
+        'values': [
+          'true',
+          'false'
         ]
       },
-      "rows": {
-        "type": "Integer"
+      'rows': {
+        'type': 'Integer'
       },
-      "value": {
-        "type": "Object"
+      'value': {
+        'type': 'Object'
       },
-      "var": {
-        "type": "String"
+      'var': {
+        'type': 'String'
       }
     }
   },
-  "apex:scatterSeries": {
-    "simple": false,
-    "attribs": {
-      "axis": {
-        "type": "String"
+  'apex:scatterSeries': {
+    'simple': false,
+    'attribs': {
+      'axis': {
+        'type': 'String'
       },
-      "highlight": {
-        "type": "Boolean",
-        "values": [
-          "true",
-          "false"
+      'highlight': {
+        'type': 'Boolean',
+        'values': [
+          'true',
+          'false'
         ]
       },
-      "id": {
-        "type": "String"
+      'id': {
+        'type': 'String'
       },
-      "markerFill": {
-        "type": "String"
+      'markerFill': {
+        'type': 'String'
       },
-      "markerSize": {
-        "type": "Integer"
+      'markerSize': {
+        'type': 'Integer'
       },
-      "markerType": {
-        "type": "String",
-        "values": [
-          "circle",
-          "cross"
+      'markerType': {
+        'type': 'String',
+        'values': [
+          'circle',
+          'cross'
         ]
       },
-      "rendered": {
-        "type": "Boolean",
-        "values": [
-          "true",
-          "false"
+      'rendered': {
+        'type': 'Boolean',
+        'values': [
+          'true',
+          'false'
         ]
       },
-      "rendererFn": {
-        "type": "String"
+      'rendererFn': {
+        'type': 'String'
       },
-      "showInLegend": {
-        "type": "Boolean",
-        "values": [
-          "true",
-          "false"
+      'showInLegend': {
+        'type': 'Boolean',
+        'values': [
+          'true',
+          'false'
         ]
       },
-      "tips": {
-        "type": "Boolean",
-        "values": [
-          "true",
-          "false"
+      'tips': {
+        'type': 'Boolean',
+        'values': [
+          'true',
+          'false'
         ]
       },
-      "title": {
-        "type": "String"
+      'title': {
+        'type': 'String'
       },
-      "xField": {
-        "type": "String"
+      'xField': {
+        'type': 'String'
       },
-      "yField": {
-        "type": "String"
+      'yField': {
+        'type': 'String'
       }
     }
   },
-  "apex:scontrol": {
-    "simple": true,
-    "attribs": {
-      "controlName": {
-        "type": "String"
+  'apex:scontrol': {
+    'simple': true,
+    'attribs': {
+      'controlName': {
+        'type': 'String'
       },
-      "height": {
-        "type": "Integer"
+      'height': {
+        'type': 'Integer'
       },
-      "id": {
-        "type": "String"
+      'id': {
+        'type': 'String'
       },
-      "rendered": {
-        "type": "Boolean",
-        "values": [
-          "true",
-          "false"
+      'rendered': {
+        'type': 'Boolean',
+        'values': [
+          'true',
+          'false'
         ]
       },
-      "scrollbars": {
-        "type": "Boolean",
-        "values": [
-          "true",
-          "false"
+      'scrollbars': {
+        'type': 'Boolean',
+        'values': [
+          'true',
+          'false'
         ]
       },
-      "subject": {
-        "type": "Object"
+      'subject': {
+        'type': 'Object'
       },
-      "width": {
-        "type": "Integer"
+      'width': {
+        'type': 'Integer'
       }
     }
   },
-  "apex:sectionHeader": {
-    "simple": true,
-    "attribs": {
-      "description": {
-        "type": "String"
+  'apex:sectionHeader': {
+    'simple': true,
+    'attribs': {
+      'description': {
+        'type': 'String'
       },
-      "help": {
-        "type": "String"
+      'help': {
+        'type': 'String'
       },
-      "id": {
-        "type": "String"
+      'id': {
+        'type': 'String'
       },
-      "printUrl": {
-        "type": "String"
+      'printUrl': {
+        'type': 'String'
       },
-      "rendered": {
-        "type": "Boolean",
-        "values": [
-          "true",
-          "false"
+      'rendered': {
+        'type': 'Boolean',
+        'values': [
+          'true',
+          'false'
         ]
       },
-      "subtitle": {
-        "type": "String"
+      'subtitle': {
+        'type': 'String'
       },
-      "title": {
-        "type": "String"
+      'title': {
+        'type': 'String'
       }
     }
   },
-  "apex:selectCheckboxes": {
-    "simple": false,
-    "attribs": {
-      "accesskey": {
-        "type": "String"
+  'apex:selectCheckboxes': {
+    'simple': false,
+    'attribs': {
+      'accesskey': {
+        'type': 'String'
       },
-      "border": {
-        "type": "Integer"
+      'border': {
+        'type': 'Integer'
       },
-      "borderVisible": {
-        "type": "Boolean",
-        "values": [
-          "true",
-          "false"
+      'borderVisible': {
+        'type': 'Boolean',
+        'values': [
+          'true',
+          'false'
         ]
       },
-      "dir": {
-        "type": "String"
+      'dir': {
+        'type': 'String'
       },
-      "disabled": {
-        "type": "Boolean",
-        "values": [
-          "true",
-          "false"
+      'disabled': {
+        'type': 'Boolean',
+        'values': [
+          'true',
+          'false'
         ]
       },
-      "disabledClass": {
-        "type": "String"
+      'disabledClass': {
+        'type': 'String'
       },
-      "enabledClass": {
-        "type": "String"
+      'enabledClass': {
+        'type': 'String'
       },
-      "id": {
-        "type": "String"
+      'id': {
+        'type': 'String'
       },
-      "immediate": {
-        "type": "Boolean",
-        "values": [
-          "true",
-          "false"
+      'immediate': {
+        'type': 'Boolean',
+        'values': [
+          'true',
+          'false'
         ]
       },
-      "label": {
-        "type": "String"
+      'label': {
+        'type': 'String'
       },
-      "lang": {
-        "type": "String"
+      'lang': {
+        'type': 'String'
       },
-      "layout": {
-        "type": "String"
+      'layout': {
+        'type': 'String'
       },
-      "legendInvisible": {
-        "type": "Boolean",
-        "values": [
-          "true",
-          "false"
+      'legendInvisible': {
+        'type': 'Boolean',
+        'values': [
+          'true',
+          'false'
         ]
       },
-      "legendText": {
-        "type": "String"
+      'legendText': {
+        'type': 'String'
       },
-      "onblur": {
-        "type": "String"
+      'onblur': {
+        'type': 'String'
       },
-      "onchange": {
-        "type": "String"
+      'onchange': {
+        'type': 'String'
       },
-      "onclick": {
-        "type": "String"
+      'onclick': {
+        'type': 'String'
       },
-      "ondblclick": {
-        "type": "String"
+      'ondblclick': {
+        'type': 'String'
       },
-      "onfocus": {
-        "type": "String"
+      'onfocus': {
+        'type': 'String'
       },
-      "onkeydown": {
-        "type": "String"
+      'onkeydown': {
+        'type': 'String'
       },
-      "onkeypress": {
-        "type": "String"
+      'onkeypress': {
+        'type': 'String'
       },
-      "onkeyup": {
-        "type": "String"
+      'onkeyup': {
+        'type': 'String'
       },
-      "onmousedown": {
-        "type": "String"
+      'onmousedown': {
+        'type': 'String'
       },
-      "onmousemove": {
-        "type": "String"
+      'onmousemove': {
+        'type': 'String'
       },
-      "onmouseout": {
-        "type": "String"
+      'onmouseout': {
+        'type': 'String'
       },
-      "onmouseover": {
-        "type": "String"
+      'onmouseover': {
+        'type': 'String'
       },
-      "onmouseup": {
-        "type": "String"
+      'onmouseup': {
+        'type': 'String'
       },
-      "onselect": {
-        "type": "String"
+      'onselect': {
+        'type': 'String'
       },
-      "readonly": {
-        "type": "Boolean",
-        "values": [
-          "true",
-          "false"
+      'readonly': {
+        'type': 'Boolean',
+        'values': [
+          'true',
+          'false'
         ]
       },
-      "rendered": {
-        "type": "Boolean",
-        "values": [
-          "true",
-          "false"
+      'rendered': {
+        'type': 'Boolean',
+        'values': [
+          'true',
+          'false'
         ]
       },
-      "required": {
-        "type": "Boolean",
-        "values": [
-          "true",
-          "false"
+      'required': {
+        'type': 'Boolean',
+        'values': [
+          'true',
+          'false'
         ]
       },
-      "style": {
-        "type": "String"
+      'style': {
+        'type': 'String'
       },
-      "styleClass": {
-        "type": "String"
+      'styleClass': {
+        'type': 'String'
       },
-      "tabindex": {
-        "type": "String"
+      'tabindex': {
+        'type': 'String'
       },
-      "title": {
-        "type": "String"
+      'title': {
+        'type': 'String'
       },
-      "value": {
-        "type": "Object"
+      'value': {
+        'type': 'Object'
       }
     }
   },
-  "apex:selectList": {
-    "simple": false,
-    "attribs": {
-      "accesskey": {
-        "type": "String"
+  'apex:selectList': {
+    'simple': false,
+    'attribs': {
+      'accesskey': {
+        'type': 'String'
       },
-      "dir": {
-        "type": "String"
+      'dir': {
+        'type': 'String'
       },
-      "disabled": {
-        "type": "Boolean",
-        "values": [
-          "true",
-          "false"
+      'disabled': {
+        'type': 'Boolean',
+        'values': [
+          'true',
+          'false'
         ]
       },
-      "disabledClass": {
-        "type": "String"
+      'disabledClass': {
+        'type': 'String'
       },
-      "enabledClass": {
-        "type": "String"
+      'enabledClass': {
+        'type': 'String'
       },
-      "id": {
-        "type": "String"
+      'id': {
+        'type': 'String'
       },
-      "label": {
-        "type": "String"
+      'label': {
+        'type': 'String'
       },
-      "lang": {
-        "type": "String"
+      'lang': {
+        'type': 'String'
       },
-      "multiselect": {
-        "type": "Boolean",
-        "values": [
-          "true",
-          "false"
+      'multiselect': {
+        'type': 'Boolean',
+        'values': [
+          'true',
+          'false'
         ]
       },
-      "onblur": {
-        "type": "String"
+      'onblur': {
+        'type': 'String'
       },
-      "onchange": {
-        "type": "String"
+      'onchange': {
+        'type': 'String'
       },
-      "onclick": {
-        "type": "String"
+      'onclick': {
+        'type': 'String'
       },
-      "ondblclick": {
-        "type": "String"
+      'ondblclick': {
+        'type': 'String'
       },
-      "onfocus": {
-        "type": "String"
+      'onfocus': {
+        'type': 'String'
       },
-      "onkeydown": {
-        "type": "String"
+      'onkeydown': {
+        'type': 'String'
       },
-      "onkeypress": {
-        "type": "String"
+      'onkeypress': {
+        'type': 'String'
       },
-      "onkeyup": {
-        "type": "String"
+      'onkeyup': {
+        'type': 'String'
       },
-      "onmousedown": {
-        "type": "String"
+      'onmousedown': {
+        'type': 'String'
       },
-      "onmousemove": {
-        "type": "String"
+      'onmousemove': {
+        'type': 'String'
       },
-      "onmouseout": {
-        "type": "String"
+      'onmouseout': {
+        'type': 'String'
       },
-      "onmouseover": {
-        "type": "String"
+      'onmouseover': {
+        'type': 'String'
       },
-      "onmouseup": {
-        "type": "String"
+      'onmouseup': {
+        'type': 'String'
       },
-      "onselect": {
-        "type": "String"
+      'onselect': {
+        'type': 'String'
       },
-      "readonly": {
-        "type": "Boolean",
-        "values": [
-          "true",
-          "false"
+      'readonly': {
+        'type': 'Boolean',
+        'values': [
+          'true',
+          'false'
         ]
       },
-      "rendered": {
-        "type": "Boolean",
-        "values": [
-          "true",
-          "false"
+      'rendered': {
+        'type': 'Boolean',
+        'values': [
+          'true',
+          'false'
         ]
       },
-      "required": {
-        "type": "Boolean",
-        "values": [
-          "true",
-          "false"
+      'required': {
+        'type': 'Boolean',
+        'values': [
+          'true',
+          'false'
         ]
       },
-      "size": {
-        "type": "Integer"
+      'size': {
+        'type': 'Integer'
       },
-      "style": {
-        "type": "String"
+      'style': {
+        'type': 'String'
       },
-      "styleClass": {
-        "type": "String"
+      'styleClass': {
+        'type': 'String'
       },
-      "tabindex": {
-        "type": "String"
+      'tabindex': {
+        'type': 'String'
       },
-      "title": {
-        "type": "String"
+      'title': {
+        'type': 'String'
       },
-      "value": {
-        "type": "Object"
+      'value': {
+        'type': 'Object'
       }
     }
   },
-  "apex:selectOption": {
-    "simple": false,
-    "attribs": {
-      "dir": {
-        "type": "String"
+  'apex:selectOption': {
+    'simple': false,
+    'attribs': {
+      'dir': {
+        'type': 'String'
       },
-      "id": {
-        "type": "String"
+      'id': {
+        'type': 'String'
       },
-      "itemDescription": {
-        "type": "String"
+      'itemDescription': {
+        'type': 'String'
       },
-      "itemDisabled": {
-        "type": "Boolean",
-        "values": [
-          "true",
-          "false"
+      'itemDisabled': {
+        'type': 'Boolean',
+        'values': [
+          'true',
+          'false'
         ]
       },
-      "itemEscaped": {
-        "type": "Boolean",
-        "values": [
-          "true",
-          "false"
+      'itemEscaped': {
+        'type': 'Boolean',
+        'values': [
+          'true',
+          'false'
         ]
       },
-      "itemLabel": {
-        "type": "String"
+      'itemLabel': {
+        'type': 'String'
       },
-      "itemValue": {
-        "type": "Object"
+      'itemValue': {
+        'type': 'Object'
       },
-      "lang": {
-        "type": "String"
+      'lang': {
+        'type': 'String'
       },
-      "onclick": {
-        "type": "String"
+      'onclick': {
+        'type': 'String'
       },
-      "ondblclick": {
-        "type": "String"
+      'ondblclick': {
+        'type': 'String'
       },
-      "onkeydown": {
-        "type": "String"
+      'onkeydown': {
+        'type': 'String'
       },
-      "onkeypress": {
-        "type": "String"
+      'onkeypress': {
+        'type': 'String'
       },
-      "onkeyup": {
-        "type": "String"
+      'onkeyup': {
+        'type': 'String'
       },
-      "onmousedown": {
-        "type": "String"
+      'onmousedown': {
+        'type': 'String'
       },
-      "onmousemove": {
-        "type": "String"
+      'onmousemove': {
+        'type': 'String'
       },
-      "onmouseout": {
-        "type": "String"
+      'onmouseout': {
+        'type': 'String'
       },
-      "onmouseover": {
-        "type": "String"
+      'onmouseover': {
+        'type': 'String'
       },
-      "onmouseup": {
-        "type": "String"
+      'onmouseup': {
+        'type': 'String'
       },
-      "rendered": {
-        "type": "Boolean",
-        "values": [
-          "true",
-          "false"
+      'rendered': {
+        'type': 'Boolean',
+        'values': [
+          'true',
+          'false'
         ]
       },
-      "title": {
-        "type": "String"
+      'title': {
+        'type': 'String'
       },
-      "value": {
-        "type": "Object"
+      'value': {
+        'type': 'Object'
       }
     }
   },
-  "apex:selectOptions": {
-    "simple": false,
-    "attribs": {
-      "id": {
-        "type": "String"
+  'apex:selectOptions': {
+    'simple': false,
+    'attribs': {
+      'id': {
+        'type': 'String'
       },
-      "rendered": {
-        "type": "Boolean",
-        "values": [
-          "true",
-          "false"
+      'rendered': {
+        'type': 'Boolean',
+        'values': [
+          'true',
+          'false'
         ]
       },
-      "value": {
-        "type": "Object"
+      'value': {
+        'type': 'Object'
       }
     }
   },
-  "apex:selectRadio": {
-    "simple": false,
-    "attribs": {
-      "accesskey": {
-        "type": "String"
+  'apex:selectRadio': {
+    'simple': false,
+    'attribs': {
+      'accesskey': {
+        'type': 'String'
       },
-      "border": {
-        "type": "Integer"
+      'border': {
+        'type': 'Integer'
       },
-      "borderVisible": {
-        "type": "Boolean",
-        "values": [
-          "true",
-          "false"
+      'borderVisible': {
+        'type': 'Boolean',
+        'values': [
+          'true',
+          'false'
         ]
       },
-      "dir": {
-        "type": "String"
+      'dir': {
+        'type': 'String'
       },
-      "disabled": {
-        "type": "Boolean",
-        "values": [
-          "true",
-          "false"
+      'disabled': {
+        'type': 'Boolean',
+        'values': [
+          'true',
+          'false'
         ]
       },
-      "disabledClass": {
-        "type": "String"
+      'disabledClass': {
+        'type': 'String'
       },
-      "enabledClass": {
-        "type": "String"
+      'enabledClass': {
+        'type': 'String'
       },
-      "id": {
-        "type": "String"
+      'id': {
+        'type': 'String'
       },
-      "immediate": {
-        "type": "Boolean",
-        "values": [
-          "true",
-          "false"
+      'immediate': {
+        'type': 'Boolean',
+        'values': [
+          'true',
+          'false'
         ]
       },
-      "label": {
-        "type": "String"
+      'label': {
+        'type': 'String'
       },
-      "lang": {
-        "type": "String"
+      'lang': {
+        'type': 'String'
       },
-      "layout": {
-        "type": "String"
+      'layout': {
+        'type': 'String'
       },
-      "legendInvisible": {
-        "type": "Boolean",
-        "values": [
-          "true",
-          "false"
+      'legendInvisible': {
+        'type': 'Boolean',
+        'values': [
+          'true',
+          'false'
         ]
       },
-      "legendText": {
-        "type": "String"
+      'legendText': {
+        'type': 'String'
       },
-      "onblur": {
-        "type": "String"
+      'onblur': {
+        'type': 'String'
       },
-      "onchange": {
-        "type": "String"
+      'onchange': {
+        'type': 'String'
       },
-      "onclick": {
-        "type": "String"
+      'onclick': {
+        'type': 'String'
       },
-      "ondblclick": {
-        "type": "String"
+      'ondblclick': {
+        'type': 'String'
       },
-      "onfocus": {
-        "type": "String"
+      'onfocus': {
+        'type': 'String'
       },
-      "onkeydown": {
-        "type": "String"
+      'onkeydown': {
+        'type': 'String'
       },
-      "onkeypress": {
-        "type": "String"
+      'onkeypress': {
+        'type': 'String'
       },
-      "onkeyup": {
-        "type": "String"
+      'onkeyup': {
+        'type': 'String'
       },
-      "onmousedown": {
-        "type": "String"
+      'onmousedown': {
+        'type': 'String'
       },
-      "onmousemove": {
-        "type": "String"
+      'onmousemove': {
+        'type': 'String'
       },
-      "onmouseout": {
-        "type": "String"
+      'onmouseout': {
+        'type': 'String'
       },
-      "onmouseover": {
-        "type": "String"
+      'onmouseover': {
+        'type': 'String'
       },
-      "onmouseup": {
-        "type": "String"
+      'onmouseup': {
+        'type': 'String'
       },
-      "onselect": {
-        "type": "String"
+      'onselect': {
+        'type': 'String'
       },
-      "readonly": {
-        "type": "Boolean",
-        "values": [
-          "true",
-          "false"
+      'readonly': {
+        'type': 'Boolean',
+        'values': [
+          'true',
+          'false'
         ]
       },
-      "rendered": {
-        "type": "Boolean",
-        "values": [
-          "true",
-          "false"
+      'rendered': {
+        'type': 'Boolean',
+        'values': [
+          'true',
+          'false'
         ]
       },
-      "required": {
-        "type": "Boolean",
-        "values": [
-          "true",
-          "false"
+      'required': {
+        'type': 'Boolean',
+        'values': [
+          'true',
+          'false'
         ]
       },
-      "style": {
-        "type": "String"
+      'style': {
+        'type': 'String'
       },
-      "styleClass": {
-        "type": "String"
+      'styleClass': {
+        'type': 'String'
       },
-      "tabindex": {
-        "type": "String"
+      'tabindex': {
+        'type': 'String'
       },
-      "title": {
-        "type": "String"
+      'title': {
+        'type': 'String'
       },
-      "value": {
-        "type": "Object"
+      'value': {
+        'type': 'Object'
       }
     }
   },
-  "apex:stylesheet": {
-    "simple": true,
-    "attribs": {
-      "id": {
-        "type": "String"
+  'apex:stylesheet': {
+    'simple': true,
+    'attribs': {
+      'id': {
+        'type': 'String'
       },
-      "value": {
-        "type": "Object"
+      'value': {
+        'type': 'Object'
       }
     }
   },
-  "apex:tab": {
-    "simple": false,
-    "attribs": {
-      "disabled": {
-        "type": "Boolean",
-        "values": [
-          "true",
-          "false"
+  'apex:tab': {
+    'simple': false,
+    'attribs': {
+      'disabled': {
+        'type': 'Boolean',
+        'values': [
+          'true',
+          'false'
         ]
       },
-      "focus": {
-        "type": "String"
+      'focus': {
+        'type': 'String'
       },
-      "id": {
-        "type": "String"
+      'id': {
+        'type': 'String'
       },
-      "immediate": {
-        "type": "Boolean",
-        "values": [
-          "true",
-          "false"
+      'immediate': {
+        'type': 'Boolean',
+        'values': [
+          'true',
+          'false'
         ]
       },
-      "label": {
-        "type": "String"
+      'label': {
+        'type': 'String'
       },
-      "labelWidth": {
-        "type": "String"
+      'labelWidth': {
+        'type': 'String'
       },
-      "name": {
-        "type": "Object"
+      'name': {
+        'type': 'Object'
       },
-      "onclick": {
-        "type": "String"
+      'onclick': {
+        'type': 'String'
       },
-      "oncomplete": {
-        "type": "String"
+      'oncomplete': {
+        'type': 'String'
       },
-      "ondblclick": {
-        "type": "String"
+      'ondblclick': {
+        'type': 'String'
       },
-      "onkeydown": {
-        "type": "String"
+      'onkeydown': {
+        'type': 'String'
       },
-      "onkeypress": {
-        "type": "String"
+      'onkeypress': {
+        'type': 'String'
       },
-      "onkeyup": {
-        "type": "String"
+      'onkeyup': {
+        'type': 'String'
       },
-      "onmousedown": {
-        "type": "String"
+      'onmousedown': {
+        'type': 'String'
       },
-      "onmousemove": {
-        "type": "String"
+      'onmousemove': {
+        'type': 'String'
       },
-      "onmouseout": {
-        "type": "String"
+      'onmouseout': {
+        'type': 'String'
       },
-      "onmouseover": {
-        "type": "String"
+      'onmouseover': {
+        'type': 'String'
       },
-      "onmouseup": {
-        "type": "String"
+      'onmouseup': {
+        'type': 'String'
       },
-      "ontabenter": {
-        "type": "String"
+      'ontabenter': {
+        'type': 'String'
       },
-      "ontableave": {
-        "type": "String"
+      'ontableave': {
+        'type': 'String'
       },
-      "rendered": {
-        "type": "Boolean",
-        "values": [
-          "true",
-          "false"
+      'rendered': {
+        'type': 'Boolean',
+        'values': [
+          'true',
+          'false'
         ]
       },
-      "reRender": {
-        "type": "Object"
+      'reRender': {
+        'type': 'Object'
       },
-      "status": {
-        "type": "String"
+      'status': {
+        'type': 'String'
       },
-      "style": {
-        "type": "String"
+      'style': {
+        'type': 'String'
       },
-      "styleClass": {
-        "type": "String"
+      'styleClass': {
+        'type': 'String'
       },
-      "switchType": {
-        "type": "String"
+      'switchType': {
+        'type': 'String'
       },
-      "timeout": {
-        "type": "Integer"
+      'timeout': {
+        'type': 'Integer'
       },
-      "title": {
-        "type": "String"
+      'title': {
+        'type': 'String'
       }
     }
   },
-  "apex:tabPanel": {
-    "simple": false,
-    "attribs": {
-      "activeTabClass": {
-        "type": "String"
+  'apex:tabPanel': {
+    'simple': false,
+    'attribs': {
+      'activeTabClass': {
+        'type': 'String'
       },
-      "contentClass": {
-        "type": "String"
+      'contentClass': {
+        'type': 'String'
       },
-      "contentStyle": {
-        "type": "String"
+      'contentStyle': {
+        'type': 'String'
       },
-      "dir": {
-        "type": "String"
+      'dir': {
+        'type': 'String'
       },
-      "disabledTabClass": {
-        "type": "String"
+      'disabledTabClass': {
+        'type': 'String'
       },
-      "headerAlignment": {
-        "type": "String"
+      'headerAlignment': {
+        'type': 'String'
       },
-      "headerClass": {
-        "type": "String"
+      'headerClass': {
+        'type': 'String'
       },
-      "headerSpacing": {
-        "type": "String"
+      'headerSpacing': {
+        'type': 'String'
       },
-      "height": {
-        "type": "String"
+      'height': {
+        'type': 'String'
       },
-      "id": {
-        "type": "String"
+      'id': {
+        'type': 'String'
       },
-      "immediate": {
-        "type": "Boolean",
-        "values": [
-          "true",
-          "false"
+      'immediate': {
+        'type': 'Boolean',
+        'values': [
+          'true',
+          'false'
         ]
       },
-      "inactiveTabClass": {
-        "type": "String"
+      'inactiveTabClass': {
+        'type': 'String'
       },
-      "lang": {
-        "type": "String"
+      'lang': {
+        'type': 'String'
       },
-      "onclick": {
-        "type": "String"
+      'onclick': {
+        'type': 'String'
       },
-      "ondblclick": {
-        "type": "String"
+      'ondblclick': {
+        'type': 'String'
       },
-      "onkeydown": {
-        "type": "String"
+      'onkeydown': {
+        'type': 'String'
       },
-      "onkeypress": {
-        "type": "String"
+      'onkeypress': {
+        'type': 'String'
       },
-      "onkeyup": {
-        "type": "String"
+      'onkeyup': {
+        'type': 'String'
       },
-      "onmousedown": {
-        "type": "String"
+      'onmousedown': {
+        'type': 'String'
       },
-      "onmousemove": {
-        "type": "String"
+      'onmousemove': {
+        'type': 'String'
       },
-      "onmouseout": {
-        "type": "String"
+      'onmouseout': {
+        'type': 'String'
       },
-      "onmouseover": {
-        "type": "String"
+      'onmouseover': {
+        'type': 'String'
       },
-      "onmouseup": {
-        "type": "String"
+      'onmouseup': {
+        'type': 'String'
       },
-      "rendered": {
-        "type": "Boolean",
-        "values": [
-          "true",
-          "false"
+      'rendered': {
+        'type': 'Boolean',
+        'values': [
+          'true',
+          'false'
         ]
       },
-      "reRender": {
-        "type": "Object"
+      'reRender': {
+        'type': 'Object'
       },
-      "selectedTab": {
-        "type": "Object"
+      'selectedTab': {
+        'type': 'Object'
       },
-      "style": {
-        "type": "String"
+      'style': {
+        'type': 'String'
       },
-      "styleClass": {
-        "type": "String"
+      'styleClass': {
+        'type': 'String'
       },
-      "switchType": {
-        "type": "String"
+      'switchType': {
+        'type': 'String'
       },
-      "tabClass": {
-        "type": "String"
+      'tabClass': {
+        'type': 'String'
       },
-      "title": {
-        "type": "String"
+      'title': {
+        'type': 'String'
       },
-      "value": {
-        "type": "Object"
+      'value': {
+        'type': 'Object'
       },
-      "width": {
-        "type": "String"
+      'width': {
+        'type': 'String'
       }
     }
   },
-  "apex:toolbar": {
-    "simple": false,
-    "attribs": {
-      "contentClass": {
-        "type": "String"
+  'apex:toolbar': {
+    'simple': false,
+    'attribs': {
+      'contentClass': {
+        'type': 'String'
       },
-      "contentStyle": {
-        "type": "String"
+      'contentStyle': {
+        'type': 'String'
       },
-      "height": {
-        "type": "String"
+      'height': {
+        'type': 'String'
       },
-      "id": {
-        "type": "String"
+      'id': {
+        'type': 'String'
       },
-      "itemSeparator": {
-        "type": "String"
+      'itemSeparator': {
+        'type': 'String'
       },
-      "onclick": {
-        "type": "String"
+      'onclick': {
+        'type': 'String'
       },
-      "ondblclick": {
-        "type": "String"
+      'ondblclick': {
+        'type': 'String'
       },
-      "onitemclick": {
-        "type": "String"
+      'onitemclick': {
+        'type': 'String'
       },
-      "onitemdblclick": {
-        "type": "String"
+      'onitemdblclick': {
+        'type': 'String'
       },
-      "onitemkeydown": {
-        "type": "String"
+      'onitemkeydown': {
+        'type': 'String'
       },
-      "onitemkeypress": {
-        "type": "String"
+      'onitemkeypress': {
+        'type': 'String'
       },
-      "onitemkeyup": {
-        "type": "String"
+      'onitemkeyup': {
+        'type': 'String'
       },
-      "onitemmousedown": {
-        "type": "String"
+      'onitemmousedown': {
+        'type': 'String'
       },
-      "onitemmousemove": {
-        "type": "String"
+      'onitemmousemove': {
+        'type': 'String'
       },
-      "onitemmouseout": {
-        "type": "String"
+      'onitemmouseout': {
+        'type': 'String'
       },
-      "onitemmouseover": {
-        "type": "String"
+      'onitemmouseover': {
+        'type': 'String'
       },
-      "onitemmouseup": {
-        "type": "String"
+      'onitemmouseup': {
+        'type': 'String'
       },
-      "onkeydown": {
-        "type": "String"
+      'onkeydown': {
+        'type': 'String'
       },
-      "onkeypress": {
-        "type": "String"
+      'onkeypress': {
+        'type': 'String'
       },
-      "onkeyup": {
-        "type": "String"
+      'onkeyup': {
+        'type': 'String'
       },
-      "onmousedown": {
-        "type": "String"
+      'onmousedown': {
+        'type': 'String'
       },
-      "onmousemove": {
-        "type": "String"
+      'onmousemove': {
+        'type': 'String'
       },
-      "onmouseout": {
-        "type": "String"
+      'onmouseout': {
+        'type': 'String'
       },
-      "onmouseover": {
-        "type": "String"
+      'onmouseover': {
+        'type': 'String'
       },
-      "onmouseup": {
-        "type": "String"
+      'onmouseup': {
+        'type': 'String'
       },
-      "rendered": {
-        "type": "Boolean",
-        "values": [
-          "true",
-          "false"
+      'rendered': {
+        'type': 'Boolean',
+        'values': [
+          'true',
+          'false'
         ]
       },
-      "separatorClass": {
-        "type": "String"
+      'separatorClass': {
+        'type': 'String'
       },
-      "style": {
-        "type": "String"
+      'style': {
+        'type': 'String'
       },
-      "styleClass": {
-        "type": "String"
+      'styleClass': {
+        'type': 'String'
       },
-      "width": {
-        "type": "String"
+      'width': {
+        'type': 'String'
       }
     }
   },
-  "apex:toolbarGroup": {
-    "simple": false,
-    "attribs": {
-      "id": {
-        "type": "String"
+  'apex:toolbarGroup': {
+    'simple': false,
+    'attribs': {
+      'id': {
+        'type': 'String'
       },
-      "itemSeparator": {
-        "type": "String"
+      'itemSeparator': {
+        'type': 'String'
       },
-      "location": {
-        "type": "String"
+      'location': {
+        'type': 'String'
       },
-      "onclick": {
-        "type": "String"
+      'onclick': {
+        'type': 'String'
       },
-      "ondblclick": {
-        "type": "String"
+      'ondblclick': {
+        'type': 'String'
       },
-      "onkeydown": {
-        "type": "String"
+      'onkeydown': {
+        'type': 'String'
       },
-      "onkeypress": {
-        "type": "String"
+      'onkeypress': {
+        'type': 'String'
       },
-      "onkeyup": {
-        "type": "String"
+      'onkeyup': {
+        'type': 'String'
       },
-      "onmousedown": {
-        "type": "String"
+      'onmousedown': {
+        'type': 'String'
       },
-      "onmousemove": {
-        "type": "String"
+      'onmousemove': {
+        'type': 'String'
       },
-      "onmouseout": {
-        "type": "String"
+      'onmouseout': {
+        'type': 'String'
       },
-      "onmouseover": {
-        "type": "String"
+      'onmouseover': {
+        'type': 'String'
       },
-      "onmouseup": {
-        "type": "String"
+      'onmouseup': {
+        'type': 'String'
       },
-      "rendered": {
-        "type": "Boolean",
-        "values": [
-          "true",
-          "false"
+      'rendered': {
+        'type': 'Boolean',
+        'values': [
+          'true',
+          'false'
         ]
       },
-      "separatorClass": {
-        "type": "String"
+      'separatorClass': {
+        'type': 'String'
       },
-      "style": {
-        "type": "String"
+      'style': {
+        'type': 'String'
       },
-      "styleClass": {
-        "type": "String"
+      'styleClass': {
+        'type': 'String'
       }
     }
   },
-  "apex:variable": {
-    "simple": true,
-    "attribs": {
-      "id": {
-        "type": "String"
+  'apex:variable': {
+    'simple': true,
+    'attribs': {
+      'id': {
+        'type': 'String'
       },
-      "rendered": {
-        "type": "Boolean",
-        "values": [
-          "true",
-          "false"
+      'rendered': {
+        'type': 'Boolean',
+        'values': [
+          'true',
+          'false'
         ]
       },
-      "value": {
-        "type": "Object"
+      'value': {
+        'type': 'Object'
       },
-      "var": {
-        "type": "String"
+      'var': {
+        'type': 'String'
       }
     }
   },
-  "apex:vote": {
-    "simple": false,
-    "attribs": {
-      "id": {
-        "type": "String"
+  'apex:vote': {
+    'simple': false,
+    'attribs': {
+      'id': {
+        'type': 'String'
       },
-      "objectId": {
-        "type": "String"
+      'objectId': {
+        'type': 'String'
       },
-      "rendered": {
-        "type": "Boolean",
-        "values": [
-          "true",
-          "false"
+      'rendered': {
+        'type': 'Boolean',
+        'values': [
+          'true',
+          'false'
         ]
       },
-      "rerender": {
-        "type": "String"
+      'rerender': {
+        'type': 'String'
       }
     }
   },
-  "chatter:feed": {
-    "simple": true,
-    "attribs": {
-      "entityId": {
-        "type": "id"
+  'chatter:feed': {
+    'simple': true,
+    'attribs': {
+      'entityId': {
+        'type': 'id'
       },
-      "feedItemType": {
-        "type": "String"
+      'feedItemType': {
+        'type': 'String'
       },
-      "id": {
-        "type": "String"
+      'id': {
+        'type': 'String'
       },
-      "onComplete": {
-        "type": "String"
+      'onComplete': {
+        'type': 'String'
       },
-      "rendered": {
-        "type": "Boolean",
-        "values": [
-          "true",
-          "false"
+      'rendered': {
+        'type': 'Boolean',
+        'values': [
+          'true',
+          'false'
         ]
       },
-      "reRender": {
-        "type": "Object"
+      'reRender': {
+        'type': 'Object'
       },
-      "showPublisher": {
-        "type": "Boolean",
-        "values": [
-          "true",
-          "false"
+      'showPublisher': {
+        'type': 'Boolean',
+        'values': [
+          'true',
+          'false'
         ]
       }
     }
   },
-  "chatter:feedWithFollowers": {
-    "simple": true,
-    "attribs": {
-      "entityId": {
-        "type": "id"
+  'chatter:feedWithFollowers': {
+    'simple': true,
+    'attribs': {
+      'entityId': {
+        'type': 'id'
       },
-      "id": {
-        "type": "String"
+      'id': {
+        'type': 'String'
       },
-      "onComplete": {
-        "type": "String"
+      'onComplete': {
+        'type': 'String'
       },
-      "rendered": {
-        "type": "Boolean",
-        "values": [
-          "true",
-          "false"
+      'rendered': {
+        'type': 'Boolean',
+        'values': [
+          'true',
+          'false'
         ]
       },
-      "reRender": {
-        "type": "Object"
+      'reRender': {
+        'type': 'Object'
       },
-      "showHeader": {
-        "type": "Boolean",
-        "values": [
-          "true",
-          "false"
+      'showHeader': {
+        'type': 'Boolean',
+        'values': [
+          'true',
+          'false'
         ]
       }
     }
   },
-  "chatter:follow": {
-    "simple": true,
-    "attribs": {
-      "entityId": {
-        "type": "id"
+  'chatter:follow': {
+    'simple': true,
+    'attribs': {
+      'entityId': {
+        'type': 'id'
       },
-      "id": {
-        "type": "String"
+      'id': {
+        'type': 'String'
       },
-      "onComplete": {
-        "type": "String"
+      'onComplete': {
+        'type': 'String'
       },
-      "rendered": {
-        "type": "Boolean",
-        "values": [
-          "true",
-          "false"
+      'rendered': {
+        'type': 'Boolean',
+        'values': [
+          'true',
+          'false'
         ]
       },
-      "reRender": {
-        "type": "Object"
+      'reRender': {
+        'type': 'Object'
       }
     }
   },
-  "chatter:followers": {
-    "simple": true,
-    "attribs": {
-      "entityId": {
-        "type": "id"
+  'chatter:followers': {
+    'simple': true,
+    'attribs': {
+      'entityId': {
+        'type': 'id'
       },
-      "id": {
-        "type": "String"
+      'id': {
+        'type': 'String'
       },
-      "rendered": {
-        "type": "Boolean",
-        "values": [
-          "true",
-          "false"
+      'rendered': {
+        'type': 'Boolean',
+        'values': [
+          'true',
+          'false'
         ]
       }
     }
   },
-  "chatter:newsfeed": {
-    "simple": true,
-    "attribs": {
-      "id": {
-        "type": "String"
+  'chatter:newsfeed': {
+    'simple': true,
+    'attribs': {
+      'id': {
+        'type': 'String'
       },
-      "onComplete": {
-        "type": "String"
+      'onComplete': {
+        'type': 'String'
       },
-      "rendered": {
-        "type": "Boolean",
-        "values": [
-          "true",
-          "false"
+      'rendered': {
+        'type': 'Boolean',
+        'values': [
+          'true',
+          'false'
         ]
       },
-      "reRender": {
-        "type": "Object"
+      'reRender': {
+        'type': 'Object'
       }
     }
   },
-  "chatter:userPhotoUpload": {
-    "simple": false,
-    "attribs": {
-      "id": {
-        "type": "String"
+  'chatter:userPhotoUpload': {
+    'simple': false,
+    'attribs': {
+      'id': {
+        'type': 'String'
       },
-      "rendered": {
-        "type": "Boolean",
-        "values": [
-          "true",
-          "false"
+      'rendered': {
+        'type': 'Boolean',
+        'values': [
+          'true',
+          'false'
         ]
       },
-      "showOriginalPhoto": {
-        "type": "Boolean",
-        "values": [
-          "true",
-          "false"
+      'showOriginalPhoto': {
+        'type': 'Boolean',
+        'values': [
+          'true',
+          'false'
         ]
       }
     }
   },
-  "flow:interview": {
-    "simple": false,
-    "attribs": {
-      "allowShowPause": {
-        "type": "Boolean",
-        "values": [
-          "true",
-          "false"
+  'flow:interview': {
+    'simple': false,
+    'attribs': {
+      'allowShowPause': {
+        'type': 'Boolean',
+        'values': [
+          'true',
+          'false'
         ]
       },
-      "buttonLocation": {
-        "type": "String",
-        "values": [
-          "top",
-          "bottom",
-          "both"
+      'buttonLocation': {
+        'type': 'String',
+        'values': [
+          'top',
+          'bottom',
+          'both'
         ]
       },
-      "buttonStyle": {
-        "type": "String"
+      'buttonStyle': {
+        'type': 'String'
       },
-      "finishLocation": {
-        "type": "ApexPages.PageReference"
+      'finishLocation': {
+        'type': 'ApexPages.PageReference'
       },
-      "id": {
-        "type": "String"
+      'id': {
+        'type': 'String'
       },
-      "interview": {
-        "type": "Flow.Interview"
+      'interview': {
+        'type': 'Flow.Interview'
       },
-      "name": {
-        "type": "String"
+      'name': {
+        'type': 'String'
       },
-      "pausedInterviewId": {
-        "type": "String"
+      'pausedInterviewId': {
+        'type': 'String'
       },
-      "rendered": {
-        "type": "Boolean",
-        "values": [
-          "true",
-          "false"
+      'rendered': {
+        'type': 'Boolean',
+        'values': [
+          'true',
+          'false'
         ]
       },
-      "rerender": {
-        "type": "Object"
+      'rerender': {
+        'type': 'Object'
       },
-      "showHelp": {
-        "type": "Boolean",
-        "values": [
-          "true",
-          "false"
+      'showHelp': {
+        'type': 'Boolean',
+        'values': [
+          'true',
+          'false'
         ]
       }
     }
   },
-  "ideas:detailOutputLink": {
-    "simple": false,
-    "attribs": {
-      "id": {
-        "type": "String"
+  'ideas:detailOutputLink': {
+    'simple': false,
+    'attribs': {
+      'id': {
+        'type': 'String'
       },
-      "ideaId": {
-        "type": "String"
+      'ideaId': {
+        'type': 'String'
       },
-      "page": {
-        "type": "ApexPages.PageReference"
+      'page': {
+        'type': 'ApexPages.PageReference'
       },
-      "pageNumber": {
-        "type": "Integer"
+      'pageNumber': {
+        'type': 'Integer'
       },
-      "pageOffset": {
-        "type": "Integer"
+      'pageOffset': {
+        'type': 'Integer'
       },
-      "rendered": {
-        "type": "Boolean",
-        "values": [
-          "true",
-          "false"
+      'rendered': {
+        'type': 'Boolean',
+        'values': [
+          'true',
+          'false'
         ]
       },
-      "style": {
-        "type": "String"
+      'style': {
+        'type': 'String'
       },
-      "styleClass": {
-        "type": "String"
+      'styleClass': {
+        'type': 'String'
       }
     }
   },
-  "ideas:listOutputLink": {
-    "simple": false,
-    "attribs": {
-      "category": {
-        "type": "String"
+  'ideas:listOutputLink': {
+    'simple': false,
+    'attribs': {
+      'category': {
+        'type': 'String'
       },
-      "communityId": {
-        "type": "String"
+      'communityId': {
+        'type': 'String'
       },
-      "id": {
-        "type": "String"
+      'id': {
+        'type': 'String'
       },
-      "page": {
-        "type": "ApexPages.PageReference"
+      'page': {
+        'type': 'ApexPages.PageReference'
       },
-      "pageNumber": {
-        "type": "Integer"
+      'pageNumber': {
+        'type': 'Integer'
       },
-      "pageOffset": {
-        "type": "Integer"
+      'pageOffset': {
+        'type': 'Integer'
       },
-      "rendered": {
-        "type": "Boolean",
-        "values": [
-          "true",
-          "false"
+      'rendered': {
+        'type': 'Boolean',
+        'values': [
+          'true',
+          'false'
         ]
       },
-      "sort": {
-        "type": "String"
+      'sort': {
+        'type': 'String'
       },
-      "status": {
-        "type": "String"
+      'status': {
+        'type': 'String'
       },
-      "stickyAttributes": {
-        "type": "Boolean",
-        "values": [
-          "true",
-          "false"
+      'stickyAttributes': {
+        'type': 'Boolean',
+        'values': [
+          'true',
+          'false'
         ]
       },
-      "style": {
-        "type": "String"
+      'style': {
+        'type': 'String'
       },
-      "styleClass": {
-        "type": "String"
+      'styleClass': {
+        'type': 'String'
       }
     }
   },
-  "ideas:profileListOutputLink": {
-    "simple": false,
-    "attribs": {
-      "communityId": {
-        "type": "String"
+  'ideas:profileListOutputLink': {
+    'simple': false,
+    'attribs': {
+      'communityId': {
+        'type': 'String'
       },
-      "id": {
-        "type": "String"
+      'id': {
+        'type': 'String'
       },
-      "page": {
-        "type": "ApexPages.PageReference"
+      'page': {
+        'type': 'ApexPages.PageReference'
       },
-      "pageNumber": {
-        "type": "Integer"
+      'pageNumber': {
+        'type': 'Integer'
       },
-      "pageOffset": {
-        "type": "Integer"
+      'pageOffset': {
+        'type': 'Integer'
       },
-      "rendered": {
-        "type": "Boolean",
-        "values": [
-          "true",
-          "false"
+      'rendered': {
+        'type': 'Boolean',
+        'values': [
+          'true',
+          'false'
         ]
       },
-      "sort": {
-        "type": "String"
+      'sort': {
+        'type': 'String'
       },
-      "stickyAttributes": {
-        "type": "Boolean",
-        "values": [
-          "true",
-          "false"
+      'stickyAttributes': {
+        'type': 'Boolean',
+        'values': [
+          'true',
+          'false'
         ]
       },
-      "style": {
-        "type": "String"
+      'style': {
+        'type': 'String'
       },
-      "styleClass": {
-        "type": "String"
+      'styleClass': {
+        'type': 'String'
       },
-      "userId": {
-        "type": "String"
+      'userId': {
+        'type': 'String'
       }
     }
   },
-  "site:googleAnalyticsTracking": {
-    "simple": false,
-    "attribs": {
-      "id": {
-        "type": "String"
+  'site:googleAnalyticsTracking': {
+    'simple': false,
+    'attribs': {
+      'id': {
+        'type': 'String'
       },
-      "rendered": {
-        "type": "Boolean",
-        "values": [
-          "true",
-          "false"
+      'rendered': {
+        'type': 'Boolean',
+        'values': [
+          'true',
+          'false'
         ]
       }
     }
   },
-  "site:previewAsAdmin": {
-    "simple": false,
-    "attribs": {
-      "id": {
-        "type": "String"
+  'site:previewAsAdmin': {
+    'simple': false,
+    'attribs': {
+      'id': {
+        'type': 'String'
       },
-      "rendered": {
-        "type": "Boolean",
-        "values": [
-          "true",
-          "false"
+      'rendered': {
+        'type': 'Boolean',
+        'values': [
+          'true',
+          'false'
         ]
       }
     }
   },
-  "social:profileViewer": {
-    "simple": false,
-    "attribs": {
-      "entityId": {
-        "type": "id"
+  'social:profileViewer': {
+    'simple': false,
+    'attribs': {
+      'entityId': {
+        'type': 'id'
       },
-      "id": {
-        "type": "String"
+      'id': {
+        'type': 'String'
       },
-      "rendered": {
-        "type": "Boolean",
-        "values": [
-          "true",
-          "false"
+      'rendered': {
+        'type': 'Boolean',
+        'values': [
+          'true',
+          'false'
         ]
       }
     }
   },
-  "support:caseFeed": {
-    "simple": false,
-    "attribs": {
-      "caseId": {
-        "type": "id"
+  'support:caseFeed': {
+    'simple': false,
+    'attribs': {
+      'caseId': {
+        'type': 'id'
       },
-      "id": {
-        "type": "String"
+      'id': {
+        'type': 'String'
       },
-      "rendered": {
-        "type": "Boolean",
-        "values": [
-          "true",
-          "false"
+      'rendered': {
+        'type': 'Boolean',
+        'values': [
+          'true',
+          'false'
         ]
       }
     }
   },
-  "support:caseUnifiedFiles": {
-    "simple": false,
-    "attribs": {
-      "entityId": {
-        "type": "String"
+  'support:caseUnifiedFiles': {
+    'simple': false,
+    'attribs': {
+      'entityId': {
+        'type': 'String'
       },
-      "id": {
-        "type": "String"
+      'id': {
+        'type': 'String'
       },
-      "rendered": {
-        "type": "Boolean",
-        "values": [
-          "true",
-          "false"
+      'rendered': {
+        'type': 'Boolean',
+        'values': [
+          'true',
+          'false'
         ]
       }
     }
   },
-  "support:clickToDial": {
-    "simple": false,
-    "attribs": {
-      "entityId": {
-        "type": "String"
+  'support:clickToDial': {
+    'simple': false,
+    'attribs': {
+      'entityId': {
+        'type': 'String'
       },
-      "id": {
-        "type": "String"
+      'id': {
+        'type': 'String'
       },
-      "number": {
-        "type": "String"
+      'number': {
+        'type': 'String'
       },
-      "params": {
-        "type": "String"
+      'params': {
+        'type': 'String'
       },
-      "rendered": {
-        "type": "Boolean",
-        "values": [
-          "true",
-          "false"
+      'rendered': {
+        'type': 'Boolean',
+        'values': [
+          'true',
+          'false'
         ]
       }
     }
   },
-  "topics:widget": {
-    "simple": true,
-    "attribs": {
-      "customUrl": {
-        "type": "string"
+  'topics:widget': {
+    'simple': true,
+    'attribs': {
+      'customUrl': {
+        'type': 'string'
       },
-      "entity": {
-        "type": "string"
+      'entity': {
+        'type': 'string'
       },
-      "hideSuccessMessage": {
-        "type": "Boolean",
-        "values": [
-          "true",
-          "false"
+      'hideSuccessMessage': {
+        'type': 'Boolean',
+        'values': [
+          'true',
+          'false'
         ]
       },
-      "id": {
-        "type": "String"
+      'id': {
+        'type': 'String'
       },
-      "rendered": {
-        "type": "Boolean",
-        "values": [
-          "true",
-          "false"
+      'rendered': {
+        'type': 'Boolean',
+        'values': [
+          'true',
+          'false'
         ]
       },
-      "renderStyle": {
-        "type": "string",
-        "values": [
-          "enhanced",
-          "simple"
+      'renderStyle': {
+        'type': 'string',
+        'values': [
+          'enhanced',
+          'simple'
         ]
       }
     }

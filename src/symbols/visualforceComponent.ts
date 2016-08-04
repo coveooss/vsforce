@@ -1,11 +1,11 @@
-interface VisualforceComponentAttribute {
+interface IVisualforceComponentAttribute {
   name: string;
   type: string;
   description: string;
 }
 
-interface VisualforceComponent {
+interface IVisualforceComponent {
   name: string;
-  attributes: VisualforceComponentAttribute[];
+  attributes: IVisualforceComponentAttribute[];
   uri?: string
 }

@@ -1,21 +1,21 @@
-import {VisualforceComponentFetcher} from './visualforceComponentFetcher'
+import {IVisualforceComponentFetcher} from './visualforceComponentFetcher'
 import {VisualforceBaseComponent} from './visualforceBaseComponents'
 
-export class VisualforceComponentFetcherBase implements VisualforceComponentFetcher {
+export class VisualforceComponentFetcherBase implements IVisualforceComponentFetcher {
   public canOverwrite: boolean = true;
 
-  public fetchAll(): Thenable<VisualforceComponent[]> {
-    return new Promise<VisualforceComponent[]>((resolve, reject) => {
-      var componentList: VisualforceComponent[] = [];
+  public fetchAll(): Thenable<IVisualforceComponent[]> {
+    return new Promise<IVisualforceComponent[]>((resolve, reject) => {
+      var componentList: IVisualforceComponent[] = [];
 
       for (var cmp in VisualforceBaseComponent) {
-        var attributes: VisualforceComponentAttribute[] = [];
+        var attributes: IVisualforceComponentAttribute[] = [];
 
         for (var attr in VisualforceBaseComponent[cmp].attribs) {
           attributes.push({
             name: attr,
             type: VisualforceBaseComponent[cmp].attribs[attr].type,
-            description: ""
+            description: ''
           });
         }
 

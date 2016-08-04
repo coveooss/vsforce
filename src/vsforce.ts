@@ -14,9 +14,9 @@ export function activate(context: vscode.ExtensionContext) {
   var showLogsCommand = new ShowLogsCommand();
 
   context.subscriptions.concat([
-    vscode.languages.registerCompletionItemProvider(visualforceDocumentFilter, new VisualforceCompletionItemProvider(), "<"),
+    vscode.languages.registerCompletionItemProvider(visualforceDocumentFilter, new VisualforceCompletionItemProvider(), '<'),
     vscode.languages.registerDefinitionProvider(visualforceDocumentFilter, new VisualforceDefinitionProvider()),
-    vscode.workspace.registerTextDocumentContentProvider("sf", new SalesforceContentProvider()),
+    vscode.workspace.registerTextDocumentContentProvider('sf', new SalesforceContentProvider()),
     vscode.languages.registerWorkspaceSymbolProvider(new VisualforceWorkspaceSymbolProvider()),
 
     vscode.commands.registerCommand('extension.showLogs', () => showLogsCommand.Command()),

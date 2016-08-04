@@ -4,7 +4,7 @@ import * as vscode from 'vscode';
 import * as xml2js from 'xml2js';
 import * as fs from 'fs';
 
-export interface QueryResult {
+export interface IQueryResult {
   totalSize: number,
   records: any[]
 }
@@ -23,7 +23,7 @@ export class Connection {
     return new Promise<string>((resolve, reject) => {
       Connection.getConn().then((conn: Connection) => {
         conn.jsforceConn.tooling.request(
-          conn.jsforceConn.tooling._baseUrl() + "/sobjects/ApexLog/" + id + "/Body",
+          `${conn.jsforceConn.tooling._baseUrl()}/sobjects/ApexLog/${id}/Body`,
           (err, result) => {
             if (err) {
               vscode.window.showErrorMessage(err.message);
@@ -60,7 +60,7 @@ export class Connection {
               Workflow: 'DEBUG'
             }, function (err, res) {
               if (err) {
-                vscode.window.showErrorMessage("An error occured while adding the User Trace Flag.");
+                vscode.window.showErrorMessage('An error occured while adding the User Trace Flag.');
               }
             });
           }
@@ -105,8 +105,8 @@ export class Connection {
   }
 
   // Execute a SOQL query and return the results to a callback function if no error.
-  public executeQuery(query: string): Thenable<QueryResult> {
-    return new Promise<QueryResult>((resolve, reject) => {
+  public executeQuery(query: string): Thenable<IQueryResult> {
+    return new Promise<IQueryResult>((resolve, reject) => {
       Connection.getConn().then((conn: Connection) => {
         conn.jsforceConn.query(query, function (err, res) {
           if (err) {
@@ -145,7 +145,7 @@ export class Connection {
         resolve(Connection.instance);
       } else {
         this.initConn().then((conn: Connection) => {
-          vscode.window.showInformationMessage("Logged in to Salesforce as " + conn.config.get<string>('username'));
+          vscode.window.showInformationMessage(`Logged in to Salesforce as ${conn.config.get<string>('username')}`);
           Connection.instance = conn;
 
           resolve(conn);
@@ -182,7 +182,7 @@ export class Connection {
           }
         );
       } else {
-        reject("Invalid vsforce config detected, please refer to https://github.com/coveo/vsforce to get a working example");
+        reject('Invalid vsforce config detected, please refer to https://github.com/coveo/vsforce to get a working example');
       }
     })
   }

@@ -1,6 +1,6 @@
 import vscode = require('vscode');
 
-export interface VisualforceComponentFetcher extends vscode.Disposable {
-  fetchAll(): Thenable<VisualforceComponent[]>
+export interface IVisualforceComponentFetcher extends vscode.Disposable {
+  fetchAll(): Thenable<IVisualforceComponent[]>
   canOverwrite: boolean
 }
