@@ -1,6 +1,6 @@
 import vscode = require('vscode');
 
-import {Connection, IQueryResult} from './../connection';
+import {Connection} from './../connection';
 import {ICommand} from './command';
 
 export class ShowLogsCommand implements ICommand {

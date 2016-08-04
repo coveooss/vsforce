@@ -1,11 +1,11 @@
 'use strict';
 
-import * as vscode from 'vscode';
-import {Connection} from './connection'
+// import * as vscode from 'vscode';
+// import {Connection} from './connection'
 
-let jsforce = require('jsforce');
-let fs = require('fs');
-var zipFolder = require('zip-folder');
+// let jsforce = require('jsforce');
+// let fs = require('fs');
+// var zipFolder = require('zip-folder');
 /*
 export function activate(context: vscode.ExtensionContext) {
   var conn = new Connection();

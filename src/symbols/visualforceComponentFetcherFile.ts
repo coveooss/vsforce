@@ -2,9 +2,8 @@ import vscode = require('vscode');
 import * as utils from '../utils';
 import fs = require('fs');
 import html = require('htmlparser2');
-import {VisualforceComponentCache} from './visualforceComponentCache'
-import {IVisualforceComponentFetcher} from './visualforceComponentFetcher'
-import {VisualforceComponentCacheInstance} from './visualforceComponentCache'
+import {VisualforceComponentCache} from './visualforceComponentCache';
+import {IVisualforceComponentFetcher} from './visualforceComponentFetcher';
 
 export class VisualforceComponentFetcherFile implements IVisualforceComponentFetcher, vscode.Disposable {
   public canOverwrite: boolean = true;
@@ -50,7 +49,7 @@ export class VisualforceComponentFetcherFile implements IVisualforceComponentFet
         }
       });
 
-      var file = fs.readFile(uri.fsPath, 'utf8', (err, data) => {
+      fs.readFile(uri.fsPath, 'utf8', (err, data) => {
         parser.write(data);
         parser.end();
       });

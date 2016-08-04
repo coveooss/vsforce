@@ -1,8 +1,6 @@
 let jsforce = require('jsforce');
 
 import * as vscode from 'vscode';
-import * as xml2js from 'xml2js';
-import * as fs from 'fs';
 
 export interface IQueryResult {
   totalSize: number,
