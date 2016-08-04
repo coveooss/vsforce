@@ -15,7 +15,7 @@ export class VisualforceComponentFetcherBase implements VisualforceComponentFetc
           attributes.push({
             name: attr,
             type: VisualforceBaseComponent[cmp].attribs[attr].type,
-            values: VisualforceBaseComponent[cmp].attribs[attr].values
+            description: ""
           });
         }
 

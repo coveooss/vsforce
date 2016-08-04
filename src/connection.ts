@@ -10,32 +10,118 @@ export interface QueryResult {
 }
 
 export class Connection {
-  private jsforceConn: any;
-  private outputConsole: vscode.OutputChannel;
+  private static instance: Connection;
   private config: vscode.WorkspaceConfiguration;
+  private jsforceConn: any;
 
-  constructor() {
-    this.config = vscode.workspace.getConfiguration('vsforce.organisation');
-    this.outputConsole = vscode.window.createOutputChannel('Salesforce');
-    this.jsforceConn = new jsforce.Connection({
-      loginUrl: this.config.get<string>('loginUrl')
-    });
+  private userId: string;
+  private orgId: string;
+
+  constructor() { }
+
+  public getLogBody(id: string): Thenable<string> {
+    return new Promise<string>((resolve, reject) => {
+      Connection.getConn().then((conn: Connection) => {
+        conn.jsforceConn.tooling.request(
+          conn.jsforceConn.tooling._baseUrl() + "/sobjects/ApexLog/" + id + "/Body",
+          (err, result) => {
+            if (err) {
+              vscode.window.showErrorMessage(err.message);
+              reject(err.message);
+            } else {
+              resolve(result)
+            }
+          })
+      })
+    })
   }
 
-  // Execute a SOQL query and return the results to a callback function if no error.
-  public executeQuery(query: string, callback?: (results: any) => void) {
-    var _this = this;
-
-    this.execute((conn: any) => {
-      conn.query(query, function (err, res) {
-        if (err) { return _this.outputConsole.appendLine(err); }
-        _this.outputConsole.appendLine(JSON.stringify(res, null, 2));
-        callback(res);
+  public createUserTraceFlag() {
+    this.createUpdateDebugLevel().then((debugLevelId: string) => {
+      Connection.getConn().then((conn: Connection) => {
+        conn.jsforceConn.tooling.sobject('TraceFlag').find({
+          TracedEntityId: conn.userId
+        }).execute((err, records) => {
+          return records;
+        }).then((records: any) => {
+          if (records.length == 0) {
+            conn.jsforceConn.tooling.sobject('TraceFlag').create({
+              ApexCode: 'DEBUG',
+              ApexProfiling: 'DEBUG',
+              Callout: 'DEBUG',
+              Database: 'DEBUG',
+              DebugLevelId: debugLevelId,
+              ExpirationDate: new Date().setHours(new Date().getHours() + 6),
+              LogType: 'DEVELOPER_LOG',
+              System: 'DEBUG',
+              TracedEntityId: conn.userId,
+              Validation: 'DEBUG',
+              Visualforce: 'DEBUG',
+              Workflow: 'DEBUG'
+            }, function (err, res) {
+              if (err) {
+                vscode.window.showErrorMessage("An error occured while adding the User Trace Flag.");
+              }
+            });
+          }
+        });
       });
     });
   }
 
+  private createUpdateDebugLevel(): Thenable<string> {
+    return new Promise<string>((resolve, reject) => {
+      Connection.getConn().then((conn: Connection) => {
+        conn.jsforceConn.tooling.sobject('DebugLevel').find({
+          DeveloperName: 'vsforce_LogDebug'
+        }).execute((err, records) => {
+          return records;
+        }).then((records: any) => {
+          if (records.length == 1) {
+            resolve(records[0].Id);
+          } else {
+            conn.jsforceConn.tooling.sobject('DebugLevel').create({
+              ApexCode: 'DEBUG',
+              ApexProfiling: 'DEBUG',
+              Callout: 'DEBUG',
+              Database: 'DEBUG',
+              DeveloperName: 'vsforce_LogDebug',
+              MasterLabel: '[vsforce] Log Debug Level',
+              System: 'DEBUG',
+              Validation: 'DEBUG',
+              Visualforce: 'DEBUG',
+              Workflow: 'DEBUG'
+            }, function (err, res) {
+              if (err) {
+                reject(err.message);
+              } else {
+                resolve(res.id);
+              }
+            });
+          }
+        });
+      })
+    });
+  }
+
+  // Execute a SOQL query and return the results to a callback function if no error.
+  public executeQuery(query: string): Thenable<QueryResult> {
+    return new Promise<QueryResult>((resolve, reject) => {
+      Connection.getConn().then((conn: Connection) => {
+        conn.jsforceConn.query(query, function (err, res) {
+          if (err) {
+            vscode.window.showErrorMessage(err);
+            reject(err);
+          } else {
+            resolve(res);
+          }
+        });
+      })
+    })
+  }
+
   // Execute APEX code
+  /*
   public executeCode(code: string) {
     var _this = this;
 
@@ -52,32 +138,73 @@ export class Connection {
       });
     });
   }
+*/
+  public static getConn(): Thenable<Connection> {
+    return new Promise<Connection>((resolve, reject) => {
+      if (Connection.instance != undefined) {
+        resolve(Connection.instance);
+      } else {
+        this.initConn().then((conn: Connection) => {
+          vscode.window.showInformationMessage("Logged in to Salesforce as " + conn.config.get<string>('username'));
+          Connection.instance = conn;
 
-  public execute(callback: (jsforce: any) => void) {
-    var _this = this;
-    if (this.jsforceConn.accessToken || this.jsforceConn.accessToken != undefined) {
-      callback(_this.jsforceConn);
-    } else {
-      this.jsforceConn.login(
-        this.config.get<string>('username'),
-        this.config.get<string>('password') + this.config.get<string>('securityToken'),
-        function (err, res) {
-          callback(_this.jsforceConn);
-        }
-      );
-    }
+          resolve(conn);
+
+        }, (reason: string) => {
+          vscode.window.showErrorMessage(reason);
+        });
+      }
+    })
   }
 
-  public retrive() {
-    var _this = this;
+  private static initConn(): Thenable<Connection> {
+    return new Promise<Connection>((resolve, reject) => {
+      var conn = new Connection();
+      conn.config = vscode.workspace.getConfiguration('vsforce.organisation');
 
-    fs.readFile(vscode.workspace.rootPath + '\\apex\\code\\package.xml', (err: NodeJS.ErrnoException, data: Buffer) => {
-      xml2js.parseString(data.toString(), (err: any, results: any) => {
-        _this.execute((jsforce: any) => {
-          console.log(jsforce.metadata.retrieve({ unpackaged: JSON.stringify(results.Package) }).stream().pipe());
-          // .pipe(fs.createWriteStream('MyPackage.zip'))
+      if (Connection.validateConfig(conn.config)) {
+        conn.jsforceConn = new jsforce.Connection({
+          loginUrl: conn.config.get<string>('loginUrl')
+        });
+
+        conn.jsforceConn.login(
+          conn.config.get<string>('username'),
+          conn.config.get<string>('password') + conn.config.get<string>('securityToken'),
+          function (err, res) {
+            if (err) {
+              reject(err.message);
+            } else {
+              conn.orgId = res.organizationId;
+              conn.userId = res.id;
+
+              resolve(conn);
+            }
+          }
+        );
+      } else {
+        reject("Invalid vsforce config detected, please refer to https://github.com/coveo/vsforce to get a working example");
+      }
+    })
+  }
+
+  private static validateConfig(config: vscode.WorkspaceConfiguration) {
+    return config.get<string>('loginUrl') &&
+      config.get<string>('username') &&
+      config.get<string>('password') &&
+      config.get<string>('securityToken')
+  }
+
+  /*
+    public retrive() {
+      var _this = this;
+
+      fs.readFile(vscode.workspace.rootPath + '\\apex\\code\\package.xml', (err: NodeJS.ErrnoException, data: Buffer) => {
+        xml2js.parseString(data.toString(), (err: any, results: any) => {
+          _this.execute((jsforce: any) => {
+            console.log(jsforce.metadata.retrieve({ unpackaged: JSON.stringify(results.Package) }).stream().pipe());
+            // .pipe(fs.createWriteStream('MyPackage.zip'))
+          });
         });
       });
-    });
-  }
+    }*/
 }

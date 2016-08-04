@@ -1,11 +1,11 @@
 interface VisualforceComponentAttribute {
   name: string;
   type: string;
-  values: string[];
+  description: string;
 }
 
 interface VisualforceComponent {
   name: string;
   attributes: VisualforceComponentAttribute[];
-  file?: string
+  uri?: string
 }
