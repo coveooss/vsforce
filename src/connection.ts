@@ -288,7 +288,7 @@ export class Connection {
 
             if (resp && resp.messages && resp.messages.length > 0) {
               resp.messages.forEach(message => {
-                outputConsole.appendLine(message.fileName + '' => '');
+                outputConsole.appendLine(`${message.fileName} => `);
                 outputConsole.appendLine(message.problem);
               });
             }
