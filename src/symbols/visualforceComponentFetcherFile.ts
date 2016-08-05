@@ -33,11 +33,11 @@ export class VisualforceComponentFetcherFile implements VisualforceComponentFetc
       var attributes: VisualforceComponentAttribute[] = [];
       var parser: html.Parser = new html.Parser({
         onopentag: (name, attribs) => {
-          if (name == "apex:attribute") {
+          if (name == 'apex:attribute') {
             attributes.push({
-              name: attribs["name"],
-              type: attribs["type"],
-              description: attribs["description"]
+              name: attribs['name'],
+              type: attribs['type'],
+              description: attribs['description']
             })
           }
         },
@@ -59,7 +59,7 @@ export class VisualforceComponentFetcherFile implements VisualforceComponentFetc
   }
 
   private getComponentNameByUri(uri: vscode.Uri) {
-    return "c:" + utils.getFileNameFromUri(uri).split('.')[0];
+    return `c:${utils.getFileNameFromUri(uri).split('.')[0]}`;
   }
 
   public dispose() {
@@ -68,7 +68,7 @@ export class VisualforceComponentFetcherFile implements VisualforceComponentFetc
 
   public fetchAll(): Thenable<VisualforceComponent[]> {
     return new Promise<VisualforceComponent[]>((resolve, reject) => {
-      vscode.workspace.findFiles("**/*.component", "").then(uris => {
+      vscode.workspace.findFiles('**/*.component', '').then(uris => {
         var components: Thenable<VisualforceComponent>[] = [];
         uris.forEach(uri => {
           components.push(this.createComponentFromUri(uri));

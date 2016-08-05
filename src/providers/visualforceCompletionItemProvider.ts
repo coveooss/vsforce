@@ -3,7 +3,7 @@ import {VisualforceComponentCacheInstance} from '../symbols/visualforceComponent
 
 export class VisualforceCompletionItemProvider implements vscode.CompletionItemProvider {
   public constructor() {
-    vscode.languages.setLanguageConfiguration("visualforce", {
+    vscode.languages.setLanguageConfiguration('visualforce', {
       wordPattern: /(-?\d*\.\d\w*)|([^\`\~\!\@\#\%\^\&\*\(\)\-\=\+\[\{\]\}\\\|\;\'\"\,\.\<\>\/\?\s]+)/g
     });
   }
@@ -13,9 +13,9 @@ export class VisualforceCompletionItemProvider implements vscode.CompletionItemP
       var completionItems: vscode.CompletionItem[] = [];
       console.log(document.getText(document.getWordRangeAtPosition(position)));
       VisualforceComponentCacheInstance.getComponentNames().forEach(cmp => {
-        var completionItem = new vscode.CompletionItem(cmp);
+        let completionItem = new vscode.CompletionItem(cmp);
         completionItem.kind = vscode.CompletionItemKind.Class;
-        completionItem.insertText = completionItem.label + "></" + completionItem.label + ">";
+        completionItem.insertText = `${completionItem.label}></${completionItem.label}>`;
 
         completionItems.push(completionItem);
       });

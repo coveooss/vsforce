@@ -145,7 +145,7 @@ export class Connection {
         resolve(Connection.instance);
       } else {
         this.initConn().then((conn: Connection) => {
-          vscode.window.showInformationMessage("Logged in to Salesforce as " + conn.config.get<string>('username'));
+          vscode.window.showInformationMessage(`Logged in to Salesforce as ${conn.config.get<string>('username')}`);
           Connection.instance = conn;
 
           resolve(conn);
@@ -182,7 +182,7 @@ export class Connection {
           }
         );
       } else {
-        reject("Invalid vsforce config detected, please refer to https://github.com/coveo/vsforce to get a working example");
+        reject('Invalid vsforce config detected, please refer to https://github.com/coveo/vsforce to get a working example');
       }
     })
   }
