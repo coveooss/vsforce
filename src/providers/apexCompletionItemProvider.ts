@@ -1,11 +1,20 @@
-import vscode = require('vscode')
+import vscode = require('vscode');
 
-var antlr4 = require('antlr4')
-var ApexLexer = require('../antrl4/ApexLexer.js').ApexLexer
-var ApexParser = require('../antrl4/ApexParser.js').ApexParser
-var ApexListener = require('../antrl4/ApexListener.js').ApexListener
+var antlr4 = require('antlr4');
+var ApexLexer = require('../antrl4/ApexLexer.js').ApexLexer;
+var ApexParser = require('../antrl4/ApexParser.js').ApexParser;
+var ApexListener = require('../antrl4/ApexListener.js').ApexListener;
 
+/**
+ * Apex Completion Item Provider class.
+ *
+ * Builds a tree from the parsed workspace code....
+ * TODO: finish this
+ */
 export class ApexCompletionItemProvider {
+  /**
+   * Creates an Apex Completion Item Provider
+   */
   constructor() {
     var input = `public class MySampleApexClass {
                 }`;

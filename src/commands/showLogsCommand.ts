@@ -1,16 +1,28 @@
 import vscode = require('vscode');
 
-import {Connection, QueryResult} from './../connection'
-import {Command} from './command'
+import {Connection, QueryResult} from './../connection';
+import {Command} from './command';
 
+/**
+ * Show logs class.
+ *
+ * Fetches Salesforce logs from your organization.
+ */
 export class ShowLogsCommand implements Command {
+  // Connection handle through Salesforce
   private conn: Connection = new Connection();
 
+  /**
+   * Creates a Show logs command
+   */
   constructor() {
     this.conn.createUserTraceFlag();
   }
 
-  public Command() {
+  /**
+   * Implements command from {@link Command}
+   */
+  public Execute() {
     vscode.window.showQuickPick(new Promise<vscode.QuickPickItem[]>((resolve, reject) => {
       this.conn.executeQuery('SELECT ID, Operation, Status FROM Apexlog').then((results) => {
         var logs: vscode.QuickPickItem[] = [];

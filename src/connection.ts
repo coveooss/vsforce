@@ -7,28 +7,51 @@ import * as fs from 'fs';
 let stream = require('readable-stream');
 let unzip = require('unzip');
 
+/**
+ * Query Result interface.
+ * TODO: needs a description
+ */
 export interface QueryResult {
   totalSize: number,
   records: any[]
 }
 
+/**
+ * Connection class.
+ *
+ * TODO: finish this
+ */
 export class Connection {
+  // Singleton
   private static instance: Connection;
+  //TODO: give a description
   private config: vscode.WorkspaceConfiguration;
+  //TODO: give a description
   private jsforceConn: any;
-
-  private RETRIEVE_OPTIONS = ["apiVersion", "packageNames", "singlePackage", "specificFiles", "unpackaged"];
-
+  //TODO: give a description
+  private RETRIEVE_OPTIONS = ['apiVersion', 'packageNames', 'singlePackage', 'specificFiles', 'unpackaged'];
+  //TOOD: give a description
   private userId: string;
+  //TODO: give a description
   private orgId: string;
 
+  /**
+   * Creates a Connection
+   */
   constructor() { }
 
+  /**
+   * TODO: give a description
+   * 
+   * @param {string} id TODO: give a description
+   * 
+   * @return {Thenable<string>} TODO: give a description
+   */
   public getLogBody(id: string): Thenable<string> {
     return new Promise<string>((resolve, reject) => {
       Connection.getConn().then((conn: Connection) => {
         conn.jsforceConn.tooling.request(
-          conn.jsforceConn.tooling._baseUrl() + "/sobjects/ApexLog/" + id + "/Body",
+          `${conn.jsforceConn.tooling._baseUrl()}/sobjects/ApexLog/${id}/Body`,
           (err, result) => {
             if (err) {
               vscode.window.showErrorMessage(err.message);
@@ -41,6 +64,9 @@ export class Connection {
     })
   }
 
+  /**
+   * TODO: give a description
+   */
   public createUserTraceFlag() {
     this.createUpdateDebugLevel().then((debugLevelId: string) => {
       Connection.getConn().then((conn: Connection) => {
@@ -65,7 +91,7 @@ export class Connection {
               Workflow: 'DEBUG'
             }, function (err, res) {
               if (err) {
-                vscode.window.showErrorMessage("An error occured while adding the User Trace Flag.");
+                vscode.window.showErrorMessage('An error occured while adding the User Trace Flag.');
               }
             });
           }
@@ -74,6 +100,11 @@ export class Connection {
     });
   }
 
+  /**
+   * TODO: give a description
+   * 
+   * @return {Thenable<string>} TODO: give a description
+   */
   private createUpdateDebugLevel(): Thenable<string> {
     return new Promise<string>((resolve, reject) => {
       Connection.getConn().then((conn: Connection) => {
@@ -109,7 +140,13 @@ export class Connection {
     });
   }
 
-  // Execute a SOQL query and return the results to a callback function if no error.
+  /**
+   * Execute a SOQL query and return the results to a callback function if no error.
+   * 
+   * @param {string} query SOQL query
+   * 
+   * @return {Thenable<QueryResult>} SOQL query results
+   */
   public executeQuery(query: string): Thenable<QueryResult> {
     return new Promise<QueryResult>((resolve, reject) => {
       Connection.getConn().then((conn: Connection) => {
@@ -144,6 +181,11 @@ export class Connection {
     });
   }
 */
+  /**
+   * TODO: give a description
+   * 
+   * @return {Thenable<Connection>} Salesforce connection success
+   */
   public static getConn(): Thenable<Connection> {
     return new Promise<Connection>((resolve, reject) => {
       if (Connection.instance != undefined) {
@@ -162,6 +204,11 @@ export class Connection {
     })
   }
 
+  /**
+   * TODO: give a description
+   * 
+   * @return {Thenable<Connection>} TODO: give a description
+   */
   private static initConn(): Thenable<Connection> {
     return new Promise<Connection>((resolve, reject) => {
       var conn = new Connection();
@@ -192,6 +239,13 @@ export class Connection {
     })
   }
 
+  /**
+   * TODO: give a description
+   * 
+   * @param {vscode.WorkspaceConfiguration} config workspace configuration
+   * 
+   * @return {TODO: give a description} TODO: give a description
+   */
   private static validateConfig(config: vscode.WorkspaceConfiguration) {
     return config.get<string>('loginUrl') &&
       config.get<string>('username') &&
@@ -199,9 +253,12 @@ export class Connection {
       config.get<string>('securityToken')
   }
 
-
+  /**
+   * TODO: give a description
+   * 
+   * @param {string} packageXMLPath TODO: give a description
+   */
   public retrievePackage(packageXMLPath: string) {
-
     return new Promise((resolve, reject) => {
       fs.readFile(packageXMLPath, 'utf-8', (err: NodeJS.ErrnoException, data: Buffer) => {
         if (err) { reject(err); } else { resolve(data); }
@@ -223,15 +280,15 @@ export class Connection {
         }
         this.retrieve(options)
           .then((resp: any) => {
-            let outputConsole = vscode.window.createOutputChannel("Retrieve output");
+            let outputConsole = vscode.window.createOutputChannel('Retrieve output');
             outputConsole.show();
-            outputConsole.appendLine("Retrieve request completed");
-            outputConsole.appendLine("Status: " + resp.status);
-            outputConsole.appendLine("============================\n");
+            outputConsole.appendLine('Retrieve request completed');
+            outputConsole.appendLine(`Status: ${resp.status}`);
+            outputConsole.appendLine('============================\n');
 
             if (resp && resp.messages && resp.messages.length > 0) {
               resp.messages.forEach(message => {
-                outputConsole.appendLine(message.fileName + " => ");
+                outputConsole.appendLine(message.fileName + '' => '');
                 outputConsole.appendLine(message.problem);
               });
             }
@@ -244,7 +301,7 @@ export class Connection {
                 }, (reason: any) => {
                   vscode.window.showErrorMessage(reason);
                 });
-            } else { outputConsole.appendLine("No output file... Request failed") }
+            } else { outputConsole.appendLine('No output file... Request failed') }
 
           }, (reason: any) => {
             vscode.window.showErrorMessage(reason);
@@ -263,6 +320,14 @@ export class Connection {
     // });
   }
 
+  /**
+   * TODO: give a description
+   * 
+   * @param {any} content zip file content
+   * @param {string} target folder to extract into
+   * 
+   * @return {Promize<any>} TODO: give a description
+   */
   private extractZip(content: any, target: string): Promise<any> {
     return new Promise<any>((resolve, reject) => {
       // let waits=[];
@@ -282,6 +347,13 @@ export class Connection {
     })
   }
 
+  /**
+   * TODO: give a description
+   * 
+   * @param {any} options TODO: give a description
+   * 
+   * @return {Thenable<any>} TODO: give a description
+   */
   private retrieve(options: any): Thenable<any> {
     return new Promise<any>((resolve, reject) => {
       Connection.getConn().then((conn: Connection) => {

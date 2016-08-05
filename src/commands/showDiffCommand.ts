@@ -4,24 +4,27 @@ import {Command} from './command';
 import {buildSalesforceUri, getFileNameFromUri} from '../utils';
 
 /**
- * This class instantiate a diff command
+ * Show diff class.
+ *
+ * Makes a diff with your Salesforce organization file and your local file.
  */
 export class ShowDiffCommand implements Command {
   /**
-   * Creates a new diff command
+   * Creates a Diff command
    */
   constructor() {}
 
   /**
    * Implements command from {@link Command}
    *
-   * @param {vscode.Uri} uri Context from the right click `Compare with Salesforce`
+   * @param {vscode.Uri} uri Context file from the right click `Compare with Salesforce`
    */
-  public Command(uri: vscode.Uri) {
-    // split[0] == filename
-    // split[1] == file extension
+  public Execute(uri: vscode.Uri) {
     let split = getFileNameFromUri(uri).split('.');
-    vscode.commands.executeCommand('vscode.diff',
-      uri, vscode.Uri.parse(buildSalesforceUri(split[0], split[1])), `${split[0]}.${split[1]} (LOCAL) <-> ${split[0]}.${split[1]} (REMOTE)`);
+    let filename = `${split[0]}.${split[1]}`;
+
+    vscode.commands
+      .executeCommand('vscode.diff',
+        uri, vscode.Uri.parse(buildSalesforceUri(split[0], split[1])), `${filename} (LOCAL) <-> ${filename} (REMOTE)`);
   }
 }
