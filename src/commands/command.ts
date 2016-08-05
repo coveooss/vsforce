@@ -1,3 +1,5 @@
+import vscode = require('vscode');
+
 export interface Command {
-  Command();
+  Command(context?: vscode.Uri);
 }

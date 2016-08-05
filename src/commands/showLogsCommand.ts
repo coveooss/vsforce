@@ -12,7 +12,7 @@ export class ShowLogsCommand implements Command {
 
   public Command() {
     vscode.window.showQuickPick(new Promise<vscode.QuickPickItem[]>((resolve, reject) => {
-      this.conn.executeQuery("SELECT ID, Operation, Status FROM Apexlog").then((results) => {
+      this.conn.executeQuery('SELECT ID, Operation, Status FROM Apexlog').then((results) => {
         var logs: vscode.QuickPickItem[] = [];
 
         for (var record in results.records) {
@@ -27,8 +27,8 @@ export class ShowLogsCommand implements Command {
       })
     })).then((item: vscode.QuickPickItem) => {
       vscode.commands.executeCommand(
-        "vscode.open",
-        vscode.Uri.parse("sf://salesforce.com/apexlogs/" + item.detail + ".apexlog"));
+        'vscode.open',
+        vscode.Uri.parse(`sf://salesforce.com/apexlogs/${item.detail}.apexlog`));
     });
   }
 }
