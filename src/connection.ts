@@ -343,7 +343,7 @@ export class Connection {
       //     let type = entry.type;
       //     entry.pipe(fs.createWriteStream(target));
       //   })
-      resolve("test");
+      resolve('test');
     })
   }
 
