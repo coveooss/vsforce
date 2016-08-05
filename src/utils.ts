@@ -24,12 +24,12 @@ export function findPackageXml(): Thenable<string> {
 
       if (values.length == 0) { // No package.xml found.
 
-        vscode.window.showWarningMessage("Cannot find any package.xml");
-        reject("Cannot find any package.xml");
+        vscode.window.showWarningMessage('Cannot find any package.xml');
+        reject('Cannot find any package.xml');
 
       } else if (values.length == 1) { // Only one package.xml found, using this one
 
-        vscode.window.showInformationMessage("Found package.xml at " + values[0].fsPath);
+        vscode.window.showInformationMessage(`Found package.xml at ${values[0].fsPath}`);
         resolve(values[0].fsPath);
 
       } else { // Multiple package.xml found
