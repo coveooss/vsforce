@@ -4,6 +4,9 @@ import * as vscode from 'vscode';
 import * as xml2js from 'xml2js';
 import * as fs from 'fs';
 
+let stream = require('readable-stream');
+let unzip = require('unzip');
+
 export interface QueryResult {
   totalSize: number,
   records: any[]
@@ -13,6 +16,8 @@ export class Connection {
   private static instance: Connection;
   private config: vscode.WorkspaceConfiguration;
   private jsforceConn: any;
+
+  private RETRIEVE_OPTIONS = ["apiVersion", "packageNames", "singlePackage", "specificFiles", "unpackaged"];
 
   private userId: string;
   private orgId: string;
@@ -194,17 +199,112 @@ export class Connection {
       config.get<string>('securityToken')
   }
 
-  /*
-    public retrive() {
-      var _this = this;
 
-      fs.readFile(vscode.workspace.rootPath + '\\apex\\code\\package.xml', (err: NodeJS.ErrnoException, data: Buffer) => {
-        xml2js.parseString(data.toString(), (err: any, results: any) => {
-          _this.execute((jsforce: any) => {
-            console.log(jsforce.metadata.retrieve({ unpackaged: JSON.stringify(results.Package) }).stream().pipe());
-            // .pipe(fs.createWriteStream('MyPackage.zip'))
+  public retrievePackage(packageXMLPath) {
+
+    return new Promise((resolve, reject) => {
+      fs.readFile(packageXMLPath, 'utf-8', (err: NodeJS.ErrnoException, data: Buffer) => {
+        if (err) { reject(err); } else { resolve(data); }
+      })
+    })
+      .then((data) => {
+        return new Promise((resolve, reject) => {
+          xml2js.parseString(data.toString(), { explicitArray: false }, (err, dom) => {
+            if (err) { reject(err); } else { resolve(dom); }
           });
         });
+      }, (reason: NodeJS.ErrnoException) => {
+        vscode.window.showErrorMessage(reason.message);
+      })
+      .then((dom: any) => {
+        delete dom.Package.$;
+        let options = {
+          unpackaged: dom.Package
+        }
+        this.retrieve(options)
+          .then((resp: any) => {
+            let outputConsole = vscode.window.createOutputChannel("Retrieve output");
+            outputConsole.show();
+            outputConsole.appendLine("Retrieve request completed");
+            outputConsole.appendLine("Status: " + resp.status);
+            outputConsole.appendLine("============================\n");
+
+            if (resp && resp.messages && resp.messages.length > 0) {
+              resp.messages.forEach(message => {
+                outputConsole.appendLine(message.fileName + " => ");
+                outputConsole.appendLine(message.problem);
+              });
+            }
+
+            //unzip
+            if (resp && resp.success) {
+              this.extractZip(resp.zipFile, 'C:/extractTest')
+                .then((data) => {
+                  console.log(data);
+                }, (reason: any) => {
+                  vscode.window.showErrorMessage(reason);
+                });
+            } else { outputConsole.appendLine("No output file... Request failed") }
+
+          }, (reason: any) => {
+            vscode.window.showErrorMessage(reason);
+          });
+      }, (reason: NodeJS.ErrnoException) => {
+        vscode.window.showErrorMessage(reason.message);
+      })
+
+    // fs.readFile(packageXMLPath, (err: NodeJS.ErrnoException, data: Buffer) => {
+    //   xml2js.parseString(data.toString(), (err: any, results: any) => {
+    //     _this.execute((jsforce: any) => {
+    //       console.log(jsforce.metadata.retrieve({ unpackaged: JSON.stringify(results.Package) }).stream().pipe());
+    //       // .pipe(fs.createWriteStream('MyPackage.zip'))
+    //     });
+    //   });
+    // });
+  }
+
+  private extractZip(content: any, target: string): Promise<any> {
+    return new Promise<any>((resolve, reject) => {
+      // let waits=[];
+      // let zipStream = new stream.PassThrough();
+      // zipStream.end(new Buffer())
+      let waits = [];
+      let zipStream = new stream.PassThrough();
+      zipStream.end(new Buffer(content, 'base64'));
+      zipStream.pipe(unzip.Extract({path: target}));
+      // zipStream.pipe(unzip.Parse())
+      //   .on('entry', (entry) => {
+      //     let filePaths = entry.path;
+      //     let type = entry.type;
+      //     entry.pipe(fs.createWriteStream(target));
+      //   })
+      resolve("test");
+    })
+  }
+
+  private retrieve(options: any): Thenable<any> {
+    return new Promise<any>((resolve, reject) => {
+      Connection.getConn().then((conn: Connection) => {
+        conn.jsforceConn.metadata.timeout = 60 * 1000;
+        conn.jsforceConn.metadata.pollInterval = 5 * 1000;
+
+        let req: any = {};
+        this.RETRIEVE_OPTIONS.forEach((prop) => {
+          if (typeof options[prop] !== 'undefined') { req[prop] = options[prop]; }
+        });
+        if (!req.apiVersion) {
+          req.apiVersion = conn.jsforceConn.version;
+        }
+
+        conn.jsforceConn.metadata.retrieve(req).complete({ details: true })
+          .then((resp) => {
+            resolve(resp);
+          }, (reason: any) => {
+            reject(reason);
+          });
+      }, (reason: any) => {
+        reject(reason);
       });
-    }*/
+    });
+  }
 }

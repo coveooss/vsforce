@@ -33,6 +33,10 @@
         "title": "Show logs"
       },
       {
+        "command": "vsforce.retrieveCommand",
+        "title": "Retrieve Package"
+      },
+      {
         "command": "extension.contextualQuery",
         "title": "Contextual Query"
       },
@@ -158,5 +162,9 @@
     "commitizen": {
       "path": "./node_modules/cz-conventional-changelog"
     }
+  },
+  "dependencies": {
+    "readable-stream": "^2.1.4",
+    "unzip": "^0.1.11"
   }
 }
