@@ -15,7 +15,7 @@ export class VisualforceComponentFetcherSalesforce implements VisualforceCompone
   public fetchAll(): Thenable<VisualforceComponent[]> {
     return new Promise<VisualforceComponent[]>((resolve, reject) => {
       var componentList: VisualforceComponent[] = [];
-      this.conn.executeQuery("SELECT Description, Name, NamespacePrefix FROM ApexComponent").then((results: QueryResult) => {
+      this.conn.executeQuery('SELECT Description, Name, NamespacePrefix FROM ApexComponent').then((results: QueryResult) => {
         if (results && results.totalSize != 0) {
           for (var record in results.records) {
             componentList.push({
@@ -32,17 +32,15 @@ export class VisualforceComponentFetcherSalesforce implements VisualforceCompone
   }
 
   private buildUriFromResult(result: ApexComponentQueryResult): string {
-    return "sf://salesforce.com/apexcomponent/" +
-      this.buildNamespaceFromResult(result) + "/" +
-      result.Name + ".component";
+    return `sf://salesforce.com/apexcomponent/${this.buildNamespaceFromResult(result)}/${result.Name}.component`;
   }
 
   private buildFullNameFromResult(result: ApexComponentQueryResult): string {
-    return this.buildNamespaceFromResult(result) + ":" + result.Name;
+    return `${this.buildNamespaceFromResult(result)}:${result.Name}`;
   }
 
   private buildNamespaceFromResult(result: ApexComponentQueryResult): string {
-    return result.NamespacePrefix ? result.NamespacePrefix : "c";
+    return result.NamespacePrefix ? result.NamespacePrefix : 'c';
   }
 
   public dispose() { }

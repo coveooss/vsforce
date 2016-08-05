@@ -47,6 +47,10 @@
       {
         "command": "extension.sfdeploy",
         "title": "Deploy Workspace"
+      },
+      {
+        "command": "vsforce.diff",
+        "title": "Compare with Salesforce"
       }
     ],
     "keybindings": [
@@ -83,6 +87,17 @@
         "configuration": "./visualforce.configuration.json"
       }
     ],
+    "menus": {
+      "explorer/context":[{
+        "when": "resourceLangId == visualforce",
+        "command": "vsforce.diff",
+        "group": "navigation"
+      }, {
+        "when": "resourceLangId == apex",
+        "command": "vsforce.diff",
+        "group": "navigation"
+      }]
+    },
     "grammars": [
       {
         "language": "apex",
@@ -115,8 +130,13 @@
         },
         "vsforce.organisation.loginURL": {
           "type": "string",
-          "default": "login.salesforce.com",
+          "default": "https://login.salesforce.com/",
           "description": "Your Salesforce organisation loginURL"
+        },
+        "vsforce.organisation.namespace": {
+          "type": "string",
+          "default": "c",
+          "description": "Your Salesforce namespace"
         }
       }
     }
