@@ -42,6 +42,6 @@ export class SalesforceContentProvider implements vscode.TextDocumentContentProv
   }
 
   private buildApexComponentQuery(namespace: string, name: string) {
-    return `SELECT Markup FROM ApexComponent WHERE NamespacePrefix=${namespace == 'c' ? null : '${namespace}'} and Name='${name.split('.')[0]}'`;
+    return `SELECT Markup FROM ApexComponent WHERE NamespacePrefix=${namespace == 'c' ? null : `'${namespace}'`} and Name='${name.split('.')[0]}'`;
   }
 }
