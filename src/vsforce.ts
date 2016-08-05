@@ -1,5 +1,6 @@
 import vscode = require('vscode');
-
+import {ApexObjectTreeCache} from './symbols/apexObjectTreeCache'
+import {ApexCompletionItemProvider} from './providers/apexCompletionItemProvider'
 import {VisualforceCompletionItemProvider} from './providers/visualforceCompletionItemProvider'
 import {SalesforceContentProvider} from './providers/salesforceContentProvider'
 import {VisualforceDefinitionProvider} from './providers/visualforceDefinitionProvider'
@@ -22,4 +23,5 @@ export function activate(context: vscode.ExtensionContext) {
     vscode.commands.registerCommand('extension.showLogs', () => showLogsCommand.Command()),
     VisualforceComponentCacheInstance
   ]);
+  new ApexObjectTreeCache();
 }
