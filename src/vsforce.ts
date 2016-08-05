@@ -14,10 +14,9 @@ import {VisualforceComponentCacheInstance} from './symbols/visualforceComponentC
 const visualforceDocumentFilter: vscode.DocumentFilter = { language: 'visualforce' };
 
 export function activate(context: vscode.ExtensionContext) {
-  var showLogsCommand = new ShowLogsCommand();
-  var showDiffCommand = new ShowDiffCommand();
-
-  var retrieveCommand = new RetrieveCommand();
+  let showLogsCommand = new ShowLogsCommand();
+  let showDiffCommand = new ShowDiffCommand();
+  let retrieveCommand = new RetrieveCommand();
 
   context.subscriptions.concat([
     vscode.languages.registerCompletionItemProvider(visualforceDocumentFilter, new VisualforceCompletionItemProvider(), '<'),
