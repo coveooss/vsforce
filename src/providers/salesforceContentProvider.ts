@@ -1,15 +1,28 @@
 import vscode = require('vscode');
 import {Connection, QueryResult} from './../connection';
 
-
+/**
+ * Salesforce Content Provider class.
+ *
+ * TODO: give a description
+ */
 export class SalesforceContentProvider implements vscode.TextDocumentContentProvider {
+  // Connection handle through Salesforce
   private conn: Connection = new Connection();
 
+  /**
+   * TODO: give a description
+   * 
+   * @param {vscode.Uri} uri file
+   * @param {vscode.CancellationToken} token
+   * 
+   * @return {Thenable<string>} TODO: give a description
+   */
   provideTextDocumentContent(uri: vscode.Uri, token: vscode.CancellationToken): Thenable<string> {
     var uriParts = uri.path.split('/');
 
     if (uriParts.length >= 1) {
-      var objectType = uriParts[1];
+      let objectType = uriParts[1];
 
       if (objectType == 'apexcomponent') {
         if (uriParts.length == 4) {
@@ -27,6 +40,12 @@ export class SalesforceContentProvider implements vscode.TextDocumentContentProv
     return null;
   }
 
+  /**
+   * Calls Salesforce to retrieve metadata about a Salesforce component
+   * 
+   * @param {string} namespace Salesforce namespace prefix
+   * @param {string} name Component name
+   */
   private resolveApexComponent(namespace: string, name: string): Thenable<string> {
     return new Promise<string>((resolve, reject) => {
       this.conn.executeQuery(this.buildApexComponentQuery(namespace, name)).then((results: QueryResult) => {
@@ -50,11 +69,24 @@ export class SalesforceContentProvider implements vscode.TextDocumentContentProv
     });
   }
 
+  /**
+   * Retrieves Salesforce apex logs
+   * 
+   * @return {Thenable<string>} TODO: needs a description
+   */
   private resolveApexLog(id: string): Thenable<string> {
     return this.conn.getLogBody(id);
   }
 
-  private buildApexComponentQuery(namespace: string, name: string) {
+  /**
+   * Builds a SOQL query to fetch metadata about a component from Salesforce
+   * 
+   * @param {string} namespace Salesforce namespace prefix
+   * @param {string} name Component name
+   * 
+   * @return {string} SOQL query
+   */
+  private buildApexComponentQuery(namespace: string, name: string): string {
     return `SELECT Markup, LastModifiedDate, LastModifiedBy.name FROM ApexComponent WHERE NamespacePrefix=${namespace == 'c' ? null : `'${namespace}'`} and Name='${name.split('.')[0]}'`;
   }
 }

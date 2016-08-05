@@ -1,7 +1,20 @@
 import vscode = require('vscode')
 import {VisualforceComponentCacheInstance} from '../symbols/visualforceComponentCache'
 
+/**
+ * Visualforce Workspace Symbol Provider class.
+ *
+ * TODO: finish this
+ */
 export class VisualforceWorkspaceSymbolProvider implements vscode.WorkspaceSymbolProvider {
+  /**
+   * Implements provideWorkspaceSymbols from {@link provideWorkspaceSymbols}
+   * 
+   * @param {string} query TODO: give a description
+   * @param {vscode.CancellationToken} token TODO: give a description
+   * 
+   * @return {Thenable<vscode.SymbolInformation[]>} TODO: give a description
+   */
   provideWorkspaceSymbols(query: string, token: vscode.CancellationToken): Thenable<vscode.SymbolInformation[]> {
     return new Promise<vscode.SymbolInformation[]>((resolve, reject) => {
 
@@ -9,7 +22,7 @@ export class VisualforceWorkspaceSymbolProvider implements vscode.WorkspaceSymbo
 
       VisualforceComponentCacheInstance.getComponentNames().forEach(n => {
         if (n.includes(query)) {
-          var c: VisualforceComponent = VisualforceComponentCacheInstance.getComponent(n);
+          let c: VisualforceComponent = VisualforceComponentCacheInstance.getComponent(n);
 
           symbols.push(new vscode.SymbolInformation(
             n,

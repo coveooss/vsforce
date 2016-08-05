@@ -25,10 +25,10 @@ export function activate(context: vscode.ExtensionContext) {
     vscode.workspace.registerTextDocumentContentProvider('sf', new SalesforceContentProvider()),
     vscode.languages.registerWorkspaceSymbolProvider(new VisualforceWorkspaceSymbolProvider()),
 
-    vscode.commands.registerCommand('vsforce.retrieveCommand', () => retrieveCommand.Command()),
+    vscode.commands.registerCommand('vsforce.retrieveCommand', () => retrieveCommand.Execute()),
 
-    vscode.commands.registerCommand('extension.showLogs', () => showLogsCommand.Command()),
-    vscode.commands.registerCommand('vsforce.diff', (uri) => showDiffCommand.Command(uri)),
+    vscode.commands.registerCommand('extension.showLogs', () => showLogsCommand.Execute()),
+    vscode.commands.registerCommand('vsforce.diff', (uri) => showDiffCommand.Execute(uri)),
     VisualforceComponentCacheInstance
   ]);
   new ApexObjectTreeCache();

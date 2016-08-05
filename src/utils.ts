@@ -1,10 +1,21 @@
 import vscode = require('vscode');
 
-
+/**
+ * TODO: give a description
+ * 
+ * @param {vscode.Uri} uri file uri
+ * 
+ * @return {string} Filename
+ */
 export function getFileNameFromUri(uri: vscode.Uri): string {
   return uri.path.replace(/^.*[\\\/]/, '')
 }
 
+/**
+ * TODO: give a description
+ * 
+ * @return {Thenable<string>} TODO: give a description
+ */
 export function findPackageXml(): Thenable<string> {
   return new Promise<string>((resolve, reject) => {
     var packages: vscode.QuickPickItem[] = [];
@@ -44,6 +55,7 @@ export function findPackageXml(): Thenable<string> {
       });
   });
 }
+
 /**
  * This will build a saleforce uri string for SOQL
  * {@link buildApexComponentQuery}
