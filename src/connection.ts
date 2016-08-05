@@ -200,7 +200,7 @@ export class Connection {
   }
 
 
-  public retrievePackage(packageXMLPath) {
+  public retrievePackage(packageXMLPath: string) {
 
     return new Promise((resolve, reject) => {
       fs.readFile(packageXMLPath, 'utf-8', (err: NodeJS.ErrnoException, data: Buffer) => {
@@ -238,7 +238,7 @@ export class Connection {
 
             //unzip
             if (resp && resp.success) {
-              this.extractZip(resp.zipFile, 'C:/extractTest')
+              this.extractZip(resp.zipFile, packageXMLPath.replace('package.xml', ''))
                 .then((data) => {
                   console.log(data);
                 }, (reason: any) => {
