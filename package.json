@@ -88,15 +88,18 @@
       }
     ],
     "menus": {
-      "explorer/context":[{
-        "when": "resourceLangId == visualforce",
-        "command": "vsforce.diff",
-        "group": "navigation"
-      }, {
-        "when": "resourceLangId == apex",
-        "command": "vsforce.diff",
-        "group": "navigation"
-      }]
+      "explorer/context": [
+        {
+          "when": "resourceLangId == visualforce",
+          "command": "vsforce.diff",
+          "group": "navigation"
+        },
+        {
+          "when": "resourceLangId == apex",
+          "command": "vsforce.diff",
+          "group": "navigation"
+        }
+      ]
     },
     "grammars": [
       {
@@ -148,7 +151,7 @@
     "commit": "git add .; git cz"
   },
   "devDependencies": {
-    "cz-conventional-changelog": "^1.1.6",
+    "cz-conventional-changelog": "^1.1.7",
     "htmlparser2": "3.9.x",
     "gulp": "^3.9.1",
     "jsforce": "^1.7.0",
