@@ -10,9 +10,10 @@
 
 ```json
 {
-  "vsforce.organisation.username": "username",
-  "vsforce.organisation.password": "password",
-  "vsforce.organisation.securityToken": "token"
+  "vsforce.organization.username": "username",
+  "vsforce.organization.password": "password",
+  "vsforce.organization.securityToken": "token",
+  "vsforce.organization.namespace": "namespace_prefix"
 }
 ```
 
