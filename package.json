@@ -88,15 +88,18 @@
       }
     ],
     "menus": {
-      "explorer/context":[{
-        "when": "resourceLangId == visualforce",
-        "command": "vsforce.diff",
-        "group": "navigation"
-      }, {
-        "when": "resourceLangId == apex",
-        "command": "vsforce.diff",
-        "group": "navigation"
-      }]
+      "explorer/context": [
+        {
+          "when": "resourceLangId == visualforce",
+          "command": "vsforce.diff",
+          "group": "navigation"
+        },
+        {
+          "when": "resourceLangId == apex",
+          "command": "vsforce.diff",
+          "group": "navigation"
+        }
+      ]
     },
     "grammars": [
       {
@@ -154,7 +157,7 @@
     "jsforce": "^1.7.0",
     "pretty-typescript": "^1.12.1",
     "typescript": "^1.8.10",
-    "vscode": "^0.11.14",
+    "vscode": "^0.11.15",
     "xml2js": "^0.4.17",
     "zip-folder": "^1.0.0"
   },
