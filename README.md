@@ -19,7 +19,7 @@
 
 ## Contributing
 
-Please read our [Contributing guidelines](.github/Contributing.md).
+Please read our [Contributing guidelines](.github/CONTRIBUTING.md).
 
 ```sh
 npm run commit
