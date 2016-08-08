@@ -20,7 +20,7 @@ export class ShowLogsCommand implements Command {
   }
 
   /**
-   * Implements command from {@link Command}
+   * Implements execute from {@link Command}
    */
   public Execute() {
     vscode.window.showQuickPick(new Promise<vscode.QuickPickItem[]>((resolve, reject) => {

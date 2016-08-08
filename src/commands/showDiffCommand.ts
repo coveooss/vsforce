@@ -15,7 +15,7 @@ export class ShowDiffCommand implements Command {
   constructor() {}
 
   /**
-   * Implements command from {@link Command}
+   * Implements execute from {@link Command}
    *
    * @param {vscode.Uri} uri Context file from the right click `Compare with Salesforce`
    */

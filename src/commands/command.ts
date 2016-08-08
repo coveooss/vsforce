@@ -2,7 +2,7 @@ import vscode = require('vscode');
 
 /**
  * Command interface.
- * It helps us define custom commands for the extesion.
+ * It helps us define custom commands for the extension.
  */
 export interface Command {
   /**

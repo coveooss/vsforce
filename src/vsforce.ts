@@ -25,7 +25,6 @@ export function activate(context: vscode.ExtensionContext) {
     vscode.languages.registerWorkspaceSymbolProvider(new VisualforceWorkspaceSymbolProvider()),
 
     vscode.commands.registerCommand('vsforce.retrieveCommand', () => retrieveCommand.Execute()),
-
     vscode.commands.registerCommand('extension.showLogs', () => showLogsCommand.Execute()),
     vscode.commands.registerCommand('vsforce.diff', (uri) => showDiffCommand.Execute(uri)),
     VisualforceComponentCacheInstance

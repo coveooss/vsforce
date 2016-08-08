@@ -22,7 +22,7 @@ export class RetrieveCommand implements Command {
   }
 
   /**
-   * Implements command from {@link Command}
+   * Implements execute from {@link Command}
    *
    * Executes the command for this class
    */
