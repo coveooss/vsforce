@@ -16,42 +16,87 @@ export function getFileNameFromUri(uri: vscode.Uri): string {
  *
  * @return {Thenable<string>} TODO: give a description
  */
-export function findPackageXml(): Thenable<string> {
+export function choosePackageXml(): Thenable<string> {
   return new Promise<string>((resolve, reject) => {
-    var packages: vscode.QuickPickItem[] = [];
 
-    vscode.workspace.findFiles('**/package.xml', '').then((values: vscode.Uri[]) => {
+    vscode.workspace.findFiles('**/package.xml', '')
+      .then((files: vscode.Uri[]) => {
 
-      if (values.length == 0) { // No package.xml found.
+        if (files.length == 1) { // Only one package.xml found, using this one
 
-        vscode.window.showWarningMessage('Cannot find any package.xml');
-        reject('Cannot find any package.xml');
+          resolve(files[0].fsPath);
 
-      } else if (values.length == 1) { // Only one package.xml found, using this one
+        }
+        else if (files.length > 1) { // Multiple package.xml found, asking user to choose
 
-        vscode.window.showInformationMessage(`Found package.xml at ${values[0].fsPath}`);
-        resolve(values[0].fsPath);
+          let packages: vscode.QuickPickItem[];
 
-      } else { // Multiple package.xml found
-
-        for (var i = 0; i < values.length; i++) {
-          packages.push({
-            label: values[i].fsPath.replace(vscode.workspace.rootPath, ''),
-            description: '',
-            detail: values[i].fsPath
+          files.forEach(file => { // Create the quickpick options
+            packages.push({
+              label: file.fsPath.replace(vscode.workspace.rootPath, ''),
+              description: '',
+              detail: file.fsPath
+            })
           });
+
+          vscode.window.showQuickPick(packages)
+          .then((selected) => {
+            resolve(selected.detail);
+          },
+          (reason) => {
+            reject(reason);
+          })
+
+        }
+        else { // No package.xml found.
+
+          reject("Cannot find any package.xml in the workspace.");
+
         }
 
-        // Asks the user to choose between all package.xml files found
-        vscode.window.showQuickPick(packages).then(val => {
-          resolve(val.detail);
-        });
-      }
-
-    },
-      (reason: any) => {
+      }, (reason: any) => {
         vscode.window.showErrorMessage(reason);
-        reject(reason);
       });
+
   });
+
+
+  // return new Promise<string>((resolve, reject) => {
+  //   var packages: vscode.QuickPickItem[] = [];
+
+  //   vscode.workspace.findFiles('**/package.xml', '')
+  //     .then((values: vscode.Uri[]) => {
+
+  //     if (values.length == 0) { // No package.xml found.
+
+  //       vscode.window.showWarningMessage('Cannot find any package.xml');
+  //       reject('Cannot find any package.xml');
+
+  //     } else if (values.length == 1) { // Only one package.xml found, using this one
+
+  //       vscode.window.showInformationMessage(`Found package.xml at ${values[0].fsPath}`);
+  //       resolve(values[0].fsPath);
+
+  //     } else { // Multiple package.xml found
+
+  //       for (var i = 0; i < values.length; i++) {
+  //         packages.push({
+  //           label: values[i].fsPath.replace(vscode.workspace.rootPath, ''),
+  //           description: '',
+  //           detail: values[i].fsPath
+  //         });
+  //       }
+
+  //       // Asks the user to choose between all package.xml files found
+  //       vscode.window.showQuickPick(packages).then(val => {
+  //         resolve(val.detail);
+  //       });
+  //     }
+
+  //   },
+  //     (reason: any) => {
+  //       vscode.window.showErrorMessage(reason);
+  //       reject(reason);
+  //     });
+  // });
 }
