@@ -1,5 +1,10 @@
 import {IBuilder} from './builder';
 
+/**
+ * Salesforce query builder class.
+ *
+ * Creates a Salesforce SOQL query
+ */
 export class SalesforceQueryBuilder implements IBuilder {
   private query: string = 'sf://salesforce.com';
 
@@ -21,20 +26,8 @@ export class SalesforceQueryBuilder implements IBuilder {
   }
 
   /**
-   * Adds a query string to the query
-   *
-   * @param {string} query query string to add the to query
-   *
-   * @return {SalesforceQueryBuilder} SalesforceQueryBuilder
-   */
-  public addQueryString(query: string): SalesforceQueryBuilder {
-
-    return this;
-  }
-
-  /**
    * Implements build from {@link Ibuilder}
-   * This will build a saleforce uri string for SOQL
+   * This will build a saleforce string for SOQL
    *
    * Executes the build for this class
    */
