@@ -3,6 +3,8 @@
 import {ICommand} from './command';
 import {Connection} from './../connection';
 
+import * as vscode from 'vscode';
+
 var utils = require('../utils');
 
 /**
@@ -27,8 +29,20 @@ export class RetrieveCommand implements ICommand {
    * Executes the command for this class
    */
   public Execute() {
-    utils.findPackageXml().then(val => {
-      this.conn.retrievePackage(val);
-    });
+
+    let packages: string[] = utils.findPackageXml();
+    let outputConsole = vscode.window.createOutputChannel('Retrieve Package');
+
+    utils.choosePackageXml()
+      .then((path) => {
+        console.log(path);
+      },
+      (reason) => {
+        vscode.window.showErrorMessage(reason);
+      });
+  }
+
+  public retrievePackage(path: string) {
+
   }
 }
