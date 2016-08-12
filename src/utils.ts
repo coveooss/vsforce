@@ -1,5 +1,11 @@
 import vscode = require('vscode');
 
+import * as fs from 'fs';
+import * as xml2js from 'xml2js';
+
+var stream = require('readable-stream');
+var unzip = require('unzip');
+
 /**
  * TODO: give a description
  *
@@ -12,9 +18,9 @@ export function getFileNameFromUri(uri: vscode.Uri): string {
 }
 
 /**
- * TODO: give a description
+ * Finds the different files called "package.xml", if there is more than one asks the user to select one.
  *
- * @return {Thenable<string>} TODO: give a description
+ * @return {Thenable<string>} The selected package.xml full path
  */
 export function choosePackageXml(): Thenable<string> {
   return new Promise<string>((resolve, reject) => {
@@ -39,9 +45,11 @@ export function choosePackageXml(): Thenable<string> {
             })
           });
 
-          vscode.window.showQuickPick(packages)
+          vscode.window.showQuickPick(packages) // Show a selection of the existing package.xml
             .then((selected) => {
-              resolve(selected.detail);
+              if(selected) {
+                resolve(selected.detail); // Resolve with the selected value
+              }
             },
             (reason) => {
               vscode.window.showErrorMessage(reason);
@@ -61,5 +69,41 @@ export function choosePackageXml(): Thenable<string> {
       });
 
   });
-  
+}
+
+export function readFileAsync(path: string): Thenable<Buffer> {
+  return new Promise<Buffer>((resolve, reject) => {
+    fs.readFile(path, 'utf-8', (err: NodeJS.ErrnoException, data: Buffer) => {
+      if (err) {
+        vscode.window.showErrorMessage(err.message);
+        reject(err);
+      } else {
+        resolve(data);
+      }
+    });
+  })
+}
+
+export function xml2jsAsync(data: Buffer): Thenable<any> {
+  return new Promise<any>((resolve, reject) => {
+    xml2js.parseString(data.toString(), { explicitArray: false }, (err, dom) => {
+      if (err) { reject(err); } else { resolve(dom); }
+    });
+  })
+}
+
+export function extractZip(content: string, target: string): Promise<any> {
+  return new Promise<any>((resolve, reject) => {
+    let zipStream = new stream.PassThrough();
+    zipStream.end(new Buffer(content, 'base64'));
+    zipStream.pipe(unzip.Extract({ path: target }));
+    resolve(true);
+    // TODO: Handle the zip cleanly
+    // zipStream.pipe(unzip.Parse())
+      //   .on('entry', (entry) => {
+      //     let filePaths = entry.path;
+      //     let type = entry.type;
+      //     entry.pipe(fs.createWriteStream(target));
+      //   })
+  });
 }
