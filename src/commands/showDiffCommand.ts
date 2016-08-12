@@ -1,7 +1,8 @@
 import vscode = require('vscode');
 
 import {ICommand} from './command';
-import {buildSalesforceUri, getFileNameFromUri} from '../utils';
+import {getFileNameFromUri} from '../utils';
+import {SalesforceQueryBuilder} from '../builder/salesforceQueryBuilder';
 
 /**
  * Show diff class.
@@ -22,9 +23,14 @@ export class ShowDiffCommand implements ICommand {
   public Execute(uri: vscode.Uri) {
     let split = getFileNameFromUri(uri).split('.');
     let filename = `${split[0]}.${split[1]}`;
+    let salesforce = new SalesforceQueryBuilder()
+      .addRoute('apexcomponent')
+      .addRoute(vscode.workspace.getConfiguration('vsforce.organization').get<string>('namespace'))
+      .addRoute(`${split[0]}.${split[1]}`)
+      .build();
 
     vscode.commands
       .executeCommand('vscode.diff',
-      uri, vscode.Uri.parse(buildSalesforceUri(split[0], split[1])), `${filename} (LOCAL) <-> ${filename} (REMOTE)`);
+      uri, vscode.Uri.parse(salesforce), `${filename} (LOCAL) <-> ${filename} (REMOTE)`);
   }
 }
