@@ -30,8 +30,7 @@ export class RetrieveCommand implements ICommand {
    */
   public Execute() {
 
-    let packages: string[] = utils.findPackageXml();
-    let outputConsole = vscode.window.createOutputChannel('Retrieve Package');
+    // let outputConsole = vscode.window.createOutputChannel('Retrieve Package');
 
     utils.choosePackageXml()
       .then((path) => {
