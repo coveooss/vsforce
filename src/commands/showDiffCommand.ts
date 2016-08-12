@@ -25,7 +25,7 @@ export class ShowDiffCommand implements ICommand {
    */
   public Execute(uri: vscode.Uri) {
     let split = getFileNameFromUri(uri).split('.');
-    let filename = `${split[0]}.${split[1]}`;
+    let filename: string = `${split[0]}.${split[1]}`;
 
     vscode.commands
       .executeCommand('vscode.diff',
