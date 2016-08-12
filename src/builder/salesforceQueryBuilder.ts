@@ -1,9 +1,10 @@
 import {IBuilder} from './builder';
+import vscode = require('vscode');
 
 /**
  * Salesforce query builder class.
  *
- * Creates a Salesforce SOQL query
+ * Creates a Salesforce query
  */
 export class SalesforceQueryBuilder implements IBuilder {
   private query: string = 'sf://salesforce.com';
@@ -19,7 +20,7 @@ export class SalesforceQueryBuilder implements IBuilder {
    *
    * @return {SalesforceQueryBuilder} SalesforceQueryBuilder
    */
-  public addRoute(route: string): SalesforceQueryBuilder {
+  private addRoute(route: string): SalesforceQueryBuilder {
     this.query += `/${route}`;
 
     return this;
@@ -31,7 +32,22 @@ export class SalesforceQueryBuilder implements IBuilder {
    *
    * Executes the build for this class
    */
-  public build(): string {
+   build(): string {
     return this.query;
+  }
+
+  /**
+   * Build a salesforce component query
+   *
+   * @param {string} name component name
+   *
+   * @return {string} component query
+   */
+  public buildComponentQuery(name: string): string {
+    return this
+      .addRoute('apexcomponent')
+      .addRoute(vscode.workspace.getConfiguration('vsforce.organization').get<string>('namespace'))
+      .addRoute(name)
+      .build();
   }
 }
