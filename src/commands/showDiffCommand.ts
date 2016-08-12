@@ -10,10 +10,13 @@ import {SalesforceQueryBuilder} from '../builder/salesforceQueryBuilder';
  * Makes a diff with your Salesforce organization file and your local file.
  */
 export class ShowDiffCommand implements ICommand {
+  private builder: SalesforceQueryBuilder;
   /**
    * Creates a Diff command
    */
-  constructor() { }
+  constructor() {
+    this.builder = new SalesforceQueryBuilder();
+  }
 
   /**
    * Implements execute from {@link Command}
@@ -23,14 +26,10 @@ export class ShowDiffCommand implements ICommand {
   public Execute(uri: vscode.Uri) {
     let split = getFileNameFromUri(uri).split('.');
     let filename = `${split[0]}.${split[1]}`;
-    let salesforce = new SalesforceQueryBuilder()
-      .addRoute('apexcomponent')
-      .addRoute(vscode.workspace.getConfiguration('vsforce.organization').get<string>('namespace'))
-      .addRoute(`${split[0]}.${split[1]}`)
-      .build();
 
     vscode.commands
       .executeCommand('vscode.diff',
-      uri, vscode.Uri.parse(salesforce), `${filename} (LOCAL) <-> ${filename} (REMOTE)`);
+        uri,
+        vscode.Uri.parse(this.builder.buildComponentQuery(filename)), `${filename} (LOCAL) <-> ${filename} (REMOTE)`);
   }
 }
