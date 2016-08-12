@@ -83,9 +83,6 @@ export class SOQLQueryBuilder implements IBuilder {
     if (soqlObject.conditions) {
       this.buildWhere(soqlObject.conditions);
     }
-    this.query += ';';
-
-    console.log(this.build());
 
     return this.build();
   }
