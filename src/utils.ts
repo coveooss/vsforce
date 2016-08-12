@@ -2,18 +2,18 @@ import vscode = require('vscode');
 
 /**
  * TODO: give a description
- * 
+ *
  * @param {vscode.Uri} uri file uri
- * 
+ *
  * @return {string} Filename
  */
 export function getFileNameFromUri(uri: vscode.Uri): string {
-  return uri.path.replace(/^.*[\\\/]/, '')
+  return uri.path.replace(/^.*[\\\/]/, '');
 }
 
 /**
  * TODO: give a description
- * 
+ *
  * @return {Thenable<string>} TODO: give a description
  */
 export function findPackageXml(): Thenable<string> {
@@ -66,5 +66,5 @@ export function findPackageXml(): Thenable<string> {
  * @return {string} salesforce component uri
  */
 export function buildSalesforceUri(component: string, extension: string): string {
-  return `sf://salesforce.com/apexcomponent/${vscode.workspace.getConfiguration('vsforce.organisation')['namespace']}/${component}.${extension}`;
+  return `sf://salesforce.com/apexcomponent/${vscode.workspace.getConfiguration('vsforce.organization').get<string>('namespace')}/${component}.${extension}`;
 }

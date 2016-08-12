@@ -11,9 +11,9 @@ let unzip = require('unzip');
  * Query Result interface.
  * TODO: needs a description
  */
-export interface QueryResult {
-  totalSize: number,
-  records: any[]
+export interface IQueryResult {
+  totalSize: number;
+  records: any[];
 }
 
 /**
@@ -24,15 +24,15 @@ export interface QueryResult {
 export class Connection {
   // Singleton
   private static instance: Connection;
-  //TODO: give a description
+  // TODO: give a description
   private config: vscode.WorkspaceConfiguration;
-  //TODO: give a description
+  // TODO: give a description
   private jsforceConn: any;
-  //TODO: give a description
+  // TODO: give a description
   private RETRIEVE_OPTIONS = ['apiVersion', 'packageNames', 'singlePackage', 'specificFiles', 'unpackaged'];
-  //TOOD: give a description
+  // TOOD: give a description
   private userId: string;
-  //TODO: give a description
+  // TODO: give a description
   private orgId: string;
 
   /**
@@ -42,9 +42,9 @@ export class Connection {
 
   /**
    * TODO: give a description
-   * 
+   *
    * @param {string} id TODO: give a description
-   * 
+   *
    * @return {Thenable<string>} TODO: give a description
    */
   public getLogBody(id: string): Thenable<string> {
@@ -57,11 +57,12 @@ export class Connection {
               vscode.window.showErrorMessage(err.message);
               reject(err.message);
             } else {
-              resolve(result)
+              resolve(result);
             }
-          })
-      })
-    })
+          }
+        );
+      });
+    });
   }
 
   /**
@@ -102,7 +103,7 @@ export class Connection {
 
   /**
    * TODO: give a description
-   * 
+   *
    * @return {Thenable<string>} TODO: give a description
    */
   private createUpdateDebugLevel(): Thenable<string> {
@@ -136,19 +137,19 @@ export class Connection {
             });
           }
         });
-      })
+      });
     });
   }
 
   /**
    * Execute a SOQL query and return the results to a callback function if no error.
-   * 
+   *
    * @param {string} query SOQL query
-   * 
-   * @return {Thenable<QueryResult>} SOQL query results
+   *
+   * @return {Thenable<IQueryResult>} SOQL query results
    */
-  public executeQuery(query: string): Thenable<QueryResult> {
-    return new Promise<QueryResult>((resolve, reject) => {
+  public executeQuery(query: string): Thenable<IQueryResult> {
+    return new Promise<IQueryResult>((resolve, reject) => {
       Connection.getConn().then((conn: Connection) => {
         conn.jsforceConn.query(query, function (err, res) {
           if (err) {
@@ -158,8 +159,8 @@ export class Connection {
             resolve(res);
           }
         });
-      })
-    })
+      });
+    });
   }
 
   // Execute APEX code
@@ -183,7 +184,7 @@ export class Connection {
 */
   /**
    * TODO: give a description
-   * 
+   *
    * @return {Thenable<Connection>} Salesforce connection success
    */
   public static getConn(): Thenable<Connection> {
@@ -201,18 +202,18 @@ export class Connection {
           vscode.window.showErrorMessage(reason);
         });
       }
-    })
+    });
   }
 
   /**
    * TODO: give a description
-   * 
+   *
    * @return {Thenable<Connection>} TODO: give a description
    */
   private static initConn(): Thenable<Connection> {
     return new Promise<Connection>((resolve, reject) => {
       var conn = new Connection();
-      conn.config = vscode.workspace.getConfiguration('vsforce.organisation');
+      conn.config = vscode.workspace.getConfiguration('vsforce.organization');
 
       if (Connection.validateConfig(conn.config)) {
         conn.jsforceConn = new jsforce.Connection({
@@ -236,33 +237,33 @@ export class Connection {
       } else {
         reject('Invalid vsforce config detected, please refer to https://github.com/coveo/vsforce to get a working example');
       }
-    })
+    });
   }
 
   /**
    * TODO: give a description
-   * 
+   *
    * @param {vscode.WorkspaceConfiguration} config workspace configuration
-   * 
+   *
    * @return {TODO: give a description} TODO: give a description
    */
   private static validateConfig(config: vscode.WorkspaceConfiguration) {
     return config.get<string>('loginUrl') &&
       config.get<string>('username') &&
       config.get<string>('password') &&
-      config.get<string>('securityToken')
+      config.get<string>('securityToken');
   }
 
   /**
    * TODO: give a description
-   * 
+   *
    * @param {string} packageXMLPath TODO: give a description
    */
   public retrievePackage(packageXMLPath: string) {
     return new Promise((resolve, reject) => {
       fs.readFile(packageXMLPath, 'utf-8', (err: NodeJS.ErrnoException, data: Buffer) => {
         if (err) { reject(err); } else { resolve(data); }
-      })
+      });
     })
       .then((data) => {
         return new Promise((resolve, reject) => {
@@ -277,7 +278,7 @@ export class Connection {
         delete dom.Package.$;
         let options = {
           unpackaged: dom.Package
-        }
+        };
         this.retrieve(options)
           .then((resp: any) => {
             let outputConsole = vscode.window.createOutputChannel('Retrieve output');
@@ -293,7 +294,7 @@ export class Connection {
               });
             }
 
-            //unzip
+            // unzip
             if (resp && resp.success) {
               this.extractZip(resp.zipFile, packageXMLPath.replace('package.xml', ''))
                 .then((data) => {
@@ -301,14 +302,14 @@ export class Connection {
                 }, (reason: any) => {
                   vscode.window.showErrorMessage(reason);
                 });
-            } else { outputConsole.appendLine('No output file... Request failed') }
+            } else { outputConsole.appendLine('No output file... Request failed'); }
 
           }, (reason: any) => {
             vscode.window.showErrorMessage(reason);
           });
       }, (reason: NodeJS.ErrnoException) => {
         vscode.window.showErrorMessage(reason.message);
-      })
+      });
 
     // fs.readFile(packageXMLPath, (err: NodeJS.ErrnoException, data: Buffer) => {
     //   xml2js.parseString(data.toString(), (err: any, results: any) => {
@@ -322,10 +323,10 @@ export class Connection {
 
   /**
    * TODO: give a description
-   * 
+   *
    * @param {any} content zip file content
    * @param {string} target folder to extract into
-   * 
+   *
    * @return {Promize<any>} TODO: give a description
    */
   private extractZip(content: any, target: string): Promise<any> {
@@ -333,10 +334,10 @@ export class Connection {
       // let waits=[];
       // let zipStream = new stream.PassThrough();
       // zipStream.end(new Buffer())
-      let waits = [];
+      // let waits = [];
       let zipStream = new stream.PassThrough();
       zipStream.end(new Buffer(content, 'base64'));
-      zipStream.pipe(unzip.Extract({path: target}));
+      zipStream.pipe(unzip.Extract({ path: target }));
       // zipStream.pipe(unzip.Parse())
       //   .on('entry', (entry) => {
       //     let filePaths = entry.path;
@@ -344,14 +345,14 @@ export class Connection {
       //     entry.pipe(fs.createWriteStream(target));
       //   })
       resolve('test');
-    })
+    });
   }
 
   /**
    * TODO: give a description
-   * 
+   *
    * @param {any} options TODO: give a description
-   * 
+   *
    * @return {Thenable<any>} TODO: give a description
    */
   private retrieve(options: any): Thenable<any> {

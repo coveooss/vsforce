@@ -1,6 +1,6 @@
 import vscode = require('vscode');
 
-import {Command} from './command';
+import {ICommand} from './command';
 import {buildSalesforceUri, getFileNameFromUri} from '../utils';
 
 /**
@@ -8,11 +8,11 @@ import {buildSalesforceUri, getFileNameFromUri} from '../utils';
  *
  * Makes a diff with your Salesforce organization file and your local file.
  */
-export class ShowDiffCommand implements Command {
+export class ShowDiffCommand implements ICommand {
   /**
    * Creates a Diff command
    */
-  constructor() {}
+  constructor() { }
 
   /**
    * Implements execute from {@link Command}
@@ -25,6 +25,6 @@ export class ShowDiffCommand implements Command {
 
     vscode.commands
       .executeCommand('vscode.diff',
-        uri, vscode.Uri.parse(buildSalesforceUri(split[0], split[1])), `${filename} (LOCAL) <-> ${filename} (REMOTE)`);
+      uri, vscode.Uri.parse(buildSalesforceUri(split[0], split[1])), `${filename} (LOCAL) <-> ${filename} (REMOTE)`);
   }
 }

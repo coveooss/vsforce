@@ -2,7 +2,7 @@
  * Visualforce Component Attribute interface.
  * TODO: needs a description
  */
-interface VisualforceComponentAttribute {
+interface IVisualforceComponentAttribute {
   name: string;
   type: string;
   description: string;
@@ -12,8 +12,8 @@ interface VisualforceComponentAttribute {
  * Visualforce Component interface.
  * TODO: needs a description
  */
-interface VisualforceComponent {
+interface IVisualforceComponent {
   name: string;
-  attributes: VisualforceComponentAttribute[];
-  uri?: string
+  attributes: IVisualforceComponentAttribute[];
+  uri?: string;
 }

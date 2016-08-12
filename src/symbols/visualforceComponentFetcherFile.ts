@@ -3,22 +3,22 @@ import * as utils from '../utils';
 import fs = require('fs');
 import html = require('htmlparser2');
 import {VisualforceComponentCache} from './visualforceComponentCache';
-import {VisualforceComponentFetcher} from './visualforceComponentFetcher';
-import {VisualforceComponentCacheInstance} from './visualforceComponentCache';
+import {IVisualforceComponentFetcher} from './visualforceComponentFetcher';
+// import {VisualforceComponentCacheInstance} from './visualforceComponentCache';
 
 /**
  * Visualforce Component Fetcher File class.
  *
  * TODO: finish this
  */
-export class VisualforceComponentFetcherFile implements VisualforceComponentFetcher, vscode.Disposable {
-  //TODO: give a description
+export class VisualforceComponentFetcherFile implements IVisualforceComponentFetcher, vscode.Disposable {
+  // TODO: give a description
   public canOverwrite: boolean = true;
-  //TODO: give a description
+  // TODO: give a description
   private disposable: vscode.Disposable[] = [];
 
   /**
-   * Creates a Visualforce Component Fetcher File 
+   * Creates a Visualforce Component Fetcher File
    */
   constructor(private cache: VisualforceComponentCache) {
     let fileWatcher = vscode.workspace.createFileSystemWatcher('**/*.component');
@@ -31,7 +31,7 @@ export class VisualforceComponentFetcherFile implements VisualforceComponentFetc
 
   /**
    * TODO: give a description
-   * 
+   *
    * @param {vscode.Uri} uri file uri
    */
   private handleFileChange(uri: vscode.Uri) {
@@ -40,7 +40,7 @@ export class VisualforceComponentFetcherFile implements VisualforceComponentFetc
 
   /**
    * TODO: give a description
-   * 
+   *
    * @param {vscode.Uri} uri file uri
    */
   private handleFileDelete(uri: vscode.Uri) {
@@ -49,15 +49,15 @@ export class VisualforceComponentFetcherFile implements VisualforceComponentFetc
 
   /**
    * TODO: give a description
-   * 
+   *
    * @param {vscode.Uri} uri file uri
-   * 
-   * @return {Thenable<VisualforceComponent>} TODO: give a description
+   *
+   * @return {Thenable<IVisualforceComponent>} TODO: give a description
    */
-  private createComponentFromUri(uri: vscode.Uri): Thenable<VisualforceComponent> {
-    return new Promise<VisualforceComponent>((resolve, reject) => {
+  private createComponentFromUri(uri: vscode.Uri): Thenable<IVisualforceComponent> {
+    return new Promise<IVisualforceComponent>((resolve, reject) => {
 
-      let attributes: VisualforceComponentAttribute[] = [];
+      let attributes: IVisualforceComponentAttribute[] = [];
       let parser: html.Parser = new html.Parser({
         onopentag: (name, attribs) => {
           if (name == 'apex:attribute') {
@@ -65,7 +65,7 @@ export class VisualforceComponentFetcherFile implements VisualforceComponentFetc
               name: attribs['name'],
               type: attribs['type'],
               description: attribs['description']
-            })
+            });
           }
         },
         onend: () => {
@@ -86,7 +86,7 @@ export class VisualforceComponentFetcherFile implements VisualforceComponentFetc
 
   /**
    * TODO: give a description
-   * 
+   *
    * @param {vscode.Uri} uri file name
    */
   private getComponentNameByUri(uri: vscode.Uri) {
@@ -102,18 +102,18 @@ export class VisualforceComponentFetcherFile implements VisualforceComponentFetc
 
   /**
    * TODO: give a description
-   * 
-   * @return {Thenable<VisualforceComponent[]>} TODO: give a description
+   *
+   * @return {Thenable<IVisualforceComponent[]>} TODO: give a description
    */
-  public fetchAll(): Thenable<VisualforceComponent[]> {
-    return new Promise<VisualforceComponent[]>((resolve, reject) => {
+  public fetchAll(): Thenable<IVisualforceComponent[]> {
+    return new Promise<IVisualforceComponent[]>((resolve, reject) => {
       vscode.workspace.findFiles('**/*.component', '').then(uris => {
-        let components: Thenable<VisualforceComponent>[] = [];
+        let components: Thenable<IVisualforceComponent>[] = [];
         uris.forEach(uri => {
           components.push(this.createComponentFromUri(uri));
         });
 
-        Promise.all<VisualforceComponent>(components).then((components) => {
+        Promise.all<IVisualforceComponent>(components).then((components) => {
           resolve(components);
         });
       });

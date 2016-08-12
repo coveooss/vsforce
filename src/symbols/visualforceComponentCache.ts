@@ -1,5 +1,5 @@
 import vscode = require('vscode');
-import {VisualforceComponentFetcher} from './visualforceComponentFetcher';
+import {IVisualforceComponentFetcher} from './visualforceComponentFetcher';
 import {VisualforceComponentFetcherBase} from './visualforceComponentFetcherBase';
 import {VisualforceComponentFetcherFile} from './visualforceComponentFetcherFile';
 import {VisualforceComponentFetcherSalesforce} from './visualforceComponentFetcherSalesforce';
@@ -10,8 +10,8 @@ import {VisualforceComponentFetcherSalesforce} from './visualforceComponentFetch
  * TODO: finish this
  */
 export class VisualforceComponentCache implements vscode.Disposable {
-  private cache: { [name: string]: VisualforceComponent } = {};
-  private fetchers: VisualforceComponentFetcher[] = [];
+  private cache: { [name: string]: IVisualforceComponent } = {};
+  private fetchers: IVisualforceComponentFetcher[] = [];
 
   /**
    * Creates a Visualforce Component Cache
@@ -30,32 +30,32 @@ export class VisualforceComponentCache implements vscode.Disposable {
           }
         });
       });
-    })
+    });
   }
 
   /**
    * Get a component
-   * 
+   *
    * @{string} name component name
-   * 
-   * @return {VisualforceComponent} visualforce component
+   *
+   * @return {IVisualforceComponent} visualforce component
    */
-  public getComponent(name: string): VisualforceComponent {
+  public getComponent(name: string): IVisualforceComponent {
     return this.cache[name];
   }
 
   /**
    * Get a list of component
-   * 
-   * @return {VisualforceComponent[]} a list of components
+   *
+   * @return {IVisualforceComponent[]} a list of components
    */
-  public getComponents(): VisualforceComponent[] {
+  public getComponents(): IVisualforceComponent[] {
     return Object.keys(this.cache).map(name => this.cache[name]);
   }
 
   /**
    * Get a list of component name
-   * 
+   *
    * @return {string[]} a list of components name
    */
   public getComponentNames(): string[] {
@@ -64,16 +64,16 @@ export class VisualforceComponentCache implements vscode.Disposable {
 
   /**
    * Updates a component
-   * 
+   *
    * @param {VisualforceComponent} component a component
    */
-  public updateComponent(component: VisualforceComponent) {
+  public updateComponent(component: IVisualforceComponent) {
     this.cache[component.name] = component;
   }
 
   /**
    * Removes a component
-   * 
+   *
    * @param {string} name component name
    */
   public removeComponent(name: string) {

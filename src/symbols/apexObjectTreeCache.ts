@@ -1,7 +1,7 @@
 import vscode = require('vscode');
-import fs = require('fs');
+// import fs = require('fs');
 
-import {ApexObject} from './apexObject';
+// import {IApexObject} from './apexObject';
 
 var antlr4 = require('antlr4/index');
 var ApexLexer = require('../antrl4/ApexLexer.js').ApexLexer;
@@ -15,15 +15,15 @@ declare var ClassDeclaration: any;
  * TODO: finish this
  */
 export class ApexObjectTreeCache {
-  private cache: { [name: string]: ApexObject } = {};
-  //private fetchers: VisualforceComponentFetcher[] = [];
+  // private cache: { [name: string]: ApexObject } = {};
+  // private fetchers: VisualforceComponentFetcher[] = [];
   private diag: vscode.Diagnostic[];
   private ds = vscode.languages.createDiagnosticCollection('apex');
   private file: string;
   private uri: vscode.Uri;
-  
+
   /**
-   * Creates an Apex Object Tree Cache 
+   * Creates an Apex Object Tree Cache
    */
   constructor() {
     this.diag = [];
@@ -32,14 +32,14 @@ export class ApexObjectTreeCache {
       this.uri = e.document.uri;
       this.ds.delete(this.uri);
       this.diag = [];
-      console.log("===============================")
+      console.log('===============================');
       this.handleParseFile(null, e.document.getText());
-    })
+    });
   }
 
   /**
    * Parses the workspace files
-   * 
+   *
    * @param {NodeJS.ErrnoException} err error
    * @param {string} data workspace files
    */
@@ -80,7 +80,7 @@ export class ApexObjectTreeCache {
 
   /**
    * TODO: give a description
-   * 
+   *
    * @param {}
    * @param {}
    * @param {}
@@ -94,13 +94,13 @@ export class ApexObjectTreeCache {
       range: new vscode.Range(c - 2, d, c, d),
       code: 1,
       severity: vscode.DiagnosticSeverity.Error,
-      source: "vsforce"
+      source: 'vsforce'
     });
   }
 
   /**
    * TODO: give a description
-   * 
+   *
    * @param {any} ctx context TODO: give a description
    */
   private parseNode(ctx: any) {
@@ -117,7 +117,7 @@ export class ApexObjectTreeCache {
 
   /**
    * TODO: give a description
-   * 
+   *
    * @param {any} ctx context
    */
   private handleClassDeclarationContext(ctx: any) {
@@ -132,7 +132,7 @@ export class ApexObjectTreeCache {
 
   /**
    * TODO: give a description
-   * 
+   *
    * @param {string} className apex class
    * @param {any} ctx context
    */
@@ -147,8 +147,7 @@ export class ApexObjectTreeCache {
         this.file.substr(ctx.children[1].symbol.start,
           ctx.children[1].symbol.stop - ctx.children[1].symbol.start + 1),
         ctx);
-    }
-    else if (ctx.children) {
+    } else if (ctx.children) {
       ctx.children.forEach(child => {
         this.parseClassDeclarationContext(className, child);
       });
@@ -157,7 +156,7 @@ export class ApexObjectTreeCache {
 
   /**
    * TODO: give a description
-   * 
+   *
    * @param {string} className apex class
    * @param {string} constructorName class constructor
    * @param {any} ctx context
@@ -169,8 +168,7 @@ export class ApexObjectTreeCache {
           this.parseFormalParameterListContext(className, constructorName, child);
         }
       });
-    }
-    else if (ctx.children) {
+    } else if (ctx.children) {
       ctx.children.forEach(child => {
         this.parseConstructorDeclarationContext(className, constructorName, child);
       });
@@ -179,7 +177,7 @@ export class ApexObjectTreeCache {
 
   /**
    * TODO: give a description
-   * 
+   *
    * @param {string} className apex class
    * @param {string} methodName apex class method
    * @param {any} ctx context

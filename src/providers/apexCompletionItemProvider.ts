@@ -1,4 +1,4 @@
-import vscode = require('vscode');
+// import vscode = require('vscode');
 
 var antlr4 = require('antlr4');
 var ApexLexer = require('../antrl4/ApexLexer.js').ApexLexer;
