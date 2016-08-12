@@ -1,14 +1,14 @@
 import vscode = require('vscode');
-import {ApexObjectTreeCache} from './symbols/apexObjectTreeCache'
-import {ApexCompletionItemProvider} from './providers/apexCompletionItemProvider'
-import {VisualforceCompletionItemProvider} from './providers/visualforceCompletionItemProvider'
-import {SalesforceContentProvider} from './providers/salesforceContentProvider'
-import {VisualforceDefinitionProvider} from './providers/visualforceDefinitionProvider'
-import {VisualforceWorkspaceSymbolProvider} from './providers/visualforceWorkspaceSymbolProvider'
+import {ApexObjectTreeCache} from './symbols/apexObjectTreeCache';
+// import {IApexCompletionItemProvider} from './providers/apexCompletionItemProvider';
+import {VisualforceCompletionItemProvider} from './providers/visualforceCompletionItemProvider';
+import {SalesforceContentProvider} from './providers/salesforceContentProvider';
+import {VisualforceDefinitionProvider} from './providers/visualforceDefinitionProvider';
+import {VisualforceWorkspaceSymbolProvider} from './providers/visualforceWorkspaceSymbolProvider';
 
 import {ShowLogsCommand} from './commands/showLogsCommand';
 import {ShowDiffCommand} from './commands/showDiffCommand';
-import {RetrieveCommand} from './commands/retrieveCommand'
+import {RetrieveCommand} from './commands/retrieveCommand';
 import {VisualforceComponentCacheInstance} from './symbols/visualforceComponentCache';
 
 const visualforceDocumentFilter: vscode.DocumentFilter = { language: 'visualforce' };

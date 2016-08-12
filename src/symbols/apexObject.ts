@@ -2,8 +2,8 @@
  * Apex Object interface.
  * TODO: needs a description
  */
-export interface ApexObject {
-  name: string,
-  type: string,
-  childrens: ApexObject[]
+export interface IApexObject {
+  name: string;
+  type: string;
+  childrens: IApexObject[];
 }

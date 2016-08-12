@@ -1,14 +1,14 @@
 import vscode = require('vscode');
 
-import {Connection, QueryResult} from './../connection';
-import {Command} from './command';
+import {Connection} from './../connection';
+import {ICommand} from './command';
 
 /**
  * Show logs class.
  *
  * Fetches Salesforce logs from your organization.
  */
-export class ShowLogsCommand implements Command {
+export class ShowLogsCommand implements ICommand {
   // Connection handle through Salesforce
   private conn: Connection = new Connection();
 
@@ -36,7 +36,7 @@ export class ShowLogsCommand implements Command {
         }
 
         resolve(logs);
-      })
+      });
     })).then((item: vscode.QuickPickItem) => {
       vscode.commands.executeCommand(
         'vscode.open',

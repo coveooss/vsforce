@@ -1,7 +1,7 @@
-import vscode = require('vscode');
+// import vscode = require('vscode');
 
-import {Command} from './command';
-import {Connection, QueryResult} from './../connection';
+import {ICommand} from './command';
+import {Connection} from './../connection';
 
 var utils = require('../utils');
 
@@ -10,7 +10,7 @@ var utils = require('../utils');
  *
  * Fetches Salesforce components defined in our package.xml
  */
-export class RetrieveCommand implements Command {
+export class RetrieveCommand implements ICommand {
   // Connection handle through Salesforce
   private conn: Connection = new Connection();
 
@@ -18,7 +18,7 @@ export class RetrieveCommand implements Command {
    * Creates a Retrieve command
    */
   constructor() {
-    var _this = this;
+
   }
 
   /**

@@ -167,6 +167,7 @@
     }
   },
   "dependencies": {
+    "antlr4": "^4.5.3",
     "readable-stream": "^2.1.4",
     "unzip": "^0.1.11"
   }

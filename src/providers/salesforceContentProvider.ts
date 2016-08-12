@@ -1,5 +1,5 @@
 import vscode = require('vscode');
-import {Connection, QueryResult} from './../connection';
+import {Connection, IQueryResult} from './../connection';
 
 /**
  * Salesforce Content Provider class.
@@ -12,10 +12,10 @@ export class SalesforceContentProvider implements vscode.TextDocumentContentProv
 
   /**
    * TODO: give a description
-   * 
+   *
    * @param {vscode.Uri} uri file
    * @param {vscode.CancellationToken} token
-   * 
+   *
    * @return {Thenable<string>} TODO: give a description
    */
   provideTextDocumentContent(uri: vscode.Uri, token: vscode.CancellationToken): Thenable<string> {
@@ -42,13 +42,13 @@ export class SalesforceContentProvider implements vscode.TextDocumentContentProv
 
   /**
    * Calls Salesforce to retrieve metadata about a Salesforce component
-   * 
+   *
    * @param {string} namespace Salesforce namespace prefix
    * @param {string} name Component name
    */
   private resolveApexComponent(namespace: string, name: string): Thenable<string> {
     return new Promise<string>((resolve, reject) => {
-      this.conn.executeQuery(this.buildApexComponentQuery(namespace, name)).then((results: QueryResult) => {
+      this.conn.executeQuery(this.buildApexComponentQuery(namespace, name)).then((results: IQueryResult) => {
         if (results && results.totalSize == 1) {
           // Create a status bar item with Salesforce information about the last user that edited the page
           let status = vscode.window.createStatusBarItem(vscode.StatusBarAlignment.Right);
@@ -71,7 +71,7 @@ export class SalesforceContentProvider implements vscode.TextDocumentContentProv
 
   /**
    * Retrieves Salesforce apex logs
-   * 
+   *
    * @return {Thenable<string>} TODO: needs a description
    */
   private resolveApexLog(id: string): Thenable<string> {
@@ -80,10 +80,10 @@ export class SalesforceContentProvider implements vscode.TextDocumentContentProv
 
   /**
    * Builds a SOQL query to fetch metadata about a component from Salesforce
-   * 
+   *
    * @param {string} namespace Salesforce namespace prefix
    * @param {string} name Component name
-   * 
+   *
    * @return {string} SOQL query
    */
   private buildApexComponentQuery(namespace: string, name: string): string {

@@ -1,4 +1,4 @@
-import {VisualforceComponentFetcher} from './visualforceComponentFetcher';
+import {IVisualforceComponentFetcher} from './visualforceComponentFetcher';
 import {VisualforceBaseComponent} from './visualforceBaseComponents';
 
 /**
@@ -6,21 +6,21 @@ import {VisualforceBaseComponent} from './visualforceBaseComponents';
  *
  * TODO: finish this
  */
-export class VisualforceComponentFetcherBase implements VisualforceComponentFetcher {
+export class VisualforceComponentFetcherBase implements IVisualforceComponentFetcher {
   // TODO: give a description
   public canOverwrite: boolean = true;
 
   /**
    * TODO: give a description
-   * 
-   * @return {Thenable<VisualforceComponent[]>} TODO: give a description
+   *
+   * @return {Thenable<IVisualforceComponent[]>} TODO: give a description
    */
-  public fetchAll(): Thenable<VisualforceComponent[]> {
-    return new Promise<VisualforceComponent[]>((resolve, reject) => {
-      var componentList: VisualforceComponent[] = [];
+  public fetchAll(): Thenable<IVisualforceComponent[]> {
+    return new Promise<IVisualforceComponent[]>((resolve, reject) => {
+      var componentList: IVisualforceComponent[] = [];
 
       for (var cmp in VisualforceBaseComponent) {
-        var attributes: VisualforceComponentAttribute[] = [];
+        var attributes: IVisualforceComponentAttribute[] = [];
 
         for (var attr in VisualforceBaseComponent[cmp].attribs) {
           attributes.push({
