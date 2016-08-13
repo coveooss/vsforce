@@ -94,6 +94,11 @@ export function getLoginUrlFromConfig(): string {
   return configuration.get<string>('loginUrl');
 }
 
+/**
+ * Get the security token from the configuration settings
+ *
+ * @return {string} security token
+ */
 export function getSecurityTokenFromConfig(): string {
   return configuration.get<string>('securityToken');
 }
