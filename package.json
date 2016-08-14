@@ -25,11 +25,11 @@
   "contributes": {
     "commands": [
       {
-        "command": "extension.executeQuery",
+        "command": "vsforce.executeSOQLQuery",
         "title": "Execute SOQL"
       },
       {
-        "command": "extension.showLogs",
+        "command": "vsforce.showLogs",
         "title": "Show logs"
       },
       {
