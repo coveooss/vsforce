@@ -9,6 +9,7 @@ import {VisualforceWorkspaceSymbolProvider} from './providers/visualforceWorkspa
 import {ShowLogsCommand} from './commands/showLogsCommand';
 import {ShowDiffCommand} from './commands/showDiffCommand';
 import {RetrieveCommand} from './commands/retrieveCommand';
+import {SOQLCommand} from './commands/soqlCommand';
 import {VisualforceComponentCacheInstance} from './symbols/visualforceComponentCache';
 
 const visualforceDocumentFilter: vscode.DocumentFilter = { language: 'visualforce' };
@@ -17,6 +18,7 @@ export function activate(context: vscode.ExtensionContext) {
   let showLogsCommand = new ShowLogsCommand();
   let showDiffCommand = new ShowDiffCommand();
   let retrieveCommand = new RetrieveCommand();
+  let soqlCommand = new SOQLCommand();
 
   context.subscriptions.concat([
     vscode.languages.registerCompletionItemProvider(visualforceDocumentFilter, new VisualforceCompletionItemProvider(), '<'),
@@ -25,8 +27,9 @@ export function activate(context: vscode.ExtensionContext) {
     vscode.languages.registerWorkspaceSymbolProvider(new VisualforceWorkspaceSymbolProvider()),
 
     vscode.commands.registerCommand('vsforce.retrieveCommand', () => retrieveCommand.Execute()),
-    vscode.commands.registerCommand('extension.showLogs', () => showLogsCommand.Execute()),
+    vscode.commands.registerCommand('vsforce.showLogs', () => showLogsCommand.Execute()),
     vscode.commands.registerCommand('vsforce.diff', (uri) => showDiffCommand.Execute(uri)),
+    vscode.commands.registerCommand('vsforce.executeSOQLQuery', () => soqlCommand.Execute()),
     VisualforceComponentCacheInstance
   ]);
   new ApexObjectTreeCache();
