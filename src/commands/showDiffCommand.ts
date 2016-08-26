@@ -1,5 +1,4 @@
-import vscode = require('vscode');
-
+import * as vscode from 'vscode';
 import {ICommand} from './command';
 import {getFileNameFromUri} from '../utils';
 import {SalesforceQueryBuilder} from '../builder/salesforceQueryBuilder';

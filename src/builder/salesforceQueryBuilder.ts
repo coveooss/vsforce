@@ -1,5 +1,5 @@
 import {IBuilder} from './builder';
-import vscode = require('vscode');
+import * as vscode from 'vscode';
 
 /**
  * Salesforce query builder class.
