@@ -18,22 +18,46 @@ export class RetrieveCommand implements ICommand {
   private output: vscode.OutputChannel;
   private retrieveTarget: string;
 
-  /**
-   * Creates a Retrieve command
-   */
+	/**
+	 * Creates a Retrieve command
+	 */
   constructor() { }
 
-  /**
-   * Implements execute from {@link Command}
-   *
-   * Executes the command for this class
-   */
+	/**
+	 * Implements execute from {@link Command}
+	 *
+	 * Executes the command for this class
+	 */
   public Execute() {
 
     if (!this.output) {
       this.output = vscode.window.createOutputChannel('Retrieve request');
       this.output.show();
     }
+
+    utils.choosePackageXml()
+    .then((path: string) => {
+      this.output.appendLine('Parsing package.xml file.');
+      this.retrieveTarget = path;
+      return this.parsePackageXML(path);
+    })
+    .then((packageDom: any) => {
+      if (packageDom.Package) {
+        delete packageDom.Package.$;
+        let retrieveOptions = {
+          unpackaged: packageDom.Package
+        };
+
+        this.output.appendLine('Sending Retrieve Request to Salesforce...');
+        return this.conn.retrievePackage(retrieveOptions);
+      }
+    })
+    .then((response: any) => {
+      // patate
+    })
+    .catch((reason: string) => {
+      vscode.window.showErrorMessage(reason);
+    });
 
     utils.choosePackageXml() // Choose between all the package.xml in the current workspace
       .then((path) => {
@@ -51,7 +75,7 @@ export class RetrieveCommand implements ICommand {
                 .then((response) => {
 
                   this.handleSalesforceRetrieveResponse(response);
-                  
+
                 },
                 (reason) => {
                   vscode.window.showErrorMessage(reason.message);
@@ -77,7 +101,7 @@ export class RetrieveCommand implements ICommand {
     this.output.appendLine('============================\n');
 
     if (response && response.messages) {
-      if (response.messages instanceof Array) {
+      if (response.messages instanceof Array) { // Salesforce will return either an object or an array
         response.messages.forEach(message => {
           this.output.appendLine(`${message.fileName} => ${message.problem}`);
         });
@@ -98,28 +122,9 @@ export class RetrieveCommand implements ICommand {
     }
   }
 
-  private parsePackageXML(path: string): Thenable<any> {
-    return new Promise((resolve, reject) => {
-
-      utils.readFileAsync(path)
-        .then((data: Buffer) => {
-
-          return new Promise((resolve, reject) => {
-            utils.xml2jsAsync(data)
-              .then((dom: any) => {
-                resolve(dom);
-              },
-              (reason: any) => {
-                reject(reason);
-              });
-          })
-            .then((dom: any) => { resolve(dom); },
-            (reason) => { reject(reason); });
-
-        }, (reason: any) => {
-          reject(reason);
-        });
-
-    });
+  private parsePackageXML(path: string): Promise<any> {
+    return utils.readFileAsync(path).then((data: Buffer) => {
+        return utils.xml2jsAsync(data);
+      });
   }
 }

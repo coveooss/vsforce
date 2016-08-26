@@ -20,58 +20,99 @@ export function getFileNameFromUri(uri: vscode.Uri): string {
 /**
  * Finds the different files called "package.xml", if there is more than one asks the user to select one.
  *
- * @return {Thenable<string>} The selected package.xml full path
+ * @return {Promise<string>} The selected package.xml full path
  */
-export function choosePackageXml(): Thenable<string> {
+export function choosePackageXml(): Promise<string> {
   return new Promise<string>((resolve, reject) => {
+    vscode.workspace.findFiles('**/package.xml', '').then((files: vscode.Uri[]) => {
+      if (files.length == 1) { // Only one package.xml found, using this one
 
-    vscode.workspace.findFiles('**/package.xml', '')
-      .then((files: vscode.Uri[]) => {
+        resolve(files[0].fsPath);
 
-        if (files.length == 1) { // Only one package.xml found, using this one
+      } else if (files.length > 1) { // Multiple package.xml found, asking user to choose
 
-          resolve(files[0].fsPath);
+        let packages: vscode.QuickPickItem[] = [];
 
-        }
-        else if (files.length > 1) { // Multiple package.xml found, asking user to choose
-
-          let packages: vscode.QuickPickItem[] = [];
-
-          files.forEach(file => { // Create the quickpick options
-            packages.push({
-              label: file.fsPath.replace(vscode.workspace.rootPath, ''),
-              description: '',
-              detail: file.fsPath
-            })
+        files.forEach(file => { // Create the quickpick options
+          packages.push({
+            label: file.fsPath.replace(vscode.workspace.rootPath, ''),
+            description: '',
+            detail: file.fsPath
           });
+        });
 
-          vscode.window.showQuickPick(packages) // Show a selection of the existing package.xml
-            .then((selected) => {
-              if(selected) {
-                resolve(selected.detail); // Resolve with the selected value
-              }
-            },
-            (reason) => {
-              vscode.window.showErrorMessage(reason);
-              reject(reason);
-            })
+        vscode.window.showQuickPick(packages).then((selected) => {  // Show a selection of the existing package.xml
+          if (selected) { resolve(selected.detail); }
+        }, (reason) => {
+          reject(reason);
+        });
+      } else { // No package.xml found.
+        reject (new Error('Cannot find a package.xml'));
+      }
 
-        }
-        else { // No package.xml found.
-
-          reject("Cannot find any package.xml in the workspace.");
-
-        }
-
-      }, (reason: any) => {
-        vscode.window.showErrorMessage(reason);
-        reject(reason);
-      });
-
+    }, (reason) => {
+      reject(reason);
+    });
   });
+
+  //   vscode.workspace.findFiles('**/package.xml', '')
+  //     .then((files: vscode.Uri[]) => {
+
+  //       if (files.length == 1) { // Only one package.xml found, using this one
+
+  //         resolve(files[0].fsPath);
+
+  //       } else if (files.length > 1) { // Multiple package.xml found, asking user to choose
+
+  //         let packages: vscode.QuickPickItem[] = [];
+
+  //         files.forEach(file => { // Create the quickpick options
+  //           packages.push({
+  //             label: file.fsPath.replace(vscode.workspace.rootPath, ''),
+  //             description: '',
+  //             detail: file.fsPath
+  //           });
+  //         });
+
+  //         vscode.window.showQuickPick(packages) // Show a selection of the existing package.xml
+  //           .then((selected) => {
+  //             if (selected) {
+  //               resolve(selected.detail); // Resolve with the selected value
+  //             }
+  //           },
+  //           (reason) => {
+  //             vscode.window.showErrorMessage(reason);
+  //             reject(reason);
+  //           });
+
+  //       } else { // No package.xml found.
+
+  //         reject('Cannot find any package.xml in the workspace.');
+
+  //       }
+
+  //     }, (reason: any) => {
+  //       vscode.window.showErrorMessage(reason);
+  //       reject(reason);
+  //     });
+
+  // });
 }
 
-export function readFileAsync(path: string): Thenable<Buffer> {
+// export function readFileAsync(path: string): Thenable<Buffer> {
+//   return new Promise<Buffer>((resolve, reject) => {
+//     fs.readFile(path, 'utf-8', (err: NodeJS.ErrnoException, data: Buffer) => {
+//       if (err) {
+//         vscode.window.showErrorMessage(err.message);
+//         reject(err);
+//       } else {
+//         resolve(data);
+//       }
+//     });
+//   })
+// }
+
+export function readFileAsync(path: string): Promise<Buffer> {
   return new Promise<Buffer>((resolve, reject) => {
     fs.readFile(path, 'utf-8', (err: NodeJS.ErrnoException, data: Buffer) => {
       if (err) {
@@ -81,16 +122,35 @@ export function readFileAsync(path: string): Thenable<Buffer> {
         resolve(data);
       }
     });
-  })
+  });
 }
 
-export function xml2jsAsync(data: Buffer): Thenable<any> {
+export function xml2jsAsync(data: Buffer): Promise<any> {
   return new Promise<any>((resolve, reject) => {
     xml2js.parseString(data.toString(), { explicitArray: false }, (err, dom) => {
-      if (err) { reject(err); } else { resolve(dom); }
+      if (err) {
+        vscode.window.showErrorMessage(err.message);
+        reject(err);
+      } else {
+        resolve(dom);
+      }
     });
-  })
+  });
 }
+
+// export function xml2jsAsync(data: Buffer): Thenable<any> {
+//   return new Promise<any>((resolve, reject) => {
+//     xml2js.parseString(data.toString(), { explicitArray: false }, (err, dom) => {
+//       err = new Error('Test');
+//       if (err) {
+//         vscode.window.showErrorMessage(err.message);
+//         reject(err);
+//       } else {
+//         resolve(dom);
+//       }
+//     });
+//   })
+// }
 
 export function extractZip(content: string, target: string): Promise<any> {
   return new Promise<any>((resolve, reject) => {
@@ -100,10 +160,10 @@ export function extractZip(content: string, target: string): Promise<any> {
     resolve(true);
     // TODO: Handle the zip cleanly
     // zipStream.pipe(unzip.Parse())
-      //   .on('entry', (entry) => {
-      //     let filePaths = entry.path;
-      //     let type = entry.type;
-      //     entry.pipe(fs.createWriteStream(target));
-      //   })
+    //   .on('entry', (entry) => {
+    //     let filePaths = entry.path;
+    //     let type = entry.type;
+    //     entry.pipe(fs.createWriteStream(target));
+    //   })
   });
 }
