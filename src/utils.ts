@@ -6,6 +6,7 @@ import * as xml2js from 'xml2js';
 let configuration = vscode.workspace.getConfiguration('vsforce.organization');
 var stream = require('readable-stream');
 var unzip = require('unzip');
+var fstream = require('fstream');
 
 /**
  * TODO: give a description
@@ -48,7 +49,7 @@ export function choosePackageXml(): Promise<string> {
           reject(reason);
         });
       } else { // No package.xml found.
-        reject (new Error('Cannot find a package.xml'));
+        reject(new Error('Cannot find a package.xml'));
       }
 
     }, (reason) => {
@@ -153,20 +154,33 @@ export function xml2jsAsync(data: Buffer): Promise<any> {
 //   })
 // }
 
-export function extractZip(content: string, target: string): Promise<any> {
+export function extractZipFromBase64String(content: string, target: string): Promise<any> {
   return new Promise<any>((resolve, reject) => {
-    let zipStream = new stream.PassThrough();
-    zipStream.end(new Buffer(content, 'base64'));
-    zipStream.pipe(unzip.Extract({ path: target }));
-    resolve(true);
-    // TODO: Handle the zip cleanly
-    // zipStream.pipe(unzip.Parse())
-    //   .on('entry', (entry) => {
-    //     let filePaths = entry.path;
-    //     let type = entry.type;
-    //     entry.pipe(fs.createWriteStream(target));
-    //   })
+    let zipstream = new stream.PassThrough();
+    zipstream.end(new Buffer(content, 'base64'));
+    zipstream.pipe(unzip.Parse())
+      .on('entry', (entry: any) => {
+        entry.path = entry.path.replace('unpackaged/', '');
+        entry.pipe(fstream.Writer({
+          type: entry.type,
+          path: target + entry.path
+        }))
+          .on('end', () => { resolve(true); }) // Finished
+          .on('error', (err: any) => { reject(err); });
+      });
+
+    // let zipStream = new stream.PassThrough();
+    // zipStream.end(new Buffer(content, 'base64'));
+    // zipStream.pipe(unzip.Extract({ path: target }));
+    // resolve(true);
   });
+}
+
+export function parsePackageXML(path: string): Promise<any> {
+  return readFileAsync(path)
+    .then((data: Buffer) => {
+      return xml2jsAsync(data);
+    });
 }
 
 /**
