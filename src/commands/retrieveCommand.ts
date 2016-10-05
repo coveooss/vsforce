@@ -17,16 +17,16 @@ export class RetrieveCommand implements ICommand {
   private output: vscode.OutputChannel;
   private retrieveTarget: string;
 
-	/**
-	 * Creates a Retrieve command
-	 */
+  /**
+   * Creates a Retrieve command
+   */
   constructor() { }
 
-	/**
-	 * Implements execute from {@link Command}
-	 *
-	 * Executes the command for this class
-	 */
+  /**
+   * Implements execute from {@link Command}
+   *
+   * Executes the command for this class
+   */
   public Execute() {
 
     if (!this.output) {
