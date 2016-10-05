@@ -14,7 +14,6 @@ import * as utils from '../utils';
 export class RetrieveCommand implements ICommand {
   // Connection handle through Salesforce
   private conn: Connection = new Connection();
-
   private output: vscode.OutputChannel;
   private retrieveTarget: string;
 
@@ -58,41 +57,6 @@ export class RetrieveCommand implements ICommand {
       .catch((reason: string) => {
         vscode.window.showErrorMessage(reason);
       });
-
-    // utils.choosePackageXml() // Choose between all the package.xml in the current workspace
-    //   .then((path) => {
-    //     this.output.appendLine('Parsing package.xml file.');
-    //     this.retrieveTarget = path;
-    //     this.parsePackageXML(path) // Parse the package xml definition into a javascript object
-    //       .then((packageDom: any) => {
-    //         if (packageDom.Package) {
-    //           delete packageDom.Package.$;
-    //           let retrieveOptions = { // Adds the unpackage options
-    //             unpackaged: packageDom.Package
-    //           };
-    //           this.output.appendLine('Sending Retrieve Request to Salesforce...');
-    //           this.conn.retrievePackage(retrieveOptions)
-    //             .then((response) => {
-
-    //               this.handleSalesforceRetrieveResponse(response);
-
-    //             },
-    //             (reason) => {
-    //               vscode.window.showErrorMessage(reason.message);
-    //               this.output.appendLine("\nError while recovering the package => Error message below:");
-    //               this.output.appendLine(reason.stack);
-    //             })
-    //         } else {
-    //           vscode.window.showErrorMessage("Invalid package.xml structure");
-    //         }
-    //       },
-    //       (reason) => {
-    //         vscode.window.showErrorMessage(reason);
-    //       });
-    //   },
-    //   (reason) => {
-    //     vscode.window.showErrorMessage(reason);
-    //   });
   }
 
   private handleSalesforceRetrieveResponse(response: any) {

@@ -56,64 +56,15 @@ export function choosePackageXml(): Promise<string> {
       reject(reason);
     });
   });
-
-  //   vscode.workspace.findFiles('**/package.xml', '')
-  //     .then((files: vscode.Uri[]) => {
-
-  //       if (files.length == 1) { // Only one package.xml found, using this one
-
-  //         resolve(files[0].fsPath);
-
-  //       } else if (files.length > 1) { // Multiple package.xml found, asking user to choose
-
-  //         let packages: vscode.QuickPickItem[] = [];
-
-  //         files.forEach(file => { // Create the quickpick options
-  //           packages.push({
-  //             label: file.fsPath.replace(vscode.workspace.rootPath, ''),
-  //             description: '',
-  //             detail: file.fsPath
-  //           });
-  //         });
-
-  //         vscode.window.showQuickPick(packages) // Show a selection of the existing package.xml
-  //           .then((selected) => {
-  //             if (selected) {
-  //               resolve(selected.detail); // Resolve with the selected value
-  //             }
-  //           },
-  //           (reason) => {
-  //             vscode.window.showErrorMessage(reason);
-  //             reject(reason);
-  //           });
-
-  //       } else { // No package.xml found.
-
-  //         reject('Cannot find any package.xml in the workspace.');
-
-  //       }
-
-  //     }, (reason: any) => {
-  //       vscode.window.showErrorMessage(reason);
-  //       reject(reason);
-  //     });
-
-  // });
 }
 
-// export function readFileAsync(path: string): Thenable<Buffer> {
-//   return new Promise<Buffer>((resolve, reject) => {
-//     fs.readFile(path, 'utf-8', (err: NodeJS.ErrnoException, data: Buffer) => {
-//       if (err) {
-//         vscode.window.showErrorMessage(err.message);
-//         reject(err);
-//       } else {
-//         resolve(data);
-//       }
-//     });
-//   })
-// }
-
+/**
+ * Wrapper in the form of a promise for the callback function to read a file
+ *
+ * @param {path: string} The path to the file to read
+ * 
+ * @return {Promise<Buffer>} Resolves with a Buffer of the file read
+ */
 export function readFileAsync(path: string): Promise<Buffer> {
   return new Promise<Buffer>((resolve, reject) => {
     fs.readFile(path, 'utf-8', (err: NodeJS.ErrnoException, data: Buffer) => {
@@ -127,6 +78,13 @@ export function readFileAsync(path: string): Promise<Buffer> {
   });
 }
 
+/**
+ * Parses a xml buffer to a js object wrapped in a promise
+ *
+ * @param {data: Buffer} The xml buffer
+ * 
+ * @return {Promise<any>} Resolves with the js object
+ */
 export function xml2jsAsync(data: Buffer): Promise<any> {
   return new Promise<any>((resolve, reject) => {
     xml2js.parseString(data.toString(), { explicitArray: false }, (err, dom) => {
@@ -140,20 +98,14 @@ export function xml2jsAsync(data: Buffer): Promise<any> {
   });
 }
 
-// export function xml2jsAsync(data: Buffer): Thenable<any> {
-//   return new Promise<any>((resolve, reject) => {
-//     xml2js.parseString(data.toString(), { explicitArray: false }, (err, dom) => {
-//       err = new Error('Test');
-//       if (err) {
-//         vscode.window.showErrorMessage(err.message);
-//         reject(err);
-//       } else {
-//         resolve(dom);
-//       }
-//     });
-//   })
-// }
-
+/**
+ * Unzips the files in the base64 string returned by Salesforce on a retrieve request.
+ *
+ * @param {content: string} The base64 string
+ * @param {target: string} The path target where to unzip
+ * 
+ * @return {Promise<any>} Resolves when the files are extracted or reject on error
+ */
 export function extractZipFromBase64String(content: string, target: string): Promise<any> {
   return new Promise<any>((resolve, reject) => {
     let zipstream = new stream.PassThrough();
@@ -168,14 +120,16 @@ export function extractZipFromBase64String(content: string, target: string): Pro
           .on('end', () => { resolve(true); }) // Finished
           .on('error', (err: any) => { reject(err); });
       });
-
-    // let zipStream = new stream.PassThrough();
-    // zipStream.end(new Buffer(content, 'base64'));
-    // zipStream.pipe(unzip.Extract({ path: target }));
-    // resolve(true);
   });
 }
 
+/**
+ * Parse the packageXML file structure to return a javascript object
+ *
+ * @param {path: string} The path of the packageXML file
+ * 
+ * @return {Promise<any>} The parsed object
+ */
 export function parsePackageXML(path: string): Promise<any> {
   return readFileAsync(path)
     .then((data: Buffer) => {
