@@ -1,5 +1,4 @@
-import vscode = require('vscode');
-
+import * as vscode from 'vscode';
 import {ICommand} from './command';
 import {getFileNameFromUri} from '../utils';
 import {SalesforceQueryBuilder} from '../builder/salesforceQueryBuilder';
@@ -10,13 +9,13 @@ import {SalesforceQueryBuilder} from '../builder/salesforceQueryBuilder';
  * Makes a diff with your Salesforce organization file and your local file.
  */
 export class ShowDiffCommand implements ICommand {
-  private builder: SalesforceQueryBuilder;
+  // Salesforce component query builder
+  private builder: SalesforceQueryBuilder = new SalesforceQueryBuilder();
+
   /**
    * Creates a Diff command
    */
-  constructor() {
-    this.builder = new SalesforceQueryBuilder();
-  }
+  constructor() { }
 
   /**
    * Implements execute from {@link Command}
@@ -24,12 +23,11 @@ export class ShowDiffCommand implements ICommand {
    * @param {vscode.Uri} uri Context file from the right click `Compare with Salesforce`
    */
   public Execute(uri: vscode.Uri) {
-    let split = getFileNameFromUri(uri).split('.');
-    let filename: string = `${split[0]}.${split[1]}`;
+    let filename: string = getFileNameFromUri(uri);
 
     vscode.commands
       .executeCommand('vscode.diff',
         uri,
-        vscode.Uri.parse(this.builder.buildComponentQuery(filename)), `${filename} (LOCAL) <-> ${filename} (REMOTE)`);
+        vscode.Uri.parse(this.builder.buildComponentQuery(filename)), `${filename} (LOCAL) <~> ${filename} (REMOTE)`);
   }
 }

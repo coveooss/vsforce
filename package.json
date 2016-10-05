@@ -25,11 +25,11 @@
   "contributes": {
     "commands": [
       {
-        "command": "extension.executeQuery",
+        "command": "vsforce.executeSOQLQuery",
         "title": "Execute SOQL"
       },
       {
-        "command": "extension.showLogs",
+        "command": "vsforce.showLogs",
         "title": "Show logs"
       },
       {
@@ -151,7 +151,7 @@
     "commit": "git add .; git cz"
   },
   "devDependencies": {
-    "cz-conventional-changelog": "^1.1.7",
+    "cz-conventional-changelog": "^1.2.0",
     "htmlparser2": "3.9.x",
     "gulp": "^3.9.1",
     "jsforce": "^1.7.0",

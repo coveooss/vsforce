@@ -3,6 +3,7 @@ import vscode = require('vscode');
 import * as fs from 'fs';
 import * as xml2js from 'xml2js';
 
+let configuration = vscode.workspace.getConfiguration('vsforce.organization');
 var stream = require('readable-stream');
 var unzip = require('unzip');
 
@@ -167,3 +168,49 @@ export function extractZip(content: string, target: string): Promise<any> {
     //   })
   });
 }
+
+/**
+ * Get the namespace from the configuration settings
+ *
+ * @return {string} namespace
+ */
+export function getNamespaceFromConfig(): string {
+  return configuration.get<string>('namespace');
+}
+
+/**
+ * Get the username from the configuration settings
+ *
+ * @return {string} username
+ */
+export function getUsernameFromConfig(): string {
+  return configuration.get<string>('username');
+}
+
+/**
+ * Get the password from the configuration settings
+ *
+ * @return {string} password
+ */
+export function getPasswordFromConfig(): string {
+  return configuration.get<string>('password');
+}
+
+/**
+ * Get the login url from the configuration settings
+ *
+ * @return {string} login url
+ */
+export function getLoginUrlFromConfig(): string {
+  return configuration.get<string>('loginUrl');
+}
+
+/**
+ * Get the security token from the configuration settings
+ *
+ * @return {string} security token
+ */
+export function getSecurityTokenFromConfig(): string {
+  return configuration.get<string>('securityToken');
+}
+

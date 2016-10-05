@@ -3,6 +3,7 @@ let jsforce = require('jsforce');
 import * as vscode from 'vscode';
 import * as xml2js from 'xml2js';
 import * as fs from 'fs';
+import * as utils from './utils';
 
 let stream = require('readable-stream');
 let unzip = require('unzip');
@@ -24,8 +25,6 @@ export interface IQueryResult {
 export class Connection {
   // Singleton
   private static instance: Connection;
-  // TODO: give a description
-  private config: vscode.WorkspaceConfiguration;
   // TODO: give a description
   private jsforceConn: any;
   // TODO: give a description
@@ -193,7 +192,7 @@ export class Connection {
         resolve(Connection.instance);
       } else {
         this.initConn().then((conn: Connection) => {
-          vscode.window.showInformationMessage(`Logged in to Salesforce as ${conn.config.get<string>('username')}`);
+          vscode.window.showInformationMessage(`Logged in to Salesforce as ${utils.getUsernameFromConfig()}`);
           Connection.instance = conn;
 
           resolve(conn);
@@ -213,16 +212,15 @@ export class Connection {
   private static initConn(): Thenable<Connection> {
     return new Promise<Connection>((resolve, reject) => {
       var conn = new Connection();
-      conn.config = vscode.workspace.getConfiguration('vsforce.organization');
 
-      if (Connection.validateConfig(conn.config)) {
+      if (Connection.validateConfig()) {
         conn.jsforceConn = new jsforce.Connection({
-          loginUrl: conn.config.get<string>('loginUrl')
+          loginUrl: utils.getLoginUrlFromConfig()
         });
 
         conn.jsforceConn.login(
-          conn.config.get<string>('username'),
-          conn.config.get<string>('password') + conn.config.get<string>('securityToken'),
+          utils.getUsernameFromConfig(),
+          utils.getPasswordFromConfig() + utils.getSecurityTokenFromConfig(),
           function (err, res) {
             if (err) {
               reject(err.message);
@@ -247,11 +245,11 @@ export class Connection {
    *
    * @return {TODO: give a description} TODO: give a description
    */
-  private static validateConfig(config: vscode.WorkspaceConfiguration) {
-    return config.get<string>('loginUrl') &&
-      config.get<string>('username') &&
-      config.get<string>('password') &&
-      config.get<string>('securityToken');
+  private static validateConfig() {
+    return utils.getLoginUrlFromConfig() &&
+      utils.getUsernameFromConfig() &&
+      utils.getPasswordFromConfig() &&
+      utils.getSecurityTokenFromConfig();
   }
 
   /**
