@@ -21,12 +21,9 @@ export class SOQLQueryBuilder implements IBuilder {
    * @return {SOQLQueryBuilder} SOQLQueryBuilder
    */
   private buildSelect(attributes: string[]): SOQLQueryBuilder {
-    attributes.forEach((value, index) => {
-      if (index > 0) {
-        this.query += `, ${value}`;
-      } else {
-        this.query += ` ${value}`;
-      }
+    attributes.forEach((value: string, index: number) => {
+      if (index > 0) { this.query += ','; }
+      this.query += ` ${value}`;
     });
 
     return this;
@@ -39,13 +36,10 @@ export class SOQLQueryBuilder implements IBuilder {
    *
    * @return {SOQLQueryBuilder} SOQLQueryBuilder
    */
-  private buildFrom(databases: string[]): SOQLQueryBuilder {
-    databases.forEach((value, index) => {
-      if (index > 0) {
-        this.query += `, ${value}`;
-      } else {
-        this.query += ` FROM ${value}`;
-      }
+  private buildFrom(tables: string[]): SOQLQueryBuilder {
+    tables.forEach((value: string, index: number) => {
+      if (index > 0) { this.query += ','; }
+      this.query += ` FROM ${value}`;
     });
 
     return this;
@@ -59,12 +53,9 @@ export class SOQLQueryBuilder implements IBuilder {
    * @return {SOQLQueryBuilder} SOQLQueryBuilder
    */
   private buildWhere(conditions: ISOQLCondition[]): SOQLQueryBuilder {
-    conditions.forEach((value, index) => {
-      if (index > 0) {
-        this.query += ` ${value.operator} ${value.attribute}=${value.value}`;
-      } else {
-        this.query += ` WHERE ${value.attribute}=${value.value}`;
-      }
+    conditions.forEach((value: ISOQLCondition, index: number) => {
+      if (index > 0) { this.query += value.operator; }
+      this.query += ` WHERE ${value.attribute}=${value.value}`;
     });
 
     return this;
@@ -79,7 +70,7 @@ export class SOQLQueryBuilder implements IBuilder {
    */
   public buildSOQLQuery(soqlObject: ISOQLObject): string {
     this.buildSelect(soqlObject.attributes);
-    this.buildFrom(soqlObject.databases);
+    this.buildFrom(soqlObject.tables);
     if (soqlObject.conditions) {
       this.buildWhere(soqlObject.conditions);
     }

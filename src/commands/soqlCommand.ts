@@ -16,12 +16,13 @@ export class SOQLCommand implements ICommand {
           .then((results: IQueryResult) => {
             let json = JSON.stringify(results, null, 2);
             let outputConsole = vscode.window.createOutputChannel('SOQL query');
+
             outputConsole.appendLine('Query Results');
             outputConsole.appendLine(json);
             outputConsole.show();
-
-            // TODO: use preview.html or open commands
           });
+      }, (reason: Error) => {
+        vscode.window.showErrorMessage(reason.message);
       });
   }
 }
