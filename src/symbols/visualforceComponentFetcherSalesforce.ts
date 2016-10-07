@@ -37,7 +37,7 @@ export class VisualforceComponentFetcherSalesforce implements IVisualforceCompon
       let componentList: IVisualforceComponent[] = [];
       let query = this.soqlBuilder.buildSOQLQuery({
         attributes: ['Description', 'Name', 'NamespacePrefix'],
-        databases: ['ApexComponent']
+        tables: ['ApexComponent']
       });
 
       this.conn.executeQuery(query).then((results: IQueryResult) => {

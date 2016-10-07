@@ -87,6 +87,6 @@ export class SalesforceContentProvider implements vscode.TextDocumentContentProv
    * @return {string} SOQL query
    */
   private buildApexComponentQuery(namespace: string, name: string): string {
-    return `SELECT Markup, LastModifiedDate, LastModifiedBy.name FROM ApexComponent WHERE NamespacePrefix=${namespace == 'c' ? null : `'${namespace}'`} and Name='${name.split('.')[0]}'`;
+    return `SELECT Markup, LastModifiedDate, LastModifiedBy.name FROM ApexComponent WHERE NamespacePrefix=${namespace === 'c' ? null : `'${namespace}'`} and Name='${name.split('.')[0]}'`;
   }
 }
