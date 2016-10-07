@@ -182,7 +182,7 @@ export class Connection {
   }
 */
   /**
-   * TODO: give a description
+   * Get the connection to salesforce, create one if there is no connection.
    *
    * @return {Thenable<Connection>} Salesforce connection success
    */
