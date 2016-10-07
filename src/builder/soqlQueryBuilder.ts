@@ -20,9 +20,10 @@ export class SOQLQueryBuilder implements IBuilder {
    *
    * @return {SOQLQueryBuilder} SOQLQueryBuilder
    */
-  private buildSelect(attributes): SOQLQueryBuilder {
+  private buildSelect(attributes: string[]): SOQLQueryBuilder {
     attributes.forEach((value: string, index: number) => {
-      this.query += `${index > 0 ? ',' : ''} ${value}`;
+      if (index > 0) { this.query += ','; }
+      this.query += ` ${value}`;
     });
 
     return this;
@@ -35,9 +36,10 @@ export class SOQLQueryBuilder implements IBuilder {
    *
    * @return {SOQLQueryBuilder} SOQLQueryBuilder
    */
-  private buildFrom(tables): SOQLQueryBuilder {
+  private buildFrom(tables: string[]): SOQLQueryBuilder {
     tables.forEach((value: string, index: number) => {
-      this.query += `${index > 0 ? ',' : ' FROM'} ${value}`;
+      if (index > 0) { this.query += ','; }
+      this.query += ` FROM ${value}`;
     });
 
     return this;
@@ -50,9 +52,10 @@ export class SOQLQueryBuilder implements IBuilder {
    *
    * @return {SOQLQueryBuilder} SOQLQueryBuilder
    */
-  private buildWhere(conditions): SOQLQueryBuilder {
+  private buildWhere(conditions: ISOQLCondition[]): SOQLQueryBuilder {
     conditions.forEach((value: ISOQLCondition, index: number) => {
-      this.query += `${index > 0 ? value.operator : ' WHERE'} ${value.attribute}=${value.value}`;
+      if (index > 0) { this.query += value.operator; }
+      this.query += ` WHERE ${value.attribute}=${value.value}`;
     });
 
     return this;

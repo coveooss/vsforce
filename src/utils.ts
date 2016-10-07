@@ -119,15 +119,6 @@ export function getNamespaceFromConfig(): string {
 }
 
 /**
- * Get the organization from the configuration settings
- *
- * @return {string} organization
- */
-export function getOrganizationFromConfig(): string {
-  return configuration.get<string>('organization');
-}
-
-/**
  * Get the username from the configuration settings
  *
  * @return {string} username

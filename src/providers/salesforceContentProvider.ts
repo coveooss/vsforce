@@ -53,7 +53,7 @@ export class SalesforceContentProvider implements vscode.TextDocumentContentProv
           // Create a status bar item with Salesforce information about the last user that edited the page
           let status = vscode.window.createStatusBarItem(vscode.StatusBarAlignment.Right);
 
-          status.text = `$(diff) Last modified by ${results.records[0].LastModifiedBy.Name} on ${results.records[0].LastModifiedDate.substr(0, 10)}`;
+          status.text = `$(git-commit) Last modified by ${results.records[0].LastModifiedBy.Name} on ${results.records[0].LastModifiedDate.substr(0, 10)}`;
           status.tooltip = `Modifications done on the file in your Salesforce organization`;
           status.show();
 
