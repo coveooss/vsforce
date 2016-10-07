@@ -150,7 +150,7 @@ export class Connection {
   public executeQuery(query: string): Thenable<IQueryResult> {
     return new Promise<IQueryResult>((resolve, reject) => {
       Connection.getConn().then((conn: Connection) => {
-        conn.jsforceConn.query(query, function (err, res) {
+        conn.jsforceConn.query(query, (err, res) => {
           if (err) {
             vscode.window.showErrorMessage(err);
             reject(err);

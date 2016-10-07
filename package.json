@@ -37,15 +37,15 @@
         "title": "Retrieve Package"
       },
       {
-        "command": "extension.contextualQuery",
+        "command": "vsforce.contextualQuery",
         "title": "Contextual Query"
       },
       {
-        "command": "extension.executeCode",
+        "command": "vsforce.executeCode",
         "title": "Execute APEX code"
       },
       {
-        "command": "extension.sfdeploy",
+        "command": "vsforce.sfdeploy",
         "title": "Deploy Workspace"
       },
       {
@@ -55,9 +55,9 @@
     ],
     "keybindings": [
       {
-        "command": "extension.executeQuery",
+        "command": "vsforce.executeSOQLQuery",
         "key": "ctrl+f5",
-        "mac": "cmd+f5",
+        "mac": "cmd+shift+f5",
         "when": "editorTextFocus"
       }
     ],
@@ -157,7 +157,7 @@
     "jsforce": "^1.7.0",
     "pretty-typescript": "^1.13.0",
     "typescript": "^1.8.10",
-    "vscode": "^1.0.0",
+    "vscode": "^0.11.15",
     "xml2js": "^0.4.17",
     "zip-folder": "^1.0.0"
   },

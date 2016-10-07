@@ -28,7 +28,7 @@ export class ShowLogsCommand implements ICommand {
     vscode.window.showQuickPick(new Promise<vscode.QuickPickItem[]>((resolve, reject) => {
       let query = this.soqlBuilder.buildSOQLQuery({
         attributes: ['ID', 'Operation', 'Status'],
-        databases: ['Apexlog']
+        tables: ['Apexlog']
       });
       this.conn.executeQuery(query).then((results) => {
         let logs: vscode.QuickPickItem[] = [];

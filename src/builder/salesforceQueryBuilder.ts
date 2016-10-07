@@ -1,5 +1,5 @@
 import {IBuilder} from './builder';
-import * as vscode from 'vscode';
+import {getNamespaceFromConfig} from '../utils';
 
 /**
  * Salesforce query builder class.
@@ -46,7 +46,7 @@ export class SalesforceQueryBuilder implements IBuilder {
   public buildComponentQuery(name: string): string {
     return this
       .addRoute('apexcomponent')
-      .addRoute(vscode.workspace.getConfiguration('vsforce.organization').get<string>('namespace'))
+      .addRoute(getNamespaceFromConfig())
       .addRoute(name)
       .build();
   }

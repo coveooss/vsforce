@@ -1,4 +1,4 @@
-import vscode = require('vscode');
+import * as vscode from 'vscode';
 
 import * as fs from 'fs';
 import * as xml2js from 'xml2js';
@@ -153,4 +153,3 @@ export function getLoginUrlFromConfig(): string {
 export function getSecurityTokenFromConfig(): string {
   return configuration.get<string>('securityToken');
 }
-

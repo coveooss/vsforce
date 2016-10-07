@@ -14,7 +14,7 @@ export interface ISOQLCondition {
  */
 export interface ISOQLObject {
   attributes: string[];
-  databases: string[];
+  tables: string[];
   conditions?: ISOQLCondition[];
 }
 
