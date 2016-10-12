@@ -26,11 +26,14 @@ export class Config {
       Config.username = config.get<string>('username');
       Config.password = config.get<string>('password');
       Config.securityToken = config.get<string>('securityToken');
-
       Config.customNamespace = config.get<string>('namespace');
 
       if (Config.customNamespace == "") {
         Config.customNamespace = "c";
+      }
+
+      if (Config.loginUrl == "") {
+        Config.loginUrl = "https://login.salesforce.com";
       }
 
       Config.isValid = true;
@@ -50,8 +53,7 @@ export class Config {
   private static validateConfig() {
     var config = vscode.workspace.getConfiguration("vsforce.organization");
 
-    return config.get<string>('loginUrl').length != 0 &&
-      config.get<string>('username').length != 0 &&
+    return config.get<string>('username').length != 0 &&
       config.get<string>('password').length != 0 &&
       config.get<string>('securityToken').length != 0;
   }
