@@ -3,6 +3,8 @@ let jsforce = require('jsforce');
 import * as vscode from 'vscode';
 import * as xml2js from 'xml2js';
 import * as fs from 'fs';
+import {StatusBarUtil} from './utils/statusBarUtil'
+import {Config} from './utils/Config'
 
 let stream = require('readable-stream');
 let unzip = require('unzip');
@@ -24,8 +26,6 @@ export interface IQueryResult {
 export class Connection {
   // Singleton
   private static instance: Connection;
-  // TODO: give a description
-  private config: vscode.WorkspaceConfiguration;
   // TODO: give a description
   private jsforceConn: any;
   // TODO: give a description
@@ -193,13 +193,7 @@ export class Connection {
         resolve(Connection.instance);
       } else {
         this.initConn().then((conn: Connection) => {
-          vscode.window.showInformationMessage(`Logged in to Salesforce as ${conn.config.get<string>('username')}`);
-          Connection.instance = conn;
-
           resolve(conn);
-
-        }, (reason: string) => {
-          vscode.window.showErrorMessage(reason);
         });
       }
     });
@@ -210,49 +204,45 @@ export class Connection {
    *
    * @return {Thenable<Connection>} TODO: give a description
    */
-  private static initConn(): Thenable<Connection> {
-    return new Promise<Connection>((resolve, reject) => {
+  public static initConn(): Thenable<Connection> {
+    var promise = new Promise<Connection>((resolve, reject) => {
       var conn = new Connection();
-      conn.config = vscode.workspace.getConfiguration('vsforce.organization');
 
-      if (Connection.validateConfig(conn.config)) {
+      if (Config.isValid) {
         conn.jsforceConn = new jsforce.Connection({
-          loginUrl: conn.config.get<string>('loginUrl')
+          loginUrl: Config.loginUrl
         });
 
         conn.jsforceConn.login(
-          conn.config.get<string>('username'),
-          conn.config.get<string>('password') + conn.config.get<string>('securityToken'),
+          Config.username,
+          Config.password + Config.securityToken,
+
           function (err, res) {
             if (err) {
+              StatusBarUtil.setText(err.message);
               reject(err.message);
             } else {
               conn.orgId = res.organizationId;
               conn.userId = res.id;
+              Connection.instance = conn;
 
+              StatusBarUtil.setText(`Logged in to Salesforce as ${Config.username}`);
               resolve(conn);
             }
           }
         );
       } else {
-        reject('Invalid vsforce config detected, please refer to https://github.com/coveo/vsforce to get a working example');
+        StatusBarUtil.setText('Invalid vsforce config detected, please refer to https://github.com/coveo/vsforce to get a working example');
+        reject();
       }
     });
+
+    StatusBarUtil.setLoading("Connecting to Salesforce ...", promise);
+
+    return promise;
   }
 
-  /**
-   * TODO: give a description
-   *
-   * @param {vscode.WorkspaceConfiguration} config workspace configuration
-   *
-   * @return {TODO: give a description} TODO: give a description
-   */
-  private static validateConfig(config: vscode.WorkspaceConfiguration) {
-    return config.get<string>('loginUrl') &&
-      config.get<string>('username') &&
-      config.get<string>('password') &&
-      config.get<string>('securityToken');
-  }
+
 
   /**
    * TODO: give a description

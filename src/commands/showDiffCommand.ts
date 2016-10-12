@@ -1,7 +1,7 @@
 import vscode = require('vscode');
 
 import {ICommand} from './command';
-import {buildSalesforceUri, getFileNameFromUri} from '../utils';
+import {buildSalesforceUri, getFileNameFromUri} from '../utils/utils';
 
 /**
  * Show diff class.
