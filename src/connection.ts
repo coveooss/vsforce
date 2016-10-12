@@ -3,6 +3,7 @@ let jsforce = require('jsforce');
 import * as vscode from 'vscode';
 import * as xml2js from 'xml2js';
 import * as fs from 'fs';
+
 import {StatusBarUtil} from './utils/statusBarUtil'
 import {Config} from './utils/Config'
 
@@ -151,7 +152,7 @@ export class Connection {
   public executeQuery(query: string): Thenable<IQueryResult> {
     return new Promise<IQueryResult>((resolve, reject) => {
       Connection.getConn().then((conn: Connection) => {
-        conn.jsforceConn.query(query, function (err, res) {
+        conn.jsforceConn.query(query, (err, res) => {
           if (err) {
             vscode.window.showErrorMessage(err);
             reject(err);
@@ -242,75 +243,6 @@ export class Connection {
     return promise;
   }
 
-
-
-  /**
-   * TODO: give a description
-   *
-   * @param {string} packageXMLPath TODO: give a description
-   */
-  public retrievePackage(packageXMLPath: string) {
-    return new Promise((resolve, reject) => {
-      fs.readFile(packageXMLPath, 'utf-8', (err: NodeJS.ErrnoException, data: Buffer) => {
-        if (err) { reject(err); } else { resolve(data); }
-      });
-    })
-      .then((data) => {
-        return new Promise((resolve, reject) => {
-          xml2js.parseString(data.toString(), { explicitArray: false }, (err, dom) => {
-            if (err) { reject(err); } else { resolve(dom); }
-          });
-        });
-      }, (reason: NodeJS.ErrnoException) => {
-        vscode.window.showErrorMessage(reason.message);
-      })
-      .then((dom: any) => {
-        delete dom.Package.$;
-        let options = {
-          unpackaged: dom.Package
-        };
-        this.retrieve(options)
-          .then((resp: any) => {
-            let outputConsole = vscode.window.createOutputChannel('Retrieve output');
-            outputConsole.show();
-            outputConsole.appendLine('Retrieve request completed');
-            outputConsole.appendLine(`Status: ${resp.status}`);
-            outputConsole.appendLine('============================\n');
-
-            if (resp && resp.messages && resp.messages.length > 0) {
-              resp.messages.forEach(message => {
-                outputConsole.appendLine(`${message.fileName} => `);
-                outputConsole.appendLine(message.problem);
-              });
-            }
-
-            // unzip
-            if (resp && resp.success) {
-              this.extractZip(resp.zipFile, packageXMLPath.replace('package.xml', ''))
-                .then((data) => {
-                  console.log(data);
-                }, (reason: any) => {
-                  vscode.window.showErrorMessage(reason);
-                });
-            } else { outputConsole.appendLine('No output file... Request failed'); }
-
-          }, (reason: any) => {
-            vscode.window.showErrorMessage(reason);
-          });
-      }, (reason: NodeJS.ErrnoException) => {
-        vscode.window.showErrorMessage(reason.message);
-      });
-
-    // fs.readFile(packageXMLPath, (err: NodeJS.ErrnoException, data: Buffer) => {
-    //   xml2js.parseString(data.toString(), (err: any, results: any) => {
-    //     _this.execute((jsforce: any) => {
-    //       console.log(jsforce.metadata.retrieve({ unpackaged: JSON.stringify(results.Package) }).stream().pipe());
-    //       // .pipe(fs.createWriteStream('MyPackage.zip'))
-    //     });
-    //   });
-    // });
-  }
-
   /**
    * TODO: give a description
    *
@@ -321,10 +253,6 @@ export class Connection {
    */
   private extractZip(content: any, target: string): Promise<any> {
     return new Promise<any>((resolve, reject) => {
-      // let waits=[];
-      // let zipStream = new stream.PassThrough();
-      // zipStream.end(new Buffer())
-      // let waits = [];
       let zipStream = new stream.PassThrough();
       zipStream.end(new Buffer(content, 'base64'));
       zipStream.pipe(unzip.Extract({ path: target }));
@@ -339,13 +267,13 @@ export class Connection {
   }
 
   /**
-   * TODO: give a description
+   * Send a retrieve request to salesforce, with options included.
    *
-   * @param {any} options TODO: give a description
+   * @param {any} options The retrieve options : https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/meta_retrieve_request.htm
    *
-   * @return {Thenable<any>} TODO: give a description
+   * @return {Thenable<any>} Resolves when the requests complete.
    */
-  private retrieve(options: any): Thenable<any> {
+  public retrievePackage(options: any): Thenable<any> {
     return new Promise<any>((resolve, reject) => {
       Connection.getConn().then((conn: Connection) => {
         conn.jsforceConn.metadata.timeout = 60 * 1000;

@@ -25,11 +25,11 @@
   "contributes": {
     "commands": [
       {
-        "command": "extension.executeQuery",
+        "command": "vsforce.executeSOQLQuery",
         "title": "Execute SOQL"
       },
       {
-        "command": "extension.showLogs",
+        "command": "vsforce.showLogs",
         "title": "Show logs"
       },
       {
@@ -37,15 +37,15 @@
         "title": "Retrieve Package"
       },
       {
-        "command": "extension.contextualQuery",
+        "command": "vsforce.contextualQuery",
         "title": "Contextual Query"
       },
       {
-        "command": "extension.executeCode",
+        "command": "vsforce.executeCode",
         "title": "Execute APEX code"
       },
       {
-        "command": "extension.sfdeploy",
+        "command": "vsforce.sfdeploy",
         "title": "Deploy Workspace"
       },
       {
@@ -55,9 +55,9 @@
     ],
     "keybindings": [
       {
-        "command": "extension.executeQuery",
+        "command": "vsforce.executeSOQLQuery",
         "key": "ctrl+f5",
-        "mac": "cmd+f5",
+        "mac": "cmd+shift+f5",
         "when": "editorTextFocus"
       }
     ],
@@ -151,7 +151,7 @@
     "commit": "git add .; git cz"
   },
   "devDependencies": {
-    "cz-conventional-changelog": "^1.1.7",
+    "cz-conventional-changelog": "^1.2.0",
     "htmlparser2": "3.9.x",
     "gulp": "^3.9.1",
     "jsforce": "^1.7.0",

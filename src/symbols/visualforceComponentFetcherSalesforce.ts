@@ -1,5 +1,7 @@
 import {IVisualforceComponentFetcher} from './visualforceComponentFetcher';
 import {Connection, IQueryResult} from './../connection';
+import {SOQLQueryBuilder} from '../builder/soqlQueryBuilder';
+import {SalesforceQueryBuilder} from '../builder/salesforceQueryBuilder';
 
 /**
  * Apex Component Query Result interface.
@@ -22,13 +24,23 @@ export class VisualforceComponentFetcherSalesforce implements IVisualforceCompon
   // TODO: give a description
   public canOverwrite: boolean = false;
 
+  // Salesforce builder (component)
+  private sfBuilder = new SalesforceQueryBuilder();
+  // SOQL builder
+  private soqlBuilder = new SOQLQueryBuilder();
+
   /**
    * TODO: give a description
    */
   public fetchAll(): Thenable<IVisualforceComponent[]> {
     return new Promise<IVisualforceComponent[]>((resolve, reject) => {
-      var componentList: IVisualforceComponent[] = [];
-      this.conn.executeQuery('SELECT Description, Name, NamespacePrefix FROM ApexComponent').then((results: IQueryResult) => {
+      let componentList: IVisualforceComponent[] = [];
+      let query = this.soqlBuilder.buildSOQLQuery({
+        attributes: ['Description', 'Name', 'NamespacePrefix'],
+        tables: ['ApexComponent']
+      });
+
+      this.conn.executeQuery(query).then((results: IQueryResult) => {
         if (results && results.totalSize != 0) {
           for (var record in results.records) {
             componentList.push({
@@ -52,7 +64,7 @@ export class VisualforceComponentFetcherSalesforce implements IVisualforceCompon
    * @return {string} SOQL query
    */
   private buildUriFromResult(result: IApexComponentQueryResult): string {
-    return `sf://salesforce.com/apexcomponent/${this.buildNamespaceFromResult(result)}/${result.Name}.component`;
+    return this.sfBuilder.buildComponentQuery(`${result.Name}.component`);
   }
 
   /**

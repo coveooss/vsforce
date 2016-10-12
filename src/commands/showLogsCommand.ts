@@ -2,6 +2,7 @@ import vscode = require('vscode');
 
 import {Connection} from './../connection';
 import {ICommand} from './command';
+import {SOQLQueryBuilder} from '../builder/soqlQueryBuilder';
 
 /**
  * Show logs class.
@@ -11,6 +12,7 @@ import {ICommand} from './command';
 export class ShowLogsCommand implements ICommand {
   // Connection handle through Salesforce
   private conn: Connection = new Connection();
+  private soqlBuilder = new SOQLQueryBuilder();
 
   /**
    * Creates a Show logs command
@@ -24,8 +26,12 @@ export class ShowLogsCommand implements ICommand {
    */
   public Execute() {
     vscode.window.showQuickPick(new Promise<vscode.QuickPickItem[]>((resolve, reject) => {
-      this.conn.executeQuery('SELECT ID, Operation, Status FROM Apexlog').then((results) => {
-        var logs: vscode.QuickPickItem[] = [];
+      let query = this.soqlBuilder.buildSOQLQuery({
+        attributes: ['ID', 'Operation', 'Status'],
+        tables: ['Apexlog']
+      });
+      this.conn.executeQuery(query).then((results) => {
+        let logs: vscode.QuickPickItem[] = [];
 
         for (var record in results.records) {
           logs.push({
