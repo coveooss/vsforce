@@ -12,8 +12,7 @@
 {
   "vsforce.organization.username": "username",
   "vsforce.organization.password": "password",
-  "vsforce.organization.securityToken": "token",
-  "vsforce.organization.namespace": "namespace_prefix"
+  "vsforce.organization.securityToken": "token"
 }
 ```
 
