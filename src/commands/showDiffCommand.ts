@@ -1,7 +1,7 @@
 import * as vscode from 'vscode';
 
 import {ICommand} from './command';
-import {buildSalesforceUri, getFileNameFromUri} from '../utils/utils';
+import {getFileNameFromUri} from '../utils/utils';
 import {SalesforceQueryBuilder} from '../builder/salesforceQueryBuilder';
 
 
@@ -29,7 +29,7 @@ export class ShowDiffCommand implements ICommand {
 
     vscode.commands
       .executeCommand('vscode.diff',
-        uri,
-        vscode.Uri.parse(this.builder.buildComponentQuery(filename)), `${filename} (LOCAL) <~> ${filename} (REMOTE)`);
+      uri,
+      vscode.Uri.parse(this.builder.buildComponentQuery(filename)), `${filename} (LOCAL) <~> ${filename} (REMOTE)`);
   }
 }

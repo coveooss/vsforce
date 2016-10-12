@@ -6,6 +6,7 @@ export class Config {
   public static username: string;
   public static password: string;
   public static securityToken: string;
+  public static customNamespace: string;
 
   public static isValid: boolean;
 
@@ -25,6 +26,12 @@ export class Config {
       Config.username = config.get<string>('username');
       Config.password = config.get<string>('password');
       Config.securityToken = config.get<string>('securityToken');
+
+      Config.customNamespace = config.get<string>('namespace');
+
+      if (Config.customNamespace == "") {
+        Config.customNamespace = "c";
+      }
 
       Config.isValid = true;
     } else {

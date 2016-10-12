@@ -4,7 +4,7 @@ import {Connection} from './../connection';
 import * as vscode from 'vscode';
 import * as fs from 'fs';
 
-import * as utils from '../utils';
+import * as utils from '../utils/utils';
 
 /**
  * Retrieve command class.
@@ -51,7 +51,7 @@ export class RetrieveCommand implements ICommand {
                 .then((response) => {
 
                   this.handleSalesforceRetrieveResponse(response);
-                  
+
                 },
                 (reason) => {
                   vscode.window.showErrorMessage(reason.message);

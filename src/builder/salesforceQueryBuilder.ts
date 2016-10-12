@@ -1,5 +1,5 @@
 import {IBuilder} from './builder';
-import {getNamespaceFromConfig} from '../utils';
+import {Config} from '../utils/Config';
 
 /**
  * Salesforce query builder class.
@@ -46,7 +46,7 @@ export class SalesforceQueryBuilder implements IBuilder {
   public buildComponentQuery(name: string): string {
     return this
       .addRoute('apexcomponent')
-      .addRoute(getNamespaceFromConfig())
+      .addRoute(Config.customNamespace)
       .addRoute(name)
       .build();
   }
