@@ -1,13 +1,14 @@
 language: node_js
 node_js:
-  - "node"
+  - "stable"
 
 branches:
   only:
     - master
 
 install:
+  - npm install typescript@1.8 --force -g
   - npm install
 
 script:
-  - node node_modules/typescript/bin/tsc
+  - tsc
