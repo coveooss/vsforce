@@ -8,7 +8,6 @@ branches:
 
 install:
   - npm install typescript@1.8 --force -g
-  - npm install
 
 script:
   - tsc
