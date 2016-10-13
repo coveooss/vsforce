@@ -5,9 +5,12 @@ node_js:
 branches:
   only:
     - master
-
+    
+before_script:
+  - npm install typescript@1.8 -g
+  
 install:
-  - npm install typescript@1.8 --force -g
+  - npm install
 
 script:
   - tsc
