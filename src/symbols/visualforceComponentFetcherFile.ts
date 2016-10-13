@@ -1,5 +1,5 @@
 import vscode = require('vscode');
-import * as utils from '../utils';
+import * as utils from '../utils/utils';
 import fs = require('fs');
 import html = require('htmlparser2');
 import {VisualforceComponentCache} from './visualforceComponentCache';

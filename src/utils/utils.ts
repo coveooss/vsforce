@@ -3,7 +3,6 @@ import * as vscode from 'vscode';
 import * as fs from 'fs';
 import * as xml2js from 'xml2js';
 
-let configuration = vscode.workspace.getConfiguration('vsforce.organization');
 var stream = require('readable-stream');
 var unzip = require('unzip');
 var fstream = require('fstream');
@@ -26,35 +25,32 @@ export function getFileNameFromUri(uri: vscode.Uri): string {
  */
 export function choosePackageXml(): Promise<string> {
   return new Promise<string>((resolve, reject) => {
-    vscode.workspace.findFiles('**/package.xml', '').then((files: vscode.Uri[]) => {
-      if (files.length == 1) { // Only one package.xml found, using this one
+    vscode.workspace.findFiles('**/package.xml', '**/node_modules/**')
+      .then((files: vscode.Uri[]) => {
+        if (files.length == 1) { // Only one package.xml found, using this one
+          resolve(files[0].fsPath);
+        } else if (files.length > 1) { // Multiple package.xml found, asking user to choose
+          let packages: vscode.QuickPickItem[] = [];
 
-        resolve(files[0].fsPath);
-
-      } else if (files.length > 1) { // Multiple package.xml found, asking user to choose
-
-        let packages: vscode.QuickPickItem[] = [];
-
-        files.forEach(file => { // Create the quickpick options
-          packages.push({
-            label: file.fsPath.replace(vscode.workspace.rootPath, ''),
-            description: '',
-            detail: file.fsPath
+          files.forEach(file => { // Create the quickpick options
+            packages.push({
+              label: file.fsPath.replace(vscode.workspace.rootPath, ''),
+              description: '',
+              detail: file.fsPath
+            });
           });
-        });
 
-        vscode.window.showQuickPick(packages).then((selected) => {  // Show a selection of the existing package.xml
-          if (selected) { resolve(selected.detail); }
-        }, (reason) => {
-          reject(reason);
-        });
-      } else { // No package.xml found.
-        reject(new Error('Cannot find a package.xml'));
-      }
-
-    }, (reason) => {
-      reject(reason);
-    });
+          vscode.window.showQuickPick(packages).then((selected) => {  // Show a selection of the existing package.xml
+            if (selected) {
+              resolve(selected.detail); // Resolve with the selected value
+            }
+          }, (reason) => {
+            reject(reason);
+          });
+        } else { // No package.xml found.
+          reject(new Error('Cannot find a package.xml'));
+        }
+      });
   });
 }
 
@@ -135,49 +131,4 @@ export function parsePackageXML(path: string): Promise<any> {
     .then((data: Buffer) => {
       return xml2jsAsync(data);
     });
-}
-
-/**
- * Get the namespace from the configuration settings
- *
- * @return {string} namespace
- */
-export function getNamespaceFromConfig(): string {
-  return configuration.get<string>('namespace');
-}
-
-/**
- * Get the username from the configuration settings
- *
- * @return {string} username
- */
-export function getUsernameFromConfig(): string {
-  return configuration.get<string>('username');
-}
-
-/**
- * Get the password from the configuration settings
- *
- * @return {string} password
- */
-export function getPasswordFromConfig(): string {
-  return configuration.get<string>('password');
-}
-
-/**
- * Get the login url from the configuration settings
- *
- * @return {string} login url
- */
-export function getLoginUrlFromConfig(): string {
-  return configuration.get<string>('loginUrl');
-}
-
-/**
- * Get the security token from the configuration settings
- *
- * @return {string} security token
- */
-export function getSecurityTokenFromConfig(): string {
-  return configuration.get<string>('securityToken');
 }
