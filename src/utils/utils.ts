@@ -6,6 +6,7 @@ import * as xml2js from 'xml2js';
 var stream = require('readable-stream');
 var unzip = require('unzip');
 var fstream = require('fstream');
+var archiver = require('archiver');
 
 /**
  * TODO: give a description
@@ -91,6 +92,24 @@ export function xml2jsAsync(data: Buffer): Promise<any> {
         resolve(dom);
       }
     });
+  });
+}
+
+export function zipFolder(path: string): Promise<Buffer> {
+  return new Promise<Buffer>((resolve, reject) => {
+    let archive = archiver('zip');
+
+    // Error during writing to the archive will throw this event
+    archive.on('error', function(err) {
+      reject(err.message);
+    });
+
+    // Push the selected directory to the archive
+    archive.directory(path, 'pkg');
+    archive.finalize();
+
+    // The archive is also a Buffer so we can substitute
+    resolve(archive);
   });
 }
 
