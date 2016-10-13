@@ -201,7 +201,8 @@
             "antlr4": "^4.5.3",
             "fstream": "^1.0.10",
             "unzip": "^0.1.11",
-            "readable-stream": "^2.1.4"
+            "readable-stream": "^2.1.4",
+            "typescript": "^1.8.10"
         }
     }
 }
