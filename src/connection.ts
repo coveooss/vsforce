@@ -184,7 +184,7 @@ export class Connection {
   }
 */
   /**
-   * TODO: give a description
+   * Get the connection to salesforce, create one if there is no connection.
    *
    * @return {Thenable<Connection>} Salesforce connection success
    */
@@ -271,9 +271,9 @@ export class Connection {
    *
    * @param {any} options The retrieve options : https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/meta_retrieve_request.htm
    *
-   * @return {Thenable<any>} Resolves when the requests complete.
+   * @return {Promise<any>} Resolves when the requests complete.
    */
-  public retrievePackage(options: any): Thenable<any> {
+  public retrievePackage(options: any): Promise<any> {
     return new Promise<any>((resolve, reject) => {
       Connection.getConn().then((conn: Connection) => {
         conn.jsforceConn.metadata.timeout = 60 * 1000;

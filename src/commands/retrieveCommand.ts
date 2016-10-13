@@ -14,7 +14,6 @@ import * as utils from '../utils/utils';
 export class RetrieveCommand implements ICommand {
   // Connection handle through Salesforce
   private conn: Connection = new Connection();
-
   private output: vscode.OutputChannel;
   private retrieveTarget: string;
 
@@ -35,38 +34,27 @@ export class RetrieveCommand implements ICommand {
       this.output.show();
     }
 
-    utils.choosePackageXml() // Choose between all the package.xml in the current workspace
-      .then((path) => {
+    utils.choosePackageXml()
+      .then((path: string) => { // Parsing the package.xml file to find what to retrieve
         this.output.appendLine('Parsing package.xml file.');
         this.retrieveTarget = path;
-        this.parsePackageXML(path) // Parse the package xml definition into a javascript object
-          .then((packageDom: any) => {
-            if (packageDom.Package) {
-              delete packageDom.Package.$;
-              let retrieveOptions = { // Adds the unpackage options
-                unpackaged: packageDom.Package
-              };
-              this.output.appendLine('Sending Retrieve Request to Salesforce...');
-              this.conn.retrievePackage(retrieveOptions)
-                .then((response) => {
+        return utils.parsePackageXML(path);
+      })
+      .then((packageDom: any) => { // Sending the retrieve request to salesforce with the content of the package.xml
+        if (packageDom.Package) {
+          delete packageDom.Package.$;
+          let retrieveOptions = {
+            unpackaged: packageDom.Package
+          };
 
-                  this.handleSalesforceRetrieveResponse(response);
-
-                },
-                (reason) => {
-                  vscode.window.showErrorMessage(reason.message);
-                  this.output.appendLine("\nError while recovering the package => Error message below:");
-                  this.output.appendLine(reason.stack);
-                })
-            } else {
-              vscode.window.showErrorMessage("Invalid package.xml structure");
-            }
-          },
-          (reason) => {
-            vscode.window.showErrorMessage(reason);
-          });
-      },
-      (reason) => {
+          this.output.appendLine('Sending Retrieve Request to Salesforce...');
+          return this.conn.retrievePackage(retrieveOptions);
+        }
+      })
+      .then((response: any) => { // Handle the response from salesforce.
+        this.handleSalesforceRetrieveResponse(response);
+      })
+      .catch((reason: string) => {
         vscode.window.showErrorMessage(reason);
       });
   }
@@ -76,8 +64,8 @@ export class RetrieveCommand implements ICommand {
     this.output.appendLine(`Status: ${response.status}`);
     this.output.appendLine('============================\n');
 
-    if (response && response.messages) {
-      if (response.messages instanceof Array) {
+    if (response && response.messages) { // If Salesforce returned messages.
+      if (response.messages instanceof Array) { // Salesforce will return either an object or an array
         response.messages.forEach(message => {
           this.output.appendLine(`${message.fileName} => ${message.problem}`);
         });
@@ -89,37 +77,13 @@ export class RetrieveCommand implements ICommand {
 
     if (response && response.success) {
       this.output.appendLine('Extracting response from Salesforce');
-      utils.extractZip(response.zipFile, this.retrieveTarget.replace('package.xml', ''))
+      // Salesforce returns a zip in a base64 encoded string so we need to parse it
+      utils.extractZipFromBase64String(response.zipFile, this.retrieveTarget.replace('package.xml', ''))
         .then((data) => {
           this.output.append('Package retrieved \n');
         }, (reason) => {
           vscode.window.showErrorMessage(reason);
-        })
-    }
-  }
-
-  private parsePackageXML(path: string): Thenable<any> {
-    return new Promise((resolve, reject) => {
-
-      utils.readFileAsync(path)
-        .then((data: Buffer) => {
-
-          return new Promise((resolve, reject) => {
-            utils.xml2jsAsync(data)
-              .then((dom: any) => {
-                resolve(dom);
-              },
-              (reason: any) => {
-                reject(reason);
-              });
-          })
-            .then((dom: any) => { resolve(dom); },
-            (reason) => { reject(reason); });
-
-        }, (reason: any) => {
-          reject(reason);
         });
-
-    });
+    }
   }
 }
