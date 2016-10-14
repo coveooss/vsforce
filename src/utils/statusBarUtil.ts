@@ -11,7 +11,7 @@ export class StatusBarUtil {
 
   private static statusBarItem = vscode.window.createStatusBarItem(
     vscode.StatusBarAlignment.Left,
-    100
+    50
   );
 
   public static init(value: string): vscode.Disposable {
