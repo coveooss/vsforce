@@ -12,6 +12,7 @@ import {VisualforceWorkspaceSymbolProvider} from './providers/visualforceWorkspa
 import {ShowLogsCommand} from './commands/showLogsCommand';
 import {ShowDiffCommand} from './commands/showDiffCommand';
 import {RetrieveCommand} from './commands/retrieveCommand';
+import {DeploypackageCommand} from './commands/deploypackageCommand';
 import {SOQLCommand} from './commands/soqlCommand';
 
 import {StatusBarUtil} from './utils/statusBarUtil'
@@ -23,6 +24,7 @@ export function activate(context: vscode.ExtensionContext) {
   let showLogsCommand = new ShowLogsCommand();
   let showDiffCommand = new ShowDiffCommand();
   let retrieveCommand = new RetrieveCommand();
+  let deploypackageCommand = new DeploypackageCommand();
   let soqlCommand = new SOQLCommand();
 
   context.subscriptions.concat([
@@ -33,6 +35,7 @@ export function activate(context: vscode.ExtensionContext) {
     vscode.languages.registerWorkspaceSymbolProvider(new VisualforceWorkspaceSymbolProvider()),
 
     vscode.commands.registerCommand('vsforce.retrieveCommand', () => retrieveCommand.Execute()),
+    vscode.commands.registerCommand('vsforce.deploypackageCommand', () => deploypackageCommand.Execute()),
     vscode.commands.registerCommand('vsforce.showLogs', () => showLogsCommand.Execute()),
     vscode.commands.registerCommand('vsforce.diff', (uri) => showDiffCommand.Execute(uri)),
     vscode.commands.registerCommand('vsforce.executeSOQLQuery', () => soqlCommand.Execute()),

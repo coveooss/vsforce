@@ -6,6 +6,7 @@ import * as xml2js from 'xml2js';
 var stream = require('readable-stream');
 var unzip = require('unzip');
 var fstream = require('fstream');
+var archiver = require('archiver');
 
 /**
  * TODO: give a description
@@ -94,6 +95,24 @@ export function xml2jsAsync(data: Buffer): Promise<any> {
   });
 }
 
+export function zipFolder(path: string): Promise<Buffer> {
+  return new Promise<Buffer>((resolve, reject) => {
+    let archive = archiver('zip');
+
+    // Error during writing to the archive will throw this event
+    archive.on('error', function(err) {
+      reject(err.message);
+    });
+
+    // Push the selected directory to the archive
+    archive.directory(path, 'pkg');
+    archive.finalize();
+
+    // The archive is also a Buffer so we can substitute
+    resolve(archive);
+  });
+}
+
 /**
  * Unzips the files in the base64 string returned by Salesforce on a retrieve request.
  *
@@ -132,3 +151,18 @@ export function parsePackageXML(path: string): Promise<any> {
       return xml2jsAsync(data);
     });
 }
+
+/**
+ * Salesforce will not send an array of just one element in the responses. Convert to simpler to use array
+ *
+ * @param {obj: any} The param to convert to array
+ * 
+ * @return {Array<any>} Array, either the original array or an array with one element
+ */
+export function asArray(obj: any): Array<any> {
+    if (obj instanceof Array) {
+      return obj;
+    } else {
+      return new Array(obj);
+    }
+  }

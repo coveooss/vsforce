@@ -44,7 +44,7 @@
                 "title": "Execute APEX code"
             },
             {
-                "command": "vsforce.sfdeploy",
+                "command": "vsforce.deploypackageCommand",
                 "title": "Deploy Workspace"
             },
             {
@@ -81,8 +81,8 @@
                     "title": "Execute APEX code"
                 },
                 {
-                    "command": "extension.sfdeploy",
-                    "title": "Deploy Workspace"
+                    "command": "vsforce.deploypackageCommand",
+                    "title": "Deploy Package"
                 },
                 {
                     "command": "vsforce.diff",
@@ -204,5 +204,8 @@
             "readable-stream": "^2.1.4",
             "typescript": "^1.8.10"
         }
+    },
+    "dependencies": {
+        "archiver": "^1.1.0"
     }
 }

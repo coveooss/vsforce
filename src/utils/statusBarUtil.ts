@@ -10,7 +10,8 @@ export class StatusBarUtil {
   private static promises: { [text: string]: Thenable<any> } = {}
 
   private static statusBarItem = vscode.window.createStatusBarItem(
-    vscode.StatusBarAlignment.Left
+    vscode.StatusBarAlignment.Left,
+    50
   );
 
   public static init(value: string): vscode.Disposable {

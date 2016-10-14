@@ -28,9 +28,10 @@ export class Connection {
   // Singleton
   private static instance: Connection;
   // TODO: give a description
-  private jsforceConn: any;
+  public jsforceConn: any;
   // TODO: give a description
   private RETRIEVE_OPTIONS = ['apiVersion', 'packageNames', 'singlePackage', 'specificFiles', 'unpackaged'];
+  private DEPLOY_OPTIONS = ['allowMissingFiles','autoUpdatePackage','checkOnly','ignoreWarnings','performRetrieve','purgeOnDelete','rollbackOnError','runAllTests','runTests','singlePackage','testLevel'];
   // TOOD: give a description
   private userId: string;
   // TODO: give a description
@@ -244,29 +245,6 @@ export class Connection {
   }
 
   /**
-   * TODO: give a description
-   *
-   * @param {any} content zip file content
-   * @param {string} target folder to extract into
-   *
-   * @return {Promize<any>} TODO: give a description
-   */
-  private extractZip(content: any, target: string): Promise<any> {
-    return new Promise<any>((resolve, reject) => {
-      let zipStream = new stream.PassThrough();
-      zipStream.end(new Buffer(content, 'base64'));
-      zipStream.pipe(unzip.Extract({ path: target }));
-      // zipStream.pipe(unzip.Parse())
-      //   .on('entry', (entry) => {
-      //     let filePaths = entry.path;
-      //     let type = entry.type;
-      //     entry.pipe(fs.createWriteStream(target));
-      //   })
-      resolve('test');
-    });
-  }
-
-  /**
    * Send a retrieve request to salesforce, with options included.
    *
    * @param {any} options The retrieve options : https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/meta_retrieve_request.htm
@@ -293,6 +271,26 @@ export class Connection {
           }, (reason: any) => {
             reject(reason);
           });
+      }, (reason: any) => {
+        reject(reason);
+      });
+    });
+  }
+
+  public deployPackage(zipStream: Buffer, options: any): Promise<any> {
+    return new Promise<any>((resolve, reject) => {
+      Connection.getConn().then((conn: Connection) => {
+        conn.jsforceConn.metadata.pollTimeout  = options.pollTimeout || 60 * 1000;
+        conn.jsforceConn.metadata.pollInterval = options.pollInterval || 5 * 1000;
+
+        let deployOpts : any = {};
+        this.DEPLOY_OPTIONS.forEach((prop) => {
+          if (typeof options[prop] !== 'undefined') { deployOpts[prop] = options[prop]; }
+        });
+
+        resolve(conn.jsforceConn.metadata.deploy(zipStream, deployOpts)
+          .complete({ details: true }));
+
       }, (reason: any) => {
         reject(reason);
       });
