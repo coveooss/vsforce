@@ -151,3 +151,18 @@ export function parsePackageXML(path: string): Promise<any> {
       return xml2jsAsync(data);
     });
 }
+
+/**
+ * Salesforce will not send an array of just one element in the responses. Convert to simpler to use array
+ *
+ * @param {obj: any} The param to convert to array
+ * 
+ * @return {Array<any>} Array, either the original array or an array with one element
+ */
+export function asArray(obj: any): Array<any> {
+    if (obj instanceof Array) {
+      return obj;
+    } else {
+      return new Array(obj);
+    }
+  }
