@@ -1,4 +1,8 @@
 import vscode = require('vscode');
+import fs = require('fs');
+
+import queryTemplate = require('../templates/queryTemplate');
+
 import {Connection, IQueryResult} from './../connection';
 
 /**
@@ -35,9 +39,59 @@ export class SalesforceContentProvider implements vscode.TextDocumentContentProv
           return this.resolveApexLog(uriParts[2].split('.')[0]);
         }
       }
+
+      if (objectType == 'soqlquery') {
+        return this.resolveSOQL(uri.query);
+
+      }
     }
 
     return null;
+  }
+
+  private resolveSOQL(query: string): Thenable<string> {
+    console.log(query);
+    return new Promise<string>((resolve, reject) => {
+      this.conn.executeQuery(query)
+        .then((results: IQueryResult) => {
+          if (results) {
+            var render = queryTemplate;
+            render = render.replace("{{QUERY}}", query);
+            render = render.replace("{{JSON_RESULT}}", JSON.stringify(results, null, 2));
+
+            if (results.records.length >= 1) {
+              var tableResult = "<table>";
+              tableResult += "<tr>";
+              Object.keys(results.records[0]).forEach(element => {
+                if (element != "attributes") {
+                  tableResult += "<th>" + element + "</th>";
+                }
+              });
+
+              tableResult += "</tr>";
+
+              results.records.forEach(record => {
+                tableResult += "<tr>";
+                Object.keys(record).forEach(field => {
+                  if (field != "attributes") {
+                    tableResult += "<td>" + record[field] + "</td>";
+                  }
+                })
+                tableResult += "</tr>";
+              })
+
+              tableResult += "</table>";
+
+              render = render.replace("{{TALBE_RESULT}}", tableResult);
+              console.log(render);
+            };
+
+            resolve(render);
+          }
+        }, (err) => {
+          reject(err.name + " " + err.message);
+        });
+    });
   }
 
   /**

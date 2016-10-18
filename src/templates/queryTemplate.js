@@ -1,0 +1,1 @@
+module.exports = "<!DOCTYPE html><html><head><style>table {border-collapse: collapse;width: 100%;}th, td {padding: 8px;text-align: left;border-bottom: 1px solid #ddd;}tr:hover{background-color:#888888}</style><title>Query results</title></head><body><h1>Query results</h1><p>{{QUERY}}</p><div id='results'>{{TALBE_RESULT}}</div><pre>{{JSON_RESULT}}</pre></body></html>";

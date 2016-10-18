@@ -1,28 +1,28 @@
 
-import vscode = require('vscode');
+import * as vscode from 'vscode';
 import {ICommand}  from './command';
 import {Connection, IQueryResult} from '../connection';
+import {SalesforceQueryBuilder} from '../builder/salesforceQueryBuilder';
+import * as fs from 'fs';
+
 
 export class SOQLCommand implements ICommand {
   // Salesforce connection handler
   private conn: Connection = new Connection();
+  // Salesforce component query builder
+  private builder: SalesforceQueryBuilder = new SalesforceQueryBuilder();
 
-  constructor() {}
+  constructor() { }
 
   public Execute() {
     vscode.window.showInputBox({ prompt: 'Query: ' })
       .then((query: string) => {
-        this.conn.executeQuery(query)
-          .then((results: IQueryResult) => {
-            let json = JSON.stringify(results, null, 2);
-            let outputConsole = vscode.window.createOutputChannel('SOQL query');
+        let previewUri = vscode.Uri.parse("sf://salesforce.com/soqlquery?" + query);
 
-            outputConsole.appendLine('Query Results');
-            outputConsole.appendLine(json);
-            outputConsole.show();
-          });
-      }, (reason: Error) => {
-        vscode.window.showErrorMessage(reason.message);
+
+        vscode.commands.executeCommand('vscode.previewHtml', previewUri, vscode.ViewColumn.Two, 'SOQL Results').then(null, reason => {
+          vscode.window.showErrorMessage(reason);
+        });
       });
   }
 }
