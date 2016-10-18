@@ -1,4 +1,4 @@
-# vsforce
+# Salesforce development support for Visual Studio Code
 
 [![Build Status](https://travis-ci.org/coveo/vsforce.svg?branch=master)](https://travis-ci.org/coveo/vsforce)
 [![devDependency Status](https://david-dm.org/coveo/vsforce/dev-status.svg)](https://david-dm.org/coveo/vsforce#info=devDependencies)
