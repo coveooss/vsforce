@@ -66,6 +66,73 @@ export class Connection {
     });
   }
 
+  public find(objectType: string, condition: any): Thenable<any> {
+    return new Promise<string>((resolve, reject) => {
+      Connection.getConn().then((conn: Connection) => {
+        conn.jsforceConn.tooling.sobject(objectType)
+          .find(condition)
+          .execute((err, records) => {
+            if (err) {
+              reject(err);
+            }
+            resolve(records);
+          });
+      });
+    });
+  }
+
+
+  public createObject(objectType: string, object: any): Thenable<any> {
+    var promise = new Promise<string>((resolve, reject) => {
+      Connection.getConn().then((conn: Connection) => {
+        conn.jsforceConn.tooling.sobject(objectType).create(object, (err, res) => {
+          debugger;
+          if (err) {
+            reject(err);
+          } else {
+            resolve(res);
+          }
+        });
+      })
+    });
+
+    return promise;
+  }
+
+
+  public createOrUpdateObject(objectType: string, object: any) {
+    var promise = new Promise<string>((resolve, reject) => {
+      Connection.getConn().then((conn: Connection) => {
+        conn.jsforceConn.tooling.sobject(objectType)
+          .find({ Name: object.Name })
+          .execute((err, records) => {
+            return records;
+          }).then((records: any) => {
+            if (records.length == 0) {
+              conn.jsforceConn.tooling.sobject(objectType).create(object, (err, res) => {
+                if (err) {
+                  reject(err);
+                } else {
+                  resolve();
+                }
+              });
+            } else {
+              conn.jsforceConn.tooling.sobject(objectType).update(object, (err, res) => {
+                if (err) {
+                  reject(err);
+                } else {
+                  resolve();
+                }
+              });
+            }
+          });
+      })
+    });
+
+    StatusBarUtil.setLoading(`Saving file ${object.Name} to Salesforce ...`, promise);
+    return promise;
+  }
+
   /**
    * TODO: give a description
    */
@@ -209,14 +276,14 @@ export class Connection {
     var promise = new Promise<Connection>((resolve, reject) => {
       var conn = new Connection();
 
-      if (Config.isValid) {
+      if (Config.instance.isValid) {
         conn.jsforceConn = new jsforce.Connection({
-          loginUrl: Config.loginUrl
+          loginUrl: Config.instance.loginUrl
         });
 
         conn.jsforceConn.login(
-          Config.username,
-          Config.password + Config.securityToken,
+          Config.instance.username,
+          Config.instance.password + Config.instance.securityToken,
 
           function (err, res) {
             if (err) {
@@ -227,7 +294,7 @@ export class Connection {
               conn.userId = res.id;
               Connection.instance = conn;
 
-              StatusBarUtil.setText(`Logged in to Salesforce as ${Config.username}`);
+              StatusBarUtil.setText(`Logged in to Salesforce as ${Config.instance.username}`);
               resolve(conn);
             }
           }

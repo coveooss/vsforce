@@ -46,7 +46,7 @@ export class SalesforceQueryBuilder implements IBuilder {
   public buildComponentQuery(name: string): string {
     return this
       .addRoute('apexcomponent')
-      .addRoute(Config.customNamespace)
+      .addRoute(Config.instance.customNamespace)
       .addRoute(name)
       .build();
   }

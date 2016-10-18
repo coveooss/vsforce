@@ -71,6 +71,10 @@ export class RetrieveCommand implements ICommand {
       });
   }
 
+  public dispose() {
+    this.output.dispose();
+  }
+
   private handleSalesforceRetrieveResponse(response: any) {
     this.output.appendLine('Retrieve request completed');
     this.output.appendLine(`Status: ${response.status}`);

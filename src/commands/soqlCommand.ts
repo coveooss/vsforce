@@ -7,7 +7,9 @@ export class SOQLCommand implements ICommand {
   // Salesforce connection handler
   private conn: Connection = new Connection();
 
-  constructor() {}
+  constructor() { }
+
+  public dispose() { }
 
   public Execute() {
     vscode.window.showInputBox({ prompt: 'Query: ' })

@@ -4,7 +4,7 @@ import vscode = require('vscode');
  * Command interface.
  * It helps us define custom commands for the extension.
  */
-export interface ICommand {
+export interface ICommand extends vscode.Disposable {
   /**
    * This is the method to be implemented by a Command
    *

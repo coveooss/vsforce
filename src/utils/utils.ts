@@ -3,6 +3,8 @@ import * as vscode from 'vscode';
 import * as fs from 'fs';
 import * as xml2js from 'xml2js';
 
+import {Config} from './config'
+
 var stream = require('readable-stream');
 var unzip = require('unzip');
 
@@ -15,6 +17,47 @@ var unzip = require('unzip');
  */
 export function getFileNameFromUri(uri: vscode.Uri): string {
   return uri.path.replace(/^.*[\\\/]/, '');
+}
+
+export function getNamespaceOrNull(): string {
+  return Config.instance.customNamespace == "c" ? null : Config.instance.customNamespace;
+}
+
+export function getFileNameFromPath(path: string): string {
+  return path.replace(/^.*[\\\/]/, '');
+}
+
+export function getSalesforceTypeFromFileName(filename: string): string {
+  var ext = filename.split('.')[1];
+
+  switch (ext) {
+    case 'component':
+      return 'ApexComponent'
+    case 'page':
+      return 'ApexPage'
+    case 'trigger':
+      return 'ApexTrigger'
+    case 'cls':
+      return 'ApexClass'
+  }
+}
+
+export function getSalesforceMetadata(filename: string): Thenable<any> {
+  return new Promise<any>((resolve, reject) => {
+    fs.readFile(filename, "UTF8", (err, data) => {
+      if (err) {
+        reject(err.message);
+      }
+
+      xml2js.parseString(data, (errParse, result) => {
+        if (errParse) {
+          reject(errParse.message);
+        }
+
+        resolve(result);
+      })
+    });
+  });
 }
 
 /**

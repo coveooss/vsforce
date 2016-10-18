@@ -19,6 +19,8 @@ export class ShowDiffCommand implements ICommand {
    */
   constructor() { }
 
+  public dispose() { }
+
   /**
    * Implements execute from {@link Command}
    *

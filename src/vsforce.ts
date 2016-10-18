@@ -1,7 +1,6 @@
-import {Config} from './utils/Config'
-Config.init();
-
 import vscode = require('vscode');
+
+import {Config} from './utils/Config'
 import {ApexObjectTreeCache} from './symbols/apexObjectTreeCache';
 import {VisualforceComponentCacheInstance} from './symbols/visualforceComponentCache';
 import {VisualforceCompletionItemProvider} from './providers/visualforceCompletionItemProvider';
@@ -13,6 +12,7 @@ import {ShowLogsCommand} from './commands/showLogsCommand';
 import {ShowDiffCommand} from './commands/showDiffCommand';
 import {RetrieveCommand} from './commands/retrieveCommand';
 import {SOQLCommand} from './commands/soqlCommand';
+import {PushFileToSalesforceCommand} from './commands/pushFileToSalesforceCommand';
 
 import {StatusBarUtil} from './utils/statusBarUtil'
 
@@ -22,8 +22,11 @@ export function activate(context: vscode.ExtensionContext) {
   let statusBarUtil = StatusBarUtil.init("[vsforce]");
   let showLogsCommand = new ShowLogsCommand();
   let showDiffCommand = new ShowDiffCommand();
+  let pushFileToSalesforceCommand = new PushFileToSalesforceCommand();
   let retrieveCommand = new RetrieveCommand();
   let soqlCommand = new SOQLCommand();
+
+  pushFileToSalesforceCommand.Execute();
 
   context.subscriptions.concat([
     statusBarUtil,
