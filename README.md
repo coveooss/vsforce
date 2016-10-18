@@ -14,10 +14,13 @@ See [User and Workspace Settings](https://code.visualstudio.com/Docs/customizati
   "vsforce.organization.username": "username",
   "vsforce.organization.password": "password",
   "vsforce.organization.securityToken": "token",
-
-  "vsforce.organization.customNamespace": "namespace",             //[Optional]
-  "vsforce.organization.loginURL": "http://login.salesforce.com/"  //[Optional]
 }
+```
+
+Optionally you can specify the `loginUrl` (if you're in a sandbox) and your default namespace
+```json
+  "vsforce.organization.customNamespace": "namespace",            
+  "vsforce.organization.loginURL": "http://login.salesforce.com/" 
 ```
 
 # Features
