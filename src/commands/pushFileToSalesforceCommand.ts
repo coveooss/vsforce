@@ -3,9 +3,9 @@ import vscode = require('vscode');
 import fs = require('fs');
 
 import {ICommand}  from './command';
-import {Config} from '../utils/Config';
+import {Config} from '../utils/config';
 import {StatusBarUtil} from '../utils/statusBarUtil'
-import {getSalesforceMetadata, getFileNameFromPath, getSalesforceTypeFromFileName, getNamespaceOrNull} from '../utils/Utils';
+import {getSalesforceMetadata, getFileNameFromPath, getSalesforceTypeFromFileName, getNamespaceOrNull} from '../utils/utils';
 import {Connection, IQueryResult} from '../connection';
 
 export class PushFileToSalesforceCommand implements ICommand {

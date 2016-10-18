@@ -5,7 +5,7 @@ import * as xml2js from 'xml2js';
 import * as fs from 'fs';
 
 import {StatusBarUtil} from './utils/statusBarUtil'
-import {Config} from './utils/Config'
+import {Config} from './utils/config'
 
 let stream = require('readable-stream');
 let unzip = require('unzip');

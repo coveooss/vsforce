@@ -1,6 +1,6 @@
 import vscode = require('vscode');
 
-import {Config} from './utils/Config'
+import {Config} from './utils/config'
 import {ApexObjectTreeCache} from './symbols/apexObjectTreeCache';
 import {VisualforceComponentCacheInstance} from './symbols/visualforceComponentCache';
 import {VisualforceCompletionItemProvider} from './providers/visualforceCompletionItemProvider';

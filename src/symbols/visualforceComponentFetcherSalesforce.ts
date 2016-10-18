@@ -1,7 +1,7 @@
 import {IVisualforceComponentFetcher} from './visualforceComponentFetcher';
 import {Connection, IQueryResult} from './../connection';
 import {SOQLQueryBuilder} from '../builder/soqlQueryBuilder';
-import {Config} from '../utils/Config'
+import {Config} from '../utils/config'
 
 /**
  * Apex Component Query Result interface.
