@@ -14,7 +14,7 @@ export class SOQLCommand implements ICommand {
   public dispose() { }
 
   public Execute() {
-    vscode.window.showInputBox({ prompt: 'Query: ' })
+    vscode.window.showInputBox()
       .then((query: string) => {
         let previewUri = vscode.Uri.parse("sf://salesforce.com/soqlquery?" + query);
 
