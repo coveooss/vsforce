@@ -21,6 +21,8 @@ export class ShowLogsCommand implements ICommand {
     this.conn.createUserTraceFlag();
   }
 
+  public dispose() { }
+
   /**
    * Implements execute from {@link Command}
    */

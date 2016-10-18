@@ -1,52 +1,45 @@
 import * as vscode from 'vscode';
+import * as events from 'events';
 import {Connection} from './../connection';
 
-export class Config {
-  public static loginUrl: string;
-  public static username: string;
-  public static password: string;
-  public static securityToken: string;
-  public static customNamespace: string;
+export class Config extends events.EventEmitter {
+  public static instance: Config = new Config();
 
-  public static isValid: boolean;
+  public loginUrl: string;
+  public username: string;
+  public password: string;
+  public securityToken: string;
+  public customNamespace: string;
+  public pushOnSave: boolean;
 
-  public static init() {
-    Config.setConfig();
+  public isValid: boolean;
+
+  constructor() {
+    super();
+
+    this.setConfig();
 
     vscode.workspace.onDidChangeConfiguration(() => {
-      Config.updateConfig();
+      this.setConfig();
+      this.emit("change");
     });
   }
 
-  public static setConfig() {
+  public setConfig() {
     if (Config.validateConfig()) {
-      var config = vscode.workspace.getConfiguration("vsforce.organization");
+      var organization = vscode.workspace.getConfiguration("vsforce.organization");
+      var options = vscode.workspace.getConfiguration("vsforce.options");
 
-      Config.loginUrl = config.get<string>('loginUrl');
-      Config.username = config.get<string>('username');
-      Config.password = config.get<string>('password');
-      Config.securityToken = config.get<string>('securityToken');
-      Config.customNamespace = config.get<string>('namespace');
+      this.loginUrl = organization.get<string>('loginUrl');
+      this.username = organization.get<string>('username');
+      this.password = organization.get<string>('password');
+      this.securityToken = organization.get<string>('securityToken');
+      this.customNamespace = organization.get<string>('namespace');
+      this.pushOnSave = options.get<boolean>('pushOnSave');
 
-      if (Config.customNamespace == "") {
-        Config.customNamespace = "c";
-      }
-
-      if (Config.loginUrl == "") {
-        Config.loginUrl = "https://login.salesforce.com";
-      }
-
-      Config.isValid = true;
+      this.isValid = true;
     } else {
-      Config.isValid = false;
-    }
-  }
-
-  public static updateConfig() {
-    Config.setConfig();
-
-    if (Config.isValid) {
-      Connection.initConn();
+      this.isValid = false;
     }
   }
 

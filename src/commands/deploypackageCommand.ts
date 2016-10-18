@@ -18,6 +18,10 @@ export class DeploypackageCommand implements ICommand {
   private conn: Connection = new Connection();
   private output: vscode.OutputChannel;
 
+  public dispose() {
+    this.output.dispose();
+  }
+
   /**
    * Implements execute from {@link Command}
    *
@@ -32,7 +36,7 @@ export class DeploypackageCommand implements ICommand {
     }
 
     let deployPromise = utils.choosePackageXml() // Choose a package.xml file in the current workspace to deploy
-      .then((path: string) => { 
+      .then((path: string) => {
         this.output.appendLine('Packaging folder.');
         return utils.zipFolder(path.replace('package.xml', ''));
       })
@@ -71,7 +75,7 @@ export class DeploypackageCommand implements ICommand {
             // Print error messages to the output.
             this.output.appendLine(`ERROR ${failures.problemType} : ${failures.fileName} => ${failures.problem}`);
           });
-          
+
           // Show the error message and the output if the user presses show output.
           vscode.window.showErrorMessage("Salesforce deploy request error", {title: "Show output", action: "SHOW_OUTPUT"}).then((m: any) => {
             if (m.action === "SHOW_OUTPUT") {

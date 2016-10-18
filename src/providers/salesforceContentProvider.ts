@@ -3,6 +3,7 @@ import fs = require('fs');
 
 import queryTemplate = require('../templates/queryTemplate');
 
+import {getSalesforceTypeFromFileName} from '../utils/utils'
 import {Connection, IQueryResult} from './../connection';
 
 /**
@@ -28,12 +29,6 @@ export class SalesforceContentProvider implements vscode.TextDocumentContentProv
     if (uriParts.length >= 1) {
       let objectType = uriParts[1];
 
-      if (objectType == 'apexcomponent') {
-        if (uriParts.length == 4) {
-          return this.resolveApexComponent(uriParts[2], uriParts[3]);
-        }
-      }
-
       if (objectType == 'apexlogs') {
         if (uriParts.length == 3) {
           return this.resolveApexLog(uriParts[2].split('.')[0]);
@@ -42,8 +37,15 @@ export class SalesforceContentProvider implements vscode.TextDocumentContentProv
 
       if (objectType == 'soqlquery') {
         return this.resolveSOQL(uri.query);
-
       }
+
+      var field = "Body";
+
+      if (objectType == "ApexComponent" || objectType == "ApexPage") {
+        field = "Markup"
+      }
+
+      return this.resolveObject(uriParts[2], uriParts[3], objectType, field);
     }
 
     return null;
@@ -95,30 +97,21 @@ export class SalesforceContentProvider implements vscode.TextDocumentContentProv
   }
 
   /**
-   * Calls Salesforce to retrieve metadata about a Salesforce component
+   * Calls Salesforce to retrieve metadata about a Salesforce object
    *
    * @param {string} namespace Salesforce namespace prefix
    * @param {string} name Component name
    */
-  private resolveApexComponent(namespace: string, name: string): Thenable<string> {
+  private resolveObject(namespace: string, name: string,  type:string, field: string): Thenable<string> {
     return new Promise<string>((resolve, reject) => {
-      this.conn.executeQuery(this.buildApexComponentQuery(namespace, name)).then((results: IQueryResult) => {
+      this.conn.executeQuery(this.buildQuery(namespace, name, type, field)).then((results: IQueryResult) => {
         if (results && results.totalSize == 1) {
-          // Create a status bar item with Salesforce information about the last user that edited the page
-          let status = vscode.window.createStatusBarItem(vscode.StatusBarAlignment.Right);
-
-          status.text = `$(git-commit) Last modified by ${results.records[0].LastModifiedBy.Name} on ${results.records[0].LastModifiedDate.substr(0, 10)}`;
-          status.tooltip = `Modifications done on the file in your Salesforce organization`;
-          status.show();
-
-          // Remove the status bar item when we are not in a diff (salesforce) mode
-          let event = vscode.workspace.onDidCloseTextDocument(() => {
-            status.dispose();
-            event.dispose();
-          });
-
-          resolve(results.records[0].Markup);
+          resolve(results.records[0][field]);
+        } else {
+          reject("Object not found")
         }
+      }, (err) => {
+        console.log(err);
       });
     });
   }
@@ -140,7 +133,8 @@ export class SalesforceContentProvider implements vscode.TextDocumentContentProv
    *
    * @return {string} SOQL query
    */
-  private buildApexComponentQuery(namespace: string, name: string): string {
-    return `SELECT Markup, LastModifiedDate, LastModifiedBy.name FROM ApexComponent WHERE NamespacePrefix=${namespace === 'c' ? null : `'${namespace}'`} and Name='${name.split('.')[0]}'`;
+  private buildQuery(namespace: string, name: string, type: string, field: string): string {
+    return `SELECT ${field} FROM ${type} WHERE NamespacePrefix=${namespace === 'c' ? null : `'${namespace}'`} and Name='${name.split('.')[0]}'`;
   }
+
 }

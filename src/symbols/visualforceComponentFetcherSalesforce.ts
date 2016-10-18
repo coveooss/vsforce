@@ -1,7 +1,7 @@
 import {IVisualforceComponentFetcher} from './visualforceComponentFetcher';
 import {Connection, IQueryResult} from './../connection';
 import {SOQLQueryBuilder} from '../builder/soqlQueryBuilder';
-import {SalesforceQueryBuilder} from '../builder/salesforceQueryBuilder';
+import {Config} from '../utils/Config'
 
 /**
  * Apex Component Query Result interface.
@@ -24,8 +24,6 @@ export class VisualforceComponentFetcherSalesforce implements IVisualforceCompon
   // TODO: give a description
   public canOverwrite: boolean = false;
 
-  // Salesforce builder (component)
-  private sfBuilder = new SalesforceQueryBuilder();
   // SOQL builder
   private soqlBuilder = new SOQLQueryBuilder();
 
@@ -64,7 +62,7 @@ export class VisualforceComponentFetcherSalesforce implements IVisualforceCompon
    * @return {string} SOQL query
    */
   private buildUriFromResult(result: IApexComponentQueryResult): string {
-    return this.sfBuilder.buildComponentQuery(`${result.Name}.component`);
+    return "sf://salesforce.com/apexcomponent/" + Config.instance.customNamespace + "/" + result.Name + ".component";
   }
 
   /**
