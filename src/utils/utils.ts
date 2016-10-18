@@ -3,6 +3,8 @@ import * as vscode from 'vscode';
 import * as fs from 'fs';
 import * as xml2js from 'xml2js';
 
+import {Config} from './Config';
+
 var stream = require('readable-stream');
 var unzip = require('unzip');
 var fstream = require('fstream');
@@ -17,6 +19,28 @@ var archiver = require('archiver');
  */
 export function getFileNameFromUri(uri: vscode.Uri): string {
   return uri.path.replace(/^.*[\\\/]/, '');
+}
+
+export function buildSalesforceUriFromLocalUri(uri: vscode.Uri) {
+  return vscode.Uri.parse("sf://salesforce.com/" +
+    getSalesforceTypeFromFileName(getFileNameFromUri(uri)) + "/" +
+    Config.instance.customNamespace + "/" +
+    getFileNameFromUri(uri).split('.')[0]);
+}
+
+export function getSalesforceTypeFromFileName(filename: string): string {
+  var ext = filename.split('.')[1];
+
+  switch (ext) {
+    case 'component':
+      return 'ApexComponent'
+    case 'page':
+      return 'ApexPage'
+    case 'trigger':
+      return 'ApexTrigger'
+    case 'cls':
+      return 'ApexClass'
+  }
 }
 
 /**
@@ -59,7 +83,7 @@ export function choosePackageXml(): Promise<string> {
  * Wrapper in the form of a promise for the callback function to read a file
  *
  * @param {path: string} The path to the file to read
- * 
+ *
  * @return {Promise<Buffer>} Resolves with a Buffer of the file read
  */
 export function readFileAsync(path: string): Promise<Buffer> {
@@ -79,7 +103,7 @@ export function readFileAsync(path: string): Promise<Buffer> {
  * Parses a xml buffer to a js object wrapped in a promise
  *
  * @param {data: Buffer} The xml buffer
- * 
+ *
  * @return {Promise<any>} Resolves with the js object
  */
 export function xml2jsAsync(data: Buffer): Promise<any> {
@@ -100,7 +124,7 @@ export function zipFolder(path: string): Promise<Buffer> {
     let archive = archiver('zip');
 
     // Error during writing to the archive will throw this event
-    archive.on('error', function(err) {
+    archive.on('error', function (err) {
       reject(err.message);
     });
 
@@ -118,7 +142,7 @@ export function zipFolder(path: string): Promise<Buffer> {
  *
  * @param {content: string} The base64 string
  * @param {target: string} The path target where to unzip
- * 
+ *
  * @return {Promise<any>} Resolves when the files are extracted or reject on error
  */
 export function extractZipFromBase64String(content: string, target: string): Promise<any> {
@@ -142,7 +166,7 @@ export function extractZipFromBase64String(content: string, target: string): Pro
  * Parse the packageXML file structure to return a javascript object
  *
  * @param {path: string} The path of the packageXML file
- * 
+ *
  * @return {Promise<any>} The parsed object
  */
 export function parsePackageXML(path: string): Promise<any> {
@@ -156,13 +180,13 @@ export function parsePackageXML(path: string): Promise<any> {
  * Salesforce will not send an array of just one element in the responses. Convert to simpler to use array
  *
  * @param {obj: any} The param to convert to array
- * 
+ *
  * @return {Array<any>} Array, either the original array or an array with one element
  */
 export function asArray(obj: any): Array<any> {
-    if (obj instanceof Array) {
-      return obj;
-    } else {
-      return new Array(obj);
-    }
+  if (obj instanceof Array) {
+    return obj;
+  } else {
+    return new Array(obj);
   }
+}

@@ -1,7 +1,7 @@
 import * as vscode from 'vscode';
 
 import {ICommand} from './command';
-import {getFileNameFromUri} from '../utils/utils';
+import {getFileNameFromUri, getSalesforceTypeFromFileName} from '../utils/utils';
 import {SalesforceQueryBuilder} from '../builder/salesforceQueryBuilder';
 
 
@@ -11,9 +11,6 @@ import {SalesforceQueryBuilder} from '../builder/salesforceQueryBuilder';
  * Makes a diff with your Salesforce organization file and your local file.
  */
 export class ShowDiffCommand implements ICommand {
-  // Salesforce component query builder
-  private builder: SalesforceQueryBuilder = new SalesforceQueryBuilder();
-
   /**
    * Creates a Diff command
    */
@@ -31,6 +28,6 @@ export class ShowDiffCommand implements ICommand {
     vscode.commands
       .executeCommand('vscode.diff',
       uri,
-      vscode.Uri.parse(this.builder.buildComponentQuery(filename)), `${filename} (LOCAL) <~> ${filename} (REMOTE)`);
+      vscode.Uri.parse(), `${filename} (LOCAL) <~> ${filename} (REMOTE)`);
   }
 }
