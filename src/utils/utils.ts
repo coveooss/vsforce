@@ -25,7 +25,8 @@ export function buildSalesforceUriFromLocalUri(uri: vscode.Uri) {
   return vscode.Uri.parse("sf://salesforce.com/" +
     getSalesforceTypeFromFileName(getFileNameFromUri(uri)) + "/" +
     Config.instance.customNamespace + "/" +
-    getFileNameFromUri(uri).split('.')[0]);
+    getFileNameFromUri(uri));
+}
 
 export function getNamespaceOrNull(): string {
   return Config.instance.customNamespace == "c" ? null : Config.instance.customNamespace;
@@ -217,3 +218,4 @@ export function asArray(obj: any): Array<any> {
     return new Array(obj);
   }
 }
+
