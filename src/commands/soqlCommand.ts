@@ -14,6 +14,8 @@ export class SOQLCommand implements ICommand {
 
   constructor() { }
 
+  public dispose() { }
+
   public Execute() {
     vscode.window.showInputBox({ prompt: 'Query: ' })
       .then((query: string) => {

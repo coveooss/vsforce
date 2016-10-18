@@ -140,13 +140,18 @@
         },
         "vsforce.organization.loginURL": {
           "type": "string",
-          "default": "https://login.salesforce.com/",
+          "default": "https://login.salesforce.com",
           "description": "Your Salesforce organization loginURL"
         },
         "vsforce.organization.namespace": {
           "type": "string",
           "default": "c",
           "description": "Your Salesforce namespace"
+        },
+        "vsforce.options.pushOnSave": {
+          "type": "boolean",
+          "default": false,
+          "description": "If we want to push local changes to Salesforce on save."
         }
       }
     }

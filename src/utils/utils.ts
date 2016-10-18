@@ -2,7 +2,6 @@ import * as vscode from 'vscode';
 
 import * as fs from 'fs';
 import * as xml2js from 'xml2js';
-
 import {Config} from './Config';
 
 var stream = require('readable-stream');
@@ -21,11 +20,19 @@ export function getFileNameFromUri(uri: vscode.Uri): string {
   return uri.path.replace(/^.*[\\\/]/, '');
 }
 
+
 export function buildSalesforceUriFromLocalUri(uri: vscode.Uri) {
   return vscode.Uri.parse("sf://salesforce.com/" +
     getSalesforceTypeFromFileName(getFileNameFromUri(uri)) + "/" +
     Config.instance.customNamespace + "/" +
     getFileNameFromUri(uri).split('.')[0]);
+
+export function getNamespaceOrNull(): string {
+  return Config.instance.customNamespace == "c" ? null : Config.instance.customNamespace;
+}
+
+export function getFileNameFromPath(path: string): string {
+  return path.replace(/^.*[\\\/]/, '');
 }
 
 export function getSalesforceTypeFromFileName(filename: string): string {
@@ -42,6 +49,26 @@ export function getSalesforceTypeFromFileName(filename: string): string {
       return 'ApexClass'
   }
 }
+
+
+export function getSalesforceMetadata(filename: string): Thenable<any> {
+  return new Promise<any>((resolve, reject) => {
+    fs.readFile(filename, "UTF8", (err, data) => {
+      if (err) {
+        reject(err.message);
+      }
+
+      xml2js.parseString(data, (errParse, result) => {
+        if (errParse) {
+          reject(errParse.message);
+        }
+
+        resolve(result);
+      })
+    });
+  });
+}
+
 
 /**
  * Finds the different files called "package.xml", if there is more than one asks the user to select one.
