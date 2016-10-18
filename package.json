@@ -44,14 +44,6 @@
         "title": "Retrieve Package"
       },
       {
-        "command": "vsforce.contextualQuery",
-        "title": "Contextual Query"
-      },
-      {
-        "command": "vsforce.executeCode",
-        "title": "Execute APEX code"
-      },
-      {
         "command": "vsforce.deploypackageCommand",
         "title": "Deploy Workspace"
       },
