@@ -2,6 +2,9 @@
 
 [![Build Status](https://travis-ci.org/coveo/vsforce.svg?branch=master)](https://travis-ci.org/coveo/vsforce)
 [![license](https://img.shields.io/github/license/coveo/vsforce.svg)](https://github.com/coveo/vsforce/blob/master/LICENSE)
+[![Version](http://vsmarketplacebadge.apphb.com/version/coveo.vsforce.svg)](https://marketplace.visualstudio.com/items?itemName=coveo.vsforce)
+[![Installs](http://vsmarketplacebadge.apphb.com/installs/coveo.vsforce.svg)](https://marketplace.visualstudio.com/items?itemName=coveo.vsforce)
+[![Ratings](https://vsmarketplacebadge.apphb.com/rating/coveo.vsforce.svg)](https://vsmarketplacebadge.apphb.com/rating/coveo.vsforce.svg)
 
 # Configuration
 
