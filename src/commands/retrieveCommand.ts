@@ -4,6 +4,7 @@ import {Connection} from './../connection';
 import * as vscode from 'vscode';
 
 import * as utils from '../utils/utils';
+import {StatusBarUtil} from '../utils/statusBarUtil';
 
 /**
  * Retrieve command class.
@@ -30,10 +31,10 @@ export class RetrieveCommand implements ICommand {
 
     if (!this.output) {
       this.output = vscode.window.createOutputChannel('Retrieve request');
-      this.output.show();
     }
+    this.output.clear();
 
-    utils.choosePackageXml()
+    let retrievePromise = utils.choosePackageXml()
       .then((path: string) => { // Parsing the package.xml file to find what to retrieve
         this.output.appendLine('Parsing package.xml file.');
         this.retrieveTarget = path;
@@ -49,12 +50,21 @@ export class RetrieveCommand implements ICommand {
           this.output.appendLine('Sending Retrieve Request to Salesforce...');
           return this.conn.retrievePackage(retrieveOptions);
         }
-      })
+      });
+
+    StatusBarUtil.setLoading('Retrieve package from Salesforce ...', retrievePromise);
+
+    retrievePromise
       .then((response: any) => { // Handle the response from salesforce.
         this.handleSalesforceRetrieveResponse(response);
       })
       .catch((reason: string) => {
-        vscode.window.showErrorMessage(reason);
+        this.output.append(`ERROR ${reason}`);
+        vscode.window.showInformationMessage(`Error retrieving package`, { title: 'Show output', action: 'SHOW_OUTPUT' }).then((m: any) => {
+          if (m && m.action === 'SHOW_OUTPUT') {
+            this.output.show();
+          }
+        });
       });
   }
 
@@ -84,9 +94,21 @@ export class RetrieveCommand implements ICommand {
       utils.extractZipFromBase64String(response.zipFile, this.retrieveTarget.replace('package.xml', ''))
         .then((data) => {
           this.output.append('Package retrieved \n');
+          vscode.window.showInformationMessage(`Package retrieved`, { title: 'Show output', action: 'SHOW_OUTPUT' }).then((m: any) => {
+            if (m && m.action === 'SHOW_OUTPUT') {
+              this.output.show();
+            }
+          });
         }, (reason) => {
-          vscode.window.showErrorMessage(reason);
+          this.output.append(`ERROR ${reason}`);
+          vscode.window.showInformationMessage(`Error retrieving package`, { title: 'Show output', action: 'SHOW_OUTPUT' }).then((m: any) => {
+            if (m && m.action === 'SHOW_OUTPUT') {
+              this.output.show();
+            }
+          });
         });
+    } else { // Retrieve failed
+      this.output.append(`ERROR retrieving package.`);
     }
   }
 }
