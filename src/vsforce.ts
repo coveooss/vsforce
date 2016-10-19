@@ -1,5 +1,7 @@
 import vscode = require('vscode');
 
+import {Config} from './utils/config';
+import {Connection} from './connection';
 import {VisualforceComponentCacheInstance} from './symbols/visualforceComponentCache';
 import {VisualforceCompletionItemProvider} from './providers/visualforceCompletionItemProvider';
 import {SalesforceContentProvider} from './providers/salesforceContentProvider';
@@ -26,7 +28,9 @@ export function activate(context: vscode.ExtensionContext) {
   let deploypackageCommand = new DeploypackageCommand();
   let soqlCommand = new SOQLCommand();
 
-  pushFileToSalesforceCommand.Execute();
+  Config.instance.on("change", () => {
+    Connection.initConn();
+  });
 
   context.subscriptions.concat([
     statusBarUtil,

@@ -21,8 +21,8 @@ For an in depth explanation on how to do this, see [User and Workspace Settings]
 
 Optionally, when in a sandbox environment, you can specify the `loginUrl` and your default namespace
 ```json
-  "vsforce.organization.customNamespace": "namespace",            
-  "vsforce.organization.loginURL": "http://login.salesforce.com/" 
+  "vsforce.organization.customNamespace": "namespace",
+  "vsforce.organization.loginURL": "http://login.salesforce.com/"
 ```
 
 # Features
@@ -33,19 +33,19 @@ Here are some of the vsforce extension features.
 
 Basic Visualforce language support with code highlighting, code completion, and go-to definition.
 
-<img src='./doc/auto-completion.gif' />
+<img src='https://raw.githubusercontent.com/coveo/vsforce/master/doc/auto-completion.gif' />
 
 ## Compare with Salesforce
 
 Lets you compare your local changes with what is currently in your Salesforce.
 
-<img src='./doc/compare.gif' />
+<img src='https://raw.githubusercontent.com/coveo/vsforce/master/doc/compare.gif' />
 
 ## Run SOQL query command
 
 Lets you run queries on Salesforce and displays the result directly in Visual Studio Code.
 
-<img src='./doc/soql-query.gif' />
+<img src='https://raw.githubusercontent.com/coveo/vsforce/master/doc/soql-query.gif' />
 
 ## And many more
 - Show logs command

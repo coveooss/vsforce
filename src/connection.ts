@@ -20,6 +20,7 @@ export interface IQueryResult {
  * TODO: finish this
  */
 export class Connection {
+
   // Singleton
   private static instance: Connection;
   // TODO: give a description
