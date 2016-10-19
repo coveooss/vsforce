@@ -4,18 +4,36 @@
   "description": "Salesforce APEX support for VScode ",
   "version": "0.0.1",
   "publisher": "Coveo",
+  "keywords": [
+    "salesforce",
+    "apex",
+    "visualforce",
+    "lightning",
+    "force",
+    "aura"
+  ],
   "engines": {
     "vscode": "^1.0.0"
   },
   "categories": [
     "Other",
-    "Languages"
+    "Languages",
+    "Productivity"
   ],
+  "icon": "./doc/icon.png",
+  "galleryBanner": {
+    "color": "#ffffff",
+    "theme": "light"
+  },
   "test": "node ./node_modules/vscode/bin/test",
-  "license": "Apache-2.0",
+  "license": "LICENSE.md",
   "repository": {
     "type": "git",
-    "url": "https://github.com/coveo/vsforce"
+    "url": "https://github.com/coveo/vsforce.git"
+  },
+  "homepage": "https://github.com/coveo/vsforce",
+  "bugs": {
+    "email": "https://github.com/coveo/vsforce/issues"
   },
   "activationEvents": [
     "onCommand:vsforce.executeSOQLQuery",
