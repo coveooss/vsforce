@@ -1,14 +1,14 @@
 # Salesforce development support for Visual Studio Code
 
 [![Build Status](https://travis-ci.org/coveo/vsforce.svg?branch=master)](https://travis-ci.org/coveo/vsforce)
-[![devDependency Status](https://david-dm.org/coveo/vsforce/dev-status.svg)](https://david-dm.org/coveo/vsforce#info=devDependencies)
 [![license](https://img.shields.io/github/license/coveo/vsforce.svg)](https://github.com/coveo/vsforce/blob/master/LICENSE)
 
 # Configuration
 
-For most cases, vsforce needs a live connection to Salesforce to work. To link the extention to an existing organization, simply add the settings bellow in you `.settings` file for a project base configuration or in your user settings.
+In most cases, vsforce needs a live connection to Salesforce to work.
 
-See [User and Workspace Settings](https://code.visualstudio.com/Docs/customization/userandworkspace) for an in depth explanation.
+To link the extension to an existing organization, simply add the settings below in your `.settings` file for a project-based configuration or in your user settings.
+
 ```json
 {
   "vsforce.organization.username": "username",
@@ -17,7 +17,9 @@ See [User and Workspace Settings](https://code.visualstudio.com/Docs/customizati
 }
 ```
 
-Optionally you can specify the `loginUrl` (if you're in a sandbox) and your default namespace
+For an in depth explanation on how to do this, see [User and Workspace Settings](https://code.visualstudio.com/Docs/customization/userandworkspace).
+
+Optionally, when in a sandbox environment, you can specify the `loginUrl` and your default namespace
 ```json
   "vsforce.organization.customNamespace": "namespace",            
   "vsforce.organization.loginURL": "http://login.salesforce.com/" 
@@ -25,15 +27,17 @@ Optionally you can specify the `loginUrl` (if you're in a sandbox) and your defa
 
 # Features
 
+Here are some of the vsforce extension features.
+
 ## Visualforce auto-completion
 
-Basic Visualforce language support with code highlithing, code completion and go to definition.
+Basic Visualforce language support with code highlighting, code completion, and go-to definition.
 
 <img src='./doc/auto-completion.gif' />
 
 ## Compare with Salesforce
 
-Lets you compare your local changes with what's currenlty in your Salesforce.
+Lets you compare your local changes with what is currently in your Salesforce.
 
 <img src='./doc/compare.gif' />
 
@@ -46,10 +50,9 @@ Lets you run queries on Salesforce and displays the result directly in Visual St
 ## And many more
 - Show logs command
 - Retrieve/Deploy package
-- Push file to Salesforce on save (to come)
-- Apex auto-completion (to come)
-- Aura support (to come)
-
+- Push file to Salesforce on save (upcoming)
+- Apex auto-completion (upcoming)
+- Aura support (upcoming)
 
 # Contributing
 
