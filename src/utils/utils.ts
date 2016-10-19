@@ -3,7 +3,6 @@ import * as vscode from 'vscode';
 import * as fs from 'fs';
 import * as xml2js from 'xml2js';
 import {Config} from './config';
-
 var stream = require('readable-stream');
 var unzip = require('unzip');
 var fstream = require('fstream');
