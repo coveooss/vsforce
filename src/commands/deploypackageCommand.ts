@@ -29,9 +29,8 @@ export class DeploypackageCommand implements ICommand {
 
     if (!this.output) {
       this.output = vscode.window.createOutputChannel('Deploy request');
-    } else {
-      this.output.clear();
     }
+    this.output.clear();
 
     let deployPromise = utils.choosePackageXml() // Choose a package.xml file in the current workspace to deploy
       .then((path: string) => {
