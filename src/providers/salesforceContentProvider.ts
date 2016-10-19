@@ -1,9 +1,6 @@
 import vscode = require('vscode');
-import fs = require('fs');
 
 import queryTemplate = require('../templates/queryTemplate');
-
-import {getSalesforceTypeFromFileName} from '../utils/utils'
 import {Connection, IQueryResult} from './../connection';
 
 /**
@@ -39,11 +36,11 @@ export class SalesforceContentProvider implements vscode.TextDocumentContentProv
         return this.resolveSOQL(uri.query);
       }
 
-      var field = "Body";
+      var field = 'Body';
 
-      if (objectType == "ApexComponent" || objectType == "ApexPage") {
-        field = "Markup"
-      }
+      if (objectType == 'ApexComponent' || objectType == 'ApexPage') {
+        field = 'Markup';
+      };
 
       return this.resolveObject(uriParts[2], uriParts[3], objectType, field);
     }
@@ -51,47 +48,52 @@ export class SalesforceContentProvider implements vscode.TextDocumentContentProv
     return null;
   }
 
+  /**
+   * Calls Salesforce to retrieve metadata about a Salesforce SOQL query
+   *
+   * @param {string} query Salesforce SOQL query
+   */
   private resolveSOQL(query: string): Thenable<string> {
     console.log(query);
     return new Promise<string>((resolve, reject) => {
       this.conn.executeQuery(query)
         .then((results: IQueryResult) => {
           if (results) {
-            var render = queryTemplate;
-            render = render.replace("{{QUERY}}", query);
-            render = render.replace("{{JSON_RESULT}}", JSON.stringify(results, null, 2));
+            let render = queryTemplate;
+            render = render.replace('{{QUERY}}', query);
+            render = render.replace('{{JSON_RESULT}}', JSON.stringify(results, null, 2));
 
             if (results.records.length >= 1) {
-              var tableResult = "<table>";
-              tableResult += "<tr>";
+              let tableResult: string = '<table>';
+              tableResult += '<tr>';
               Object.keys(results.records[0]).forEach(element => {
-                if (element != "attributes") {
-                  tableResult += "<th>" + element + "</th>";
+                if (element != 'attributes') {
+                  tableResult += `<th>${element}</th>`;
                 }
               });
 
-              tableResult += "</tr>";
+              tableResult += '</tr>';
 
               results.records.forEach(record => {
-                tableResult += "<tr>";
+                tableResult += '<tr>';
                 Object.keys(record).forEach(field => {
-                  if (field != "attributes") {
-                    tableResult += "<td>" + record[field] + "</td>";
+                  if (field != 'attributes') {
+                    tableResult += `<td>${record[field]}</td>`;
                   }
-                })
-                tableResult += "</tr>";
-              })
+                });
+                tableResult += '</tr>';
+              });
 
-              tableResult += "</table>";
+              tableResult += '</table>';
 
-              render = render.replace("{{TALBE_RESULT}}", tableResult);
+              render = render.replace('{{TALBE_RESULT}}', tableResult);
               console.log(render);
             };
 
             resolve(render);
           }
         }, (err) => {
-          reject(err.name + " " + err.message);
+          reject(`${err.name} ${err.message}`);
         });
     });
   }
@@ -102,13 +104,13 @@ export class SalesforceContentProvider implements vscode.TextDocumentContentProv
    * @param {string} namespace Salesforce namespace prefix
    * @param {string} name Component name
    */
-  private resolveObject(namespace: string, name: string,  type:string, field: string): Thenable<string> {
+  private resolveObject(namespace: string, name: string, type: string, field: string): Thenable<string> {
     return new Promise<string>((resolve, reject) => {
       this.conn.executeQuery(this.buildQuery(namespace, name, type, field)).then((results: IQueryResult) => {
         if (results && results.totalSize == 1) {
           resolve(results.records[0][field]);
         } else {
-          reject("Object not found")
+          reject('Object not found');
         }
       }, (err) => {
         console.log(err);
@@ -136,5 +138,4 @@ export class SalesforceContentProvider implements vscode.TextDocumentContentProv
   private buildQuery(namespace: string, name: string, type: string, field: string): string {
     return `SELECT ${field} FROM ${type} WHERE NamespacePrefix=${namespace === 'c' ? null : `'${namespace}'`} and Name='${name.split('.')[0]}'`;
   }
-
 }

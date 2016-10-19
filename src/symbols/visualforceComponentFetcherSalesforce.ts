@@ -1,7 +1,7 @@
 import {IVisualforceComponentFetcher} from './visualforceComponentFetcher';
 import {Connection, IQueryResult} from './../connection';
 import {SOQLQueryBuilder} from '../builder/soqlQueryBuilder';
-import {Config} from '../utils/config'
+import {Config} from '../utils/config';
 
 /**
  * Apex Component Query Result interface.
@@ -62,7 +62,7 @@ export class VisualforceComponentFetcherSalesforce implements IVisualforceCompon
    * @return {string} SOQL query
    */
   private buildUriFromResult(result: IApexComponentQueryResult): string {
-    return "sf://salesforce.com/apexcomponent/" + Config.instance.customNamespace + "/" + result.Name + ".component";
+    return `sf://salesforce.com/apexcomponent/${Config.instance.customNamespace}/${result.Name}.component`;
   }
 
   /**

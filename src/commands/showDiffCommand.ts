@@ -1,7 +1,7 @@
 import * as vscode from 'vscode';
 
 import {ICommand} from './command';
-import {getFileNameFromUri, getSalesforceTypeFromFileName, buildSalesforceUriFromLocalUri} from '../utils/utils';
+import {getFileNameFromUri, buildSalesforceUriFromLocalUri} from '../utils/utils';
 
 
 /**

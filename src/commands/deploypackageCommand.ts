@@ -3,10 +3,8 @@ import {Connection} from './../connection';
 
 import * as utils from '../utils/utils';
 import * as vscode from 'vscode';
-import * as fs from 'fs';
-import {StatusBarUtil} from '../utils/statusBarUtil'
+import {StatusBarUtil} from '../utils/statusBarUtil';
 
-let jsforce = require('jsforce');
 
 /**
  * Deploy command class.
@@ -40,7 +38,7 @@ export class DeploypackageCommand implements ICommand {
         this.output.appendLine('Packaging folder.');
         return utils.zipFolder(path.replace('package.xml', ''));
       })
-      .then((zipBuffer:Buffer) => {
+      .then((zipBuffer: Buffer) => {
         this.output.appendLine('Sending to Salesforce...');
         return this.conn.deployPackage(zipBuffer, {});
       });
@@ -61,8 +59,8 @@ export class DeploypackageCommand implements ICommand {
           });
 
           // Show the information message and the output if the user presses show output.
-          vscode.window.showInformationMessage(`Deployment of package success`, {title: "Show output", action: "SHOW_OUTPUT"}).then((m: any) => {
-            if (m.action === "SHOW_OUTPUT") {
+          vscode.window.showInformationMessage(`Deployment of package success`, { title: 'Show output', action: 'SHOW_OUTPUT' }).then((m: any) => {
+            if (m.action === 'SHOW_OUTPUT') {
               this.output.show();
             }
           });
@@ -77,21 +75,21 @@ export class DeploypackageCommand implements ICommand {
           });
 
           // Show the error message and the output if the user presses show output.
-          vscode.window.showErrorMessage("Salesforce deploy request error", {title: "Show output", action: "SHOW_OUTPUT"}).then((m: any) => {
-            if (m.action === "SHOW_OUTPUT") {
+          vscode.window.showErrorMessage('Salesforce deploy request error', { title: 'Show output', action: 'SHOW_OUTPUT' }).then((m: any) => {
+            if (m.action === 'SHOW_OUTPUT') {
               this.output.show();
             }
           });
         }
       })
       .catch((reason: string) => {
-        vscode.window.showErrorMessage(reason, {title: "Show output", action: "SHOW_OUTPUT"}).then((m) => {
-          if (m.action === "SHOW_OUTPUT") {
+        vscode.window.showErrorMessage(reason, { title: 'Show output', action: 'SHOW_OUTPUT' }).then((m) => {
+          if (m.action === 'SHOW_OUTPUT') {
             this.output.show();
           }
         });
       });
 
-    StatusBarUtil.setLoading("Deploying package to Salesforce ...", deployPromise);
+    StatusBarUtil.setLoading('Deploying package to Salesforce ...', deployPromise);
   }
 }

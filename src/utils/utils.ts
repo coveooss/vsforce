@@ -9,8 +9,10 @@ var unzip = require('unzip');
 var fstream = require('fstream');
 var archiver = require('archiver');
 
+const PROVIDER = 'sf://salesforce.com';
+
 /**
- * TODO: give a description
+ * Retrieve a file name from an URI
  *
  * @param {vscode.Uri} uri file uri
  *
@@ -20,16 +22,31 @@ export function getFileNameFromUri(uri: vscode.Uri): string {
   return uri.path.replace(/^.*[\\\/]/, '');
 }
 
-
-export function buildSalesforceUriFromLocalUri(uri: vscode.Uri) {
-  return vscode.Uri.parse("sf://salesforce.com/" +
-    getSalesforceTypeFromFileName(getFileNameFromUri(uri)) + "/" +
-    Config.instance.customNamespace + "/" +
-    getFileNameFromUri(uri));
+/**
+ * Build a Salesforce URI for the content provider
+ *
+ * @param {vscode.Uri} uri file uri
+ *
+ * @return {vscode.Uri} Salesforce URI
+ */
+export function buildSalesforceUriFromLocalUri(uri: vscode.Uri): vscode.Uri {
+  return vscode.Uri.parse(`${PROVIDER}/${getSalesforceTypeFromFileName(getFileNameFromUri(uri))}/${Config.instance.customNamespace}/${getFileNameFromUri(uri)}`);
 }
 
+/**
+ * Build a Salesforce URI for the content provider
+ *
+ * @param {vscode.Uri} uri file uri
+ *
+ * @return {vscode.Uri} Salesforce URI
+ */
+export function buildSalesforceUriFromQuery(query: string): vscode.Uri {
+  return vscode.Uri.parse(`${PROVIDER}/soqlquery?${query}`);
+}
+
+
 export function getNamespaceOrNull(): string {
-  return Config.instance.customNamespace == "c" ? null : Config.instance.customNamespace;
+  return Config.instance.customNamespace == 'c' ? null : Config.instance.customNamespace;
 }
 
 export function getFileNameFromPath(path: string): string {
@@ -41,20 +58,20 @@ export function getSalesforceTypeFromFileName(filename: string): string {
 
   switch (ext) {
     case 'component':
-      return 'ApexComponent'
+      return 'ApexComponent';
     case 'page':
-      return 'ApexPage'
+      return 'ApexPage';
     case 'trigger':
-      return 'ApexTrigger'
+      return 'ApexTrigger';
     case 'cls':
-      return 'ApexClass'
+      return 'ApexClass';
   }
 }
 
 
 export function getSalesforceMetadata(filename: string): Thenable<any> {
   return new Promise<any>((resolve, reject) => {
-    fs.readFile(filename, "UTF8", (err, data) => {
+    fs.readFile(filename, 'UTF8', (err, data) => {
       if (err) {
         reject(err.message);
       }
@@ -65,7 +82,7 @@ export function getSalesforceMetadata(filename: string): Thenable<any> {
         }
 
         resolve(result);
-      })
+      });
     });
   });
 }
@@ -218,4 +235,3 @@ export function asArray(obj: any): Array<any> {
     return new Array(obj);
   }
 }
-

@@ -1,6 +1,5 @@
 import * as vscode from 'vscode';
 import * as events from 'events';
-import {Connection} from './../connection';
 
 export class Config extends events.EventEmitter {
   public static instance: Config = new Config();
@@ -21,14 +20,14 @@ export class Config extends events.EventEmitter {
 
     vscode.workspace.onDidChangeConfiguration(() => {
       this.setConfig();
-      this.emit("change");
+      this.emit('change');
     });
   }
 
   public setConfig() {
     if (Config.validateConfig()) {
-      var organization = vscode.workspace.getConfiguration("vsforce.organization");
-      var options = vscode.workspace.getConfiguration("vsforce.options");
+      var organization = vscode.workspace.getConfiguration('vsforce.organization');
+      var options = vscode.workspace.getConfiguration('vsforce.options');
 
       this.loginUrl = organization.get<string>('loginUrl');
       this.username = organization.get<string>('username');
@@ -44,7 +43,7 @@ export class Config extends events.EventEmitter {
   }
 
   private static validateConfig() {
-    var config = vscode.workspace.getConfiguration("vsforce.organization");
+    var config = vscode.workspace.getConfiguration('vsforce.organization');
 
     return config.get<string>('username').length != 0 &&
       config.get<string>('password').length != 0 &&
