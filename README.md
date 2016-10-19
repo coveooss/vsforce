@@ -7,7 +7,7 @@
 
 In most cases, vsforce needs a live connection to Salesforce to work.
 
-To link the extension to an existing organization, simply add the settings below in your `.settings` file for a project base configuration or in your user settings.
+To link the extension to an existing organization, simply add the settings below in your `.settings` file for a project-based configuration or in your user settings.
 
 ```json
 {
@@ -31,7 +31,7 @@ Here are some of the vsforce extension features.
 
 ## Visualforce auto-completion
 
-Basic Visualforce language support with code highlithing, code completion, and go-to definition.
+Basic Visualforce language support with code highlighting, code completion, and go-to definition.
 
 <img src='./doc/auto-completion.gif' />
 
