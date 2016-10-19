@@ -1,18 +1,13 @@
 let jsforce = require('jsforce');
 
 import * as vscode from 'vscode';
-import * as xml2js from 'xml2js';
-import * as fs from 'fs';
 
-import {StatusBarUtil} from './utils/statusBarUtil'
-import {Config} from './utils/config'
+import {StatusBarUtil} from './utils/statusBarUtil';
+import {Config} from './utils/config';
 
-let stream = require('readable-stream');
-let unzip = require('unzip');
 
 /**
  * Query Result interface.
- * TODO: needs a description
  */
 export interface IQueryResult {
   totalSize: number;
@@ -31,7 +26,7 @@ export class Connection {
   public jsforceConn: any;
   // TODO: give a description
   private RETRIEVE_OPTIONS = ['apiVersion', 'packageNames', 'singlePackage', 'specificFiles', 'unpackaged'];
-  private DEPLOY_OPTIONS = ['allowMissingFiles','autoUpdatePackage','checkOnly','ignoreWarnings','performRetrieve','purgeOnDelete','rollbackOnError','runAllTests','runTests','singlePackage','testLevel'];
+  private DEPLOY_OPTIONS = ['allowMissingFiles', 'autoUpdatePackage', 'checkOnly', 'ignoreWarnings', 'performRetrieve', 'purgeOnDelete', 'rollbackOnError', 'runAllTests', 'runTests', 'singlePackage', 'testLevel'];
   // TOOD: give a description
   private userId: string;
   // TODO: give a description
@@ -94,7 +89,7 @@ export class Connection {
             resolve(res);
           }
         });
-      })
+      });
     });
 
     return promise;
@@ -127,7 +122,7 @@ export class Connection {
               });
             }
           });
-      })
+      });
     });
 
     StatusBarUtil.setLoading(`Saving file ${object.Name} to Salesforce ...`, promise);
@@ -306,7 +301,7 @@ export class Connection {
       }
     });
 
-    StatusBarUtil.setLoading("Connecting to Salesforce ...", promise);
+    StatusBarUtil.setLoading('Connecting to Salesforce ...', promise);
 
     return promise;
   }
@@ -347,10 +342,10 @@ export class Connection {
   public deployPackage(zipStream: Buffer, options: any): Promise<any> {
     return new Promise<any>((resolve, reject) => {
       Connection.getConn().then((conn: Connection) => {
-        conn.jsforceConn.metadata.pollTimeout  = options.pollTimeout || 60 * 1000;
+        conn.jsforceConn.metadata.pollTimeout = options.pollTimeout || 60 * 1000;
         conn.jsforceConn.metadata.pollInterval = options.pollInterval || 5 * 1000;
 
-        let deployOpts : any = {};
+        let deployOpts: any = {};
         this.DEPLOY_OPTIONS.forEach((prop) => {
           if (typeof options[prop] !== 'undefined') { deployOpts[prop] = options[prop]; }
         });

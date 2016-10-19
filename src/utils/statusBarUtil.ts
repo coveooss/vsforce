@@ -1,13 +1,13 @@
 import * as vscode from 'vscode';
 
 export class StatusBarUtil {
-  private static loadingAnimation = ["|", "/", "-", "\\"];
+  private static loadingAnimation = ['|', '/', '-', '\\'];
   private static loadingAnimationPosition = 0;
   private static intervalId = setInterval(StatusBarUtil.updateLoading, 75);
   private static isLoading: boolean = false;
-  private static currentText: string = "[vsforce]";
+  private static currentText: string = '[vsforce]';
   private static baseText: string = StatusBarUtil.currentText;
-  private static promises: { [text: string]: Thenable<any> } = {}
+  private static promises: { [text: string]: Thenable<any> } = {};
 
   private static statusBarItem = vscode.window.createStatusBarItem(
     vscode.StatusBarAlignment.Left,
@@ -23,7 +23,7 @@ export class StatusBarUtil {
         StatusBarUtil.statusBarItem.dispose();
         clearInterval(StatusBarUtil.intervalId);
       }
-    }
+    };
   }
 
   public static setText(value: string) {
@@ -55,7 +55,7 @@ export class StatusBarUtil {
       } else {
         StatusBarUtil.currentText = Object.keys(StatusBarUtil.promises)[Object.keys(StatusBarUtil.promises).length - 1];
       }
-    }
+    };
 
     promise.then(done, done);
   }
@@ -64,7 +64,8 @@ export class StatusBarUtil {
     if (StatusBarUtil.isLoading) {
 
       StatusBarUtil.statusBarItem.text =
-        (StatusBarUtil.isLoading ? StatusBarUtil.loadingAnimation[StatusBarUtil.loadingAnimationPosition] : "") + "\t" + StatusBarUtil.currentText;
+        `${StatusBarUtil.isLoading ? StatusBarUtil.loadingAnimation[StatusBarUtil.loadingAnimationPosition] : ''}\t${StatusBarUtil.currentText}`;
+      // (StatusBarUtil.isLoading ? StatusBarUtil.loadingAnimation[StatusBarUtil.loadingAnimationPosition] : '') + '\t' + StatusBarUtil.currentText;
 
       StatusBarUtil.loadingAnimationPosition++;
       if (StatusBarUtil.loadingAnimationPosition >= StatusBarUtil.loadingAnimation.length) {

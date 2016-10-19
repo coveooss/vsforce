@@ -17,4 +17,3 @@ export interface ISOQLObject {
   tables: string[];
   conditions?: ISOQLCondition[];
 }
-

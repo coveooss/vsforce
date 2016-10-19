@@ -1,7 +1,5 @@
 import vscode = require('vscode');
 
-import {Config} from './utils/config'
-import {ApexObjectTreeCache} from './symbols/apexObjectTreeCache';
 import {VisualforceComponentCacheInstance} from './symbols/visualforceComponentCache';
 import {VisualforceCompletionItemProvider} from './providers/visualforceCompletionItemProvider';
 import {SalesforceContentProvider} from './providers/salesforceContentProvider';
@@ -15,12 +13,12 @@ import {DeploypackageCommand} from './commands/deploypackageCommand';
 import {SOQLCommand} from './commands/soqlCommand';
 import {PushFileToSalesforceCommand} from './commands/pushFileToSalesforceCommand';
 
-import {StatusBarUtil} from './utils/statusBarUtil'
+import {StatusBarUtil} from './utils/statusBarUtil';
 
 const visualforceDocumentFilter: vscode.DocumentFilter = { language: 'visualforce' };
 
 export function activate(context: vscode.ExtensionContext) {
-  let statusBarUtil = StatusBarUtil.init("[vsforce]");
+  let statusBarUtil = StatusBarUtil.init('[vsforce]');
   let showLogsCommand = new ShowLogsCommand();
   let showDiffCommand = new ShowDiffCommand();
   let pushFileToSalesforceCommand = new PushFileToSalesforceCommand();
