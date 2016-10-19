@@ -34,10 +34,13 @@ export class DeploypackageCommand implements ICommand {
 
     let deployPromise = utils.choosePackageXml() // Choose a package.xml file in the current workspace to deploy
       .then((path: string) => {
-        this.output.appendLine('Packaging folder.');
-        return utils.zipFolder(path.replace('package.xml', ''));
+        if (path) {
+          this.output.appendLine('Packaging folder.');
+          return utils.zipFolder(path.replace('package.xml', ''));
+        }
       })
       .then((zipBuffer: Buffer) => {
+        StatusBarUtil.setLoading('Deploying package to Salesforce ...', deployPromise);
         this.output.appendLine('Sending to Salesforce...');
         return this.conn.deployPackage(zipBuffer, {});
       });
@@ -82,13 +85,14 @@ export class DeploypackageCommand implements ICommand {
         }
       })
       .catch((reason: string) => {
-        vscode.window.showErrorMessage(reason, { title: 'Show output', action: 'SHOW_OUTPUT' }).then((m) => {
-          if (m.action && m.action === 'SHOW_OUTPUT') {
-            this.output.show();
-          }
-        });
+        if (reason) {
+          vscode.window.showErrorMessage(reason, { title: 'Show output', action: 'SHOW_OUTPUT' }).then((m) => {
+            if (m.action && m.action === 'SHOW_OUTPUT') {
+              this.output.show();
+            }
+          });
+        }
       });
 
-    StatusBarUtil.setLoading('Deploying package to Salesforce ...', deployPromise);
   }
 }

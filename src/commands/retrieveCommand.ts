@@ -47,24 +47,25 @@ export class RetrieveCommand implements ICommand {
             unpackaged: packageDom.Package
           };
 
+          StatusBarUtil.setLoading('Retrieve package from Salesforce ...', retrievePromise);
           this.output.appendLine('Sending Retrieve Request to Salesforce...');
           return this.conn.retrievePackage(retrieveOptions);
         }
       });
-
-    StatusBarUtil.setLoading('Retrieve package from Salesforce ...', retrievePromise);
 
     retrievePromise
       .then((response: any) => { // Handle the response from salesforce.
         this.handleSalesforceRetrieveResponse(response);
       })
       .catch((reason: string) => {
-        this.output.append(`ERROR ${reason}`);
-        vscode.window.showInformationMessage(`Error retrieving package`, { title: 'Show output', action: 'SHOW_OUTPUT' }).then((m: any) => {
-          if (m && m.action === 'SHOW_OUTPUT') {
-            this.output.show();
-          }
-        });
+        if (reason) {
+          this.output.append(`ERROR ${reason}`);
+          vscode.window.showInformationMessage(`Error retrieving package`, { title: 'Show output', action: 'SHOW_OUTPUT' }).then((m: any) => {
+            if (m && m.action === 'SHOW_OUTPUT') {
+              this.output.show();
+            }
+          });
+        }
       });
   }
 

@@ -112,6 +112,8 @@ export function choosePackageXml(): Promise<string> {
           vscode.window.showQuickPick(packages).then((selected) => {  // Show a selection of the existing package.xml
             if (selected) {
               resolve(selected.detail); // Resolve with the selected value
+            } else {
+              reject();
             }
           }, (reason) => {
             reject(reason);
