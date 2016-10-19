@@ -149,21 +149,17 @@
     }
   },
   "scripts": {
-    "vscode:prepublish": "node ./node_modules/vscode/bin/compile",
-    "compile": "node ./node_modules/vscode/bin/compile -watch -p ./",
+    "vscode:prepublish": "tsc",
+    "compile": "tsc",
     "postinstall": "node ./node_modules/vscode/bin/install",
     "commit": "git add .; git cz"
   },
   "devDependencies": {
     "cz-conventional-changelog": "^1.2.0",
-    "htmlparser2": "3.9.x",
     "gulp": "^3.9.1",
-    "jsforce": "^1.7.0",
     "pretty-typescript": "^1.13.0",
     "typescript": "^1.8.10",
-    "vscode": "^0.11.15",
-    "xml2js": "^0.4.17",
-    "zip-folder": "^1.0.0"
+    "vscode": "^0.11.15"
   },
   "config": {
     "commitizen": {
@@ -171,10 +167,12 @@
     }
   },
   "dependencies": {
-    "antlr4": "^4.5.3",
     "fstream": "^1.0.10",
+    "xml2js": "^0.4.17",
     "unzip": "^0.1.11",
-    "readable-stream": "^2.1.4",
-    "typescript": "^1.8.10"
+    "jsforce": "^1.7.0",
+    "htmlparser2": "3.9.x",
+    "typescript": "^1.8.10",
+    "readable-stream": "^2.1.4"
   }
 }
