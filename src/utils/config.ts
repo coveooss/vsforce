@@ -45,8 +45,8 @@ export class Config extends events.EventEmitter {
   private static validateConfig() {
     var config = vscode.workspace.getConfiguration('vsforce.organization');
 
-    return config.get<string>('username').length != 0 &&
-      config.get<string>('password').length != 0 &&
-      config.get<string>('securityToken').length != 0;
+    return config.get<string>('username') &&
+      config.get<string>('password') &&
+      config.get<string>('securityToken');
   }
 }

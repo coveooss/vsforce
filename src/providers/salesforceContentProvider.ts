@@ -54,7 +54,6 @@ export class SalesforceContentProvider implements vscode.TextDocumentContentProv
    * @param {string} query Salesforce SOQL query
    */
   private resolveSOQL(query: string): Thenable<string> {
-    console.log(query);
     return new Promise<string>((resolve, reject) => {
       this.conn.executeQuery(query)
         .then((results: IQueryResult) => {
@@ -87,7 +86,6 @@ export class SalesforceContentProvider implements vscode.TextDocumentContentProv
               tableResult += '</table>';
 
               render = render.replace('{{TALBE_RESULT}}', tableResult);
-              console.log(render);
             };
 
             resolve(render);

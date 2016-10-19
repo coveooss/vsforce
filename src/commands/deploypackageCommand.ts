@@ -28,7 +28,7 @@ export class DeploypackageCommand implements ICommand {
   public Execute() {
 
     if (!this.output) {
-      this.output = vscode.window.createOutputChannel('Retrieve request');
+      this.output = vscode.window.createOutputChannel('Deploy request');
     } else {
       this.output.clear();
     }
@@ -60,7 +60,7 @@ export class DeploypackageCommand implements ICommand {
 
           // Show the information message and the output if the user presses show output.
           vscode.window.showInformationMessage(`Deployment of package success`, { title: 'Show output', action: 'SHOW_OUTPUT' }).then((m: any) => {
-            if (m.action === 'SHOW_OUTPUT') {
+            if (m.action && m.action === 'SHOW_OUTPUT') {
               this.output.show();
             }
           });
@@ -84,7 +84,7 @@ export class DeploypackageCommand implements ICommand {
       })
       .catch((reason: string) => {
         vscode.window.showErrorMessage(reason, { title: 'Show output', action: 'SHOW_OUTPUT' }).then((m) => {
-          if (m.action === 'SHOW_OUTPUT') {
+          if (m.action && m.action === 'SHOW_OUTPUT') {
             this.output.show();
           }
         });
