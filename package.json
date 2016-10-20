@@ -1,196 +1,195 @@
 {
-  "name": "vsforce",
-  "displayName": "vsforce",
-  "description": "Salesforce APEX support for VScode ",
-  "version": "0.0.1",
-  "publisher": "Coveo",
-  "keywords": [
-    "salesforce",
-    "apex",
-    "visualforce",
-    "lightning",
-    "SFDC"
-  ],
-  "engines": {
-    "vscode": "^1.0.0"
-  },
-  "categories": [
-    "Other",
-    "Languages",
-    "Productivity"
-  ],
-  "icon": "doc/icon.png",
-  "galleryBanner": {
-    "color": "#ffffff",
-    "theme": "light"
-  },
-  "test": "node ./node_modules/vscode/bin/test",
-  "license": "LICENSE.md",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/coveo/vsforce.git"
-  },
-  "homepage": "https://github.com/coveo/vsforce",
-  "bugs": {
-    "email": "https://github.com/coveo/vsforce/issues"
-  },
-  "activationEvents": [
-    "onCommand:vsforce.executeSOQLQuery",
-    "onCommand:vsforce.showLogs",
-    "onCommand:vsforce.retrieveCommand",
-    "onCommand:vsforce.contextualQuery",
-    "onCommand:vsforce.executeCode",
-    "onCommand:vsforce.deploypackageCommand",
-    "onCommand:vsforce.diff",
-    "onLanguage:apex",
-    "onLanguage:visualforce"
-  ],
-  "main": "./out/src/vsforce",
-  "contributes": {
-    "commands": [
-      {
-        "command": "vsforce.executeSOQLQuery",
-        "title": "vsforce: Execute SOQL"
-      },
-      {
-        "command": "vsforce.showLogs",
-        "title": "vsforce: Show logs"
-      },
-      {
-        "command": "vsforce.retrieveCommand",
-        "title": "vsforce: Retrieve Package"
-      },
-      {
-        "command": "vsforce.deploypackageCommand",
-        "title": "vsforce: Deploy Package"
-      },
-      {
-        "command": "vsforce.diff",
-        "title": "vsforce: Compare with Salesforce"
-      }
+    "name": "vsforce",
+    "displayName": "vsforce",
+    "description": "Salesforce APEX support for VScode ",
+    "version": "0.1.2",
+    "publisher": "coveo",
+    "keywords": [
+        "salesforce",
+        "apex",
+        "visualforce",
+        "lightning",
+        "SFDC"
     ],
-    "keybindings": [
-      {
-        "command": "vsforce.executeSOQLQuery",
-        "key": "ctrl+f5",
-        "mac": "cmd+shift+f5",
-        "when": "editorTextFocus"
-      }
-    ],
-    "languages": [
-      {
-        "id": "apex",
-        "aliases": [
-          "Apex",
-          "apex"
-        ],
-        "extensions": [
-          ".cls",
-          ".trigger"
-        ],
-        "configuration": "./apex.configuration.json"
-      },
-      {
-        "id": "visualforce",
-        "aliases": [
-          "Visualforce",
-          "visualforce"
-        ],
-        "extensions": [
-          ".page",
-          ".component"
-        ],
-        "configuration": "./visualforce.configuration.json"
-      }
-    ],
-    "menus": {
-      "explorer/context": [
-        {
-          "when": "resourceLangId == visualforce",
-          "command": "vsforce.diff",
-          "group": "navigation"
-        },
-        {
-          "when": "resourceLangId == apex",
-          "command": "vsforce.diff",
-          "group": "navigation"
-        }
-      ]
+    "engines": {
+        "vscode": "^1.0.0"
     },
-    "grammars": [
-      {
-        "language": "apex",
-        "scopeName": "source.apex",
-        "path": "./syntaxes/apex.tmLanguage"
-      },
-      {
-        "language": "visualforce",
-        "scopeName": "text.html.basic",
-        "path": "./syntaxes/visualforce.tmLanguage"
-      }
+    "categories": [
+        "Other",
+        "Languages"
     ],
-    "configuration": {
-      "title": "Salesforce vsforce Settings",
-      "properties": {
-        "vsforce.organization.username": {
-          "type": "string",
-          "default": null,
-          "description": "Your Salesforce organization username"
+    "icon": "doc/icon.png",
+    "galleryBanner": {
+        "color": "#cccccc",
+        "theme": "light"
+    },
+    "test": "node ./node_modules/vscode/bin/test",
+    "license": "LICENSE.md",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/coveo/vsforce.git"
+    },
+    "homepage": "https://github.com/coveo/vsforce",
+    "bugs": {
+        "email": "https://github.com/coveo/vsforce/issues"
+    },
+    "activationEvents": [
+        "onCommand:vsforce.executeSOQLQuery",
+        "onCommand:vsforce.showLogs",
+        "onCommand:vsforce.retrieveCommand",
+        "onCommand:vsforce.contextualQuery",
+        "onCommand:vsforce.executeCode",
+        "onCommand:vsforce.deploypackageCommand",
+        "onCommand:vsforce.diff",
+        "onLanguage:apex",
+        "onLanguage:visualforce"
+    ],
+    "main": "./out/src/vsforce",
+    "contributes": {
+        "commands": [
+            {
+                "command": "vsforce.executeSOQLQuery",
+                "title": "vsforce: Execute SOQL"
+            },
+            {
+                "command": "vsforce.showLogs",
+                "title": "vsforce: Show logs"
+            },
+            {
+                "command": "vsforce.retrieveCommand",
+                "title": "vsforce: Retrieve Package"
+            },
+            {
+                "command": "vsforce.deploypackageCommand",
+                "title": "vsforce: Deploy Package"
+            },
+            {
+                "command": "vsforce.diff",
+                "title": "vsforce: Compare with Salesforce"
+            }
+        ],
+        "keybindings": [
+            {
+                "command": "vsforce.executeSOQLQuery",
+                "key": "ctrl+f5",
+                "mac": "cmd+shift+f5",
+                "when": "editorTextFocus"
+            }
+        ],
+        "languages": [
+            {
+                "id": "apex",
+                "aliases": [
+                    "Apex",
+                    "apex"
+                ],
+                "extensions": [
+                    ".cls",
+                    ".trigger"
+                ],
+                "configuration": "./apex.configuration.json"
+            },
+            {
+                "id": "visualforce",
+                "aliases": [
+                    "Visualforce",
+                    "visualforce"
+                ],
+                "extensions": [
+                    ".page",
+                    ".component"
+                ],
+                "configuration": "./visualforce.configuration.json"
+            }
+        ],
+        "menus": {
+            "explorer/context": [
+                {
+                    "when": "resourceLangId == visualforce",
+                    "command": "vsforce.diff",
+                    "group": "navigation"
+                },
+                {
+                    "when": "resourceLangId == apex",
+                    "command": "vsforce.diff",
+                    "group": "navigation"
+                }
+            ]
         },
-        "vsforce.organization.password": {
-          "type": "string",
-          "default": null,
-          "description": "Your Salesforce organization password"
-        },
-        "vsforce.organization.securityToken": {
-          "type": "string",
-          "default": null,
-          "description": "Your Salesforce organization user security token"
-        },
-        "vsforce.organization.loginUrl": {
-          "type": "string",
-          "default": "https://login.salesforce.com",
-          "description": "Your Salesforce organization loginUrl"
-        },
-        "vsforce.organization.namespace": {
-          "type": "string",
-          "default": "c",
-          "description": "Your Salesforce namespace"
-        },
-        "vsforce.options.pushOnSave": {
-          "type": "boolean",
-          "default": false,
-          "description": "If we want to push local changes to Salesforce on save."
+        "grammars": [
+            {
+                "language": "apex",
+                "scopeName": "source.apex",
+                "path": "./syntaxes/apex.tmLanguage"
+            },
+            {
+                "language": "visualforce",
+                "scopeName": "text.html.basic",
+                "path": "./syntaxes/visualforce.tmLanguage"
+            }
+        ],
+        "configuration": {
+            "title": "Salesforce vsforce Settings",
+            "properties": {
+                "vsforce.organization.username": {
+                    "type": "string",
+                    "default": null,
+                    "description": "Your Salesforce organization username"
+                },
+                "vsforce.organization.password": {
+                    "type": "string",
+                    "default": null,
+                    "description": "Your Salesforce organization password"
+                },
+                "vsforce.organization.securityToken": {
+                    "type": "string",
+                    "default": null,
+                    "description": "Your Salesforce organization user security token"
+                },
+                "vsforce.organization.loginUrl": {
+                    "type": "string",
+                    "default": "https://login.salesforce.com",
+                    "description": "Your Salesforce organization loginUrl"
+                },
+                "vsforce.organization.namespace": {
+                    "type": "string",
+                    "default": "c",
+                    "description": "Your Salesforce namespace"
+                },
+                "vsforce.options.pushOnSave": {
+                    "type": "boolean",
+                    "default": false,
+                    "description": "If we want to push local changes to Salesforce on save."
+                }
+            }
         }
-      }
+    },
+    "scripts": {
+        "vscode:prepublish": "tsc",
+        "compile": "tsc",
+        "postinstall": "node ./node_modules/vscode/bin/install",
+        "commit": "git add .; git cz"
+    },
+    "dependencies": {
+        "archiver": "^1.1.0",
+        "cz-conventional-changelog": "^1.2.0",
+        "fstream": "^1.0.10",
+        "htmlparser2": "3.9.x",
+        "jsforce": "^1.7.0",
+        "readable-stream": "^2.1.4",
+        "sequin": "^0.1.0",
+        "unzip": "^0.1.11",
+        "xml2js": "^0.4.17"
+    },
+    "config": {
+        "commitizen": {
+            "path": "./node_modules/cz-conventional-changelog"
+        }
+    },
+    "devDependencies": {
+        "gulp": "^3.9.1",
+        "pretty-typescript": "^1.13.0",
+        "vscode": "^0.11.15",
+        "typescript": "^1.8.10"
     }
-  },
-  "scripts": {
-    "vscode:prepublish": "tsc",
-    "compile": "tsc",
-    "postinstall": "node ./node_modules/vscode/bin/install",
-    "commit": "git add .; git cz"
-  },
-  "dependencies": {
-    "archiver": "^1.1.0",
-    "cz-conventional-changelog": "^1.2.0",
-    "fstream": "^1.0.10",
-    "htmlparser2": "3.9.x",
-    "jsforce": "^1.7.0",
-    "readable-stream": "^2.1.4",
-    "sequin": "^0.1.0",
-    "unzip": "^0.1.11",
-    "xml2js": "^0.4.17"
-  },
-  "config": {
-    "commitizen": {
-      "path": "./node_modules/cz-conventional-changelog"
-    }
-  },
-  "devDependencies": {
-    "gulp": "^3.9.1",
-    "pretty-typescript": "^1.13.0",
-    "vscode": "^0.11.15",
-    "typescript": "^1.8.10"
-  }
 }
