@@ -6,11 +6,21 @@
 [![Installs](http://vsmarketplacebadge.apphb.com/installs/coveo.vsforce.svg)](https://marketplace.visualstudio.com/items?itemName=coveo.vsforce)
 [![Ratings](https://vsmarketplacebadge.apphb.com/rating/coveo.vsforce.svg)](https://vsmarketplacebadge.apphb.com/rating/coveo.vsforce.svg)
 
+# Introduction
+
+**vsforce** adds support for Salesforce development to Visual Studio Code, providing features such as syntax-highlighting, auto-completion, code deployment or retrieval, etc. The extension is freely available in the Visual Studio Code Marketplace (see the badges above).
+
+Some features are still incomplete and/or missing, but already we find it quite useful for our day-to-day work. We encourage you to give it a spin, and report any issues you encounter. Even better, we'd be thrilled if you want to fork our repo and submit new functionalities & bugfixes!
+
+# Installation
+
+In Visual Studio Code, open the **Extensions** panel and search for **vsforce**. That's all there is to it!
+
 # Configuration
 
-In most cases, vsforce needs a live connection to Salesforce to work.
+For most features to work, vsforce needs a live internet connection and the credentials for your Salesforce organization.
 
-To link the extension to an existing organization, simply add the settings below in your `.settings` file for a project-based configuration or in your user settings.
+Simply add the information in your `.settings` file, as per the sample below:
 
 ```json
 {
@@ -20,39 +30,47 @@ To link the extension to an existing organization, simply add the settings below
 }
 ```
 
-For an in depth explanation on how to do this, see [User and Workspace Settings](https://code.visualstudio.com/Docs/customization/userandworkspace).
+You can either enter the credentials in your per-project `.settings` file, or in your global user settings. For an in depth explanation on how to do this, see [User and Workspace Settings](https://code.visualstudio.com/Docs/customization/userandworkspace).
 
-Optionally, when in a sandbox environment, you can specify the `loginUrl` and your default namespace
+If needed (ex: when using a sandbox organization), you can also specify the `loginUrl` and your default namespace:
+
 ```json
   "vsforce.organization.customNamespace": "namespace",
-  "vsforce.organization.loginURL": "http://login.salesforce.com/"
+  "vsforce.organization.loginUrl": "http://test.salesforce.com/"
 ```
 
-# Features
+When properly configured, a message will appear in the status bar informing you that the extension is logged to your Salesforce organization.
 
-Here are some of the vsforce extension features.
+# Using the commands
+
+Open the **Command Palette** and type `vsforce` to see the list of available commands.
+
+Here are some examples of the features the extension provides:
 
 ## Visualforce auto-completion
 
-Basic Visualforce language support with code highlighting, code completion, and go-to definition.
+Basic Visualforce language support with code highlighting, code completion, and go-to definition:
 
 <img src='https://raw.githubusercontent.com/coveo/vsforce/master/doc/auto-completion.gif' />
 
+## Retrieve & deploy packages
+
+Pulls or pushes your whole project to/from your Salesforce organization, based on your `package.xml` file.
+
 ## Compare with Salesforce
 
-Lets you compare your local changes with what is currently in your Salesforce.
+Compare your local version with the version in your Salesforce organization:
 
 <img src='https://raw.githubusercontent.com/coveo/vsforce/master/doc/compare.gif' />
 
 ## Run SOQL query command
 
-Lets you run queries on Salesforce and displays the result directly in Visual Studio Code.
+Run SOQL queries on Salesforce and display the result directly in Visual Studio Code.
 
 <img src='https://raw.githubusercontent.com/coveo/vsforce/master/doc/soql-query.gif' />
 
 ## And many more
 - Show logs command
-- Retrieve/Deploy package
 - Push file to Salesforce on save (upcoming)
 - Apex auto-completion (upcoming)
 - Aura support (upcoming)
