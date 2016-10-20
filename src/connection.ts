@@ -273,14 +273,14 @@ export class Connection {
     var promise = new Promise<Connection>((resolve, reject) => {
       var conn = new Connection();
 
-      if (Config.instance.isValid) {
+      if (Config.getInstance().isValid) {
         conn.jsforceConn = new jsforce.Connection({
-          loginUrl: Config.instance.loginUrl
+          loginUrl: Config.getInstance().loginUrl
         });
 
         conn.jsforceConn.login(
-          Config.instance.username,
-          Config.instance.password + Config.instance.securityToken,
+          Config.getInstance().username,
+          Config.getInstance().password + Config.getInstance().securityToken,
 
           function (err, res) {
             if (err) {
@@ -291,7 +291,7 @@ export class Connection {
               conn.userId = res.id;
               Connection.instance = conn;
 
-              StatusBarUtil.setText(`Logged in to Salesforce as ${Config.instance.username}`);
+              StatusBarUtil.setText(`Logged in to Salesforce as ${Config.getInstance().username}`);
               resolve(conn);
             }
           }

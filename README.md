@@ -37,7 +37,7 @@ If needed (ex: when using a sandbox organization), you can also specify the `log
 ```json
 {
   "vsforce.organization.namespace": "namespace",
-  "vsforce.organization.loginUrl": "http://test.salesforce.com/"
+  "vsforce.organization.loginUrl": "https://test.salesforce.com/"
 }
 ```
 
