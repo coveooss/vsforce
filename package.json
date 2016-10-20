@@ -147,10 +147,10 @@
           "default": null,
           "description": "Your Salesforce organization user security token"
         },
-        "vsforce.organization.loginURL": {
+        "vsforce.organization.loginUrl": {
           "type": "string",
           "default": "https://login.salesforce.com",
-          "description": "Your Salesforce organization loginURL"
+          "description": "Your Salesforce organization loginUrl"
         },
         "vsforce.organization.namespace": {
           "type": "string",
