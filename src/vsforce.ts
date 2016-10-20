@@ -28,7 +28,7 @@ export function activate(context: vscode.ExtensionContext) {
   let deploypackageCommand = new DeploypackageCommand();
   let soqlCommand = new SOQLCommand();
 
-  Config.instance.on("change", () => {
+  Config.getInstance().on("change", () => {
     Connection.initConn();
   });
 
