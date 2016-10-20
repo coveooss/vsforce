@@ -14,7 +14,7 @@ export class PushFileToSalesforceCommand implements ICommand {
 
   constructor() {
     var setup = () => {
-      if (Config.instance.pushOnSave) {
+      if (Config.getInstance().pushOnSave) {
         this.listener = vscode.workspace.onDidSaveTextDocument(this.pushToSalesforce, this);
       }
     }

@@ -29,7 +29,7 @@ export function getFileNameFromUri(uri: vscode.Uri): string {
  * @return {vscode.Uri} Salesforce URI
  */
 export function buildSalesforceUriFromLocalUri(uri: vscode.Uri): vscode.Uri {
-  return vscode.Uri.parse(`${PROVIDER}/${getSalesforceTypeFromFileName(getFileNameFromUri(uri))}/${Config.instance.customNamespace}/${getFileNameFromUri(uri)}`);
+  return vscode.Uri.parse(`${PROVIDER}/${getSalesforceTypeFromFileName(getFileNameFromUri(uri))}/${Config.getInstance().customNamespace}/${getFileNameFromUri(uri)}`);
 }
 
 /**
@@ -45,7 +45,7 @@ export function buildSalesforceUriFromQuery(query: string): vscode.Uri {
 
 
 export function getNamespaceOrNull(): string {
-  return Config.instance.customNamespace == 'c' ? null : Config.instance.customNamespace;
+  return Config.getInstance().customNamespace == 'c' ? null : Config.getInstance().customNamespace;
 }
 
 export function getFileNameFromPath(path: string): string {

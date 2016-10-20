@@ -2,7 +2,7 @@ import * as vscode from 'vscode';
 import * as events from 'events';
 
 export class Config extends events.EventEmitter {
-  public static instance: Config = new Config();
+  private static instance: Config;
 
   public loginUrl: string;
   public username: string;
@@ -16,6 +16,11 @@ export class Config extends events.EventEmitter {
   constructor() {
     super();
 
+    if (Config.instance) {
+      return Config.instance;
+    }
+    Config.instance = this;
+
     this.setConfig();
 
     vscode.workspace.onDidChangeConfiguration(() => {
@@ -24,29 +29,35 @@ export class Config extends events.EventEmitter {
     });
   }
 
-  public setConfig() {
+  public static getInstance(): Config {
+    if (!Config.instance) {
+      Config.instance = new Config();
+    } 
+    return Config.instance; 
+  }
+
+  private setConfig() {
     if (Config.validateConfig()) {
       var organization = vscode.workspace.getConfiguration('vsforce.organization');
       var options = vscode.workspace.getConfiguration('vsforce.options');
 
-      this.loginUrl = organization.get<string>('loginUrl');
-      this.username = organization.get<string>('username');
-      this.password = organization.get<string>('password');
-      this.securityToken = organization.get<string>('securityToken');
-      this.customNamespace = organization.get<string>('namespace');
-      this.pushOnSave = options.get<boolean>('pushOnSave');
+      Config.getInstance().loginUrl = organization.get<string>('loginUrl');
+      Config.getInstance().username = organization.get<string>('username');
+      Config.getInstance().password = organization.get<string>('password');
+      Config.getInstance().securityToken = organization.get<string>('securityToken');
+      Config.getInstance().customNamespace = organization.get<string>('namespace');
+      Config.getInstance().pushOnSave = options.get<boolean>('pushOnSave');
 
-      this.isValid = true;
+      Config.getInstance().isValid = true;
     } else {
-      this.isValid = false;
+      Config.getInstance().isValid = false;
     }
   }
 
-  private static validateConfig() {
+  private static validateConfig():any {
     var config = vscode.workspace.getConfiguration('vsforce.organization');
 
-    return config.get<string>('username') &&
-      config.get<string>('password') &&
-      config.get<string>('securityToken');
+    return (config.get<string>('username') &&
+      config.get<string>('password'));
   }
 }
