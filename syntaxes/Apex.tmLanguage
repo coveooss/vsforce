@@ -4,248 +4,70 @@
 <dict>
 	<key>fileTypes</key>
 	<array>
-		<string>apex</string>
 		<string>cls</string>
 		<string>trigger</string>
-		<string>tgr</string>
 	</array>
 	<key>foldingStartMarker</key>
-	<string>/\*\*|\{\s*$</string>
+	<string>(\{\s*(//.*)?$|^\s*// \{\{\{)</string>
 	<key>foldingStopMarker</key>
-	<string>\*\*/|^\s*\}</string>
+	<string>^\s*(\}|// \}\}\}$)</string>
+	<key>keyEquivalent</key>
+	<string>^~J</string>
 	<key>name</key>
-	<string>Apex</string>
+	<string>Java</string>
 	<key>patterns</key>
 	<array>
-		<dict>
-			<key>match</key>
-			<string>\b(?i:package|trigger|class|interface)\b</string>
-			<key>name</key>
-			<string>storage.type.apex</string>
-		</dict>
-		<dict>
-			<key>match</key>
-			<string>\b(?i:public|private|global|webservice|abstract|virtual|protected|static)\b</string>
-			<key>name</key>
-			<string>keyword.control.scope.apex</string>
-		</dict>
-		<dict>
-			<key>match</key>
-			<string>\b(?i:istest|future|deprecrated|readonly|remoteaction)\b</string>
-			<key>name</key>
-			<string>keyword.control.annotation.apex</string>
-		</dict>
-		<dict>
-			<key>match</key>
-			<string>\b(?i:commit|rollback)\b</string>
-			<key>name</key>
-			<string>keyword.control.transaction.apex</string>
-		</dict>
-		<dict>
-			<key>match</key>
-			<string>\b(?i:insert|update|delete|upsert)\b</string>
-			<key>name</key>
-			<string>keyword.control.trigger.dml.apex</string>
-		</dict>
-		<dict>
-			<key>match</key>
-			<string>\b(?i:try|catch|finally|throw)\b</string>
-			<key>name</key>
-			<string>keyword.control.catch-exception.apex</string>
-		</dict>
-		<dict>
-			<key>match</key>
-			<string>\b(?i:null|system|apex|label|apexpages|userinfo|schema)\b</string>
-			<key>name</key>
-			<string>keyword.control.system.apex</string>
-		</dict>
-		<dict>
-			<key>match</key>
-			<string>\=|\!\=|\&gt;|\&lt;|\&amp;\&amp;|\|\|\+</string>
-			<key>name</key>
-			<string>keyword.control.evaluation.apex</string>
-		</dict>
-		<dict>
-			<key>include</key>
-			<string>#support-type-built-ins-apex</string>
-		</dict>
-		<dict>
-			<key>begin</key>
-			<string>\[</string>
-			<key>end</key>
-			<string>\]</string>
-			<key>name</key>
-			<string>string.quoted.brackets.soql.apex</string>
-		</dict>
-		<dict>
-			<key>begin</key>
-			<string>\('</string>
-			<key>end</key>
-			<string>'\)</string>
-			<key>name</key>
-			<string>string.quoted.parens.soql.apex</string>
-		</dict>
-		<dict>
-			<key>begin</key>
-			<string>\='</string>
-			<key>end</key>
-			<string>'\;</string>
-			<key>name</key>
-			<string>string.quoted.var1.soql.apex</string>
-		</dict>
 		<dict>
 			<key>captures</key>
 			<dict>
 				<key>1</key>
 				<dict>
 					<key>name</key>
-					<string>keyword.other.package.apex</string>
+					<string>keyword.other.package.java</string>
 				</dict>
 				<key>2</key>
 				<dict>
 					<key>name</key>
-					<string>storage.modifier.package.apex</string>
+					<string>storage.modifier.package.java</string>
 				</dict>
 				<key>3</key>
 				<dict>
 					<key>name</key>
-					<string>punctuation.terminator.apex</string>
+					<string>punctuation.terminator.java</string>
 				</dict>
 			</dict>
 			<key>match</key>
 			<string>^\s*(package)\b(?:\s*([^ ;$]+)\s*(;)?)?</string>
 			<key>name</key>
-			<string>meta.package.apex</string>
+			<string>meta.package.java</string>
 		</dict>
 		<dict>
-			<key>begin</key>
-			<string>(import static)\b\s*</string>
-			<key>beginCaptures</key>
-			<dict>
-				<key>1</key>
-				<dict>
-					<key>name</key>
-					<string>keyword.other.import.static.apex</string>
-				</dict>
-			</dict>
 			<key>captures</key>
 			<dict>
 				<key>1</key>
 				<dict>
 					<key>name</key>
-					<string>keyword.other.import.apex</string>
+					<string>keyword.other.import.java</string>
 				</dict>
 				<key>2</key>
 				<dict>
 					<key>name</key>
-					<string>storage.modifier.import.apex</string>
+					<string>storage.modifier.import.java</string>
 				</dict>
 				<key>3</key>
 				<dict>
 					<key>name</key>
-					<string>punctuation.terminator.apex</string>
+					<string>punctuation.terminator.java</string>
 				</dict>
 			</dict>
-			<key>contentName</key>
-			<string>storage.modifier.import.apex</string>
-			<key>end</key>
-			<string>\s*(?:$|(;))</string>
-			<key>endCaptures</key>
-			<dict>
-				<key>1</key>
-				<dict>
-					<key>name</key>
-					<string>punctuation.terminator.apex</string>
-				</dict>
-			</dict>
+			<key>match</key>
+			<string>^\s*(import)\b(?:\s*([^ ;$]+)\s*(;)?)?</string>
 			<key>name</key>
-			<string>meta.import.apex</string>
-			<key>patterns</key>
-			<array>
-				<dict>
-					<key>match</key>
-					<string>\.</string>
-					<key>name</key>
-					<string>punctuation.separator.apex</string>
-				</dict>
-				<dict>
-					<key>match</key>
-					<string>\s</string>
-					<key>name</key>
-					<string>invalid.illegal.character_not_allowed_here.apex</string>
-				</dict>
-			</array>
-		</dict>
-		<dict>
-			<key>begin</key>
-			<string>(import)\b\s*</string>
-			<key>beginCaptures</key>
-			<dict>
-				<key>1</key>
-				<dict>
-					<key>name</key>
-					<string>keyword.other.import.apex</string>
-				</dict>
-			</dict>
-			<key>captures</key>
-			<dict>
-				<key>1</key>
-				<dict>
-					<key>name</key>
-					<string>keyword.other.import.apex</string>
-				</dict>
-				<key>2</key>
-				<dict>
-					<key>name</key>
-					<string>storage.modifier.import.apex</string>
-				</dict>
-				<key>3</key>
-				<dict>
-					<key>name</key>
-					<string>punctuation.terminator.apex</string>
-				</dict>
-			</dict>
-			<key>contentName</key>
-			<string>storage.modifier.import.apex</string>
-			<key>end</key>
-			<string>\s*(?:$|(;))</string>
-			<key>endCaptures</key>
-			<dict>
-				<key>1</key>
-				<dict>
-					<key>name</key>
-					<string>punctuation.terminator.apex</string>
-				</dict>
-			</dict>
-			<key>name</key>
-			<string>meta.import.apex</string>
-			<key>patterns</key>
-			<array>
-				<dict>
-					<key>match</key>
-					<string>\.</string>
-					<key>name</key>
-					<string>punctuation.separator.apex</string>
-				</dict>
-				<dict>
-					<key>match</key>
-					<string>\s</string>
-					<key>name</key>
-					<string>invalid.illegal.character_not_allowed_here.apex</string>
-				</dict>
-			</array>
+			<string>meta.import.java</string>
 		</dict>
 		<dict>
 			<key>include</key>
 			<string>#code</string>
-		</dict>
-		<dict>
-			<key>begin</key>
-			<string>\= '</string>
-			<key>end</key>
-			<string>'\;</string>
-			<key>name</key>
-			<string>string.quoted.var2.soql.apex</string>
 		</dict>
 	</array>
 	<key>repository</key>
@@ -280,12 +102,12 @@
 						<key>1</key>
 						<dict>
 							<key>name</key>
-							<string>storage.type.annotation.apex</string>
+							<string>storage.type.annotation.java</string>
 						</dict>
 						<key>2</key>
 						<dict>
 							<key>name</key>
-							<string>punctuation.definition.annotation-arguments.begin.apex</string>
+							<string>punctuation.definition.annotation-arguments.begin.java</string>
 						</dict>
 					</dict>
 					<key>end</key>
@@ -295,11 +117,11 @@
 						<key>1</key>
 						<dict>
 							<key>name</key>
-							<string>punctuation.definition.annotation-arguments.end.apex</string>
+							<string>punctuation.definition.annotation-arguments.end.java</string>
 						</dict>
 					</dict>
 					<key>name</key>
-					<string>meta.declaration.annotation.apex</string>
+					<string>meta.declaration.annotation.java</string>
 					<key>patterns</key>
 					<array>
 						<dict>
@@ -308,12 +130,12 @@
 								<key>1</key>
 								<dict>
 									<key>name</key>
-									<string>constant.other.key.apex</string>
+									<string>constant.other.key.java</string>
 								</dict>
 								<key>2</key>
 								<dict>
 									<key>name</key>
-									<string>keyword.operator.assignment.apex</string>
+									<string>keyword.operator.assignment.java</string>
 								</dict>
 							</dict>
 							<key>match</key>
@@ -327,7 +149,7 @@
 							<key>match</key>
 							<string>,</string>
 							<key>name</key>
-							<string>punctuation.seperator.property.apex</string>
+							<string>punctuation.seperator.property.java</string>
 						</dict>
 					</array>
 				</dict>
@@ -335,20 +157,20 @@
 					<key>match</key>
 					<string>@\w*</string>
 					<key>name</key>
-					<string>storage.type.annotation.apex</string>
+					<string>storage.type.annotation.java</string>
 				</dict>
 			</array>
 		</dict>
 		<key>anonymous-classes-and-new</key>
 		<dict>
 			<key>begin</key>
-			<string>\b(?&lt;!\.)new\b</string>
+			<string>\bnew\b</string>
 			<key>beginCaptures</key>
 			<dict>
 				<key>0</key>
 				<dict>
 					<key>name</key>
-					<string>keyword.control.new.apex</string>
+					<string>keyword.control.new.java</string>
 				</dict>
 			</dict>
 			<key>end</key>
@@ -363,19 +185,11 @@
 						<key>1</key>
 						<dict>
 							<key>name</key>
-							<string>storage.type.apex</string>
+							<string>storage.type.java</string>
 						</dict>
 					</dict>
 					<key>end</key>
-					<string>(})|(?=\s*(?:,|;|\)))</string>
-					<key>endCaptures</key>
-					<dict>
-						<key>1</key>
-						<dict>
-							<key>name</key>
-							<string>punctuation.section.block.end.apex</string>
-						</dict>
-					</dict>
+					<string>}|(?=;|\))</string>
 					<key>patterns</key>
 					<array>
 						<dict>
@@ -394,14 +208,6 @@
 						<dict>
 							<key>begin</key>
 							<string>{</string>
-							<key>beginCaptures</key>
-							<dict>
-								<key>0</key>
-								<dict>
-									<key>name</key>
-									<string>punctuation.section.block.begin.apex</string>
-								</dict>
-							</dict>
 							<key>end</key>
 							<string>(?=})</string>
 							<key>patterns</key>
@@ -433,7 +239,7 @@
 								<key>1</key>
 								<dict>
 									<key>name</key>
-									<string>storage.type.apex</string>
+									<string>storage.type.java</string>
 								</dict>
 							</dict>
 							<key>end</key>
@@ -451,26 +257,10 @@
 				<dict>
 					<key>begin</key>
 					<string>{</string>
-					<key>beginCaptures</key>
-					<dict>
-						<key>0</key>
-						<dict>
-							<key>name</key>
-							<string>punctuation.section.inner-class.begin.apex</string>
-						</dict>
-					</dict>
 					<key>end</key>
 					<string>}</string>
-					<key>endCaptures</key>
-					<dict>
-						<key>0</key>
-						<dict>
-							<key>name</key>
-							<string>punctuation.section.inner-class.end.apex</string>
-						</dict>
-					</dict>
 					<key>name</key>
-					<string>meta.inner-class.apex</string>
+					<string>meta.inner-class.java</string>
 					<key>patterns</key>
 					<array>
 						<dict>
@@ -493,20 +283,20 @@
 						<key>1</key>
 						<dict>
 							<key>name</key>
-							<string>keyword.control.assert.apex</string>
+							<string>keyword.control.assert.java</string>
 						</dict>
 					</dict>
 					<key>end</key>
 					<string>$</string>
 					<key>name</key>
-					<string>meta.declaration.assertion.apex</string>
+					<string>meta.declaration.assertion.java</string>
 					<key>patterns</key>
 					<array>
 						<dict>
 							<key>match</key>
 							<string>:</string>
 							<key>name</key>
-							<string>keyword.operator.assert.expression-seperator.apex</string>
+							<string>keyword.operator.assert.expression-seperator.java</string>
 						</dict>
 						<dict>
 							<key>include</key>
@@ -527,11 +317,11 @@
 				<key>0</key>
 				<dict>
 					<key>name</key>
-					<string>punctuation.section.class.end.apex</string>
+					<string>punctuation.section.class.end.java</string>
 				</dict>
 			</dict>
 			<key>name</key>
-			<string>meta.class.apex</string>
+			<string>meta.class.java</string>
 			<key>patterns</key>
 			<array>
 				<dict>
@@ -548,18 +338,18 @@
 						<key>1</key>
 						<dict>
 							<key>name</key>
-							<string>storage.modifier.apex</string>
+							<string>storage.modifier.java</string>
 						</dict>
 						<key>2</key>
 						<dict>
 							<key>name</key>
-							<string>entity.name.type.class.apex</string>
+							<string>entity.name.type.class.java</string>
 						</dict>
 					</dict>
 					<key>match</key>
 					<string>(class|(?:@)?interface|enum)\s+(\w+)</string>
 					<key>name</key>
-					<string>meta.class.identifier.apex</string>
+					<string>meta.class.identifier.java</string>
 				</dict>
 				<dict>
 					<key>begin</key>
@@ -569,13 +359,13 @@
 						<key>0</key>
 						<dict>
 							<key>name</key>
-							<string>storage.modifier.extends.apex</string>
+							<string>storage.modifier.extends.java</string>
 						</dict>
 					</dict>
 					<key>end</key>
 					<string>(?={|implements)</string>
 					<key>name</key>
-					<string>meta.definition.class.inherited.classes.apex</string>
+					<string>meta.definition.class.inherited.classes.java</string>
 					<key>patterns</key>
 					<array>
 						<dict>
@@ -596,13 +386,13 @@
 						<key>1</key>
 						<dict>
 							<key>name</key>
-							<string>storage.modifier.implements.apex</string>
+							<string>storage.modifier.implements.java</string>
 						</dict>
 					</dict>
 					<key>end</key>
 					<string>(?=\s*extends|\{)</string>
 					<key>name</key>
-					<string>meta.definition.class.implemented.interfaces.apex</string>
+					<string>meta.definition.class.implemented.interfaces.java</string>
 					<key>patterns</key>
 					<array>
 						<dict>
@@ -618,18 +408,10 @@
 				<dict>
 					<key>begin</key>
 					<string>{</string>
-					<key>beginCaptures</key>
-					<dict>
-						<key>0</key>
-						<dict>
-							<key>name</key>
-							<string>punctuation.section.class.begin.apex</string>
-						</dict>
-					</dict>
 					<key>end</key>
 					<string>(?=})</string>
 					<key>name</key>
-					<string>meta.class.body.apex</string>
+					<string>meta.class.body.java</string>
 					<key>patterns</key>
 					<array>
 						<dict>
@@ -658,10 +440,6 @@
 				</dict>
 				<dict>
 					<key>include</key>
-					<string>#variables</string>
-				</dict>
-				<dict>
-					<key>include</key>
 					<string>#methods</string>
 				</dict>
 				<dict>
@@ -684,10 +462,6 @@
 			<array>
 				<dict>
 					<key>include</key>
-					<string>#annotations</string>
-				</dict>
-				<dict>
-					<key>include</key>
 					<string>#comments</string>
 				</dict>
 				<dict>
@@ -697,24 +471,8 @@
 				<dict>
 					<key>begin</key>
 					<string>{</string>
-					<key>beginCaptures</key>
-					<dict>
-						<key>0</key>
-						<dict>
-							<key>name</key>
-							<string>punctuation.section.block.begin.apex</string>
-						</dict>
-					</dict>
 					<key>end</key>
 					<string>}</string>
-					<key>endCaptures</key>
-					<dict>
-						<key>0</key>
-						<dict>
-							<key>name</key>
-							<string>punctuation.section.block.end.apex</string>
-						</dict>
-					</dict>
 					<key>patterns</key>
 					<array>
 						<dict>
@@ -749,19 +507,11 @@
 				</dict>
 				<dict>
 					<key>include</key>
-					<string>#method-call</string>
-				</dict>
-				<dict>
-					<key>include</key>
 					<string>#strings</string>
 				</dict>
 				<dict>
 					<key>include</key>
 					<string>#all-types</string>
-				</dict>
-				<dict>
-					<key>include</key>
-					<string>#keyword.control.dml.apex</string>
 				</dict>
 			</array>
 		</dict>
@@ -775,17 +525,17 @@
 						<key>0</key>
 						<dict>
 							<key>name</key>
-							<string>punctuation.definition.comment.apex</string>
+							<string>punctuation.definition.comment.java</string>
 						</dict>
 					</dict>
 					<key>match</key>
 					<string>/\*\*/</string>
 					<key>name</key>
-					<string>comment.block.empty.apex</string>
+					<string>comment.block.empty.java</string>
 				</dict>
 				<dict>
 					<key>include</key>
-					<string>text.html.apexdoc</string>
+					<string>text.html.javadoc</string>
 				</dict>
 				<dict>
 					<key>include</key>
@@ -805,46 +555,30 @@
 						<key>0</key>
 						<dict>
 							<key>name</key>
-							<string>punctuation.definition.comment.apex</string>
+							<string>punctuation.definition.comment.java</string>
 						</dict>
 					</dict>
 					<key>end</key>
 					<string>\*/</string>
 					<key>name</key>
-					<string>comment.block.apex</string>
+					<string>comment.block.java</string>
 				</dict>
 				<dict>
-					<key>begin</key>
-					<string>(^[ \t]+)?(?=//)</string>
-					<key>beginCaptures</key>
+					<key>captures</key>
 					<dict>
 						<key>1</key>
 						<dict>
 							<key>name</key>
-							<string>punctuation.whitespace.comment.leading.apex</string>
+							<string>comment.line.double-slash.java</string>
+						</dict>
+						<key>2</key>
+						<dict>
+							<key>name</key>
+							<string>punctuation.definition.comment.java</string>
 						</dict>
 					</dict>
-					<key>end</key>
-					<string>(?!\G)</string>
-					<key>patterns</key>
-					<array>
-						<dict>
-							<key>begin</key>
-							<string>//</string>
-							<key>beginCaptures</key>
-							<dict>
-								<key>0</key>
-								<dict>
-									<key>name</key>
-									<string>punctuation.definition.comment.apex</string>
-								</dict>
-							</dict>
-							<key>end</key>
-							<string>\n</string>
-							<key>name</key>
-							<string>comment.line.double-slash.apex</string>
-						</dict>
-					</array>
+					<key>match</key>
+					<string>\s*((//).*$\n?)</string>
 				</dict>
 			</array>
 		</dict>
@@ -854,21 +588,21 @@
 			<array>
 				<dict>
 					<key>match</key>
-					<string>\b(true|false|null|select|from|where|limit|order by|like|in|not in|includes|excludes)\b</string>
+					<string>\b(true|false|null)\b</string>
 					<key>name</key>
-					<string>constant.language.apex</string>
+					<string>constant.language.java</string>
 				</dict>
 				<dict>
 					<key>match</key>
 					<string>\b(this|super)\b</string>
 					<key>name</key>
-					<string>variable.language.apex</string>
+					<string>variable.language.java</string>
 				</dict>
 				<dict>
 					<key>match</key>
 					<string>\b((0(x|X)[0-9a-fA-F]*)|(([0-9]+\.?[0-9]*)|(\.[0-9]+))((e|E)(\+|-)?[0-9]+)?)([LlFfUuDd]|UL|ul)?\b</string>
 					<key>name</key>
-					<string>constant.numeric.apex</string>
+					<string>constant.numeric.java</string>
 				</dict>
 				<dict>
 					<key>captures</key>
@@ -876,13 +610,13 @@
 						<key>1</key>
 						<dict>
 							<key>name</key>
-							<string>keyword.operator.dereference.apex</string>
+							<string>keyword.operator.dereference.java</string>
 						</dict>
 					</dict>
 					<key>match</key>
 					<string>(\.)?\b([A-Z][A-Z0-9_]+)(?!&lt;|\.class|\s*\w+\s*=)\b</string>
 					<key>name</key>
-					<string>constant.other.apex</string>
+					<string>constant.other.java</string>
 				</dict>
 			</array>
 		</dict>
@@ -902,13 +636,13 @@
 						<key>0</key>
 						<dict>
 							<key>name</key>
-							<string>constant.other.enum.apex</string>
+							<string>constant.other.enum.java</string>
 						</dict>
 					</dict>
 					<key>end</key>
 					<string>(?=,|;|})</string>
 					<key>name</key>
-					<string>meta.enum.apex</string>
+					<string>meta.enum.java</string>
 					<key>patterns</key>
 					<array>
 						<dict>
@@ -918,24 +652,8 @@
 						<dict>
 							<key>begin</key>
 							<string>{</string>
-							<key>beginCaptures</key>
-							<dict>
-								<key>0</key>
-								<dict>
-									<key>name</key>
-									<string>punctuation.section.enum.begin.apex</string>
-								</dict>
-							</dict>
 							<key>end</key>
 							<string>}</string>
-							<key>endCaptures</key>
-							<dict>
-								<key>0</key>
-								<dict>
-									<key>name</key>
-									<string>punctuation.section.enum.end.apex</string>
-								</dict>
-							</dict>
 							<key>patterns</key>
 							<array>
 								<dict>
@@ -956,159 +674,78 @@
 					<key>match</key>
 					<string>\b(try|catch|finally|throw)\b</string>
 					<key>name</key>
-					<string>keyword.control.catch-exception.apex</string>
+					<string>keyword.control.catch-exception.java</string>
 				</dict>
 				<dict>
 					<key>match</key>
 					<string>\?|:</string>
 					<key>name</key>
-					<string>keyword.control.ternary.apex</string>
+					<string>keyword.control.java</string>
 				</dict>
 				<dict>
 					<key>match</key>
 					<string>\b(return|break|case|continue|default|do|while|for|switch|if|else)\b</string>
 					<key>name</key>
-					<string>keyword.control.apex</string>
+					<string>keyword.control.java</string>
 				</dict>
 				<dict>
 					<key>match</key>
 					<string>\b(instanceof)\b</string>
 					<key>name</key>
-					<string>keyword.operator.apex</string>
+					<string>keyword.operator.java</string>
 				</dict>
 				<dict>
 					<key>match</key>
-					<string>(&lt;&lt;|&gt;&gt;&gt;?|~|\^)</string>
+					<string>(==|!=|&lt;=|&gt;=|&lt;&gt;|&lt;|&gt;)</string>
 					<key>name</key>
-					<string>keyword.operator.bitwise.apex</string>
-				</dict>
-				<dict>
-					<key>match</key>
-					<string>((&amp;|\^|\||&lt;&lt;|&gt;&gt;&gt;?)=)</string>
-					<key>name</key>
-					<string>keyword.operator.assignment.bitwise.apex</string>
-				</dict>
-				<dict>
-					<key>match</key>
-					<string>(===?|!=|&lt;=|&gt;=|&lt;&gt;|&lt;|&gt;)</string>
-					<key>name</key>
-					<string>keyword.operator.comparison.apex</string>
-				</dict>
-				<dict>
-					<key>match</key>
-					<string>([+*/%-]=)</string>
-					<key>name</key>
-					<string>keyword.operator.assignment.arithmetic.apex</string>
+					<string>keyword.operator.comparison.java</string>
 				</dict>
 				<dict>
 					<key>match</key>
 					<string>(=)</string>
 					<key>name</key>
-					<string>keyword.operator.assignment.apex</string>
+					<string>keyword.operator.assignment.java</string>
 				</dict>
 				<dict>
 					<key>match</key>
 					<string>(\-\-|\+\+)</string>
 					<key>name</key>
-					<string>keyword.operator.increment-decrement.apex</string>
+					<string>keyword.operator.increment-decrement.java</string>
 				</dict>
 				<dict>
 					<key>match</key>
 					<string>(\-|\+|\*|\/|%)</string>
 					<key>name</key>
-					<string>keyword.operator.arithmetic.apex</string>
+					<string>keyword.operator.arithmetic.java</string>
 				</dict>
 				<dict>
 					<key>match</key>
 					<string>(!|&amp;&amp;|\|\|)</string>
 					<key>name</key>
-					<string>keyword.operator.logical.apex</string>
-				</dict>
-				<dict>
-					<key>match</key>
-					<string>(\||&amp;)</string>
-					<key>name</key>
-					<string>keyword.operator.bitwise.apex</string>
+					<string>keyword.operator.logical.java</string>
 				</dict>
 				<dict>
 					<key>match</key>
 					<string>(?&lt;=\S)\.(?=\S)</string>
 					<key>name</key>
-					<string>keyword.operator.dereference.apex</string>
+					<string>keyword.operator.dereference.java</string>
 				</dict>
 				<dict>
 					<key>match</key>
 					<string>;</string>
 					<key>name</key>
-					<string>punctuation.terminator.apex</string>
-				</dict>
-				<dict>
-					<key>match</key>
-					<string>\b(?i:insert|update|delete|upsert)\b</string>
-					<key>name</key>
-					<string>keyword.control.dml.apex</string>
-				</dict>
-			</array>
-		</dict>
-		<key>method-call</key>
-		<dict>
-			<key>begin</key>
-			<string>([\w$]+)(\()</string>
-			<key>beginCaptures</key>
-			<dict>
-				<key>1</key>
-				<dict>
-					<key>name</key>
-					<string>meta.method.apex</string>
-				</dict>
-				<key>2</key>
-				<dict>
-					<key>name</key>
-					<string>punctuation.definition.method-parameters.begin.apex</string>
-				</dict>
-			</dict>
-			<key>end</key>
-			<string>\)</string>
-			<key>endCaptures</key>
-			<dict>
-				<key>0</key>
-				<dict>
-					<key>name</key>
-					<string>punctuation.definition.method-parameters.end.apex</string>
-				</dict>
-			</dict>
-			<key>name</key>
-			<string>meta.method-call.apex</string>
-			<key>patterns</key>
-			<array>
-				<dict>
-					<key>match</key>
-					<string>,</string>
-					<key>name</key>
-					<string>punctuation.definition.seperator.parameter.apex</string>
-				</dict>
-				<dict>
-					<key>include</key>
-					<string>#code</string>
+					<string>punctuation.terminator.java</string>
 				</dict>
 			</array>
 		</dict>
 		<key>methods</key>
 		<dict>
 			<key>begin</key>
-			<string>(?!new)(?=[\w&lt;].*\s+)(?=([^=/]|/(?!/))+\()</string>
+			<string>(?!new)(?=\w.*\s+)(?=[^=]+\()</string>
 			<key>end</key>
-			<string>(})|(?=;)</string>
-			<key>endCaptures</key>
-			<dict>
-				<key>1</key>
-				<dict>
-					<key>name</key>
-					<string>punctuation.section.method.end.apex</string>
-				</dict>
-			</dict>
+			<string>}|(?=;)</string>
 			<key>name</key>
-			<string>meta.method.apex</string>
+			<string>meta.method.java</string>
 			<key>patterns</key>
 			<array>
 				<dict>
@@ -1123,13 +760,13 @@
 						<key>1</key>
 						<dict>
 							<key>name</key>
-							<string>entity.name.function.apex</string>
+							<string>entity.name.function.java</string>
 						</dict>
 					</dict>
 					<key>end</key>
 					<string>\)</string>
 					<key>name</key>
-					<string>meta.method.identifier.apex</string>
+					<string>meta.method.identifier.java</string>
 					<key>patterns</key>
 					<array>
 						<dict>
@@ -1140,36 +777,11 @@
 				</dict>
 				<dict>
 					<key>begin</key>
-					<string>&lt;</string>
-					<key>end</key>
-					<string>&gt;</string>
-					<key>name</key>
-					<string>storage.type.token.apex</string>
-					<key>patterns</key>
-					<array>
-						<dict>
-							<key>include</key>
-							<string>#object-types</string>
-						</dict>
-						<dict>
-							<key>begin</key>
-							<string>&lt;</string>
-							<key>comment</key>
-							<string>This is just to support &lt;&gt;'s with no actual type prefix</string>
-							<key>end</key>
-							<string>&gt;|[^\w\s,\[\]&lt;]</string>
-							<key>name</key>
-							<string>storage.type.generic.apex</string>
-						</dict>
-					</array>
-				</dict>
-				<dict>
-					<key>begin</key>
 					<string>(?=\w.*\s+\w+\s*\()</string>
 					<key>end</key>
 					<string>(?=\w+\s*\()</string>
 					<key>name</key>
-					<string>meta.method.return-type.apex</string>
+					<string>meta.method.return-type.java</string>
 					<key>patterns</key>
 					<array>
 						<dict>
@@ -1185,18 +797,10 @@
 				<dict>
 					<key>begin</key>
 					<string>{</string>
-					<key>beginCaptures</key>
-					<dict>
-						<key>0</key>
-						<dict>
-							<key>name</key>
-							<string>punctuation.section.method.begin.apex</string>
-						</dict>
-					</dict>
 					<key>end</key>
 					<string>(?=})</string>
 					<key>name</key>
-					<string>meta.method.body.apex</string>
+					<string>meta.method.body.java</string>
 					<key>patterns</key>
 					<array>
 						<dict>
@@ -1204,10 +808,6 @@
 							<string>#code</string>
 						</dict>
 					</array>
-				</dict>
-				<dict>
-					<key>include</key>
-					<string>#comments</string>
 				</dict>
 			</array>
 		</dict>
@@ -1221,7 +821,7 @@
 					<key>end</key>
 					<string>&gt;|[^\w\s,\?&lt;\[\]]</string>
 					<key>name</key>
-					<string>storage.type.generic.apex</string>
+					<string>storage.type.generic.java</string>
 					<key>patterns</key>
 					<array>
 						<dict>
@@ -1236,7 +836,7 @@
 							<key>end</key>
 							<string>&gt;|[^\w\s,\[\]&lt;]</string>
 							<key>name</key>
-							<string>storage.type.generic.apex</string>
+							<string>storage.type.generic.java</string>
 						</dict>
 					</array>
 				</dict>
@@ -1246,7 +846,7 @@
 					<key>end</key>
 					<string>(?=[^\]\s])</string>
 					<key>name</key>
-					<string>storage.type.object.array.apex</string>
+					<string>storage.type.object.array.java</string>
 					<key>patterns</key>
 					<array>
 						<dict>
@@ -1270,13 +870,13 @@
 						<key>1</key>
 						<dict>
 							<key>name</key>
-							<string>keyword.operator.dereference.apex</string>
+							<string>keyword.operator.dereference.java</string>
 						</dict>
 					</dict>
 					<key>match</key>
 					<string>\b(?:[a-z]\w*(\.))*[A-Z]+\w*\b</string>
 					<key>name</key>
-					<string>storage.type.apex</string>
+					<string>storage.type.java</string>
 				</dict>
 			</array>
 		</dict>
@@ -1290,7 +890,7 @@
 					<key>end</key>
 					<string>&gt;|[^\w\s,&lt;]</string>
 					<key>name</key>
-					<string>entity.other.inherited-class.apex</string>
+					<string>entity.other.inherited-class.java</string>
 					<key>patterns</key>
 					<array>
 						<dict>
@@ -1305,7 +905,7 @@
 							<key>end</key>
 							<string>&gt;|[^\w\s,&lt;]</string>
 							<key>name</key>
-							<string>storage.type.generic.apex</string>
+							<string>storage.type.generic.java</string>
 						</dict>
 					</array>
 				</dict>
@@ -1315,13 +915,13 @@
 						<key>1</key>
 						<dict>
 							<key>name</key>
-							<string>keyword.operator.dereference.apex</string>
+							<string>keyword.operator.dereference.java</string>
 						</dict>
 					</dict>
 					<key>match</key>
 					<string>\b(?:[a-z]\w*(\.))*[A-Z]+\w*</string>
 					<key>name</key>
-					<string>entity.other.inherited-class.apex</string>
+					<string>entity.other.inherited-class.java</string>
 				</dict>
 			</array>
 		</dict>
@@ -1333,11 +933,7 @@
 					<key>match</key>
 					<string>final</string>
 					<key>name</key>
-					<string>storage.modifier.apex</string>
-				</dict>
-				<dict>
-					<key>include</key>
-					<string>#annotations</string>
+					<string>storage.modifier.java</string>
 				</dict>
 				<dict>
 					<key>include</key>
@@ -1355,7 +951,7 @@
 					<key>match</key>
 					<string>\w+</string>
 					<key>name</key>
-					<string>variable.parameter.apex</string>
+					<string>variable.parameter.java</string>
 				</dict>
 			</array>
 		</dict>
@@ -1379,9 +975,9 @@
 			<array>
 				<dict>
 					<key>match</key>
-					<string>\b(?:void|long|double|blob|date|datetime|decimal|id|integer|Object|string)(\[\])*\b</string>
+					<string>\b(?:void|boolean|byte|char|short|int|float|long|double)(\[\])*\b</string>
 					<key>name</key>
-					<string>storage.type.primitive.array.apex</string>
+					<string>storage.type.primitive.array.java</string>
 				</dict>
 			</array>
 		</dict>
@@ -1391,9 +987,9 @@
 			<array>
 				<dict>
 					<key>match</key>
-					<string>\b(?:void|long|double|blob|date|datetime|decimal|id|integer|Object|string)\b</string>
+					<string>\b(?:void|boolean|byte|char|short|int|float|long|double)\b</string>
 					<key>name</key>
-					<string>storage.type.primitive.apex</string>
+					<string>storage.type.primitive.java</string>
 				</dict>
 			</array>
 		</dict>
@@ -1404,11 +1000,11 @@
 				<key>1</key>
 				<dict>
 					<key>name</key>
-					<string>storage.modifier.apex</string>
+					<string>storage.modifier.java</string>
 				</dict>
 			</dict>
 			<key>match</key>
-			<string>\b(global|public|private|protected|static|final|native|synchronized|abstract|threadsafe|transient)\b</string>
+			<string>\b(public|private|protected|static|final|native|synchronized|abstract|threadsafe|transient|global|with sharing|without sharing)\b</string>
 		</dict>
 		<key>strings</key>
 		<dict>
@@ -1422,7 +1018,7 @@
 						<key>0</key>
 						<dict>
 							<key>name</key>
-							<string>punctuation.definition.string.begin.apex</string>
+							<string>punctuation.definition.string.begin.java</string>
 						</dict>
 					</dict>
 					<key>end</key>
@@ -1432,18 +1028,18 @@
 						<key>0</key>
 						<dict>
 							<key>name</key>
-							<string>punctuation.definition.string.end.apex</string>
+							<string>punctuation.definition.string.end.java</string>
 						</dict>
 					</dict>
 					<key>name</key>
-					<string>string.quoted.double.apex</string>
+					<string>string.quoted.double.java</string>
 					<key>patterns</key>
 					<array>
 						<dict>
 							<key>match</key>
 							<string>\\.</string>
 							<key>name</key>
-							<string>constant.character.escape.apex</string>
+							<string>constant.character.escape.java</string>
 						</dict>
 					</array>
 				</dict>
@@ -1455,7 +1051,7 @@
 						<key>0</key>
 						<dict>
 							<key>name</key>
-							<string>punctuation.definition.string.begin.apex</string>
+							<string>punctuation.definition.string.begin.java</string>
 						</dict>
 					</dict>
 					<key>end</key>
@@ -1465,29 +1061,22 @@
 						<key>0</key>
 						<dict>
 							<key>name</key>
-							<string>punctuation.definition.string.end.apex</string>
+							<string>punctuation.definition.string.end.java</string>
 						</dict>
 					</dict>
 					<key>name</key>
-					<string>string.quoted.single.apex</string>
+					<string>string.quoted.single.java</string>
 					<key>patterns</key>
 					<array>
 						<dict>
 							<key>match</key>
 							<string>\\.</string>
 							<key>name</key>
-							<string>constant.character.escape.apex</string>
+							<string>constant.character.escape.java</string>
 						</dict>
 					</array>
 				</dict>
 			</array>
-		</dict>
-		<key>support-type-built-ins-apex</key>
-		<dict>
-			<key>match</key>
-			<string>\b(?i:integer|string|void|double|boolean|date|datetime|id)\b</string>
-			<key>name</key>
-			<string>support.type.built-ins.apex</string>
 		</dict>
 		<key>throws</key>
 		<dict>
@@ -1498,13 +1087,13 @@
 				<key>0</key>
 				<dict>
 					<key>name</key>
-					<string>storage.modifier.apex</string>
+					<string>storage.modifier.java</string>
 				</dict>
 			</dict>
 			<key>end</key>
 			<string>(?={|;)</string>
 			<key>name</key>
-			<string>meta.throwables.apex</string>
+			<string>meta.throwables.java</string>
 			<key>patterns</key>
 			<array>
 				<dict>
@@ -1531,107 +1120,10 @@
 				</dict>
 			</array>
 		</dict>
-		<key>variables</key>
-		<dict>
-			<key>applyEndPatternLast</key>
-			<integer>1</integer>
-			<key>patterns</key>
-			<array>
-				<dict>
-					<key>begin</key>
-					<string>(?x:(?=
-                        (?:
-                            (?:private|protected|public|global|native|synchronized|abstract|threadsafe|transient|static|final) # visibility/modifier
-                                |
-                            (?:def)
-                                |
-                            (?:void|boolean|byte|char|short|int|float|long|double)
-                                |
-                            (?:(?:[a-z]\w*\.)*[A-Z]+\w*) # object type
-                        )
-                        \s+
-                        (?!private|protected|public|global|native|synchronized|abstract|threadsafe|transient|static|final|def|void|boolean|byte|char|short|int|float|long|double)
-                        [\w\d_&lt;&gt;\[\],\?][\w\d_&lt;&gt;\[\],\? \t]*
-                        (?:=|$)
-
-					))</string>
-					<key>end</key>
-					<string>(?=;)</string>
-					<key>name</key>
-					<string>meta.definition.variable.apex</string>
-					<key>patterns</key>
-					<array>
-						<dict>
-							<key>match</key>
-							<string>\s</string>
-						</dict>
-						<dict>
-							<key>captures</key>
-							<dict>
-								<key>1</key>
-								<dict>
-									<key>name</key>
-									<string>constant.variable.apex</string>
-								</dict>
-							</dict>
-							<key>match</key>
-							<string>([A-Z_0-9]+)\s+(?=\=)</string>
-						</dict>
-						<dict>
-							<key>captures</key>
-							<dict>
-								<key>1</key>
-								<dict>
-									<key>name</key>
-									<string>meta.definition.variable.name.apex</string>
-								</dict>
-							</dict>
-							<key>match</key>
-							<string>(\w[^\s,]*)\s+(?=\=)</string>
-						</dict>
-						<dict>
-							<key>begin</key>
-							<string>=</string>
-							<key>beginCaptures</key>
-							<dict>
-								<key>0</key>
-								<dict>
-									<key>name</key>
-									<string>keyword.operator.assignment.apex</string>
-								</dict>
-							</dict>
-							<key>end</key>
-							<string>(?=;)</string>
-							<key>patterns</key>
-							<array>
-								<dict>
-									<key>include</key>
-									<string>#code</string>
-								</dict>
-							</array>
-						</dict>
-						<dict>
-							<key>captures</key>
-							<dict>
-								<key>1</key>
-								<dict>
-									<key>name</key>
-									<string>meta.definition.variable.name.apex</string>
-								</dict>
-							</dict>
-							<key>match</key>
-							<string>(\w[^\s=]*)(?=\s*;)</string>
-						</dict>
-						<dict>
-							<key>include</key>
-							<string>#code</string>
-						</dict>
-					</array>
-				</dict>
-			</array>
-		</dict>
 	</dict>
 	<key>scopeName</key>
 	<string>source.apex</string>
+	<key>uuid</key>
+	<string>2B449DF6-6B1D-11D9-94EC-000D93589AF6</string>
 </dict>
 </plist>
