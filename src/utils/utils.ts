@@ -109,7 +109,7 @@ export function choosePackageXml(): Promise<string> {
             });
           });
 
-          packages.sort((a, b) => { // Sort package.xml ordering according to their path alphabetically.
+          packages = packages.sort((a, b) => { // Sort package.xml ordering according to their path alphabetically.
             return a.detail.localeCompare(b.detail);
           });
 

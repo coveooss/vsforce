@@ -91,9 +91,6 @@ export class DeployPackageCommand implements ICommand {
         this.diags.clear();
         this.handleDeployResponse(result);
       })
-      .catch((e: any) => {
-        console.log(e);
-      })
       .catch((reason: string) => {
         if (reason) {
           vscode.window.showErrorMessage(reason, { title: 'Show output', action: 'SHOW_OUTPUT' }).then((m) => {
