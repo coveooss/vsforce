@@ -15,7 +15,7 @@ enum DeployStatus {
   Canceled
 }
 
-export interface componentSuccess {
+export interface IComponentSuccess {
   changed: string;
   componentType?: string;
   created: string;
@@ -27,7 +27,7 @@ export interface componentSuccess {
   success: string;
 }
 
-export interface componentFailure {
+export interface IComponentFailure {
   changed: string;
   columnNumber?: string;
   componentType: string;
@@ -134,7 +134,7 @@ export class DeployPackageCommand implements ICommand {
     if (response.details.componentSuccesses) {
       // Salesforce doesn't send an array of just 1 element...
       let successes = utils.asArray(response.details.componentSuccesses);
-      successes.forEach((success: componentSuccess) => {
+      successes.forEach((success: IComponentSuccess) => {
         // Print successes messages to the output.
         this.printSuccess(success);
       });
@@ -144,7 +144,7 @@ export class DeployPackageCommand implements ICommand {
       // Salesforce doesn't send an array of just 1 element...
       let failures = utils.asArray(response.details.componentFailures);
       let failsDiags: { [key: string]: vscode.Diagnostic[] } = {};
-      failures.forEach((fail: componentFailure) => {
+      failures.forEach((fail: IComponentFailure) => {
         let diag = this.printFailure(fail); // Print failures messages to the output.
         let uri = vscode.Uri.file(`${this.root.fsPath}${vscode.Uri.parse(fail.fileName.replace('pkg/', '')).fsPath}`);
         if (!failsDiags[uri.fsPath]) {
@@ -158,13 +158,13 @@ export class DeployPackageCommand implements ICommand {
     }
   }
 
-  private printSuccess(s: componentSuccess) {
+  private printSuccess(s: IComponentSuccess) {
     if (s.fullName !== "package.xml") {
       this.output.appendLine(`Deployed ${s.componentType} => ${s.fullName}`);
     }
   }
 
-  private printFailure(f: componentFailure): vscode.Diagnostic {
+  private printFailure(f: IComponentFailure): vscode.Diagnostic {
     this.output.appendLine(`${f.problemType} with ${f.fullName}
     \t problem: ${f.problem}
     \t componentType: ${f.componentType}`);
