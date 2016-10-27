@@ -103,7 +103,6 @@ export class DeploypackageCommand implements ICommand {
           });
         }
       });
-
   }
 
   private handleDeployResponse(response: any) {
@@ -175,7 +174,7 @@ export class DeploypackageCommand implements ICommand {
     let diagSev = (f.problemType === "Warning" ? vscode.DiagnosticSeverity.Warning : vscode.DiagnosticSeverity.Error);
     let range = new vscode.Range(0, 0, 0, 0);
     if (f.lineNumber) {
-      range = new vscode.Range(parseInt(f.lineNumber)-1, parseInt(f.columnNumber)-1, parseInt(f.lineNumber)-1, parseInt(f.columnNumber)-1);
+      range = new vscode.Range(parseInt(f.lineNumber) - 1, parseInt(f.columnNumber) - 1, parseInt(f.lineNumber) - 1, parseInt(f.columnNumber) - 1);
       this.output.appendLine(`\t at (line, col) : (${f.lineNumber}, ${f.columnNumber}) `)
     }
     return new vscode.Diagnostic(range, `${f.fullName} : ${f.problem}`, diagSev);
