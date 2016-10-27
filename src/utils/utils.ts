@@ -109,6 +109,10 @@ export function choosePackageXml(): Promise<string> {
             });
           });
 
+          packages.sort((a, b) => { // Sort package.xml ordering according to their path alphabetically.
+            return a.detail.localeCompare(b.detail);
+          });
+
           vscode.window.showQuickPick(packages).then((selected) => {  // Show a selection of the existing package.xml
             if (selected) {
               resolve(selected.detail); // Resolve with the selected value
