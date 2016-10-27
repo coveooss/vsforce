@@ -46,7 +46,7 @@ export interface componentFailure {
  *
  * Deploy Salesforce components defined in our package.xml
  */
-export class DeploypackageCommand implements ICommand {
+export class DeployPackageCommand implements ICommand {
   // Connection handle through Salesforce
   private conn: Connection = new Connection();
   private output: vscode.OutputChannel;
@@ -91,9 +91,6 @@ export class DeploypackageCommand implements ICommand {
         this.diags.clear();
         this.handleDeployResponse(result);
       })
-      .catch((e: any) => {
-        console.log(e);
-      })
       .catch((reason: string) => {
         if (reason) {
           vscode.window.showErrorMessage(reason, { title: 'Show output', action: 'SHOW_OUTPUT' }).then((m) => {
@@ -106,7 +103,7 @@ export class DeploypackageCommand implements ICommand {
   }
 
   private handleDeployResponse(response: any) {
-    this.output.appendLine('Deploy package completed');
+    this.output.appendLine('Package deployed');
     this.output.appendLine(`Status: ${response.status}`);
     this.output.appendLine('============================\n');
 
@@ -124,7 +121,7 @@ export class DeploypackageCommand implements ICommand {
         break;
     }
 
-    vscode.window.showInformationMessage(`Deployment of package ${response.status}`, { title: 'Show output', action: 'SHOW_OUTPUT' })
+    vscode.window.showInformationMessage(`Package deploy status: ${response.status}`, { title: 'Show output', action: 'SHOW_OUTPUT' })
       .then((m: any) => {
         if (m && m.action === 'SHOW_OUTPUT') {
           this.output.show();
