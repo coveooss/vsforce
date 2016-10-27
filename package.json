@@ -40,7 +40,7 @@
         "onCommand:vsforce.retrieveCommand",
         "onCommand:vsforce.contextualQuery",
         "onCommand:vsforce.executeCode",
-        "onCommand:vsforce.deploypackageCommand",
+        "onCommand:vsforce.deployPackageCommand",
         "onCommand:vsforce.diff",
         "onLanguage:apex",
         "onLanguage:visualforce"
@@ -60,7 +60,7 @@
                 "title": "vsforce: Retrieve Package"
             },
             {
-                "command": "vsforce.deploypackageCommand",
+                "command": "vsforce.deployPackageCommand",
                 "title": "vsforce: Deploy Package"
             },
             {

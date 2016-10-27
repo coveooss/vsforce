@@ -11,7 +11,7 @@ import {VisualforceWorkspaceSymbolProvider} from './providers/visualforceWorkspa
 import {ShowLogsCommand} from './commands/showLogsCommand';
 import {ShowDiffCommand} from './commands/showDiffCommand';
 import {RetrieveCommand} from './commands/retrieveCommand';
-import {DeploypackageCommand} from './commands/deploypackageCommand';
+import {DeployPackageCommand} from './commands/DeployPackageCommand';
 import {SOQLCommand} from './commands/soqlCommand';
 import {PushFileToSalesforceCommand} from './commands/pushFileToSalesforceCommand';
 
@@ -25,7 +25,7 @@ export function activate(context: vscode.ExtensionContext) {
   let showDiffCommand = new ShowDiffCommand();
   let pushFileToSalesforceCommand = new PushFileToSalesforceCommand();
   let retrieveCommand = new RetrieveCommand();
-  let deploypackageCommand = new DeploypackageCommand();
+  let deployPackageCommand = new DeployPackageCommand();
   let soqlCommand = new SOQLCommand();
 
   Config.getInstance().on("change", () => {
@@ -40,7 +40,7 @@ export function activate(context: vscode.ExtensionContext) {
     vscode.languages.registerWorkspaceSymbolProvider(new VisualforceWorkspaceSymbolProvider()),
 
     vscode.commands.registerCommand('vsforce.retrieveCommand', () => retrieveCommand.Execute()),
-    vscode.commands.registerCommand('vsforce.deploypackageCommand', () => deploypackageCommand.Execute()),
+    vscode.commands.registerCommand('vsforce.deployPackageCommand', () => deployPackageCommand.Execute()),
     vscode.commands.registerCommand('vsforce.showLogs', () => showLogsCommand.Execute()),
     vscode.commands.registerCommand('vsforce.diff', (uri) => showDiffCommand.Execute(uri)),
     vscode.commands.registerCommand('vsforce.executeSOQLQuery', () => soqlCommand.Execute()),
