@@ -133,23 +133,6 @@ export class DeploypackageCommand implements ICommand {
       });
   }
 
-  private handleDeploySucceeded(response: any) {
-    let successes = utils.asArray(response.details.componentSuccesses);
-    successes.forEach((success: componentSuccess) => {
-      this.printSuccess(success);
-    })
-  }
-
-  private handleDeployFailed(response: any) {
-
-    let failures = utils.asArray(response.details.componentFailures);
-    failures.forEach((fail: componentFailure) => {
-      let diag = this.printFailure(fail);
-      let uri = vscode.Uri.file("test");
-      this.diags.set(uri, [diag]); // TODO: find the file...
-    });
-  }
-
   private displayDeployResponse(response: any) {
 
     if (response.details.componentSuccesses) {
