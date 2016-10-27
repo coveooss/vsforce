@@ -2,8 +2,8 @@
     "name": "vsforce",
     "displayName": "vsforce",
     "description": "Salesforce APEX support for VScode ",
-    "version": "0.0.1",
-    "publisher": "Coveo",
+    "version": "0.1.2",
+    "publisher": "coveo",
     "keywords": [
         "salesforce",
         "apex",
@@ -16,12 +16,11 @@
     },
     "categories": [
         "Other",
-        "Languages",
-        "Productivity"
+        "Languages"
     ],
     "icon": "doc/icon.png",
     "galleryBanner": {
-        "color": "#ffffff",
+        "color": "#cccccc",
         "theme": "light"
     },
     "test": "node ./node_modules/vscode/bin/test",
