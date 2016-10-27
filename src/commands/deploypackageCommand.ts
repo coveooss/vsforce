@@ -5,42 +5,6 @@ import * as utils from '../utils/utils';
 import * as vscode from 'vscode';
 import {StatusBarUtil} from '../utils/statusBarUtil';
 
-enum DeployStatus {
-  Pending,
-  InProgress,
-  Succeeded,
-  SucceededPartial,
-  Failed,
-  Canceling,
-  Canceled
-}
-
-export interface IComponentSuccess {
-  changed: string;
-  componentType?: string;
-  created: string;
-  createdDate: string;
-  deleted: string;
-  fileName: string;
-  fullName: string;
-  id: string;
-  success: string;
-}
-
-export interface IComponentFailure {
-  changed: string;
-  columnNumber?: string;
-  componentType: string;
-  created: string;
-  deleted: string;
-  fileName: string;
-  fullName: string;
-  lineNumber?: string;
-  problem: string;
-  problemType: string;
-  success: string;
-}
-
 /**
  * Deploy command class.
  *
@@ -176,4 +140,41 @@ export class DeployPackageCommand implements ICommand {
     }
     return new vscode.Diagnostic(range, `${f.fullName} : ${f.problem}`, diagSev);
   }
+}
+
+
+enum DeployStatus {
+  Pending,
+  InProgress,
+  Succeeded,
+  SucceededPartial,
+  Failed,
+  Canceling,
+  Canceled
+}
+
+export interface IComponentSuccess {
+  changed: string;
+  componentType?: string;
+  created: string;
+  createdDate: string;
+  deleted: string;
+  fileName: string;
+  fullName: string;
+  id: string;
+  success: string;
+}
+
+export interface IComponentFailure {
+  changed: string;
+  columnNumber?: string;
+  componentType: string;
+  created: string;
+  deleted: string;
+  fileName: string;
+  fullName: string;
+  lineNumber?: string;
+  problem: string;
+  problemType: string;
+  success: string;
 }
