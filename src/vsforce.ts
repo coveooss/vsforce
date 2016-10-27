@@ -11,7 +11,7 @@ import {VisualforceWorkspaceSymbolProvider} from './providers/visualforceWorkspa
 import {ShowLogsCommand} from './commands/showLogsCommand';
 import {ShowDiffCommand} from './commands/showDiffCommand';
 import {RetrieveCommand} from './commands/retrieveCommand';
-import {DeployPackageCommand} from './commands/DeployPackageCommand';
+import {DeployPackageCommand} from './commands/deployPackageCommand';
 import {SOQLCommand} from './commands/soqlCommand';
 import {PushFileToSalesforceCommand} from './commands/pushFileToSalesforceCommand';
 
