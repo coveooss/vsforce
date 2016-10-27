@@ -15,7 +15,7 @@ enum DeployStatus {
   Canceled
 }
 
-export interface componentSuccess {
+export interface IComponentSuccess {
   changed: string;
   componentType?: string;
   created: string;
@@ -27,7 +27,7 @@ export interface componentSuccess {
   success: string;
 }
 
-export interface componentFailure {
+export interface IComponentFailure {
   changed: string;
   columnNumber?: string;
   componentType: string;
@@ -46,7 +46,7 @@ export interface componentFailure {
  *
  * Deploy Salesforce components defined in our package.xml
  */
-export class DeploypackageCommand implements ICommand {
+export class DeployPackageCommand implements ICommand {
   // Connection handle through Salesforce
   private conn: Connection = new Connection();
   private output: vscode.OutputChannel;
@@ -91,9 +91,6 @@ export class DeploypackageCommand implements ICommand {
         this.diags.clear();
         this.handleDeployResponse(result);
       })
-      .catch((e: any) => {
-        console.log(e);
-      })
       .catch((reason: string) => {
         if (reason) {
           vscode.window.showErrorMessage(reason, { title: 'Show output', action: 'SHOW_OUTPUT' }).then((m) => {
@@ -106,7 +103,7 @@ export class DeploypackageCommand implements ICommand {
   }
 
   private handleDeployResponse(response: any) {
-    this.output.appendLine('Deploy package completed');
+    this.output.appendLine('Package deployed');
     this.output.appendLine(`Status: ${response.status}`);
     this.output.appendLine('============================\n');
 
@@ -124,7 +121,7 @@ export class DeploypackageCommand implements ICommand {
         break;
     }
 
-    vscode.window.showInformationMessage(`Deployment of package ${response.status}`, { title: 'Show output', action: 'SHOW_OUTPUT' })
+    vscode.window.showInformationMessage(`Package deploy status: ${response.status}`, { title: 'Show output', action: 'SHOW_OUTPUT' })
       .then((m: any) => {
         if (m && m.action === 'SHOW_OUTPUT') {
           this.output.show();
@@ -137,7 +134,7 @@ export class DeploypackageCommand implements ICommand {
     if (response.details.componentSuccesses) {
       // Salesforce doesn't send an array of just 1 element...
       let successes = utils.asArray(response.details.componentSuccesses);
-      successes.forEach((success: componentSuccess) => {
+      successes.forEach((success: IComponentSuccess) => {
         // Print successes messages to the output.
         this.printSuccess(success);
       });
@@ -147,7 +144,7 @@ export class DeploypackageCommand implements ICommand {
       // Salesforce doesn't send an array of just 1 element...
       let failures = utils.asArray(response.details.componentFailures);
       let failsDiags: { [key: string]: vscode.Diagnostic[] } = {};
-      failures.forEach((fail: componentFailure) => {
+      failures.forEach((fail: IComponentFailure) => {
         let diag = this.printFailure(fail); // Print failures messages to the output.
         let uri = vscode.Uri.file(`${this.root.fsPath}${vscode.Uri.parse(fail.fileName.replace('pkg/', '')).fsPath}`);
         if (!failsDiags[uri.fsPath]) {
@@ -161,13 +158,13 @@ export class DeploypackageCommand implements ICommand {
     }
   }
 
-  private printSuccess(s: componentSuccess) {
+  private printSuccess(s: IComponentSuccess) {
     if (s.fullName !== "package.xml") {
       this.output.appendLine(`Deployed ${s.componentType} => ${s.fullName}`);
     }
   }
 
-  private printFailure(f: componentFailure): vscode.Diagnostic {
+  private printFailure(f: IComponentFailure): vscode.Diagnostic {
     this.output.appendLine(`${f.problemType} with ${f.fullName}
     \t problem: ${f.problem}
     \t componentType: ${f.componentType}`);
