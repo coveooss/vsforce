@@ -44,7 +44,7 @@ export class Config extends events.EventEmitter {
       Config.getInstance().loginUrl = organization.get<string>('loginUrl');
       Config.getInstance().username = organization.get<string>('username');
       Config.getInstance().password = organization.get<string>('password');
-      Config.getInstance().securityToken = organization.get<string>('securityToken') || "";
+      Config.getInstance().securityToken = organization.get<string>('securityToken');
       Config.getInstance().customNamespace = organization.get<string>('namespace');
       Config.getInstance().pushOnSave = options.get<boolean>('pushOnSave');
 

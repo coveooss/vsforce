@@ -8,7 +8,6 @@ branches:
     - develop
 
 os:
-  - osx
   - linux
 
 before_install:
