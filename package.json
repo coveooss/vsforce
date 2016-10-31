@@ -2,7 +2,7 @@
     "name": "vsforce",
     "displayName": "vsforce",
     "description": "Salesforce APEX support for VScode ",
-    "version": "0.1.2",
+    "version": "0.2.0",
     "publisher": "coveo",
     "keywords": [
         "salesforce",
