@@ -39,15 +39,14 @@
         "onCommand:vsforce.retrieveCommand",
         "onCommand:vsforce.contextualQuery",
         "onCommand:vsforce.executeCode",
-        "onCommand:vsforce.deploypackageCommand",
+        "onCommand:vsforce.deployPackageCommand",
         "onCommand:vsforce.diff",
         "onLanguage:apex",
         "onLanguage:visualforce"
     ],
     "main": "./out/src/vsforce",
     "contributes": {
-        "commands": [
-            {
+        "commands": [{
                 "command": "vsforce.executeSOQLQuery",
                 "title": "vsforce: Execute SOQL"
             },
@@ -60,7 +59,7 @@
                 "title": "vsforce: Retrieve Package"
             },
             {
-                "command": "vsforce.deploypackageCommand",
+                "command": "vsforce.deployPackageCommand",
                 "title": "vsforce: Deploy Package"
             },
             {
@@ -68,16 +67,13 @@
                 "title": "vsforce: Compare with Salesforce"
             }
         ],
-        "keybindings": [
-            {
-                "command": "vsforce.executeSOQLQuery",
-                "key": "ctrl+f5",
-                "mac": "cmd+shift+f5",
-                "when": "editorTextFocus"
-            }
-        ],
-        "languages": [
-            {
+        "keybindings": [{
+            "command": "vsforce.executeSOQLQuery",
+            "key": "ctrl+f5",
+            "mac": "cmd+shift+f5",
+            "when": "editorTextFocus"
+        }],
+        "languages": [{
                 "id": "apex",
                 "aliases": [
                     "Apex",
@@ -103,8 +99,7 @@
             }
         ],
         "menus": {
-            "explorer/context": [
-                {
+            "explorer/context": [{
                     "when": "resourceLangId == visualforce",
                     "command": "vsforce.diff",
                     "group": "navigation"
@@ -116,8 +111,7 @@
                 }
             ]
         },
-        "grammars": [
-            {
+        "grammars": [{
                 "language": "apex",
                 "scopeName": "source.apex",
                 "path": "./syntaxes/apex.tmLanguage"
@@ -143,7 +137,7 @@
                 },
                 "vsforce.organization.securityToken": {
                     "type": "string",
-                    "default": null,
+                    "default": "",
                     "description": "Your Salesforce organization user security token"
                 },
                 "vsforce.organization.loginUrl": {
@@ -168,7 +162,8 @@
         "vscode:prepublish": "tsc",
         "compile": "tsc",
         "postinstall": "node ./node_modules/vscode/bin/install",
-        "commit": "git add .; git cz"
+        "commit": "git add .; git cz",
+        "test": "node ./node_modules/vscode/bin/test"
     },
     "dependencies": {
         "archiver": "^1.1.0",
