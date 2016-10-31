@@ -127,12 +127,12 @@
             "properties": {
                 "vsforce.organization.username": {
                     "type": "string",
-                    "default": "",
+                    "default": null,
                     "description": "Your Salesforce organization username"
                 },
                 "vsforce.organization.password": {
                     "type": "string",
-                    "default": "",
+                    "default": null,
                     "description": "Your Salesforce organization password"
                 },
                 "vsforce.organization.securityToken": {
