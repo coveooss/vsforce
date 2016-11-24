@@ -154,6 +154,11 @@
                     "type": "boolean",
                     "default": false,
                     "description": "If we want to push local changes to Salesforce on save."
+                },
+                "vsforce.options.rollbackOnError": {
+                    "type": "boolean",
+                    "default": true,
+                    "description": "If we want a rollback on an error for the deploy (Must be true for production orgs)."
                 }
             }
         }
