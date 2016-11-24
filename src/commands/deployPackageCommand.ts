@@ -115,7 +115,6 @@ export class DeployPackageCommand implements ICommand {
     this.output.appendLine(`Status: ${response.status}`);
     this.output.appendLine('============================\n');
 
-    console.log(response);
     switch (response.status) {
       case DeployStatus[DeployStatus.Failed]: // Failed
       case DeployStatus[DeployStatus.Succeeded]: // Succeeded
