@@ -41,6 +41,14 @@ If needed (ex: when using a sandbox organization), you can also specify the `log
 }
 ```
 
+By default when deploying a package to your organization it is set to rollback on errors. If you want to disable this feature, add the following line to your configuration:
+
+```json
+{
+  "vsforce.organization.rollbackOnError": false,
+}
+```
+
 When properly configured, a message will appear in the status bar informing you that the extension is logged to your Salesforce organization.
 
 ## Using the commands
