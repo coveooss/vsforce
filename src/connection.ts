@@ -351,6 +351,8 @@ export class Connection {
           if (typeof options[prop] !== 'undefined') { deployOpts[prop] = options[prop]; }
         });
 
+        deployOpts.rollbackOnError = Config.getInstance().rollbackOnError;
+
         resolve(conn.jsforceConn.metadata.deploy(zipStream, deployOpts)
           .complete({ details: true }));
 

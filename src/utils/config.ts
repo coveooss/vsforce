@@ -10,6 +10,7 @@ export class Config extends events.EventEmitter {
   public securityToken: string;
   public customNamespace: string;
   public pushOnSave: boolean;
+  public rollbackOnError: boolean;
 
   public isValid: boolean;
 
@@ -47,6 +48,7 @@ export class Config extends events.EventEmitter {
       Config.getInstance().securityToken = organization.get<string>('securityToken');
       Config.getInstance().customNamespace = organization.get<string>('namespace');
       Config.getInstance().pushOnSave = options.get<boolean>('pushOnSave');
+      Config.getInstance().rollbackOnError = options.get<boolean>('rollbackOnError');
 
       Config.getInstance().isValid = true;
     } else {

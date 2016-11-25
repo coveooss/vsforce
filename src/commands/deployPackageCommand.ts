@@ -91,9 +91,17 @@ export class DeployPackageCommand implements ICommand {
         this.diags.clear();
         this.handleDeployResponse(result);
       })
-      .catch((reason: string) => {
-        if (reason) {
-          vscode.window.showErrorMessage(reason, { title: 'Show output', action: 'SHOW_OUTPUT' }).then((m) => {
+      .catch((ex: any) => {
+        let message: string;
+        message = `An error occured`;
+        if (ex) {
+          if (ex instanceof String) {
+            message = ex;
+            this.output.appendLine(ex);
+          } else {
+            this.output.appendLine(ex.toString());
+          }
+          vscode.window.showErrorMessage(message, { title: 'Show output', action: 'SHOW_OUTPUT' }).then((m) => {
             if (m.action && m.action === 'SHOW_OUTPUT') {
               this.output.show();
             }
@@ -107,7 +115,6 @@ export class DeployPackageCommand implements ICommand {
     this.output.appendLine(`Status: ${response.status}`);
     this.output.appendLine('============================\n');
 
-    console.log(response);
     switch (response.status) {
       case DeployStatus[DeployStatus.Failed]: // Failed
       case DeployStatus[DeployStatus.Succeeded]: // Succeeded
