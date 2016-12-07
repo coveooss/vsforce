@@ -138,6 +138,10 @@ export class DeployPackageCommand implements ICommand {
 
   private displayDeployResponse(response: any) {
 
+    if(response.errorMessage) {
+      this.output.appendLine(`Salesforce error: ${response.errorMessage}`);
+    }
+
     if (response.details.componentSuccesses) {
       // Salesforce doesn't send an array of just 1 element...
       let successes = utils.asArray(response.details.componentSuccesses);
