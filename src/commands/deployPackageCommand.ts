@@ -74,7 +74,7 @@ export class DeployPackageCommand implements ICommand {
     let deployPromise = utils.choosePackageXml() // Choose a package.xml file in the current workspace to deploy
       .then((path: string) => {
         if (path) {
-          this.output.appendLine('Packaging folder.');
+          this.logMessage('Packaging folder.');
           path = path.replace('package.xml', '');
           this.root = vscode.Uri.file(path);
           return utils.zipFolder(path);
@@ -82,7 +82,7 @@ export class DeployPackageCommand implements ICommand {
       })
       .then((zipBuffer: Buffer) => {
         StatusBarUtil.setLoading('Deploying package to Salesforce ...', deployPromise);
-        this.output.appendLine('Sending to Salesforce...');
+        this.logMessage('Sending to Salesforce...');
         return this.conn.deployPackage(zipBuffer, {});
       });
 
@@ -97,9 +97,9 @@ export class DeployPackageCommand implements ICommand {
         if (ex) {
           if (ex instanceof String) {
             message = ex;
-            this.output.appendLine(ex);
+            this.logMessage(ex);
           } else {
-            this.output.appendLine(ex.toString());
+            this.logMessage(ex.toString());
           }
           vscode.window.showErrorMessage(message, { title: 'Show output', action: 'SHOW_OUTPUT' }).then((m) => {
             if (m.action && m.action === 'SHOW_OUTPUT') {
@@ -111,9 +111,9 @@ export class DeployPackageCommand implements ICommand {
   }
 
   private handleDeployResponse(response: any) {
-    this.output.appendLine('Package deployed');
-    this.output.appendLine(`Status: ${response.status}`);
-    this.output.appendLine('============================\n');
+    this.logMessage('Package deployed');
+    this.logMessage(`Status: ${response.status}`);
+    this.logMessage('============================\n');
 
     switch (response.status) {
       case DeployStatus[DeployStatus.Failed]: // Failed
@@ -166,20 +166,27 @@ export class DeployPackageCommand implements ICommand {
 
   private printSuccess(s: IComponentSuccess) {
     if (s.fullName !== "package.xml") {
-      this.output.appendLine(`Deployed ${s.componentType} => ${s.fullName}`);
+      this.logMessage(`Deployed ${s.componentType} => ${s.fullName}`);
     }
   }
 
   private printFailure(f: IComponentFailure): vscode.Diagnostic {
-    this.output.appendLine(`${f.problemType} with ${f.fullName}
+    this.logMessage(`${f.problemType} with ${f.fullName}
     \t problem: ${f.problem}
     \t componentType: ${f.componentType}`);
     let diagSev = (f.problemType === "Warning" ? vscode.DiagnosticSeverity.Warning : vscode.DiagnosticSeverity.Error);
     let range = new vscode.Range(0, 0, 0, 0);
     if (f.lineNumber) {
       range = new vscode.Range(parseInt(f.lineNumber) - 1, parseInt(f.columnNumber) - 1, parseInt(f.lineNumber) - 1, parseInt(f.columnNumber) - 1);
-      this.output.appendLine(`\t at (line, col) : (${f.lineNumber}, ${f.columnNumber}) `)
+      this.logMessage(`\t at (line, col) : (${f.lineNumber}, ${f.columnNumber}) `)
     }
     return new vscode.Diagnostic(range, `${f.fullName} : ${f.problem}`, diagSev);
+  }
+
+  private logMessage(message: string) {
+    if (message) {
+      let dateString = new Date();
+      this.output.appendLine(`${dateString.toLocaleString()} : ${message}`);
+    }
   }
 }

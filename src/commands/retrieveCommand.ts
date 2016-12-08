@@ -36,7 +36,7 @@ export class RetrieveCommand implements ICommand {
 
     let retrievePromise = utils.choosePackageXml()
       .then((path: string) => { // Parsing the package.xml file to find what to retrieve
-        this.output.appendLine('Parsing package.xml file.');
+        this.logMessage('Parsing package.xml file.');
         this.retrieveTarget = path;
         return utils.parsePackageXML(path);
       })
@@ -48,7 +48,7 @@ export class RetrieveCommand implements ICommand {
           };
 
           StatusBarUtil.setLoading('Retrieve package from Salesforce ...', retrievePromise);
-          this.output.appendLine('Sending Retrieve Request to Salesforce...');
+          this.logMessage('Sending Retrieve Request to Salesforce...');
           return this.conn.retrievePackage(retrieveOptions);
         }
       });
@@ -59,7 +59,7 @@ export class RetrieveCommand implements ICommand {
       })
       .catch((reason: string) => {
         if (reason) {
-          this.output.append(`ERROR ${reason}`);
+          this.logMessage(`ERROR ${reason}`);
           vscode.window.showInformationMessage(`Error retrieving package`, { title: 'Show output', action: 'SHOW_OUTPUT' }).then((m: any) => {
             if (m && m.action === 'SHOW_OUTPUT') {
               this.output.show();
@@ -74,34 +74,34 @@ export class RetrieveCommand implements ICommand {
   }
 
   private handleSalesforceRetrieveResponse(response: any) {
-    this.output.appendLine('Retrieve request completed');
-    this.output.appendLine(`Status: ${response.status}`);
-    this.output.appendLine('============================\n');
+    this.logMessage('Retrieve request completed');
+    this.logMessage(`Status: ${response.status}`);
+    this.logMessage('============================\n');
 
     if (response && response.messages) { // If Salesforce returned messages.
       if (response.messages instanceof Array) { // Salesforce will return either an object or an array
         response.messages.forEach(message => {
-          this.output.appendLine(`${message.fileName} => ${message.problem}`);
+          this.logMessage(`${message.fileName} => ${message.problem}`);
         });
       } else {
-        this.output.appendLine(`${response.messages.fileName} => `);
-        this.output.appendLine(response.messages.problem);
+        this.logMessage(`${response.messages.fileName} => `);
+        this.logMessage(response.messages.problem);
       }
     }
 
     if (response && response.success) {
-      this.output.appendLine('Extracting response from Salesforce');
+      this.logMessage('Extracting response from Salesforce');
       // Salesforce returns a zip in a base64 encoded string so we need to parse it
       utils.extractZipFromBase64String(response.zipFile, this.retrieveTarget.replace('package.xml', ''))
         .then((data) => {
-          this.output.append('Package retrieved \n');
+          this.logMessage('Package retrieved \n');
           vscode.window.showInformationMessage(`Package retrieved`, { title: 'Show output', action: 'SHOW_OUTPUT' }).then((m: any) => {
             if (m && m.action === 'SHOW_OUTPUT') {
               this.output.show();
             }
           });
         }, (reason) => {
-          this.output.append(`ERROR ${reason}`);
+          this.logMessage(`ERROR ${reason}`);
           vscode.window.showInformationMessage(`Error retrieving package`, { title: 'Show output', action: 'SHOW_OUTPUT' }).then((m: any) => {
             if (m && m.action === 'SHOW_OUTPUT') {
               this.output.show();
@@ -109,7 +109,14 @@ export class RetrieveCommand implements ICommand {
           });
         });
     } else { // Retrieve failed
-      this.output.append(`ERROR retrieving package.`);
+      this.logMessage(`ERROR retrieving package.`);
+    }
+  }
+
+  private logMessage(message: string) {
+    if (message) {
+      let dateString = new Date();
+      this.output.appendLine(`${dateString.toLocaleString()} : ${message}`);
     }
   }
 }
