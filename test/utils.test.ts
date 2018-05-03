@@ -1,6 +1,6 @@
-import * as assert from 'assert';
-import * as vscode from 'vscode';
-import * as utils from '../src/utils/utils';
+let assert = require('assert');
+let vscode = require('vscode');
+let utils = require('../src/utils/utils');
 
 suite("test utils", () => {
 
