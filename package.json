@@ -195,7 +195,7 @@
     "devDependencies": {
         "gulp": "^3.9.1",
         "pretty-typescript": "^1.13.0",
-        "vscode": "^0.11.15",
+        "vscode": "^1.1",
         "typescript": "1.8.10"
     }
 }
