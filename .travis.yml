@@ -18,7 +18,6 @@ before_install:
     fi
     
 install:
-  - npm install typescript@1.8 -g
   - npm install
   - npm run vscode:prepublish
 
