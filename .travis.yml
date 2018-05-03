@@ -1,13 +1,12 @@
-language: node_js
-node_js:
-  - "stable"
-
 branches:
   only:
     - master
     - develop
 
+sudo: false
+
 os:
+  - osx
   - linux
 
 before_install:
@@ -16,9 +15,8 @@ before_install:
       sh -e /etc/init.d/xvfb start;
       sleep 3;
     fi
-    
+
 install:
-  - npm install typescript@1.8 -g
   - npm install
   - npm run vscode:prepublish
 

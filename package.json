@@ -46,7 +46,8 @@
     ],
     "main": "./out/src/vsforce",
     "contributes": {
-        "commands": [{
+        "commands": [
+            {
                 "command": "vsforce.executeSOQLQuery",
                 "title": "vsforce: Execute SOQL"
             },
@@ -67,13 +68,16 @@
                 "title": "vsforce: Compare with Salesforce"
             }
         ],
-        "keybindings": [{
-            "command": "vsforce.executeSOQLQuery",
-            "key": "ctrl+f5",
-            "mac": "cmd+shift+f5",
-            "when": "editorTextFocus"
-        }],
-        "languages": [{
+        "keybindings": [
+            {
+                "command": "vsforce.executeSOQLQuery",
+                "key": "ctrl+f5",
+                "mac": "cmd+shift+f5",
+                "when": "editorTextFocus"
+            }
+        ],
+        "languages": [
+            {
                 "id": "apex",
                 "aliases": [
                     "Apex",
@@ -99,7 +103,8 @@
             }
         ],
         "menus": {
-            "explorer/context": [{
+            "explorer/context": [
+                {
                     "when": "resourceLangId == visualforce",
                     "command": "vsforce.diff",
                     "group": "navigation"
@@ -111,7 +116,8 @@
                 }
             ]
         },
-        "grammars": [{
+        "grammars": [
+            {
                 "language": "apex",
                 "scopeName": "source.apex",
                 "path": "./syntaxes/apex.tmLanguage"
@@ -187,9 +193,10 @@
         }
     },
     "devDependencies": {
+        "@types/node": "^10.0.3",
         "gulp": "^3.9.1",
         "pretty-typescript": "^1.13.0",
-        "vscode": "^0.11.15",
-        "typescript": "^1.8.10"
+        "typescript": "^2.5.3",
+        "vscode": "^1.1.17"
     }
 }
