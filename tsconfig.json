@@ -1,16 +1,20 @@
 {
   "compilerOptions": {
     "module": "commonjs",
-    "target": "es5",
     "outDir": "out",
-    "noLib": true,
+    "target": "es6",
+    "noLib": false,
     "sourceMap": true,
     "rootDir": ".",
     "allowJs": true,
     "moduleResolution": "node"
   },
+  "include": [
+    "src/**/*"
+  ],
   "exclude": [
     "node_modules",
+    "typings/**",
     "out"
   ]
 }

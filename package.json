@@ -193,9 +193,10 @@
         }
     },
     "devDependencies": {
+        "@types/node": "^10.0.3",
         "gulp": "^3.9.1",
         "pretty-typescript": "^1.13.0",
-        "vscode": "^1.1",
-        "typescript": "1.8.10"
+        "typescript": "^2.5.3",
+        "vscode": "^1.1.17"
     }
 }

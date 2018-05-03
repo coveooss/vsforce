@@ -92,16 +92,16 @@ export class DeployPackageCommand implements ICommand {
         this.handleDeployResponse(result);
       })
       .catch((ex: any) => {
-        let message: string;
+        let message: String;
         message = `An error occured`;
         if (ex) {
           if (ex instanceof String) {
             message = ex;
-            this.logMessage(ex);
+            this.logMessage(ex as string);
           } else {
             this.logMessage(ex.toString());
           }
-          vscode.window.showErrorMessage(message, { title: 'Show output', action: 'SHOW_OUTPUT' }).then((m) => {
+          vscode.window.showErrorMessage(message as string, { title: 'Show output', action: 'SHOW_OUTPUT' }).then((m) => {
             if (m.action && m.action === 'SHOW_OUTPUT') {
               this.output.show();
             }
