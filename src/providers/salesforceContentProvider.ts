@@ -85,7 +85,7 @@ export class SalesforceContentProvider implements vscode.TextDocumentContentProv
 
               tableResult += '</table>';
 
-              render = render.replace('{{TALBE_RESULT}}', tableResult);
+              render = render.replace('{{TABLE_RESULT}}', tableResult);
             };
 
             resolve(render);
